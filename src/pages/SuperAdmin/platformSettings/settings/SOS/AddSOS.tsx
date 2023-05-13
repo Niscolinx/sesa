@@ -10,15 +10,14 @@ import Spinner from '../../../../../components/UI/Spinner'
 
 interface AddPhoneNumber {
     idx: number
-    formErrors: any
+    phoneError: any
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx,formErrors }, ref) => {
+    ({ idx, phoneError }, ref) => {
         const [phone, setPhone] = useState('')
 
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-
             const value = e.target.value.replace(/\D/g, '')
 
             if (value.length <= 1 && value === '0') {
@@ -49,12 +48,14 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         maxLength={10}
                         value={phone}
                         onChange={handlePhoneChange}
-                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0`}
-
+                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
+                            formErrors && formErrors[`phone${idx + 1}`]
+                                ? 'border-red-500'
+                                : ''
+                        }`}
                     />
                 </div>
             </div>
-
         )
     }
 )
@@ -91,6 +92,9 @@ const AddSOS = () => {
 
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
     const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
+    const [phoneError, setPhoneError] = useState<{
         [key: string]: string
     } | null>(null)
 
@@ -173,6 +177,28 @@ const AddSOS = () => {
             return [...prev, curr.value]
         }, [])
 
+        each_num.forEach((num: string, idx: number) => {
+            console.log({ num, idx })
+
+            if (idx === 0 && num === '') {
+                toast(`Phone Number cannot be empty`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                selectFormErrors
+
+                return
+            } else if (num.length < 11) {
+                toast(`Phone Number is invalid`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                return
+            }
+        })
+
         console.log({ each_num })
         const updated_data = {
             ...data,
@@ -181,6 +207,7 @@ const AddSOS = () => {
 
         console.log({ updated_data })
 
+        return
         mutate(updated_data)
     })
 
@@ -283,7 +310,7 @@ const AddSOS = () => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
-                                    formErrors={formErrors}
+                                    phoneError={phoneError}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
                                     }
@@ -292,6 +319,7 @@ const AddSOS = () => {
                         })}
 
                         <button
+                            type='button'
                             onClick={addPhone}
                             className='flex mb-[2rem] w-max items-center gap-4 col-span-full'
                         >
