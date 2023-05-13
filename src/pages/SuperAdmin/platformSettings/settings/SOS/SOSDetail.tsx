@@ -1,10 +1,4 @@
-import {
-    ChangeEvent,
-    forwardRef,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -13,72 +7,8 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
+import { useParams } from 'react-router'
 
-interface AddPhoneNumber {
-    idx: number
-    phoneError: any
-}
-
-const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx, phoneError }, ref) => {
-        const [phone, setPhone] = useState('')
-        const [isError, setIsError] = useState(false)
-        const [errorMessage, setErrorMessage] = useState('')
-
-        const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-            setIsError(false)
-            setErrorMessage('')
-            const value = e.target.value.replace(/\D/g, '')
-
-            if (value.length <= 1 && value === '0') {
-                return setPhone('')
-            }
-
-            if (value.length < 11) {
-                setPhone(value)
-            }
-        }
-
-        useEffect(() => {
-
-            if (phoneError && phoneError[`phone${idx + 1}`]) {
-                setErrorMessage(phoneError[`phone${idx + 1}`])
-                setIsError(true)
-            }
-        }, [phoneError])
-
-        return (
-            <div className={`w-full grid gap-4 self-baseline`}>
-                <label
-                    htmlFor={`phone${idx + 1}`}
-                    className='text-[1.4rem] font-semibold capitalize'
-                >
-                    phone Number {idx + 1}
-                </label>
-
-                <div
-                    className={`relative flex items-center w-full border pl-4 rounded-lg ${
-                        isError ? 'border-red-500' : 'border-color-grey'
-                    }`}
-                >
-                    <input type='text' value={'+234'} className='w-[4.2rem]' />
-                    <input
-                        type='number'
-                        name='number'
-                        id={`phone${idx + 1}`}
-                        ref={ref}
-                        inputMode='numeric'
-                        maxLength={10}
-                        value={phone}
-                        onChange={handlePhoneChange}
-                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
-                    />
-                </div>
-                <p className='text-red-500 text-[1.2rem]'>{errorMessage}</p>
-            </div>
-        )
-    }
-)
 const SOSDetail = () => {
     type FormInputs = {
         label: string
@@ -121,9 +51,18 @@ const SOSDetail = () => {
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
+    const params = useParams()
 
-  
+    const sos_id = params.id?.replace(':', '')
 
+    if (!sos_id) {
+        toast('SOS not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem]',
+        })
+
+        return <p className='p-4'> Not found!</p>
+    }
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/sos/create`,
@@ -139,7 +78,6 @@ const SOSDetail = () => {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
-
         },
         onError: (err: any) => {
             toast(`${err?.response.data.message}`, {
@@ -149,7 +87,6 @@ const SOSDetail = () => {
         },
     })
 
-  
     const onSubmit = handleSubmit((data) => {
         let isError = false
         setSelectFormErrors(null)
@@ -274,7 +211,7 @@ const SOSDetail = () => {
         <>
             <ToastContainer />
             <Spinner start={isLoading} />
-          
+
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
                     onSubmit={onSubmit}
