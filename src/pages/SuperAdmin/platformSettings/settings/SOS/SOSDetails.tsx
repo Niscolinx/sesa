@@ -124,7 +124,6 @@ const AddSOS = () => {
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
-    const navigate = useNavigate()
 
     useEffect(() => {
         console.log('main phone Error', phoneError)
@@ -141,12 +140,11 @@ const AddSOS = () => {
         onSuccess: () => {
             reset()
             setSelectedEstates([])
-            toast(`SOS Created`, {
+            toast(`SOS Updated`, {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
 
-            openDialog()
         },
         onError: (err: any) => {
             toast(`${err?.response.data.message}`, {
@@ -156,18 +154,7 @@ const AddSOS = () => {
         },
     })
 
-    const closeDialog = () => {
-        navigate(-1)
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const openDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+  
     const onSubmit = handleSubmit((data) => {
         let isError = false
         setSelectFormErrors(null)
@@ -292,31 +279,7 @@ const AddSOS = () => {
         <>
             <ToastContainer />
             <Spinner start={isLoading} />
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeDialog()}
-                        />
-
-                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                            <img src='/icons/admins/modalSuccess.svg' alt='' />
-
-                            <p>You have successfully added an SOS</p>
-
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={closeDialog}
-                                >
-                                    Ok
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </dialog>
+          
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
                     onSubmit={onSubmit}
@@ -370,7 +333,7 @@ const AddSOS = () => {
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add SOS'}
+                            {isLoading ? 'Loading...' : 'Save'}
                         </button>
                     </>
                 </form>
