@@ -48,7 +48,8 @@ const EditEstate = () => {
         })
     const { data: security_company_data, isLoading: security_company_loading } =
         useFetchData({
-            url: '/security-company/fetchDropdownSecurityCompany',
+            // url: '/security-company/fetchDropdownSecurityCompany',
+            url: '/security-company/get/all',
             name: 'active_security_company',
         })
     const { data: states_data, isLoading: states_data_loading } = useFetchData(
