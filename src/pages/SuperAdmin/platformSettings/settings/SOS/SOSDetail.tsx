@@ -63,8 +63,6 @@ const SOSDetail = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-   
-
     const getRequest = () => {
         return axiosInstance({
             url: `/platformsettings/sos/getbyid/${sos_id}`,
@@ -79,6 +77,11 @@ const SOSDetail = () => {
     useEffect(() => {
         if (get_response) {
             const { phone_number, ...inputs } = get_response.data
+            const slicedEstates: string[] = get_response?.data.estate.map(
+                (each: any) => each.estate_name
+            )
+
+            setSelectedEstates(slicedEstates)
 
             reset({
                 ...inputs,
@@ -170,18 +173,17 @@ const SOSDetail = () => {
             return
         }
 
-        const slicedEstates: string[] = estates_data.map(
-            ({ estate_name, id }: any) => ({
-                estate_name,
-                id,
-            })
-        )
+        const {estate} = get_response?.data
 
-        const estate = slicedEstates
-            .filter(({ estate_name }: any) =>
-                selectedEstates.includes(estate_name)
-            )
-            .map(({ id }: any) => ({ id }))
+        const get_estate_ids: Object[] = []
+
+        for (let item of estate) {
+            for (let selected of selectedEstates) {
+                if (item.estate_name === selected) {
+                    get_estate_ids.push({ id: item.id })
+                }
+            }
+        }
 
         const updated_data = {
             ...data,
@@ -198,11 +200,9 @@ const SOSDetail = () => {
         return <p>Loading...</p>
     }
 
-    
-
-     const slicedCategories: string[] = get_response?.data.category.map(
-         (each: any) => each.name
-     )
+    const slicedEstates: string[] = get_response?.data.estate.map(
+        (each: any) => each.estate_name
+    )
 
     const formInputs = [
         {
