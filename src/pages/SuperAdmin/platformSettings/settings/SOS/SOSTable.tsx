@@ -8,10 +8,12 @@ function SOSTable() {
                 fetch_url={'/platformsettings/sos/getall'}
                 view_page_url={'/superAdmin/platformSettings/SOSDetail/'}
                 add_page_url={'/superAdmin/platformSettings/addSOS'}
+                isStrictAction
+                actions={['view details', 'delete']}
                 is_add_btn={true}
                 THeader={['name', 'estate_count', 'created_at', 'actions']}
                 data_to_display={['name', 'estate_count', 'created_at']}
-                deactivateProp={{ url: '/admin/deactivate_activate' }}
+                deactivateProp={{ url: '/platformsettings/sos/delete' }}
             />
         </div>
     )
