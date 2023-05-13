@@ -61,9 +61,9 @@ function Estates() {
 
     const postDeactivate = () => {
         return axiosInstance({
-            url: '/estate/change/status',
+            url: '/estate/deactivate_activate',
             method: 'post',
-            data: { estate_id: estateId },
+            data: { id: estateId },
         })
     }
 

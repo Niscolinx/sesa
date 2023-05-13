@@ -248,6 +248,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         disabled={disabled}
                                         type={type}
                                         ref={ref}
+                                        placeholder='908742323'
                                         inputMode='numeric'
                                         maxLength={10}
                                         value={ phone}

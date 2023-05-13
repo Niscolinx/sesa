@@ -5,6 +5,7 @@ import Input, { SelectProps } from '../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
+import Spinner from '../../../components/UI/Spinner'
 
 const ViewEstateManager = () => {
     interface Inputs {
@@ -87,14 +88,14 @@ const ViewEstateManager = () => {
 
     const postDeactivate = (id: string) => {
         return axiosInstance({
-            url: '/admin/deactivate_activate',
+            url: '/manager/deactivate_activate',
             method: 'post',
             data: { id },
         })
     }
     const postUpdate = (data: Inputs) => {
         return axiosInstance({
-            url: `/admin/update/${estateManager_id}`,
+            url: `/manager/update/${estateManager_id}`,
             method: 'post',
             data,
         })
@@ -217,6 +218,7 @@ const ViewEstateManager = () => {
     return (
         <>
             <ToastContainer />
+            <Spinner start-={post_loading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
@@ -319,7 +321,8 @@ const ViewEstateManager = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, value } = input
+                            const { label, type, name, selectProps, value } =
+                                input
 
                             return (
                                 <Input

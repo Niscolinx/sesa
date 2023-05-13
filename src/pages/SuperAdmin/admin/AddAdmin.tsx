@@ -210,6 +210,7 @@ const AddAdmin = () => {
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            columnGap: '10rem'
                     }}
                 >
                     <>
