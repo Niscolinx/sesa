@@ -80,16 +80,12 @@ const SOSDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { phone_number, estate} = get_response.data
+            const { phone_number, ...inputs} = get_response.data
          
 
-            // reset({
-            //     first_name,
-            //     last_name,
-            //     dob,
-            //     email_address: email,
-            //     phone_number,
-           // })
+            reset({
+              ...inputs
+           })
 
            // setPhotoPreview((prev) => prev ?? image)
         }
