@@ -147,6 +147,7 @@ const AddArtisan = () => {
     })
 
     const onSubmit = handleSubmit((data) => {
+        console.log({data})
         let isError = false
         if (selectedCategories.length < 1) {
             isError = true
