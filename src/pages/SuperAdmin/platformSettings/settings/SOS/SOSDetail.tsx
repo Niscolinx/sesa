@@ -80,11 +80,8 @@ const SOSDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { name, email, phone, image, dob, gender } = get_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            const phone_number = parseInt(phone.slice(3, -1))
+            const { phone_number, estate} = get_response.data
+         
 
             // reset({
             //     first_name,
