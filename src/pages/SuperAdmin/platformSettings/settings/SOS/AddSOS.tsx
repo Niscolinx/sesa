@@ -14,6 +14,7 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
+import { useNavigate } from 'react-router'
 
 interface AddPhoneNumber {
     idx: number
@@ -123,6 +124,7 @@ const AddSOS = () => {
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     useEffect(() => {
         console.log('main phone Error', phoneError)
@@ -155,6 +157,7 @@ const AddSOS = () => {
     })
 
     const closeDialog = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -240,6 +243,7 @@ const AddSOS = () => {
         const updated_data = {
             ...data,
             estate,
+            phone_number: each_num,
         }
 
         console.log({ updated_data })
@@ -300,7 +304,7 @@ const AddSOS = () => {
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-                            <p>You have successfully added SOS</p>
+                            <p>You have successfully added an SOS</p>
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button
