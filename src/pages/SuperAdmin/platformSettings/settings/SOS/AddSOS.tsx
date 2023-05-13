@@ -1,4 +1,4 @@
-import { FormEvent, forwardRef, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, forwardRef, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -15,9 +15,20 @@ interface AddPhoneNumber {
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
     ({ idx }, ref) => {
         const [phone, setPhone] = useState('')
+        const [isError, setIsError] = useState(false)
+        const [errorMessage, setErrorMessage] = useState('')
 
-        const handlePhoneChange = (e: any) => {
-            setPhone(e.target.value)
+        const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+            const value = e.target.value.replace(/\D/g, '')
+
+            if (value.length <= 1 && value === '0') {
+                return setPhone('')
+            }
+
+            if (value.length < 11) {
+                setPhone(value)
+            }
         }
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
