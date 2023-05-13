@@ -9,6 +9,7 @@ import { useMutation } from 'react-query'
 import ImageInput from '../../../../components/UI/input/ImageInput'
 import useAxios from '../../../../components/hooks/useAxios'
 import useFetchData from '../../../../utils/useFetchData'
+import Spinner from '../../../../components/UI/Spinner'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -353,7 +354,7 @@ const AddArtisan = () => {
     return (
         <>
             <ToastContainer />
-
+        <Spinner start={isLoading}/>
             <dialog className='dialog' ref={validateDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
