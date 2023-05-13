@@ -16,6 +16,9 @@ interface AddPhoneNumber {
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
     ({ idx, phoneError }, ref) => {
         const [phone, setPhone] = useState('')
+        const [isError, setIsError] = useState(false)
+        const [errorMessage, setErrorMessage] = useState('')
+
 
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
             const value = e.target.value.replace(/\D/g, '')
@@ -42,7 +45,13 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                     phone Number {idx + 1}
                 </label>
 
-                <div className='relative flex items-center w-full border border-color-grey pl-4 rounded-lg'>
+                <div
+                    className={`relative flex items-center w-full border border-color-grey pl-4 rounded-lg ${
+                        phoneError && phoneError[`phone${idx + 1}`]
+                            ? 'border border-red-500'
+                            : ''
+                    }`}
+                >
                     <input type='text' value={'+234'} className='w-[4.2rem]' />
                     <input
                         type='number'
@@ -53,11 +62,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         maxLength={10}
                         value={phone}
                         onChange={handlePhoneChange}
-                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                            phoneError && phoneError[`phone${idx + 1}`]
-                                ? 'border-red-500'
-                                : ''
-                        }`}
+                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
                     />
                 </div>
             </div>
