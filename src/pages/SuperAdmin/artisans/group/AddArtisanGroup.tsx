@@ -64,12 +64,12 @@ const AddArtisanGroup = () => {
     }) as any
 
     const { data: estates_data, isLoading: estates_loading } = useFetchData({
-        url: '/estate/getall',
-        name: 'estates',
+        url: '/estate/fetchDropdownEstate',
+        name: 'view_estates',
     })
     const { data: artisans_data, isLoading: artisans_loading } = useFetchData({
-        url: '/admin/artisan/getAll',
-        name: 'Artisans',
+        url: '/admin/artisan/fetchDropdownArtisan',
+        name: 'view_artisans',
     })
 
     const {
@@ -111,7 +111,7 @@ const AddArtisanGroup = () => {
         setResponseMessage(null)
        
 
-        const slicedEstates: string[] = estates_data.data.map(
+        const slicedEstates: string[] = estates_data.map(
             ({ estate_name, id }: any) => ({
                 estate_name,
                 id,
@@ -149,7 +149,7 @@ const AddArtisanGroup = () => {
         return <p>Loading...</p>
     }
 
-    const slicedEstates: string[] = estates_data.data.map(
+    const slicedEstates: string[] = estates_data.map(
         ({ estate_name }: any) => estate_name
     )
 
