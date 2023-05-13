@@ -5,7 +5,7 @@ function SOSTable() {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                title={'Sos'}
+                title={'SOS'}
                 fetch_url={'/platformsettings/sos/getall'}
                 view_page_url={'/superAdmin/admin/view/'}
                 add_page_url={'/superAdmin/platformSettings/addSOS'}

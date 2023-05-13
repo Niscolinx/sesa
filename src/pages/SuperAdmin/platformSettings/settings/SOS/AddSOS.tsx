@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { QueryClient, useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
@@ -133,6 +133,7 @@ const AddSOS = () => {
             data: inputs,
         })
     }
+    const queryClient = new QueryClient()
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: () => {
             reset()
@@ -150,6 +151,11 @@ const AddSOS = () => {
                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
+
+        onSettled:() => {
+            queryClient.invalidateQueries('SOS')
+        
+        }
     })
 
     const closeDialog = () => {
