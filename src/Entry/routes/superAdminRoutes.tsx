@@ -28,7 +28,7 @@ import AddAdvert from '../../pages/SuperAdmin/advert/AddAdvert'
 import AdvertDetail from '../../pages/SuperAdmin/advert/AdvertDetail'
 import PlatformSettings from '../../pages/SuperAdmin/platformSettings/platformSettings'
 import AddSOS from '../../pages/SuperAdmin/platformSettings/settings/SOS/AddSOS'
-import SOSDetails from '../../pages/SuperAdmin/platformSettings/settings/SOS/SOSDetails'
+import SOSDetail from '../../pages/SuperAdmin/platformSettings/settings/SOS/SOSDetail'
 import AddSecurityCompany from '../../pages/SuperAdmin/securityCompany/AddSecurityCompany'
 import SuperAdminDashboard from '../../pages/SuperAdmin/Dashboard'
 import Overview from '../../pages/SuperAdmin/Overview'
@@ -159,8 +159,8 @@ const superAdminRoutes = (
             />
             <Route path='platformSettings/addSOS' element={<AddSOS />} />
             <Route
-                path='platformSettings/SOSDetails/:id'
-                element={<SOSDetails />}
+                path='platformSettings/SOSDetail/:id'
+                element={<SOSDetail />}
             />
         </Route>
 )

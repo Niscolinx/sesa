@@ -79,7 +79,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         )
     }
 )
-const AddSOS = () => {
+const SOSDetail = () => {
     type FormInputs = {
         label: string
         type?: string
@@ -337,4 +337,4 @@ const AddSOS = () => {
     )
 }
 
-export default AddSOS
+export default SOSDetail
