@@ -1,12 +1,11 @@
 import {
     ChangeEvent,
-    FormEvent,
     forwardRef,
     useEffect,
     useRef,
     useState,
 } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
+import { IoMdAdd } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
@@ -14,7 +13,6 @@ import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
-import { useNavigate } from 'react-router'
 
 interface AddPhoneNumber {
     idx: number
