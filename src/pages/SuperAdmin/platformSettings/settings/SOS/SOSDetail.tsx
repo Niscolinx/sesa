@@ -37,7 +37,6 @@ const SOSDetail = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
@@ -55,7 +54,6 @@ const SOSDetail = () => {
 
     const sos_id = params.id?.replace(':', '')
 
-
     if (!sos_id) {
         toast('SOS not Found', {
             type: 'error',
@@ -65,6 +63,7 @@ const SOSDetail = () => {
         return <p className='p-4'> Not found!</p>
     }
 
+   
 
     const getRequest = () => {
         return axiosInstance({
@@ -79,14 +78,13 @@ const SOSDetail = () => {
 
     useEffect(() => {
         if (get_response) {
-            const { phone_number, ...inputs} = get_response.data
-         
+            const { phone_number, ...inputs } = get_response.data
 
             reset({
-              ...inputs
-           })
+                ...inputs,
+            })
 
-           // setPhotoPreview((prev) => prev ?? image)
+            // setPhotoPreview((prev) => prev ?? image)
         }
     }, [get_response])
 
@@ -200,9 +198,11 @@ const SOSDetail = () => {
         return <p>Loading...</p>
     }
 
-    const slicedEstates: string[] = estates_data.map(
-        ({ estate_name }: any) => estate_name
-    )
+    
+
+     const slicedCategories: string[] = get_response?.data.category.map(
+         (each: any) => each.name
+     )
 
     const formInputs = [
         {
