@@ -204,7 +204,6 @@ const AddSOS = () => {
                 return
             } else if (num.length < 10) {
                 isError = true
-                console.log({num}, num.length)
                 toast(`Phone Number is invalid`, {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
