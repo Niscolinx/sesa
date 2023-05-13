@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, forwardRef, useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, forwardRef, useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -28,6 +28,11 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                 setPhone(value)
             }
         }
+
+        useEffect(() => {
+            console.log("sos phone Error", phoneError)
+        }, [phoneError])
+
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
                 <label
@@ -104,6 +109,10 @@ const AddSOS = () => {
 
     const axiosInstance = useAxios()
 
+       useEffect(() => {
+           console.log('main phone Error', phoneError)
+       }, [phoneError])
+
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/sos/create`,
@@ -144,6 +153,8 @@ const AddSOS = () => {
     const onSubmit = handleSubmit((data) => {
         let isError = false
         setSelectFormErrors(null)
+        setPhoneError(null)
+
 
         if (selectedEstates.length < 1) {
             isError = true
@@ -155,6 +166,46 @@ const AddSOS = () => {
                 }
             })
         }
+
+         const each_num = phone_ref.current.reduce((prev: string[], curr) => {
+             return [...prev, curr.value]
+         }, [])
+
+        each_num.forEach((num, idx) => {
+            console.log({ num, idx })
+
+            if (idx === 0 && num === '') {
+                isError = true
+                toast(`Phone Number cannot be empty`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                setPhoneError((prev) => {
+                    return {
+                        ...prev,
+                        [`phone${idx + 1}`]: 'Field cannot be empty',
+                    }
+                })
+
+                return
+            } else if (num.length < 11) {
+                isError = true
+                toast(`Phone Number is invalid`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                setPhoneError((prev) => {
+                    return {
+                        ...prev,
+                        [`phone${idx + 1}`]: 'Phone Number is invalid',
+                    }
+                })
+
+                return
+            }
+        })
 
         if (isError) {
             return
@@ -173,43 +224,8 @@ const AddSOS = () => {
             )
             .map(({ id }: any) => ({ id }))
 
-        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
-            return [...prev, curr.value]
-        }, [])
+       
 
-        each_num.forEach((num, idx) => {
-            console.log({ num, idx })
-
-            if (idx === 0 && num === '') {
-                toast(`Phone Number cannot be empty`, {
-                    type: 'error',
-                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                })
-
-                setPhoneError((prev) => {
-                    return {
-                        ...prev,
-                        [`phone${idx + 1}`]: 'Field cannot be empty',
-                    }
-                })
-
-                return
-            } else if (num.length < 11) {
-                toast(`Phone Number is invalid`, {
-                    type: 'error',
-                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                })
-
-                 setPhoneError((prev) => {
-                     return {
-                         ...prev,
-                         [`phone${idx + 1}`]: 'Phone Number is invalid',
-                     }
-                 })
-
-                return
-            }
-        })
 
         console.log({ each_num })
         const updated_data = {
@@ -219,7 +235,6 @@ const AddSOS = () => {
 
         console.log({ updated_data })
 
-        return
         mutate(updated_data)
     })
 
