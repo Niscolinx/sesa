@@ -1,212 +1,243 @@
-import React, { useEffect, useRef, useState } from 'react'
+import {
+    ChangeEvent,
+    FormEvent,
+    ForwardedRef,
+    forwardRef,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react'
+import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
-import { useMutation, useQuery } from 'react-query'
-import { useParams } from 'react-router'
-import { toast, ToastContainer } from 'react-toastify'
-import Activate_Deactivate from '../../../../../components/UI/Dialog/Activate_Deactivate'
-import { ShowImage } from '../../../../../components/UI/input/ImageInput'
-import Input, { SelectProps } from '../../../../../components/UI/input/Input'
+import { useMutation } from 'react-query'
+import { toast } from 'react-toastify'
+import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
+import Input, { SelectProps } from '../../../../../components/UI/input/Input'
+import Spinner from '../../../../../components/UI/Spinner'
 
+interface AddPhoneNumber {
+    idx: number
+}
 
-const SosDetails = () => {
-    interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        image: string
-        gender: string
-        phone_number: number | null
-        photoUrl?: string
+const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
+    ({ idx }, ref) => {
+        return (
+            <div className={`w-full grid gap-4 self-baseline`}>
+                <label
+                    htmlFor={`phone`}
+                    className='text-[1.4rem] font-semibold capitalize'
+                >
+                    phone Number {idx + 1}
+                </label>
+
+                <input
+                    type='number'
+                    name='number'
+                    id={`phone`}
+                    ref={ref}
+                    className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
+                />
+            </div>
+        )
     }
-
-   
-
+)
+const AddSOS = () => {
     type FormInputs = {
-        label?: string
+        label: string
         type?: string
         name?: string
-        value?: string | number
+        required?: boolean
         selectProps?: SelectProps
     }
 
-    const params = useParams()
-    const axiosInstance = useAxios()
+    type Inputs = {
+        name: string
+        email: string
+        address: string
+    }
 
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
-    const genderState = ['Male', 'Female']
-    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
-    const [phone, setPhone] = useState(0)
-
-    const formInputs = [
-        {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'gender',
-            type: 'select',
-            selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
-        },
-        {
-            label: 'phone_number',
-            type: 'number',
-            value: phone,
-        },
-        {
-            label: 'email_address',
-            type: 'email',
-        },
-    ] satisfies FormInputs[]
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/fetchDropdownEstate',
+        name: 'view_estates',
+    })
 
     const {
         register,
         handleSubmit,
-        clearErrors,
-        setValue,
-        formState: { errors: formErrors },
         reset,
+        formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-   
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const sos_id = params.id?.replace(':', '')
+    const [selectedEstates, setSelectedEstates] = useState<string[]>([])
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
 
-    if (!sos_id) {
-        toast('SOS not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem]',
-        })
+    const phone_ref = useRef<HTMLInputElement[]>([])
 
-        return <p className='p-4'> Not found!</p>
-    }
+    const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
-    const postUpdate = (data: any) => {
+    const axiosInstance = useAxios()
+
+    const postRequest = (inputs: Inputs) => {
         return axiosInstance({
-            url: `/updated/update/${sos_id}`,
+            url: `/platformsettings/sos/create`,
             method: 'post',
-            data,
+            data: inputs,
         })
     }
-
-    const get_request = () => {
-        return axiosInstance({
-            url: `/updated/get/${sos_id}`,
-        })
-    }
-
-    const { data: get_response, isLoading: get_loading } = useQuery(
-        [`view_sos_${sos_id}`],
-        get_request
-    )
-
-    useEffect(() => {
-        if (get_response) {
-            const { name, email, phone, image, dob, gender } = get_response.data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            const phone_number = parseInt(phone.slice(3, -1))
-            setPhone(phone_number)
-
-            reset({
-                first_name,
-                last_name,
-                dob,
-                email_address: email,
-                phone_number,
+    const { mutate, isLoading } = useMutation(postRequest, {
+        onSuccess: () => {
+            reset()
+            setSelectedEstates([])
+            toast(`Artisan Group successfully`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
 
-            // setPhotoPreview((prev) => prev ?? image)
-            setSelectedGender(gender)
-        }
-    }, [get_response])
-
-    const { mutate: post_mutation, isLoading: post_loading } =
-        useMutation(postUpdate, {
-            onSuccess: (res) => {
-                toast('SOS Updated successfully', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-            },
-            onError: (err: any) => {
-                 toast(`${err?.response?.data.message}`, {
-                    type: 'error',
-                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                })
-
-               
-            },
-        })
-
-    const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
-
-        const updatedData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            id: sos_id,
-            email: email_address,
-            address: 'no 4 odeyim street',
-            phone: `+234${phone_number}`,
-            image: imageFile,
-        }
-
-        post_mutation(updatedData)
+            openDialog()
+        },
+        onError: (err: any) => {
+            toast(`${err?.response.data.message}`, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            })
+        },
     })
 
-    const handlePicture = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-
-        const preview = URL.createObjectURL(file)
-        setPhotoPreview(preview)
-        setImageFile(file)
+    const closeDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
     }
 
-    if (get_loading || !get_response?.data) {
-        return <p>loading...</p>
+    const openDialog = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+    const onSubmit = handleSubmit((data) => {
+        let isError = false
+        setSelectFormErrors(null)
+
+        if (selectedEstates.length < 1) {
+            isError = true
+
+            setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    Gender: 'Field cannot be empty',
+                }
+            })
+        }
+
+        if (isError) {
+            return
+        }
+
+        const slicedEstates: string[] = estates_data.map(
+            ({ estate_name, id }: any) => ({
+                estate_name,
+                id,
+            })
+        )
+
+        const estate = slicedEstates
+            .filter(({ estate_name }: any) =>
+                selectedEstates.includes(estate_name)
+            )
+            .map(({ id }: any) => ({ id }))
+
+        const updated_data = {
+            ...data,
+        }
+
+        console.log({ updated_data })
+
+        mutate(updated_data)
+    })
+
+    if (estates_loading) {
+        return <p>Loading...</p>
+    }
+
+    const slicedEstates: string[] = estates_data.map(
+        ({ estate_name }: any) => estate_name
+    )
+
+    const formInputs = [
+        {
+            label: 'name',
+        },
+
+        {
+            label: 'email',
+            type: 'email',
+        },
+
+        {
+            label: 'address',
+        },
+
+        {
+            label: 'Estates',
+            type: 'select',
+            selectProps: {
+                state: slicedEstates,
+                isMulti: true,
+                selectedState: selectedEstates,
+                setSelectedState: setSelectedEstates,
+            },
+        },
+    ] satisfies FormInputs[]
+
+    const submit = (e: FormEvent) => {
+        e.preventDefault()
+
+        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
+            return [...prev, curr.value]
+        }, [])
+    }
+
+    const addPhone = () => {
+        set_phone_numbs((prev) => [...prev, ''])
     }
 
     return (
         <>
-            <ToastContainer />
+            <Spinner start={isLoading} />
+            <dialog className='dialog' ref={dialogRef}>
+                <section className='grid place-content-center w-full h-[100vh]'>
+                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
+                        <IoMdClose
+                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                            onClick={() => closeDialog()}
+                        />
 
-            <div className='bg-white rounded-2xl grid p-8'>
-                <div className='flex justify-between items-center mb-20'>
-                    <ShowImage
-                        handlePicture={handlePicture}
-                        photoPreview={photoPreview}
-                    />
+                        <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
+                            <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-                    <Activate_Deactivate
-                        id={sos_id}
-                        url={'/updated/deactivate_activate'}
-                        status={get_response.data.status}
-                        title={'updated'}
-                        queryCache={`view_sos_${sos_id}`}
-                    />
-                </div>
-               
-               
+                            <p>You have successfully added SOS</p>
+
+                            <div className='flex w-full justify-center gap-8'>
+                                <button
+                                    className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                    onClick={closeDialog}
+                                >
+                                    Ok
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </dialog>
+            <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
-                    onSubmit={onSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    onSubmit={submit}
+                    className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
@@ -214,38 +245,52 @@ const SosDetails = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, value } =
-                                input
+                            const { label, type, selectProps } = input
 
                             return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    value={value}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    clearErrors={clearErrors}
-                                    setValue={setValue}
-                                    type={type}
-                                    name={name}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
+                                <>
+                                    {/* {label === 'Estates' && (
+                                        <p className='text-[2rem] font-Satoshi-Medium py-8 -mb-10'>
+                                            Add Estates
+                                        </p>
+                                    )} */}
+                                    <Input
+                                        key={idx + label}
+                                        label={label}
+                                        register={register}
+                                        formErrors={formErrors}
+                                        selectFormErrors={selectFormErrors}
+                                        type={type}
+                                        isSelect={type === 'select'}
+                                        select={selectProps}
+                                    />
+                                </>
+                            )
+                        })}
+                        {phone_numbs.map((_, idx) => {
+                            return (
+                                <AddPhoneNumber
+                                    idx={idx}
+                                    ref={(ref: HTMLInputElement) =>
+                                        (phone_ref.current[idx] = ref)
+                                    }
                                 />
                             )
                         })}
 
                         <button
-                            className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
-                            style={{ justifySelf: 'start' }}
+                            onClick={addPhone}
+                            className='flex mb-[2rem] w-max items-center gap-4 col-span-full'
                         >
+                            <img src='/icons/add_Icon.svg' alt='' />
+                            <span className='text-[1.4rem]'>Add Phone</span>
+                        </button>
+
+                        <button className='btn justify-self-start btn-blue col-span-full'>
                             <span>
-                                <img
-                                    src='/icons/updateds/saveDisk.svg'
-                                    alt=''
-                                    className='w-[1.7rem] h-[1.7rem]'
-                                />
+                                <IoMdAdd />
                             </span>{' '}
-                            {post_loading ? 'Loading...' : 'Save Changes'}
+                            {isLoading ? 'Loading...' : 'Add SOS'}
                         </button>
                     </>
                 </form>
@@ -254,4 +299,4 @@ const SosDetails = () => {
     )
 }
 
-export default SosDetails
+export default AddSOS
