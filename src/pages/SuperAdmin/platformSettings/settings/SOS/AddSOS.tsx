@@ -49,7 +49,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         value={phone}
                         onChange={handlePhoneChange}
                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
-                            formErrors && formErrors[`phone${idx + 1}`]
+                            phoneError && phoneError[`phone${idx + 1}`]
                                 ? 'border-red-500'
                                 : ''
                         }`}
@@ -177,7 +177,7 @@ const AddSOS = () => {
             return [...prev, curr.value]
         }, [])
 
-        each_num.forEach((num: string, idx: number) => {
+        each_num.forEach((num, idx) => {
             console.log({ num, idx })
 
             if (idx === 0 && num === '') {
@@ -186,7 +186,12 @@ const AddSOS = () => {
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
 
-                selectFormErrors
+                setPhoneError((prev) => {
+                    return {
+                        ...prev,
+                        [`phone${idx + 1}`]: 'Field cannot be empty',
+                    }
+                })
 
                 return
             } else if (num.length < 11) {
@@ -194,6 +199,13 @@ const AddSOS = () => {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
+
+                 setPhoneError((prev) => {
+                     return {
+                         ...prev,
+                         [`phone${idx + 1}`]: 'Phone Number is invalid',
+                     }
+                 })
 
                 return
             }
