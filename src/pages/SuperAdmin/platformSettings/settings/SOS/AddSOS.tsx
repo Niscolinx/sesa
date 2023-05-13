@@ -10,13 +10,12 @@ import Spinner from '../../../../../components/UI/Spinner'
 
 interface AddPhoneNumber {
     idx: number
+    formErrors: any
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx }, ref) => {
+    ({ idx,formErrors }, ref) => {
         const [phone, setPhone] = useState('')
-        const [isError, setIsError] = useState(false)
-        const [errorMessage, setErrorMessage] = useState('')
 
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
 
@@ -284,6 +283,7 @@ const AddSOS = () => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
+                                    formErrors={formErrors}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
                                     }
