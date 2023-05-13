@@ -20,16 +20,16 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
             setPhone(e.target.value)
         }
         return (
-            <div className='relative flex items-center w-full'>
-                <input type='text' value={'+234'} className='w-[4.2rem]' />
+            <div className={`w-full grid gap-4 self-baseline`}>
+                <label
+                    htmlFor={`phone${idx + 1}`}
+                    className='text-[1.4rem] font-semibold capitalize'
+                >
+                    phone Number {idx + 1}
+                </label>
 
-                <div className={`w-full grid gap-4 self-baseline`}>
-                    <label
-                        htmlFor={`phone${idx + 1}`}
-                        className='text-[1.4rem] font-semibold capitalize'
-                    >
-                        phone Number {idx + 1}
-                    </label>
+                <div className='relative flex items-center w-full border border-color-grey pl-4 rounded-lg'>
+                    <input type='text' value={'+234'} className='w-[4.2rem]' />
                     <input
                         type='number'
                         name='number'
