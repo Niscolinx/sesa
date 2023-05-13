@@ -13,7 +13,7 @@ function Admin() {
                     'name',
                     'gender',
                     'phone number',
-                    'joined date',
+                    'onboarding date',
                     'status',
                     'actions',
                 ]}
