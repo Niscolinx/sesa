@@ -1,13 +1,14 @@
 import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
 import { useParams } from 'react-router'
+import AddPhoneNumber from './AddPhoneNumber'
 
 const SOSDetail = () => {
     type FormInputs = {
@@ -55,6 +56,7 @@ const SOSDetail = () => {
 
     const sos_id = params.id?.replace(':', '')
 
+
     if (!sos_id) {
         toast('SOS not Found', {
             type: 'error',
@@ -63,6 +65,39 @@ const SOSDetail = () => {
 
         return <p className='p-4'> Not found!</p>
     }
+
+
+    const getRequest = () => {
+        return axiosInstance({
+            url: `/admin/get/${sos_id}`,
+        })
+    }
+
+    const { data: get_response, isLoading: get_admin_loading } = useQuery(
+        [`view_admin_${sos_id}`],
+        getRequest
+    )
+
+    useEffect(() => {
+        if (get_response) {
+            const { name, email, phone, image, dob, gender } = get_response.data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            const phone_number = parseInt(phone.slice(3, -1))
+
+            // reset({
+            //     first_name,
+            //     last_name,
+            //     dob,
+            //     email_address: email,
+            //     phone_number,
+           // })
+
+           // setPhotoPreview((prev) => prev ?? image)
+        }
+    }, [get_response])
+
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/sos/create`,
