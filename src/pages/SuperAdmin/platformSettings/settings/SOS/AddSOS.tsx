@@ -21,6 +21,8 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 
 
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+            setIsError(false)
+            setErrorMessage('')
             const value = e.target.value.replace(/\D/g, '')
 
             if (value.length <= 1 && value === '0') {
@@ -34,6 +36,11 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 
         useEffect(() => {
             console.log("sos phone Error", phoneError)
+
+            if(phoneError && phoneError[`phone${idx + 1}`]){
+                setErrorMessage(phoneError[`phone${idx + 1}`])
+                setIsError(true)
+            }
         }, [phoneError])
 
         return (
@@ -46,11 +53,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                 </label>
 
                 <div
-                    className={`relative flex items-center w-full border border-color-grey pl-4 rounded-lg ${
-                        phoneError && phoneError[`phone${idx + 1}`]
-                            ? 'border border-red-500'
-                            : ''
-                    }`}
+                    className={`relative flex items-center w-full border pl-4 rounded-lg ${isError ? 'border-red-500' : 'border-color-grey'}`}
                 >
                     <input type='text' value={'+234'} className='w-[4.2rem]' />
                     <input
@@ -65,6 +68,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
                     />
                 </div>
+                {errorMessage}
             </div>
         )
     }
