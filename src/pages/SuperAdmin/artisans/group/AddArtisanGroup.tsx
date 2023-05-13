@@ -56,7 +56,7 @@ const AddArtisanGroup = () => {
             reset()
             setSelectedArtisans([])
             setSelectedEstates([])
-            toast(`Artisan Group successfully`, {
+            toast(`Artisan Group Added`, {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
