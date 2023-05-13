@@ -1,9 +1,4 @@
-import {
-    FormEvent,
-    forwardRef,
-    useRef,
-    useState,
-} from 'react'
+import { FormEvent, forwardRef, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -19,23 +14,56 @@ interface AddPhoneNumber {
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
     ({ idx }, ref) => {
-        return (
-            <div className={`w-full grid gap-4 self-baseline`}>
-                <label
-                    htmlFor={`phone`}
-                    className='text-[1.4rem] font-semibold capitalize'
-                >
-                    phone Number {idx + 1}
-                </label>
+        const [phone, setPhone] = useState('')
 
-                <input
-                    type='number'
-                    name='number'
-                    id={`phone`}
-                    ref={ref}
-                    className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
-                />
+        const handlePhoneChange = (e: any) => {
+            setPhone(e.target.value)
+        }
+        return (
+            <div className='relative flex items-center w-full'>
+                <input type='text' value={'+234'} className='w-[4.2rem]' />
+
+                <div className={`w-full grid gap-4 self-baseline`}>
+                    <label
+                        htmlFor={`phone${idx + 1}`}
+                        className='text-[1.4rem] font-semibold capitalize'
+                    >
+                        phone Number {idx + 1}
+                    </label>
+                    <input
+                        type='number'
+                        name='number'
+                        id={`phone${idx + 1}`}
+                        ref={ref}
+                        inputMode='numeric'
+                        maxLength={10}
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0`}
+
+                        //  ${
+                        //     formErrors && formErrors[label] && 'border-red-500 '
+                        // }
+                    />
+                </div>
             </div>
+
+            // <div className={`w-full grid gap-4 self-baseline`}>
+            //     <label
+            //         htmlFor={`phone`}
+            //         className='text-[1.4rem] font-semibold capitalize'
+            //     >
+            //         phone Number {idx + 1}
+            //     </label>
+
+            //     <input
+            //         type='number'
+            //         name='number'
+            //         id={`phone`}
+            //         ref={ref}
+            //         className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
+            //     />
+            // </div>
         )
     }
 )
@@ -63,6 +91,8 @@ const AddSOS = () => {
         register,
         handleSubmit,
         reset,
+        clearErrors,
+        setValue,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
@@ -148,12 +178,16 @@ const AddSOS = () => {
             )
             .map(({ id }: any) => ({ id }))
 
+        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
+            return [...prev, curr.value]
+        }, [])
+
         const updated_data = {
             ...data,
-            estate
+            estate,
         }
 
-        console.log({updated_data})
+        console.log({ updated_data })
 
         mutate(updated_data)
     })
@@ -192,14 +226,6 @@ const AddSOS = () => {
         },
     ] satisfies FormInputs[]
 
-    const submit = (e: FormEvent) => {
-        e.preventDefault()
-
-        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
-            return [...prev, curr.value]
-        }, [])
-    }
-
     const addPhone = () => {
         set_phone_numbs((prev) => [...prev, ''])
     }
@@ -234,7 +260,7 @@ const AddSOS = () => {
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
-                    onSubmit={submit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
@@ -247,7 +273,6 @@ const AddSOS = () => {
 
                             return (
                                 <>
-                                  
                                     <Input
                                         key={idx + label}
                                         label={label}

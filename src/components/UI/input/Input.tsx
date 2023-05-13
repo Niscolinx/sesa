@@ -31,6 +31,7 @@ interface Input {
     required?: boolean
     clearErrors?: UseFormClearErrors<any>
     pre?: string
+    ref?: string
     minLength?: number
     maxLength?: number
     fullWidth: boolean
@@ -46,6 +47,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     register,
     setValue,
     isSelect,
+    ref,
     pre,
     fullWidth,
     disabled,
@@ -245,6 +247,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         id={label}
                                         disabled={disabled}
                                         type={type}
+                                        ref={ref}
                                         inputMode='numeric'
                                         maxLength={10}
                                         value={ phone}
