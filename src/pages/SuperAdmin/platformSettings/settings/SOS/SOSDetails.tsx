@@ -42,7 +42,6 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         }
 
         useEffect(() => {
-            console.log('sos phone Error', phoneError)
 
             if (phoneError && phoneError[`phone${idx + 1}`]) {
                 setErrorMessage(phoneError[`phone${idx + 1}`])
