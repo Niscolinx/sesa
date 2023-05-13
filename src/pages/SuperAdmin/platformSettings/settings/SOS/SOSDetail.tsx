@@ -37,7 +37,6 @@ const SOSDetail = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const [selectedEstates, setSelectedEstates] = useState<string[]>([])
     const [selectFormErrors, setSelectFormErrors] = useState<{
