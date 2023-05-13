@@ -69,12 +69,12 @@ const SOSDetail = () => {
 
     const getRequest = () => {
         return axiosInstance({
-            url: `/admin/get/${sos_id}`,
+            url: `/platformsettings/sos/getbyid/${sos_id}`,
         })
     }
 
-    const { data: get_response, isLoading: get_admin_loading } = useQuery(
-        [`view_admin_${sos_id}`],
+    const { data: get_response, isLoading: get_loading } = useQuery(
+        [`view_SOS_${sos_id}`],
         getRequest
     )
 
