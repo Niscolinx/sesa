@@ -52,29 +52,10 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         onChange={handlePhoneChange}
                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0`}
 
-                        //  ${
-                        //     formErrors && formErrors[label] && 'border-red-500 '
-                        // }
                     />
                 </div>
             </div>
 
-            // <div className={`w-full grid gap-4 self-baseline`}>
-            //     <label
-            //         htmlFor={`phone`}
-            //         className='text-[1.4rem] font-semibold capitalize'
-            //     >
-            //         phone Number {idx + 1}
-            //     </label>
-
-            //     <input
-            //         type='number'
-            //         name='number'
-            //         id={`phone`}
-            //         ref={ref}
-            //         className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
-            //     />
-            // </div>
         )
     }
 )
