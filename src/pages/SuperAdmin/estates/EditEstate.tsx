@@ -43,7 +43,7 @@ const EditEstate = () => {
 
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
-            url: '/estate/getall',
+            url: '/manager/fetchDropdownEstateManager',
             name: 'estate_manager',
         })
     const { data: security_company_data, isLoading: security_company_loading } =
@@ -207,9 +207,9 @@ const EditEstate = () => {
             .filter(({ name }: any) => selectedSecurityCompany.includes(name))
             .map(({ id }: any) => ({ id }))[0]
 
-        const estate_manager: string[] = estate_manager_data.data
-            .filter(({ estate_name }: any) =>
-                selectedEstateManager.includes(estate_name)
+        const estate_manager: string[] = estate_manager_data
+            .filter(({ name }: any) =>
+                selectedEstateManager.includes(name)
             )
             .map(({ id }: any) => ({ id }))[0]
 
@@ -234,8 +234,8 @@ const EditEstate = () => {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const slicedEstateManagers: string[] = estate_manager_data.data.map(
-        ({ estate_name }: any) => estate_name
+    const slicedEstateManagers: string[] = estate_manager_data.map(
+        ({ name }: any) => name
     )
     const slicedSecurityCompanies: string[] = security_company_data.map(
         ({ name }: any) => name
@@ -327,7 +327,7 @@ const EditEstate = () => {
                 <Activate_Deactivate
                     id={estate_id}
                     url={'/estate/deactivate_activate'}
-                    status={estate_manager_data.data.status}
+                    status={estate_manager_data.status}
                     title={'admin'}
                     queryCache={`view_estate_${estate_id}`}
                 />{' '}

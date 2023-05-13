@@ -196,7 +196,7 @@ const SOSDetail = () => {
         mutate(updated_data)
     })
 
-    if (estates_loading) {
+    if (estates_loading || get_loading) {
         return <p>Loading...</p>
     }
 
