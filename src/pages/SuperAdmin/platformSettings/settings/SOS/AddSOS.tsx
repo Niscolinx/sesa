@@ -1,4 +1,11 @@
-import { ChangeEvent, FormEvent, forwardRef, useEffect, useRef, useState } from 'react'
+import {
+    ChangeEvent,
+    FormEvent,
+    forwardRef,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -19,7 +26,6 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         const [isError, setIsError] = useState(false)
         const [errorMessage, setErrorMessage] = useState('')
 
-
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
             setIsError(false)
             setErrorMessage('')
@@ -35,9 +41,9 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         }
 
         useEffect(() => {
-            console.log("sos phone Error", phoneError)
+            console.log('sos phone Error', phoneError)
 
-            if(phoneError && phoneError[`phone${idx + 1}`]){
+            if (phoneError && phoneError[`phone${idx + 1}`]) {
                 setErrorMessage(phoneError[`phone${idx + 1}`])
                 setIsError(true)
             }
@@ -53,7 +59,9 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                 </label>
 
                 <div
-                    className={`relative flex items-center w-full border pl-4 rounded-lg ${isError ? 'border-red-500' : 'border-color-grey'}`}
+                    className={`relative flex items-center w-full border pl-4 rounded-lg ${
+                        isError ? 'border-red-500' : 'border-color-grey'
+                    }`}
                 >
                     <input type='text' value={'+234'} className='w-[4.2rem]' />
                     <input
@@ -68,10 +76,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
                     />
                 </div>
-                <p className='text-red-500 text-[1.2rem]'>
-
-                {errorMessage}
-                </p>
+                <p className='text-red-500 text-[1.2rem]'>{errorMessage}</p>
             </div>
         )
     }
@@ -119,9 +124,9 @@ const AddSOS = () => {
 
     const axiosInstance = useAxios()
 
-       useEffect(() => {
-           console.log('main phone Error', phoneError)
-       }, [phoneError])
+    useEffect(() => {
+        console.log('main phone Error', phoneError)
+    }, [phoneError])
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
@@ -165,7 +170,6 @@ const AddSOS = () => {
         setSelectFormErrors(null)
         setPhoneError(null)
 
-
         if (selectedEstates.length < 1) {
             isError = true
 
@@ -177,14 +181,13 @@ const AddSOS = () => {
             })
         }
 
-         const each_num = phone_ref.current.reduce((prev: string[], curr) => {
-             return [...prev, curr.value]
-         }, [])
+        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
+            return [...prev, curr.value]
+        }, [])
 
         each_num.forEach((num, idx) => {
-            console.log({ num, idx })
 
-            if (idx === 0 && num === '') {
+            if (num === '') {
                 isError = true
                 toast(`Phone Number cannot be empty`, {
                     type: 'error',
@@ -199,8 +202,9 @@ const AddSOS = () => {
                 })
 
                 return
-            } else if (num.length < 11) {
+            } else if (num.length < 10) {
                 isError = true
+                console.log({num}, num.length)
                 toast(`Phone Number is invalid`, {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
@@ -234,10 +238,6 @@ const AddSOS = () => {
             )
             .map(({ id }: any) => ({ id }))
 
-       
-
-
-        console.log({ each_num })
         const updated_data = {
             ...data,
             estate,
