@@ -126,9 +126,6 @@ const AddSOS = () => {
     const axiosInstance = useAxios()
     const navigate = useNavigate()
 
-    useEffect(() => {
-        console.log('main phone Error', phoneError)
-    }, [phoneError])
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
