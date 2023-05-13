@@ -1,43 +1,83 @@
 import {
     ChangeEvent,
     FormEvent,
-    ForwardedRef,
     forwardRef,
-    useImperativeHandle,
+    useEffect,
     useRef,
     useState,
 } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input, { SelectProps } from '../../../../../components/UI/input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
+import { useNavigate } from 'react-router'
 
 interface AddPhoneNumber {
     idx: number
+    phoneError: any
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx }, ref) => {
+    ({ idx, phoneError }, ref) => {
+        const [phone, setPhone] = useState('')
+        const [isError, setIsError] = useState(false)
+        const [errorMessage, setErrorMessage] = useState('')
+
+        const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+            setIsError(false)
+            setErrorMessage('')
+            const value = e.target.value.replace(/\D/g, '')
+
+            if (value.length <= 1 && value === '0') {
+                return setPhone('')
+            }
+
+            if (value.length < 11) {
+                setPhone(value)
+            }
+        }
+
+        useEffect(() => {
+            console.log('sos phone Error', phoneError)
+
+            if (phoneError && phoneError[`phone${idx + 1}`]) {
+                setErrorMessage(phoneError[`phone${idx + 1}`])
+                setIsError(true)
+            }
+        }, [phoneError])
+
         return (
             <div className={`w-full grid gap-4 self-baseline`}>
                 <label
-                    htmlFor={`phone`}
+                    htmlFor={`phone${idx + 1}`}
                     className='text-[1.4rem] font-semibold capitalize'
                 >
                     phone Number {idx + 1}
                 </label>
 
-                <input
-                    type='number'
-                    name='number'
-                    id={`phone`}
-                    ref={ref}
-                    className={` relative flex items-center border border-color-grey rounded-lg w-full  disabled:opacity-50 disabled:cursor-not-allowed p-4`}
-                />
+                <div
+                    className={`relative flex items-center w-full border pl-4 rounded-lg ${
+                        isError ? 'border-red-500' : 'border-color-grey'
+                    }`}
+                >
+                    <input type='text' value={'+234'} className='w-[4.2rem]' />
+                    <input
+                        type='number'
+                        name='number'
+                        id={`phone${idx + 1}`}
+                        ref={ref}
+                        inputMode='numeric'
+                        maxLength={10}
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
+                    />
+                </div>
+                <p className='text-red-500 text-[1.2rem]'>{errorMessage}</p>
             </div>
         )
     }
@@ -75,12 +115,20 @@ const AddSOS = () => {
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
     } | null>(null)
+    const [phoneError, setPhoneError] = useState<{
+        [key: string]: string
+    } | null>(null)
 
     const phone_ref = useRef<HTMLInputElement[]>([])
 
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        console.log('main phone Error', phoneError)
+    }, [phoneError])
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
@@ -93,7 +141,7 @@ const AddSOS = () => {
         onSuccess: () => {
             reset()
             setSelectedEstates([])
-            toast(`Artisan Group successfully`, {
+            toast(`SOS Created`, {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -109,6 +157,7 @@ const AddSOS = () => {
     })
 
     const closeDialog = () => {
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
@@ -122,6 +171,7 @@ const AddSOS = () => {
     const onSubmit = handleSubmit((data) => {
         let isError = false
         setSelectFormErrors(null)
+        setPhoneError(null)
 
         if (selectedEstates.length < 1) {
             isError = true
@@ -133,6 +183,44 @@ const AddSOS = () => {
                 }
             })
         }
+
+        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
+            return [...prev, curr.value]
+        }, [])
+
+        each_num.forEach((num, idx) => {
+            if (num === '') {
+                isError = true
+                toast(`Phone Number cannot be empty`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                setPhoneError((prev) => {
+                    return {
+                        ...prev,
+                        [`phone${idx + 1}`]: 'Field cannot be empty',
+                    }
+                })
+
+                return
+            } else if (num.length < 10) {
+                isError = true
+                toast(`Phone Number is invalid`, {
+                    type: 'error',
+                    className: 'bg-red-100 text-red-600 text-[1.4rem]',
+                })
+
+                setPhoneError((prev) => {
+                    return {
+                        ...prev,
+                        [`phone${idx + 1}`]: 'Phone Number is invalid',
+                    }
+                })
+
+                return
+            }
+        })
 
         if (isError) {
             return
@@ -153,6 +241,8 @@ const AddSOS = () => {
 
         const updated_data = {
             ...data,
+            estate,
+            phone_number: each_num,
         }
 
         console.log({ updated_data })
@@ -194,20 +284,13 @@ const AddSOS = () => {
         },
     ] satisfies FormInputs[]
 
-    const submit = (e: FormEvent) => {
-        e.preventDefault()
-
-        const each_num = phone_ref.current.reduce((prev: string[], curr) => {
-            return [...prev, curr.value]
-        }, [])
-    }
-
     const addPhone = () => {
         set_phone_numbs((prev) => [...prev, ''])
     }
 
     return (
         <>
+            <ToastContainer />
             <Spinner start={isLoading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
@@ -220,7 +303,7 @@ const AddSOS = () => {
                         <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
                             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
-                            <p>You have successfully added SOS</p>
+                            <p>You have successfully added an SOS</p>
 
                             <div className='flex w-full justify-center gap-8'>
                                 <button
@@ -236,7 +319,7 @@ const AddSOS = () => {
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
                 <form
-                    onSubmit={submit}
+                    onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12'
                     style={{
                         gridTemplateColumns:
@@ -249,11 +332,6 @@ const AddSOS = () => {
 
                             return (
                                 <>
-                                    {/* {label === 'Estates' && (
-                                        <p className='text-[2rem] font-Satoshi-Medium py-8 -mb-10'>
-                                            Add Estates
-                                        </p>
-                                    )} */}
                                     <Input
                                         key={idx + label}
                                         label={label}
@@ -271,6 +349,7 @@ const AddSOS = () => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
+                                    phoneError={phoneError}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
                                     }
@@ -279,6 +358,7 @@ const AddSOS = () => {
                         })}
 
                         <button
+                            type='button'
                             onClick={addPhone}
                             className='flex mb-[2rem] w-max items-center gap-4 col-span-full'
                         >
