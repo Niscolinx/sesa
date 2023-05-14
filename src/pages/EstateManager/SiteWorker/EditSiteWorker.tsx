@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import { MultipleSelect, Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { TbCopy } from 'react-icons/tb'
+// import { TbCopy } from 'react-icons/tb'
 import {
     AddBankAccount,
     AddedSiteWorkerSuccessfully,
@@ -33,6 +33,7 @@ export const CreateAddedSiteWorkerContext =
     createContext<AddedSiteWorkerContext>(null as any)
 
 type BankDialog = 'generateId' | 'openBank'
+
 const EditSiteWorker = () => {
     const [workDays, setWorkDays] = useState<string[]>([])
     const [isValidated, setIsValidated] = useState(true)
