@@ -52,7 +52,6 @@ import AddSecurityManager from '../../pages/SuperAdmin/securityManagers/AddSecur
 import ViewSecurityManager from '../../pages/SuperAdmin/securityManagers/ViewSecurityManager'
 import AdvertClicks from '../../pages/SuperAdmin/advert/AdvertClicks'
 import AdvertViews from '../../pages/SuperAdmin/advert/AdvertViews'
-import AutoLogout from '../../components/AutoLogout'
 
 const superAdminRoutes = (
         <Route

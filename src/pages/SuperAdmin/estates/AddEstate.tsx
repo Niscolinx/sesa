@@ -129,7 +129,7 @@ const AddEstate = () => {
 
 
     const closeDialog = () => {
-        
+        navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
