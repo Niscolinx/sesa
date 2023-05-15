@@ -84,14 +84,11 @@ const SOSDetail = () => {
             setSelectedEstates(slicedEstates)
             set_phone_numbs(phone_number)
 
-
             reset({
                 ...inputs,
             })
         }
     }, [get_response])
-
-
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
@@ -175,7 +172,7 @@ const SOSDetail = () => {
             return
         }
 
-        const {estate} = get_response?.data
+        const { estate } = get_response?.data
 
         const get_estate_ids: Object[] = []
 
@@ -195,7 +192,7 @@ const SOSDetail = () => {
 
         console.log({ updated_data })
 
-        //mutate(updated_data)
+        mutate(updated_data)
     })
 
     if (estates_loading || get_loading) {
