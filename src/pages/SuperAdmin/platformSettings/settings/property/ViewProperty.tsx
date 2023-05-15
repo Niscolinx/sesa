@@ -129,10 +129,12 @@ const ViewProperty = () => {
                 closeDialog()
             },
             onError: (err: any) => {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response.data.message,
+                 toast(`${ err?.response.data.message}`, {
+                    type: 'success',
+                    className:
+                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
+              
             },
         }
     ) as any
