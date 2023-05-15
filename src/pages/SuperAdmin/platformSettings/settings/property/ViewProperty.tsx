@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
 import { useParams } from 'react-router'
+import Spinner from '../../../../../components/UI/Spinner'
 
 export interface IPropertyType {
     id: string
@@ -128,7 +129,6 @@ const ViewProperty = () => {
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
 
-                reset()
                 closeDialog()
             },
             onError: (err: any) => {
@@ -172,6 +172,7 @@ const ViewProperty = () => {
     return (
         <>
             <ToastContainer />
+            <Spinner start={post_loading}/>
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
