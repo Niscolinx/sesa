@@ -8,6 +8,7 @@ import Input from '../../../../../components/UI/input/Input'
 import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { IoMdAdd } from 'react-icons/io'
+import Spinner from '../../../../../components/UI/Spinner'
 
 export interface IPropertyType {
     id: string
@@ -94,7 +95,7 @@ const AddProperty = () => {
     return (
         <>
             <ToastContainer />
-
+            <Spinner start={mutation_loading}/>
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>

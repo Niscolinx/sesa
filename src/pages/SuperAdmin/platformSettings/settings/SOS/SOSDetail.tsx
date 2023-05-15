@@ -288,7 +288,7 @@ const SOSDetail = () => {
                             <span className='text-[1.4rem]'>Add Phone</span>
                         </button>
 
-                        <button className='btn justify-self-start btn-blue col-span-full'>
+                        <button className='btn justify-self-start btn-blue col-span-full cursor-pointer'>
                             <span>
                                 <IoMdAdd />
                             </span>{' '}
