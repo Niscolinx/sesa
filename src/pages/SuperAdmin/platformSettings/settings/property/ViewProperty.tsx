@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/UI/input/Input'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import Spinner from '../../../../../components/UI/Spinner'
 
 const ViewProperty = () => {
@@ -28,6 +28,7 @@ const ViewProperty = () => {
     const params = useParams()
 
     const property_id = params.id?.replace(':', '')
+    const navigate = useNavigate()
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -62,7 +63,7 @@ const ViewProperty = () => {
     }
 
     const postRequest = (inputs: Inputs) => {
-        console.log({inputs})
+        console.log({ inputs })
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
             method: 'put',
@@ -113,6 +114,7 @@ const ViewProperty = () => {
         }
     )
 
+    const queryClient = useQueryClient()
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
         {
@@ -132,6 +134,11 @@ const ViewProperty = () => {
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
             },
+
+            onSettled: () => {
+                queryClient.invalidateQueries('propertyType')
+                navigate(-1)
+            },
         }
     ) as any
 
@@ -141,7 +148,6 @@ const ViewProperty = () => {
         const updated = {
             property_type: data.property_type,
             description: data.description,
-        
         }
 
         post_mutation(updated)
