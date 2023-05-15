@@ -83,6 +83,9 @@ const SOSDetail = () => {
             )
 
             setSelectedEstates(slicedEstates)
+            console.log({phone_number})
+            set_phone_numbs(phone_number)
+
 
             reset({
                 ...inputs,
@@ -91,6 +94,12 @@ const SOSDetail = () => {
             // setPhotoPreview((prev) => prev ?? image)
         }
     }, [get_response])
+
+    useEffect(() => {
+        console.log({phone_numbs})
+    }, [phone_numbs])
+
+
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
@@ -194,7 +203,7 @@ const SOSDetail = () => {
 
         console.log({ updated_data })
 
-        mutate(updated_data)
+        //mutate(updated_data)
     })
 
     if (estates_loading || get_loading) {
@@ -268,10 +277,11 @@ const SOSDetail = () => {
                                 </>
                             )
                         })}
-                        {phone_numbs.map((_, idx) => {
+                        {phone_numbs.map((value, idx) => {
                             return (
                                 <AddPhoneNumber
                                     idx={idx}
+                                    value={value}
                                     phoneError={phoneError}
                                     ref={(ref: HTMLInputElement) =>
                                         (phone_ref.current[idx] = ref)
