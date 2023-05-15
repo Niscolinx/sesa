@@ -61,7 +61,6 @@ const AddProperty = () => {
                     'bg-green-100 text-green-600 text-[1.4rem] capitalize',
             })
 
-            reset()
         },
         onError: (err: any) => {
             setResponseMessage({
