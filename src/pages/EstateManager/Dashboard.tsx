@@ -1,9 +1,17 @@
-import { Outlet } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 import Sidebar from '../../components/EstateManager/Sidebar'
 import Header from '../../components/SuperAdmin/dashboard/Header'
 import BreadCrumb from '../../components/UI/BreadCrumb'
+import { useEffect } from 'react'
 
 function Dashboard() {
+    const navigate = useNavigate()
+     useEffect(() => {
+        const role = localStorage.getItem('role')
+        if (role?.indexOf('super') === -1) {
+            navigate('/')
+        }
+    }, [])
     return (
         <div className='dashboard'>
             <Sidebar />
