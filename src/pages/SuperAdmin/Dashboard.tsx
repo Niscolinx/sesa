@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 import Header from '../../components/SuperAdmin/dashboard/Header'
 import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 // import Header from '../../../../components/SuperAdmin/dashboard/Header'
@@ -7,9 +7,18 @@ import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 import BreadCrumb from '../../components/UI/BreadCrumb'
 import PrevLocation from '../../components/hooks/prevLocation'
 import AutoLogout from '../../components/AutoLogout'
+import { useEffect } from 'react'
 
 function Dashboard() {
     PrevLocation()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const role = localStorage.getItem('role')
+        if (role?.indexOf('super') === -1) {
+            navigate('/')
+        }
+    }, [])
 
     return (
         <div className='dashboard'>
