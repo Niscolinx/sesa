@@ -2,19 +2,16 @@ import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../Components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddEnergyToken = () => {
     const [denomination, setDenomination] = useState('')
-    const [customerNofication, setCustomerNotification] = useState<
-        string 
-    >('')
+    const [customerNofication, setCustomerNotification] = useState<string>('')
     const [convenienceFee, setConvenienceFee] = useState('')
     const [instruction, setInstruction] = useState('')
-    const [notificationThreshold, setNotificationThreshold] = useState<
-        string
-    >('')
+    const [notificationThreshold, setNotificationThreshold] =
+        useState<string>('')
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()

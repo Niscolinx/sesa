@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../Components/UI/table/Table'
 import { useMutation } from 'react-query'
-import useAxios from '../../../../components/hooks/useAxios'
+import useAxios from '../../../../Components/hooks/useAxios'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()
@@ -44,7 +44,6 @@ const ViewArtisanCategory = () => {
         }
     )
 
-
     const { data: category_detail, isLoading: category_detail_loading } =
         useFetchData({
             url: '/admin/category/get/single/2',
@@ -70,12 +69,9 @@ const ViewArtisanCategory = () => {
         mutate()
     }
 
-   
-
     if (category_detail_loading || category_users_loading) {
         return <p className='p-8'>Loading...</p>
     }
-
 
     return (
         <>

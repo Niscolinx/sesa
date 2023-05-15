@@ -1,4 +1,4 @@
-import Table from '../../../../../components/UI/table/Table'
+import Table from '../../../../../Components/UI/table/Table'
 
 function SOSTable() {
     return (
@@ -13,7 +13,7 @@ function SOSTable() {
                 is_add_btn={true}
                 THeader={['name', 'estate_count', 'created_at', 'actions']}
                 data_to_display={['name', 'estate_count', 'created_at']}
-                delete_item_url={'/platformsettings/sos/delete/' }
+                delete_item_url={'/platformsettings/sos/delete/'}
             />
         </div>
     )

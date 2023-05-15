@@ -11,9 +11,9 @@ import { useForm } from 'react-hook-form'
 import { QueryClient, useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
-import useAxios from '../../../../../components/hooks/useAxios'
-import Input, { SelectProps } from '../../../../../components/UI/Input/Input'
-import Spinner from '../../../../../components/UI/Spinner'
+import useAxios from '../../../../../Components/hooks/useAxios'
+import Input, { SelectProps } from '../../../../../Components/UI/Input/Input'
+import Spinner from '../../../../../Components/UI/Spinner'
 import { useNavigate } from 'react-router'
 
 interface AddPhoneNumber {

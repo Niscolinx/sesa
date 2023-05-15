@@ -6,12 +6,12 @@ import React, {
     useState,
 } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../../Components/SuperAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
 
 interface PaymentForm {
     props: {
-        paymentType: PaymentType | string 
+        paymentType: PaymentType | string
         setPaymentType: Dispatch<SetStateAction<PaymentType | string>>
     }
 }

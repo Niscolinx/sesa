@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import OverviewCard from '../../../components/EstateManager/OverviewCard'
+import OverviewCard from '../../../Components/EstateManager/OverviewCard'
 import ResidentProfile from './ResidentProfile'
 import UniqueResident from './UniqueResident'
 

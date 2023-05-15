@@ -1,11 +1,10 @@
 import { Swiper, SwiperRef } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper'
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
-import OverviewCards from '../../components/SuperAdmin/overview/OverviewCards'
-import OverviewWalletNav from '../../components/SuperAdmin/overview/OverviewWalletNav'
-import OverviewWallets from '../../components/SuperAdmin/overview/OverviewWallets'
-
+import OverviewChart from '../../Components/SuperAdmin/charts/OverviewChart'
+import OverviewCards from '../../Components/SuperAdmin/overview/OverviewCards'
+import OverviewWalletNav from '../../Components/SuperAdmin/overview/OverviewWalletNav'
+import OverviewWallets from '../../Components/SuperAdmin/overview/OverviewWallets'
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10 },
@@ -89,8 +88,7 @@ const Overview = () => {
                     <div className='overviewChart'>
                         <p className='overviewChart__heading'>Today's Inflow</p>
                         <div className='overviewChart__box'>
-                            <OverviewChart
-                            />
+                            <OverviewChart />
 
                             {currentSwiperIndex && (
                                 <div className='overviewChart__label'>

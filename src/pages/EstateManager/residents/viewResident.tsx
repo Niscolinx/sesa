@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../Components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import ValidatedResult from '../../../components/UI/Dialog/ValidatedResult'
+import ValidatedResult from '../../../Components/UI/Dialog/ValidatedResult'
 import { SetStateAction } from 'jotai'
 
 type Actions = 'Deactivate' | 'Delete'
@@ -37,9 +37,6 @@ const ViewResident = () => {
     }
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-  
-    
 
     const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
         if (dialogRef.current) {
@@ -102,9 +99,14 @@ const ViewResident = () => {
             <main className='bg-white grid gap-10 rounded-lg py-10'>
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
-                        <ValidatedResult image={''} setImageFile={function (value: SetStateAction<File | null>): void {
-                            throw new Error('Function not implemented.')
-                        } }  />
+                        <ValidatedResult
+                            image={''}
+                            setImageFile={function (
+                                value: SetStateAction<File | null>
+                            ): void {
+                                throw new Error('Function not implemented.')
+                            }}
+                        />
 
                         <div className='flex gap-8'>
                             <button

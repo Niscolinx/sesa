@@ -11,8 +11,8 @@ import {
     HiOutlineChevronRight,
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
-import useAxios from '../../../components/hooks/useAxios'
+import { Select } from '../../../Components/SuperAdmin/UI/Select'
+import useAxios from '../../../Components/hooks/useAxios'
 
 type Estate = {
     id: string
@@ -246,7 +246,6 @@ function Estates() {
     }
 
     const fetched = get_estates_response?.data
-
 
     return (
         <div>

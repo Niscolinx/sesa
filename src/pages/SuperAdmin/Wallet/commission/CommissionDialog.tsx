@@ -1,9 +1,9 @@
 import React, { FormEvent, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import { OverviewWallet } from '../../../../Components/SuperAdmin/overview/OverviewWallets'
 import useFetchData from '../../../../utils/useFetchData'
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import WalletBarChart from '../../../../Components/SuperAdmin/charts/WalletBarChart'
 
 function CommissionDialog() {
     const sendToArr: string[] = ['Howuja', 'Oluwaseun', 'Wojusun', 'Petherkwa']
@@ -267,8 +267,7 @@ function CommissionDialog() {
                         </button>
                     </div>
                 </div>
-                    <WalletBarChart chartData={chartData} />
-             
+                <WalletBarChart chartData={chartData} />
             </div>
         </>
     )

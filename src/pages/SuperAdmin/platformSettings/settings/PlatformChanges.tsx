@@ -1,11 +1,11 @@
 import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input from '../../../../components/UI/Input/Input'
+import Input from '../../../../Components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import useAxios from '../../../../components/hooks/useAxios'
-import Spinner from '../../../../components/UI/Spinner'
+import useAxios from '../../../../Components/hooks/useAxios'
+import Spinner from '../../../../Components/UI/Spinner'
 
 const PlatformChanges = () => {
     type FormInputs = {

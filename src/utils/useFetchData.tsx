@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import useAxios from '../components/hooks/useAxios'
+import useAxios from '../Components/hooks/useAxios'
 
 interface FetchData {
     url?: string
@@ -13,7 +13,7 @@ const useFetchData = ({
     url = '/states/get',
     params,
     name = 'states',
-    nested = true
+    nested = true,
 }: FetchData) => {
     const [queryParams, setQueryParams] = useState(params)
 
@@ -21,22 +21,28 @@ const useFetchData = ({
     const fetchData = () =>
         axiosInstance({
             url,
-        }).then((res) =>  nested ? res.data : res)
+        }).then((res) => (nested ? res.data : res))
 
-    const { isLoading, error, data, refetch, isFetching, isError, isFetched, } = useQuery<any, Error>(
-        [name, queryParams],
-        fetchData,
-        {
+    const { isLoading, error, data, refetch, isFetching, isError, isFetched } =
+        useQuery<any, Error>([name, queryParams], fetchData, {
             refetchOnMount: false,
             refetchOnWindowFocus: false,
-        }
-    )
+        })
 
     const updateQueryParams = (newParams?: string) => {
         setQueryParams(newParams)
     }
 
-    return { isLoading, data, error, refetch, isFetched, isError, isFetching, updateQueryParams }
+    return {
+        isLoading,
+        data,
+        error,
+        refetch,
+        isFetched,
+        isError,
+        isFetching,
+        updateQueryParams,
+    }
 }
 
 export default useFetchData

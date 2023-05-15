@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import Input, { SelectProps } from '../../../Components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import useAxios from '../../../components/hooks/useAxios'
+import useAxios from '../../../Components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
-import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
-import { ShowImage } from '../../../components/UI/Input/ImageInput'
+import Activate_Deactivate from '../../../Components/UI/Dialog/Activate_Deactivate'
+import { ShowImage } from '../../../Components/UI/Input/ImageInput'
 
 const EditEstate = () => {
     interface Inputs {

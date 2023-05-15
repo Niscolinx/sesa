@@ -3,10 +3,7 @@ import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import {
-    MultipleSelect,
-    Select,
-} from '../../../components/SuperAdmin/UI/Select'
+
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,
@@ -16,11 +13,9 @@ import {
     PhoneNumber,
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
-import {
-    AddBankAccount,
-    AddedSiteWorkerSuccessfully,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
+import { Select, MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
+import { AddedSiteWorkerSuccessfully, AddBankAccount, OpenedBankAccountSuccessful } from './DialogSteps'
+
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 

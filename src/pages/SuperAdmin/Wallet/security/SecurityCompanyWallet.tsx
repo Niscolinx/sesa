@@ -1,11 +1,9 @@
-
-
 import { useState } from 'react'
 
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../../Components/SuperAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../Components/SuperAdmin/overview/OverviewWallets'
 
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../Components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
 const SecurityWallet = () => {
@@ -94,58 +92,56 @@ const SecurityWallet = () => {
     const chartData = transFormFetchedGraphData(graph_data.graph)
 
     return (
-      
-            <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
-                <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
-                    <OverviewWallet
-                        amount={graph_data.security_comp_sum}
-                        title='SecurityCompany Wallet'
-                        isWalletScreen
-                        bgImgUri='/icons/overview/card/bgS.svg'
-                        lefIconUri='/icons/overview/card/leftS.svg'
-                        bgColor='bg-[#6AB95F]'
-                    />
+        <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
+            <div className='flex justify-between items-center content-start bg-white p-8 rounded-lg'>
+                <OverviewWallet
+                    amount={graph_data.security_comp_sum}
+                    title='SecurityCompany Wallet'
+                    isWalletScreen
+                    bgImgUri='/icons/overview/card/bgS.svg'
+                    lefIconUri='/icons/overview/card/leftS.svg'
+                    bgColor='bg-[#6AB95F]'
+                />
 
-                    <section>
-                        <div className='flex gap-4 justify-between items-center mb-5'>
-                            <p className='font-Satoshi-Medium'>Wallet Trend</p>
-                            {/* <div className='w-[13rem]'>
+                <section>
+                    <div className='flex gap-4 justify-between items-center mb-5'>
+                        <p className='font-Satoshi-Medium'>Wallet Trend</p>
+                        {/* <div className='w-[13rem]'>
                                 <Select
                                     state={trend}
                                     selectedState={selectedTrend}
                                     setSelectedState={setSelectedTrend}
                                 />
                             </div> */}
-                        </div>
-                        <WalletBarChart chartData={chartData} />
+                    </div>
+                    <WalletBarChart chartData={chartData} />
+                </section>
+            </div>
+            <div className='grid gap-10'>
+                <div className='estateDetail__radioBox'>
+                    {paths.map((path) => (
+                        <>
+                            <input
+                                type='radio'
+                                name='company'
+                                id={path}
+                                className='hidden'
+                                onChange={() => setcurrentPath(path)}
+                                checked={path === currentPath}
+                            />
+                            <label htmlFor={path} className='capitalize'>
+                                {path.replace('-', ' ')}
+                            </label>
+                        </>
+                    ))}
+                </div>
+                <div className='mt-8 grid gap-8'>
+                    <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
+                        {handlePathSwitch.get(currentPath)}
                     </section>
                 </div>
-                <div className='grid gap-10'>
-                    <div className='estateDetail__radioBox'>
-                        {paths.map((path) => (
-                            <>
-                                <input
-                                    type='radio'
-                                    name='company'
-                                    id={path}
-                                    className='hidden'
-                                    onChange={() => setcurrentPath(path)}
-                                    checked={path === currentPath}
-                                />
-                                <label htmlFor={path} className='capitalize'>
-                                    {path.replace('-', ' ')}
-                                </label>
-                            </>
-                        ))}
-                    </div>
-                    <div className='mt-8 grid gap-8'>
-                        <section className='bg-color-white rounded-lg border min-w-[112rem] overflow-scroll'>
-                            {handlePathSwitch.get(currentPath)}
-                        </section>
-                    </div>
-                </div>
             </div>
-   
+        </div>
     )
 }
 

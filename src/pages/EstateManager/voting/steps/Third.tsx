@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
+import { MultipleSelect } from '../../../../Components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
 import { ElectionDates, useCreateElectionContext } from '../createElection'
 
-
-
 function Third() {
-    const { setElectionDates, setAllowPhysicalVoting, setVotesDisplay, votesDisplay, allowPhysicalVoting} = useCreateElectionContext()
-  
     const {
-        register,
-        handleSubmit,
-        watch,
-    } = useForm<ElectionDates>()
+        setElectionDates,
+        setAllowPhysicalVoting,
+        setVotesDisplay,
+        votesDisplay,
+        allowPhysicalVoting,
+    } = useCreateElectionContext()
 
-    watch(values => {
-        setElectionDates({...values})
+    const { register, handleSubmit, watch } = useForm<ElectionDates>()
+
+    watch((values) => {
+        setElectionDates({ ...values })
     })
     const onSubmit = handleSubmit((data) => {
         console.log({ data })

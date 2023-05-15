@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../components/hooks/useAxios'
+import useAxios from '../../../../Components/hooks/useAxios'
 
 export interface IPropertyType {
     id: string
@@ -12,7 +12,6 @@ export interface IPropertyType {
 }
 
 const AddProperty = () => {
-
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const closeDialog = () => {
@@ -27,103 +26,100 @@ const AddProperty = () => {
         }
     }
 
-  
+    type FormInputs = {
+        label: string
+        type: string
+        name: string
+        pre: string
+        tag: 'amount'
+    }
 
-     type FormInputs = {
-         label: string
-         type: string
-         name: string
-         pre: string
-         tag: 'amount'
-     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-     type ResponseMessage = {
-         className: string
-         displayMessage: string
-     }
+    type Inputs = {
+        kyr_validation: number
+        sms_notification: number
+    }
 
-     type Inputs = {
-         kyr_validation: number
-         sms_notification: number
-     }
+    const { data, isLoading, error } = useFetchData({
+        url: '/platformsettings/generalsettings/get',
+    })
 
-     const { data, isLoading, error } = useFetchData({
-         url: '/platformsettings/generalsettings/get',
-     })
+    console.log({ data })
 
-     console.log({ data })
+    const {
+        register,
+        handleSubmit,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
-     const {
-         register,
-         handleSubmit,
-         formState: { errors: formErrors },
-     } = useForm<Inputs>()
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
-     const [responseMessage, setResponseMessage] =
-         useState<ResponseMessage | null>(null)
+    const axiosInstance = useAxios()
+    const postSettings = (inputs: Inputs) => {
+        return axiosInstance({
+            url:
+                data.length > 0
+                    ? `/platformsettings/generalsettings/update/${data[0].id}`
+                    : '/platformsettings/generalsettings/create',
+            method: data.length > 0 ? 'put' : 'post',
+            data: inputs,
+        })
+    }
+    const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
+        onSuccess: () => {
+            toast('Changes saved successfully', {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
+        },
+        onError: (err: any) => {
+            setResponseMessage({
+                className: 'text-red-600',
+                displayMessage: err?.response.data.message,
+            })
+        },
+    }) as any
 
-     const axiosInstance = useAxios()
-     const postSettings = (inputs: Inputs) => {
-         return axiosInstance({
-             url:
-                 data.length > 0
-                     ? `/platformsettings/generalsettings/update/${data[0].id}`
-                     : '/platformsettings/generalsettings/create',
-             method: data.length > 0 ? 'put' : 'post',
-             data: inputs,
-         })
-     }
-     const { mutate, isLoading: mutation_loading } = useMutation(postSettings, {
-         onSuccess: () => {
-             toast('Changes saved successfully', {
-                 type: 'success',
-                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
-             })
-         },
-         onError: (err: any) => {
-             setResponseMessage({
-                 className: 'text-red-600',
-                 displayMessage: err?.response.data.message,
-             })
-         },
-     }) as any
+    const onSubmit = handleSubmit((data) => {
+        setResponseMessage(null)
 
+        const adminData = {
+            ...data,
+            transferable_fee: 30,
+        }
 
-     const onSubmit = handleSubmit((data) => {
-         setResponseMessage(null)
+        mutate(adminData)
+    })
 
-         const adminData = {
-             ...data,
-             transferable_fee: 30,
-         }
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
-         mutate(adminData)
-     })
+    if (error) {
+        return <p>{error.message}</p>
+    }
 
-     if (isLoading) {
-         return <p>Loading...</p>
-     }
-
-     if (error) {
-         return <p>{error.message}</p>
-     }
-
-     const formInputs = [
-         {
-             label: 'kyr_validation',
-             name: 'kYR Validation',
-             type: 'number',
-             pre: 'Charges Per Validation',
-             tag: 'amount',
-         },
-         {
-             label: 'sms_notification',
-             name: 'SMS Notification',
-             type: 'number',
-             pre: 'Charges Per sms notification',
-             tag: 'amount',
-         },
-     ] satisfies FormInputs[]
+    const formInputs = [
+        {
+            label: 'kyr_validation',
+            name: 'kYR Validation',
+            type: 'number',
+            pre: 'Charges Per Validation',
+            tag: 'amount',
+        },
+        {
+            label: 'sms_notification',
+            name: 'SMS Notification',
+            type: 'number',
+            pre: 'Charges Per sms notification',
+            tag: 'amount',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <>
@@ -143,9 +139,7 @@ const AddProperty = () => {
                             >
                                 Cancel
                             </button>
-                            <button
-                                className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                            >
+                            <button className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'>
                                 Delete
                             </button>
                         </div>

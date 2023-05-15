@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../Components/SuperAdmin/UI/Select'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddProperty() {

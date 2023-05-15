@@ -8,7 +8,7 @@ import {
     AddedSecurityGuardSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../Components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,
@@ -55,8 +55,9 @@ const AddSecurityGuard = () => {
     const [selectedState, setSelectedState] = useState('')
     const [selectedGender, setSelectedGender] = useState('')
     const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] =
-        useState< ValidateInputTypes | string>('Phone Number')
+    const [validationType, setValidationType] = useState<
+        ValidateInputTypes | string
+    >('Phone Number')
 
     const [selectedBank, setSelectedBank] = useState('')
     const [addedSecurityGuardStep, setAddedSecurityGuardStep] =

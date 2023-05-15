@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
 import { setAuth, storeToken } from '../store/features/auth'
 import AxiosRequest from '../utils/axios'
-import useAxios from '../components/hooks/useAxios'
+import useAxios from '../Components/hooks/useAxios'
 
 const Login = () => {
     const navigate = useNavigate()

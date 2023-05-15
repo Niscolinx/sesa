@@ -1,12 +1,12 @@
 import { Outlet, useNavigate } from 'react-router'
-import Header from '../../components/SuperAdmin/dashboard/Header'
-import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
+import Header from '../../Components/SuperAdmin/dashboard/Header'
+import Sidebar from '../../Components/SuperAdmin/dashboard/Sidebar'
 // import Header from '../../../../components/SuperAdmin/dashboard/Header'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 
-import BreadCrumb from '../../components/UI/BreadCrumb'
-import PrevLocation from '../../components/hooks/prevLocation'
-import AutoLogout from '../../components/AutoLogout'
+import BreadCrumb from '../../Components/UI/BreadCrumb'
+import PrevLocation from '../../Components/hooks/prevLocation'
+import AutoLogout from '../../Components/AutoLogout'
 import { useEffect } from 'react'
 
 function Dashboard() {

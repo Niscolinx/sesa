@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import Input, { SelectProps } from '../../../Components/UI/Input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import useAxios from '../../../components/hooks/useAxios'
-import Spinner from '../../../components/UI/Spinner'
+import useAxios from '../../../Components/hooks/useAxios'
+import Spinner from '../../../Components/UI/Spinner'
 
 const ViewEstateManager = () => {
     interface Inputs {

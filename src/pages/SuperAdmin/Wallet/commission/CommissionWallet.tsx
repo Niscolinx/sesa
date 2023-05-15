@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../Components/UI/table/Table'
 import CommissionDialog from './CommissionDialog'
 
 const CommissionWallet = () => {
-   
-
     return (
         <div className='grid mt-12 pb-10 rounded-lg  items-baseline gap-10'>
             <CommissionDialog />

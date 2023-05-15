@@ -3,10 +3,10 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../../components/hooks/useAxios'
-import Input from '../../../../../components/UI/Input/Input'
+import useAxios from '../../../../../Components/hooks/useAxios'
+import Input from '../../../../../Components/UI/Input/Input'
 import { useNavigate, useParams } from 'react-router'
-import Spinner from '../../../../../components/UI/Spinner'
+import Spinner from '../../../../../Components/UI/Spinner'
 
 const ViewProperty = () => {
     type ResponseMessage = {

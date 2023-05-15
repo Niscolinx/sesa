@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation, useQueryClient } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/Input/Input'
-import useAxios from '../../../components/hooks/useAxios'
-import Spinner from '../../../components/UI/Spinner'
+import Input, { SelectProps } from '../../../Components/UI/Input/Input'
+import useAxios from '../../../Components/hooks/useAxios'
+import Spinner from '../../../Components/UI/Spinner'
 import { useNavigate } from 'react-router'
-import ImageInput from '../../../components/UI/Input/ImageInput'
+import ImageInput from '../../../Components/UI/Input/ImageInput'
 
 const AddAdmin = () => {
     interface Inputs {

@@ -23,17 +23,18 @@ import { Route } from 'react-router-dom'
 import estateManagerRoutes from './routes/estateManagerRoutes'
 import { useAppSelector } from '../store/app/hooks'
 import { selectAuth } from '../store/features/auth'
-import AutoLogout from '../components/AutoLogout'
+import AutoLogout from '../Components/AutoLogout'
 
 const App = () => {
     const { isAuth } = useAppSelector(selectAuth)
 
     console.log({ isAuth })
 
-    const checkAuth = (
-            isAuth && [ superAdminRoutes, securityCompanyRoutes,
-            estateManagerRoutes, ]
-    )
+    const checkAuth = isAuth && [
+        superAdminRoutes,
+        securityCompanyRoutes,
+        estateManagerRoutes,
+    ]
 
     const router = createBrowserRouter(
         createRoutesFromElements([

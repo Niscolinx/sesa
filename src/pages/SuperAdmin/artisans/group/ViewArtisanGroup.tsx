@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from 'react-router'
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../Components/UI/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 import { useState, FormEvent, useEffect } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
-import useAxios from '../../../../components/hooks/useAxios'
+import useAxios from '../../../../Components/hooks/useAxios'
 
 export interface IViewArtisanGroup {
     id: string
@@ -92,7 +92,7 @@ const ViewArtisanGroup = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    console.log({group_estates})
+    console.log({ group_estates })
 
     return (
         <>

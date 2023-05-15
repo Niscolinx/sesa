@@ -3,7 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 import {
     MultipleSelect,
     Select,
-} from '../../../components/SuperAdmin/UI/Select'
+} from '../../../Components/SuperAdmin/UI/Select'
 import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {

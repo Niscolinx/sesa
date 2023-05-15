@@ -1,15 +1,13 @@
 import { FC, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../../Components/SuperAdmin/UI/Select'
 import HouseholdFilter from './HouseholdFilter'
 import ResidentFilter from './ResidentFilter'
 
 const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
 
-    const [filter, setFilter] = useState<FilterKeys | string>(
-        'Households'
-    )
+    const [filter, setFilter] = useState<FilterKeys | string>('Households')
 
     const filterKeys = ['Households', 'Residents'] satisfies FilterKeys[]
 
@@ -52,7 +50,6 @@ const Filter: FC = () => {
                             <p className='text-[1.6rem]'>
                                 {/* You have successfully added a{' '}
                                 {filter?.substring(0, filter.length - 1)} */}
-
                                 Payment Created Successfully
                             </p>
                             <div className='flex w-full justify -center gap-8'>

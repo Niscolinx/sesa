@@ -1,13 +1,12 @@
 import { useParams } from 'react-router-dom'
 
-import OverviewCard from '../../../components/SuperAdmin/overview/OverviewCard'
+import OverviewCard from '../../../Components/SuperAdmin/overview/OverviewCard'
 import useFetchData from '../../../utils/useFetchData'
-import Table from '../../../components/UI/table/Table'
-
+import Table from '../../../Components/UI/table/Table'
 
 function EstateDetail() {
     const params = useParams()
-    
+
     const estate_id = params.id?.replace(':', '')
 
     const { data, isLoading } = useFetchData({
@@ -23,21 +22,17 @@ function EstateDetail() {
         return <p>Loading...</p>
     }
 
-    if(data?.estate_name === undefined){
+    if (data?.estate_name === undefined) {
         return <p>No Data Found</p>
     }
-
 
     const {
         resident_count,
         household_count,
         property_count,
         estate_name,
-        onboarding_date
+        onboarding_date,
     } = data
-
-
-
 
     return (
         <div className='mt-8 grid gap-8'>
@@ -45,7 +40,8 @@ function EstateDetail() {
                 <div className='flex w-full justify-between capitalize'>
                     <p>{estate_name}</p>
                     <p className='text-[#666869]'>
-                        Joined: <span className='text-black'>{onboarding_date}</span>
+                        Joined:{' '}
+                        <span className='text-black'>{onboarding_date}</span>
                     </p>
                 </div>
                 <div className='overview flex justify-between'>
@@ -91,7 +87,14 @@ function EstateDetail() {
                     'access card',
                 ]}
                 is_dropdown={false}
-                data_to_display={['address', 'property_category', 'property_name', 'house_hold_resident_count', 'rfid_count', 'access_card_count']}
+                data_to_display={[
+                    'address',
+                    'property_category',
+                    'property_name',
+                    'house_hold_resident_count',
+                    'rfid_count',
+                    'access_card_count',
+                ]}
                 isDataProvided={true}
                 providedData={estate_data.data}
             />

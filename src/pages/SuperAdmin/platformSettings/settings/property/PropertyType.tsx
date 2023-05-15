@@ -1,4 +1,4 @@
-import Table from '../../../../../components/UI/table/Table'
+import Table from '../../../../../Components/UI/table/Table'
 
 function PropertyType() {
     return (

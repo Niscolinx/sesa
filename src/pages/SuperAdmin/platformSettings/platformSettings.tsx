@@ -3,7 +3,7 @@ import AccountSettings from './settings/account/AccountSettings'
 import PropertyType from './settings/property/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/SOS/SOSTable'
-import PrevLocation from '../../../components/hooks/prevLocation'
+import PrevLocation from '../../../Components/hooks/prevLocation'
 
 type PathSwitch =
     | 'platform_charges'
@@ -12,7 +12,8 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    const [currentPath, setCurrentPath] = useState<PathSwitch>('platform_charges')
+    const [currentPath, setCurrentPath] =
+        useState<PathSwitch>('platform_charges')
 
     const handlePathSwitch = new Map([
         ['platform_charges', <PlatformChanges />],

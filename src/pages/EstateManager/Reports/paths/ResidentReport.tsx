@@ -4,7 +4,7 @@ import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 import { useNavigate } from 'react-router-dom'
-import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
+import ReportChart from '../../../../Components/SuperAdmin/charts/ReportsChart'
 
 export interface ResidentReport {
     id: number
