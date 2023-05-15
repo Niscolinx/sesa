@@ -65,7 +65,7 @@ const Login = () => {
                 dispatch(setAuth(true))
             }
             if (res.data.roles) {
-                localStorage.setItem('roles', JSON.stringify(res.data.roles))
+                localStorage.setItem('role', JSON.stringify(res.data.roles))
             }
             if(res.data.roles.includes('super')){
 
