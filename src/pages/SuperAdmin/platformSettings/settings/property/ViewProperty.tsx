@@ -149,12 +149,8 @@ const ViewProperty = () => {
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
 
-        const updated = {
-            property_type: data.property_type,
-            description: data.description,
-        }
 
-        post_mutation(updated)
+        post_mutation(data)
     })
 
     if (isLoading) {
