@@ -82,14 +82,15 @@ const ViewProperty = () => {
         })
     }
 
-    const {isLoading, data, error} = useQuery('property', get_request, {
+    const {isLoading, data, error} = useQuery(`property_type_${property_id}`, get_request, {
         onSuccess: ({data}) => {
-            toast(`Property Type Updated`, {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
-            })
+            console.log({data})
+               const { property_type, description } = data
 
-              
+               reset({
+                   property_type,
+                   description,
+               })
         }
     }) as any
 
@@ -103,13 +104,14 @@ const ViewProperty = () => {
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
 
-                reset()
             },
             onError: (err: any) => {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response.data.message,
-                })
+                 toast(`${err?.response.data.message}`, {
+                     type: 'success',
+                     className:
+                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+                 })
+                
             },
         }
     ) 
