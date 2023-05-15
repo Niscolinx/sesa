@@ -12,6 +12,10 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         const [isError, setIsError] = useState(false)
         const [errorMessage, setErrorMessage] = useState('')
 
+        useEffect(() => {
+            setPhone(value)
+        }, [value])
+
         const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
             setIsError(false)
             setErrorMessage('')

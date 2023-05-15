@@ -47,8 +47,7 @@ const SOSDetail = () => {
 
     const phone_ref = useRef<HTMLInputElement[]>([])
 
-
-    const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
+    const [phone_numbs, set_phone_numbs] = useState<string[]>([])
 
     const axiosInstance = useAxios()
     const params = useParams()
@@ -83,7 +82,6 @@ const SOSDetail = () => {
             )
 
             setSelectedEstates(slicedEstates)
-            console.log({phone_number})
             set_phone_numbs(phone_number)
 
 
@@ -94,10 +92,6 @@ const SOSDetail = () => {
             // setPhotoPreview((prev) => prev ?? image)
         }
     }, [get_response])
-
-    useEffect(() => {
-        console.log({phone_numbs})
-    }, [phone_numbs])
 
 
 
