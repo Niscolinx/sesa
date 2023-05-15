@@ -88,7 +88,6 @@ const ViewProperty = () => {
         get_request,
         {
             onSuccess: ({ data }) => {
-                console.log({ data })
                 const { property_type, description } = data
 
                 reset({
