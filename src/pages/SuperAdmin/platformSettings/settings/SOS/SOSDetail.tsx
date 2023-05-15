@@ -92,7 +92,7 @@ const SOSDetail = () => {
 
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
-            url: `/platformsettings/sos/create`,
+            url: `/platformsettings/sos/update/${sos_id}`,
             method: 'post',
             data: inputs,
         })
@@ -125,7 +125,7 @@ const SOSDetail = () => {
             setSelectFormErrors((prev) => {
                 return {
                     ...prev,
-                    Gender: 'Field cannot be empty',
+                    estates: 'Field cannot be empty',
                 }
             })
         }
@@ -199,7 +199,7 @@ const SOSDetail = () => {
         return <p>Loading...</p>
     }
 
-    const slicedEstates: string[] = get_response?.data.estate.map(
+    const slicedEstates: string[] = estates_data.map(
         (each: any) => each.estate_name
     )
 
@@ -218,7 +218,7 @@ const SOSDetail = () => {
         },
 
         {
-            label: 'Estates',
+            label: 'estates',
             type: 'select',
             selectProps: {
                 state: slicedEstates,
