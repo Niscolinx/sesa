@@ -65,7 +65,20 @@ const Login = () => {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
             }
-            navigate('/superAdmin')
+            if(res.data.roles.includes('super')){
+
+                navigate('/superAdmin')
+            }
+            if(res.data.roles.includes('estate')){
+
+                navigate('/estateManager')
+            }
+            if(res.data.roles.includes('company')){
+
+                navigate('/securityCompany')
+            
+
+            }
         },
         onError: (err: any) => {
             console.log({ err })
