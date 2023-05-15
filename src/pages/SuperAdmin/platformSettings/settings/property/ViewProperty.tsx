@@ -8,24 +8,22 @@ import Input from '../../../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import Spinner from '../../../../../components/UI/Spinner'
 
-
 const ViewProperty = () => {
-   
-     type ResponseMessage = {
-         className: string
-         displayMessage: string
-     }
+    type ResponseMessage = {
+        className: string
+        displayMessage: string
+    }
 
-     type Inputs = {
-         property_type: string
-         description: string
-     }
+    type Inputs = {
+        property_type: string
+        description: string
+    }
 
-       type FormInputs = {
-           label: keyof Inputs
-           type?: string
-           pre?: string
-       }
+    type FormInputs = {
+        label: keyof Inputs
+        type?: string
+        pre?: string
+    }
 
     const params = useParams()
 
@@ -44,9 +42,6 @@ const ViewProperty = () => {
             dialogRef.current.showModal()
         }
     }
-
-   
- 
 
     const {
         register,
@@ -67,7 +62,7 @@ const ViewProperty = () => {
     }
 
     const postRequest = (inputs: Inputs) => {
-
+        console.log({inputs})
         return axiosInstance({
             url: `/platformsettings/propertytype/update/${property_id}`,
             method: 'put',
@@ -82,17 +77,21 @@ const ViewProperty = () => {
         })
     }
 
-    const {isLoading, data, error} = useQuery(`property_type_${property_id}`, get_request, {
-        onSuccess: ({data}) => {
-            console.log({data})
-               const { property_type, description } = data
+    const { isLoading, data, error } = useQuery(
+        `property_type_${property_id}`,
+        get_request,
+        {
+            onSuccess: ({ data }) => {
+                console.log({ data })
+                const { property_type, description } = data
 
-               reset({
-                   property_type,
-                   description,
-               })
+                reset({
+                    property_type,
+                    description,
+                })
+            },
         }
-    }) as any
+    ) as any
 
     const { mutate: post_mutation, isLoading: post_loading } = useMutation(
         postRequest,
@@ -103,18 +102,16 @@ const ViewProperty = () => {
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
-
             },
             onError: (err: any) => {
-                 toast(`${err?.response.data.message}`, {
-                     type: 'error',
-                     className:
-                         'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-                 })
-                
+                toast(`${err?.response.data.message}`, {
+                    type: 'error',
+                    className:
+                        'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+                })
             },
         }
-    ) 
+    )
 
     const { mutate: delete_mutation, isLoading: delete_loading } = useMutation(
         postDelete,
@@ -129,20 +126,25 @@ const ViewProperty = () => {
                 closeDialog()
             },
             onError: (err: any) => {
-                 toast(`${ err?.response.data.message}`, {
+                toast(`${err?.response.data.message}`, {
                     type: 'success',
                     className:
                         'bg-green-100 text-green-600 text-[1.4rem] capitalize',
                 })
-              
             },
         }
     ) as any
 
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
-      
-        post_mutation(data)
+
+        const updated = {
+            property_type: data.property_type,
+            description: data.description,
+        
+        }
+
+        post_mutation(updated)
     })
 
     if (isLoading) {
@@ -152,7 +154,6 @@ const ViewProperty = () => {
     if (error) {
         return <p>{error.message}</p>
     }
-
 
     const formInputs = [
         {
@@ -168,7 +169,7 @@ const ViewProperty = () => {
     return (
         <>
             <ToastContainer />
-            <Spinner start={post_loading}/>
+            <Spinner start={post_loading} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 relative'>
