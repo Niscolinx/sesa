@@ -36,10 +36,7 @@ const AddEstate = () => {
         selectProps?: SelectProps
     }
 
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
+  
 
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
