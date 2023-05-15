@@ -197,6 +197,7 @@ const AddArtisan = () => {
             ({ name, id }: any) => ({ name, id })
         )
 
+        //TODO
         const category = slicedCategories.map(
             ({ name, id }: any) => selectedCategories.includes(name) && { id }
         )
@@ -209,6 +210,7 @@ const AddArtisan = () => {
             ...data,
             category,
             state,
+            phone_number: '23232323',
             validation_option: 'bvn',
             is_kyr_approved: false,
             gender: selectedGender,

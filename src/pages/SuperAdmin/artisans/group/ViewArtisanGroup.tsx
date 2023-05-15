@@ -132,7 +132,8 @@ const ViewArtisanGroup = () => {
                         'phone number',
                         'actions',
                     ]}
-                    actions={['view details', 'remove']}
+                    isStrictAction
+                    actions={['remove']}
                     secondary_id={'artisan_id'}
                     view_with_secondary_id={true}
                     data_to_display={[

@@ -45,6 +45,8 @@ const PlatformChanges = () => {
                     sms_notification,
                     transferable_fee
                 })
+
+                //TODO
             },
         }
     ) as any
@@ -130,13 +132,7 @@ const PlatformChanges = () => {
             <div className='p-8 bg-white min-h-[60vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
-                {responseMessage?.displayMessage && (
-                    <p className='text-center'>
-                        <span className={responseMessage?.className}>
-                            {responseMessage?.displayMessage}
-                        </span>
-                    </p>
-                )}
+               
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 items-center'
