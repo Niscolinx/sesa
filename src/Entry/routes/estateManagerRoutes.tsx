@@ -61,7 +61,7 @@ const estateManagerRoutes = (
         <Route path='residents/add' element={<AddResident />} />
         <Route path='residents/edit/:id' element={<EditResident />} />
         <Route path='residents/view/:id' element={<ViewResident />} />
-        <Route path='property' element={<Property />} />
+        {/* <Route path='property' element={<Property />} />
         <Route path='property/add' element={<AddProperty />} />
         <Route path='property/view/:id' element={<ViewProperty />} />
         <Route path='household' element={<HouseHold />} />
@@ -108,7 +108,7 @@ const estateManagerRoutes = (
         <Route path='approvals' element={<Approvals />} />
         <Route path='approvals/view/:id' element={<ApprovalDetail />} />
         <Route path='estate-rules-and-regulations' element={<Rules />} />
-        <Route path='estate-rules-and-regulations/add' element={<AddRule />} />
+        <Route path='estate-rules-and-regulations/add' element={<AddRule />} /> */}
     </Route>
 )
 
