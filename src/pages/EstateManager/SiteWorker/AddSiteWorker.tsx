@@ -12,7 +12,6 @@ import {
     PhoneNumber,
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
-// import { Select, MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
 import {
     AddedSiteWorkerSuccessfully,
     AddBankAccount,
