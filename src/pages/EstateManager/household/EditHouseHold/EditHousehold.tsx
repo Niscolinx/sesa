@@ -7,11 +7,11 @@ import {
     useRef,
 } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
-
-import EditResident from './EditResident'
 import { useLocation } from 'react-router'
-import EditRFID from './EditRFID'
 import EditAccessKey from './EditAccessCard'
+import EditRFID from './EditRFID'
+import EditResident from './EditResident'
+
 
 const paths = [
     {
