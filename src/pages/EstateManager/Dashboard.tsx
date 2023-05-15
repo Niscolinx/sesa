@@ -8,7 +8,7 @@ function Dashboard() {
     const navigate = useNavigate()
      useEffect(() => {
         const role = localStorage.getItem('role')
-        if (role?.indexOf('super') === -1) {
+        if (role?.indexOf('estate') === -1) {
             navigate('/')
         }
     }, [])
