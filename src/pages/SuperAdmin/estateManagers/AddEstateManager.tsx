@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
-import ImageInput from '../../../components/UI/input/ImageInput'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import ImageInput from '../../../components/UI/Input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
 import { useNavigate } from 'react-router'
@@ -37,11 +37,9 @@ const AddSecurityManager = () => {
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string>(
-        genderState[0]
-    )
-      const [responseMessage, setResponseMessage] =
-          useState<ResponseMessage | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+    const [responseMessage, setResponseMessage] =
+        useState<ResponseMessage | null>(null)
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -60,8 +58,6 @@ const AddSecurityManager = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-  
-
     const postRequest = (data: Inputs) => {
         return axiosInstance({
             url: '/manager/create',
@@ -74,7 +70,7 @@ const AddSecurityManager = () => {
         onSuccess: () => {
             handleOpen()
         },
-        onError: (err:any) => {
+        onError: (err: any) => {
             setResponseMessage({
                 className: 'text-red-600',
                 displayMessage: err?.response.data.message,
@@ -101,7 +97,7 @@ const AddSecurityManager = () => {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     const handleClose = () => {
-                navigate(-1)
+        navigate(-1)
 
         if (dialogRef.current) {
             dialogRef.current.close()

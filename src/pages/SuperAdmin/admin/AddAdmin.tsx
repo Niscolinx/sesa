@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation, useQueryClient } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
 import useAxios from '../../../components/hooks/useAxios'
 import Spinner from '../../../components/UI/Spinner'
 import { useNavigate } from 'react-router'
-import ImageInput from '../../../components/UI/input/ImageInput'
+import ImageInput from '../../../components/UI/Input/ImageInput'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -121,7 +121,6 @@ const AddAdmin = () => {
             image: imageFile,
         }
 
-
         mutate(adminData)
     })
 
@@ -210,7 +209,7 @@ const AddAdmin = () => {
                     style={{
                         gridTemplateColumns:
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
-                            columnGap: '10rem'
+                        columnGap: '10rem',
                     }}
                 >
                     <>

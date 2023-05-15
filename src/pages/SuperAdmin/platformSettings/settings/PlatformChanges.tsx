@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input from '../../../../components/UI/input/Input'
+import Input from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
@@ -33,23 +33,23 @@ const PlatformChanges = () => {
         })
     }
 
-    const { isLoading, data: get_data, error } = useQuery(
-        'platformChanges',
-        get_request,
-        {
-            onSuccess: ({ data }) => {
-                const { kyr_validation, sms_notification, transferable_fee } = data
+    const {
+        isLoading,
+        data: get_data,
+        error,
+    } = useQuery('platformChanges', get_request, {
+        onSuccess: ({ data }) => {
+            const { kyr_validation, sms_notification, transferable_fee } = data
 
-                reset({
-                    kyr_validation,
-                    sms_notification,
-                    transferable_fee
-                })
+            reset({
+                kyr_validation,
+                sms_notification,
+                transferable_fee,
+            })
 
-                //TODO
-            },
-        }
-    ) as any
+            //TODO
+        },
+    }) as any
 
     const {
         register,
@@ -128,11 +128,10 @@ const PlatformChanges = () => {
     return (
         <>
             <ToastContainer />
-            <Spinner start={mutation_loading}/>
+            <Spinner start={mutation_loading} />
             <div className='p-8 bg-white min-h-[60vh] rounded-lg'>
                 <h2 className='heading2 border-b pb-10'>Platform Changes</h2>
 
-               
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 items-center'

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input from '../../../../components/UI/input/Input'
+import Input from '../../../../components/UI/Input/Input'
 
 const ResidentWalletDetails = () => {
     interface Inputs {
@@ -39,7 +39,6 @@ const ResidentWalletDetails = () => {
         return <p className='p-4'> Not found!</p>
     }
 
-
     const {
         register,
         clearErrors,
@@ -68,14 +67,12 @@ const ResidentWalletDetails = () => {
                 transaction_source,
                 ...other,
             })
-
         }
     }, [data])
 
     if (isLoading) {
         return <p>loading...</p>
     }
-
 
     const formInputs = [
         {
@@ -116,36 +113,34 @@ const ResidentWalletDetails = () => {
     return (
         <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
             <div
-                    className='grid max-w-[84rem] gap-16 mt-12 '
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <>
-                        {formInputs.map((input, idx) => {
-                            const { label, name, tag, type, value } = input
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                }}
+            >
+                <>
+                    {formInputs.map((input, idx) => {
+                        const { label, name, tag, type, value } = input
 
-                            return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    tag={tag}
-                                    type={type}
-                                    value={value}
-                                    clearErrors={clearErrors}
-                                    setValue={setValue}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    name={name}
-                                    disabled={true}
-                                />
-                            )
-                        })}
-
-                       
-                    </>
-                </div>
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                tag={tag}
+                                type={type}
+                                value={value}
+                                clearErrors={clearErrors}
+                                setValue={setValue}
+                                register={register}
+                                formErrors={formErrors}
+                                name={name}
+                                disabled={true}
+                            />
+                        )
+                    })}
+                </>
+            </div>
         </div>
     )
 }

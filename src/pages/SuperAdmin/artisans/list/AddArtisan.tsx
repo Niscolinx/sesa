@@ -3,10 +3,10 @@ import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
 import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import ImageInput from '../../../../components/UI/input/ImageInput'
+import ImageInput from '../../../../components/UI/Input/ImageInput'
 import useAxios from '../../../../components/hooks/useAxios'
 import useFetchData from '../../../../utils/useFetchData'
 import Spinner from '../../../../components/UI/Spinner'
@@ -147,7 +147,7 @@ const AddArtisan = () => {
     })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
+        console.log({ data })
         let isError = false
         if (selectedCategories.length < 1) {
             isError = true
@@ -214,7 +214,7 @@ const AddArtisan = () => {
             validation_option: 'bvn',
             is_kyr_approved: false,
             gender: selectedGender,
-             image: imageFile,
+            image: imageFile,
         }
 
         console.log({ updatedData })
@@ -357,7 +357,7 @@ const AddArtisan = () => {
     return (
         <>
             <ToastContainer />
-        <Spinner start={isLoading}/>
+            <Spinner start={isLoading} />
             <dialog className='dialog' ref={validateDialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
@@ -492,7 +492,6 @@ const AddArtisan = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
-              
                 {responseMessage?.displayMessage && (
                     <p className='text-center my-5'>
                         <span className={responseMessage?.className}>

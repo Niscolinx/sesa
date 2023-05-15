@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import Spinner from '../../../../components/UI/Spinner'
 import { useNavigate } from 'react-router'
-
 
 const AddResidentUserPackage = () => {
     type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
@@ -125,7 +124,7 @@ const AddResidentUserPackage = () => {
             label: 'discount',
             type: 'number',
             minLength: 1,
-            tag: 'money'
+            tag: 'money',
         },
     ] satisfies FormInputs[]
 
@@ -166,7 +165,14 @@ const AddResidentUserPackage = () => {
                     }}
                 >
                     {formInputs.map((input, idx) => {
-                        const { label, type, selectProps, minLength, name, tag } = input
+                        const {
+                            label,
+                            type,
+                            selectProps,
+                            minLength,
+                            name,
+                            tag,
+                        } = input
                         return (
                             <Input
                                 key={idx + label}

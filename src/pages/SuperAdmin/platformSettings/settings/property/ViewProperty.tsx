@@ -4,7 +4,7 @@ import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
-import Input from '../../../../../components/UI/input/Input'
+import Input from '../../../../../components/UI/Input/Input'
 import { useNavigate, useParams } from 'react-router'
 import Spinner from '../../../../../components/UI/Spinner'
 
@@ -148,7 +148,6 @@ const ViewProperty = () => {
 
     const onSubmit = handleSubmit((data) => {
         setResponseMessage(null)
-
 
         post_mutation(data)
     })

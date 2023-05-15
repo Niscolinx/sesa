@@ -3,11 +3,10 @@ import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
-
 
 const AddArtisanGroup = () => {
     interface Inputs {
@@ -105,11 +104,8 @@ const AddArtisanGroup = () => {
             return
         }
 
-       
-
         setSelectFormErrors(null)
         setResponseMessage(null)
-       
 
         const slicedEstates: string[] = estates_data.map(
             ({ estate_name, id }: any) => ({
@@ -122,25 +118,23 @@ const AddArtisanGroup = () => {
             ({ firstname, id }: any) => ({ firstname, id })
         )
 
-       
         const artisan = slicedArtisans
             .filter(({ firstname }: any) =>
                 selectedArtisans.includes(firstname)
             )
-            .map(({ id }: any) => ({id}))
+            .map(({ id }: any) => ({ id }))
 
         const estate = slicedEstates
             .filter(({ estate_name }: any) =>
                 selectedEstates.includes(estate_name)
             )
-            .map(({ id }: any) => ({id}))
+            .map(({ id }: any) => ({ id }))
 
         const updatedData = {
             ...data,
             artisan,
             estate,
         }
-
 
         mutate(updatedData)
     })

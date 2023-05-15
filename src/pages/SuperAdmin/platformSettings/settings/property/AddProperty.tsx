@@ -4,7 +4,7 @@ import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
-import Input from '../../../../../components/UI/input/Input'
+import Input from '../../../../../components/UI/Input/Input'
 import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { IoMdAdd } from 'react-icons/io'
@@ -60,7 +60,6 @@ const AddProperty = () => {
                 className:
                     'bg-green-100 text-green-600 text-[1.4rem] capitalize',
             })
-
         },
         onError: (err: any) => {
             setResponseMessage({
@@ -94,7 +93,7 @@ const AddProperty = () => {
     return (
         <>
             <ToastContainer />
-            <Spinner start={mutation_loading}/>
+            <Spinner start={mutation_loading} />
             <div className='grid text-[1.6rem] border rounded-lg bg-white'>
                 <div className=' p-10  rounded-lg '>
                     <div className='flex w-full border-b items-center pb-5 justify-between'>
@@ -132,7 +131,7 @@ const AddProperty = () => {
                             style={{ justifySelf: 'start' }}
                         >
                             <span>
-                                <IoMdAdd/>
+                                <IoMdAdd />
                             </span>{' '}
                             {mutation_loading ? 'Loading...' : 'Add'}
                         </button>

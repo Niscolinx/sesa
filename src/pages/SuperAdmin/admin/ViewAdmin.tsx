@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
-import { ShowImage } from '../../../components/UI/input/ImageInput'
+import { ShowImage } from '../../../components/UI/Input/ImageInput'
 
 const ViewAdmin = () => {
     interface Inputs {
@@ -133,7 +133,7 @@ const ViewAdmin = () => {
                 phone_number,
             })
 
-           // setPhotoPreview((prev) => prev ?? image)
+            // setPhotoPreview((prev) => prev ?? image)
             setSelectedGender(gender)
         }
     }, [get_response])
@@ -171,8 +171,6 @@ const ViewAdmin = () => {
         post_admin_mutation(adminData)
     })
 
-  
-
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -185,8 +183,6 @@ const ViewAdmin = () => {
     if (get_admin_loading || !get_response?.data) {
         return <p>loading...</p>
     }
-
-    
 
     return (
         <>

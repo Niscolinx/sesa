@@ -12,7 +12,7 @@ import { QueryClient, useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
-import Input, { SelectProps } from '../../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../../components/UI/Input/Input'
 import Spinner from '../../../../../components/UI/Spinner'
 import { useNavigate } from 'react-router'
 
@@ -42,7 +42,6 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
         }
 
         useEffect(() => {
-
             if (phoneError && phoneError[`phone${idx + 1}`]) {
                 setErrorMessage(phoneError[`phone${idx + 1}`])
                 setIsError(true)
@@ -125,7 +124,6 @@ const AddSOS = () => {
     const axiosInstance = useAxios()
     const navigate = useNavigate()
 
-
     const postRequest = (inputs: Inputs) => {
         return axiosInstance({
             url: `/platformsettings/sos/create`,
@@ -152,10 +150,9 @@ const AddSOS = () => {
             })
         },
 
-        onSettled:() => {
+        onSettled: () => {
             queryClient.invalidateQueries('SOS')
-        
-        }
+        },
     })
 
     const closeDialog = () => {
@@ -191,7 +188,6 @@ const AddSOS = () => {
         }, [])
 
         each_num.forEach((num, idx) => {
-
             if (num === '') {
                 isError = true
                 toast(`Phone Number cannot be empty`, {

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import ImageInput from '../../../components/UI/input/ImageInput'
+import ImageInput from '../../../components/UI/Input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import Spinner from '../../../components/UI/Spinner'
@@ -36,8 +36,6 @@ const AddEstate = () => {
         maxLength?: number
         selectProps?: SelectProps
     }
-
-  
 
     const { data: estate_manager_data, isLoading: estate_manager_loading } =
         useFetchData({
@@ -117,7 +115,7 @@ const AddEstate = () => {
 
     const { mutate, isLoading } = useMutation(postAdmin, {
         onSuccess: () => {
-         openDialog()
+            openDialog()
         },
         onError: (err: any) => {
             toast(err?.response?.data.message, {
@@ -125,8 +123,7 @@ const AddEstate = () => {
                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
-    }) 
-
+    })
 
     const closeDialog = () => {
         navigate(-1)

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation, useQuery } from 'react-query'
@@ -59,8 +59,6 @@ const ViewPackage = () => {
 
     const package_id = params.id?.replace(':', '')
 
-    
-
     const getRequest = () => {
         return axiosInstance({
             url: `/admin/resident/user/single/package`,
@@ -115,9 +113,9 @@ const ViewPackage = () => {
             frequency: selectedFrequency,
         }
 
-        console.log({updatedData})
+        console.log({ updatedData })
 
-       mutate(updatedData)
+        mutate(updatedData)
     })
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -152,7 +150,7 @@ const ViewPackage = () => {
             name: 'amount',
             label: 'price',
             type: 'number',
-            tag: 'money'
+            tag: 'money',
         },
         {
             label: 'details',
@@ -164,7 +162,7 @@ const ViewPackage = () => {
         },
     ] satisfies FormInputs[]
 
-    if(get_loading){
+    if (get_loading) {
         return <p className='p-8'>Loading...</p>
     }
 

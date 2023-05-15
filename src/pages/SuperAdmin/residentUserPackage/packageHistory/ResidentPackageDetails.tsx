@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'

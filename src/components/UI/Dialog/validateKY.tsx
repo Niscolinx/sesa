@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import { Select } from '../../SuperAdmin/UI/Select'
-import Input from '../input/Input'
+import Input from '../Input/Input'
 import { toast, ToastContainer } from 'react-toastify'
 
 function ValidateKY() {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../components/hooks/useAxios'
@@ -27,7 +27,7 @@ const ViewEstateManager = () => {
         label?: string
         type?: string
         name?: string
-        value?:string | number
+        value?: string | number
         selectProps?: SelectProps
     }
 
@@ -138,7 +138,7 @@ const ViewEstateManager = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-             const phone_number = parseInt(phone.slice(3, -1))
+            const phone_number = parseInt(phone.slice(3, -1))
             setPhone(phone_number)
             reset({
                 first_name,
@@ -147,7 +147,6 @@ const ViewEstateManager = () => {
                 email_address: email,
                 phone_number: parseInt(phone),
             })
-
 
             setPhotoPreview(image)
             setSelectedGender(fetched_data.gender)

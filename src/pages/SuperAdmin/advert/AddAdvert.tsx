@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
-import ImageInput from '../../../components/UI/input/ImageInput'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import ImageInput from '../../../components/UI/Input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import Spinner from '../../../components/UI/Spinner'
@@ -166,7 +166,7 @@ const AddAdvert = () => {
         {
             label: 'url',
             name: 'URL',
-            required: false
+            required: false,
         },
     ] satisfies FormInputs[]
 
@@ -211,7 +211,8 @@ const AddAdvert = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, required } = input
+                            const { label, type, name, selectProps, required } =
+                                input
                             return (
                                 <Input
                                     key={idx + label}

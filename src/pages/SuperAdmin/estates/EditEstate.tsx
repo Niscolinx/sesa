@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/useAxios'
@@ -7,7 +7,7 @@ import useFetchData from '../../../utils/useFetchData'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
-import { ShowImage } from '../../../components/UI/input/ImageInput'
+import { ShowImage } from '../../../components/UI/Input/ImageInput'
 
 const EditEstate = () => {
     interface Inputs {
@@ -209,9 +209,7 @@ const EditEstate = () => {
             .map(({ id }: any) => ({ id }))[0]
 
         const estate_manager: string[] = estate_manager_data
-            .filter(({ name }: any) =>
-                selectedEstateManager.includes(name)
-            )
+            .filter(({ name }: any) => selectedEstateManager.includes(name))
             .map(({ id }: any) => ({ id }))[0]
 
         const updated_data: any = {

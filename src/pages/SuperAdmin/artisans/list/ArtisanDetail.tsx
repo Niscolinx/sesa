@@ -7,7 +7,7 @@ import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
 import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import ValidateKY from '../../../../components/UI/Dialog/ValidateKY'
@@ -113,19 +113,15 @@ const ArtisanDetail = () => {
     const onSubmit = handleSubmit((data) => {
         const { category } = get_response?.data
 
-        const get_category_ids: Object[]  = []
+        const get_category_ids: Object[] = []
 
-        for(let item of category){
-
-            for(let selected of selectedCategories){
-
-                if(item.name === selected){
-                    get_category_ids.push({id: item.id})
+        for (let item of category) {
+            for (let selected of selectedCategories) {
+                if (item.name === selected) {
+                    get_category_ids.push({ id: item.id })
                 }
             }
         }
-    
-
 
         const updatedData = {
             ...data,

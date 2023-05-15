@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/input/Input'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
@@ -42,8 +42,6 @@ const ViewPackage = () => {
         useState<string>('monthly')
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
-
-    
 
     const {
         register,
