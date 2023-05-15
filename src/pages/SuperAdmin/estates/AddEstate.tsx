@@ -8,6 +8,7 @@ import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import Spinner from '../../../components/UI/Spinner'
 import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router'
 
 const AddEstate = () => {
     interface Inputs {
@@ -53,6 +54,7 @@ const AddEstate = () => {
     )
 
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
 
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const estateFeeRef = useRef<number | null>()
@@ -127,6 +129,7 @@ const AddEstate = () => {
 
 
     const closeDialog = () => {
+        
         if (dialogRef.current) {
             dialogRef.current.close()
         }
