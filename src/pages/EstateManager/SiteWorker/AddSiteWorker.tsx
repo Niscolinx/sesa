@@ -13,8 +13,9 @@ import {
     PhoneNumber,
     Voters_Card,
 } from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
-import { Select, MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
+// import { Select, MultipleSelect } from '../../../components/SuperAdmin/UI/Select'
 import { AddedSiteWorkerSuccessfully, AddBankAccount, OpenedBankAccountSuccessful } from './DialogSteps'
+import { Select, MultipleSelect } from '../../../Components/SuperAdmin/UI/Select'
 
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
