@@ -4,21 +4,26 @@ import { getToken } from '../../utils/token'
 import { setAuth } from '../../store/features/auth'
 import axios from 'axios'
 
-function useAxios() {
+interface Props {
+    is_form_data?: boolean
+}
+function useAxios({ is_form_data }: Props = { is_form_data: true }) {
     const dispatch = useAppDispatch()
     const axiosInstance = axios.create({
         baseURL: 'https://sesa-digital.herokuapp.com/api',
         // baseURL: 'https://sesadigital.com/api'
-
     })
 
     useEffect(() => {
-       axiosInstance.interceptors.request.use(
+        axiosInstance.interceptors.request.use(
             (config) => {
                 const token = getToken()
                 if (token) {
                     config.headers.Authorization = `Bearer ${token}`
-                    config.headers['Content-Type'] = 'multipart/form-data'
+                    if (is_form_data) {
+                        config.headers['Content-Type'] =
+                            'application/json, multipart/form-data'
+                    }
                 } else {
                     dispatch(setAuth(false))
                 }
@@ -31,8 +36,6 @@ function useAxios() {
             (response) => response.data,
             (error) => Promise.reject(error)
         )
-
-      
     }, [dispatch, axiosInstance])
 
     return axiosInstance

@@ -54,7 +54,9 @@ const ViewProperty = () => {
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
 
-    const axiosInstance = useAxios()
+    const axiosInstance = useAxios({
+        is_form_data: false,
+    })
 
     const get_request = () => {
         return axiosInstance({
@@ -68,6 +70,9 @@ const ViewProperty = () => {
             url: `/platformsettings/propertytype/update/${property_id}`,
             method: 'put',
             data: inputs,
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
     }
 
