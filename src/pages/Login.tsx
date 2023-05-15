@@ -52,7 +52,6 @@ const Login = () => {
     }
     const {
         mutate,
-        data: response_data,
         isLoading,
     } = useMutation(postLogin, {
         onSuccess: (res) => {
@@ -64,6 +63,9 @@ const Login = () => {
             if (token) {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
+            }
+            if (res.data.roles) {
+                localStorage.setItem('roles', JSON.stringify(res.data.roles))
             }
             if(res.data.roles.includes('super')){
 
