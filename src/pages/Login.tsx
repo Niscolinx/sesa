@@ -50,10 +50,7 @@ const Login = () => {
             data: user,
         })
     }
-    const {
-        mutate,
-        isLoading,
-    } = useMutation(postLogin, {
+    const { mutate, isLoading } = useMutation(postLogin, {
         onSuccess: (res) => {
             setResponseMessage({
                 className: 'text-green-600',
@@ -67,19 +64,14 @@ const Login = () => {
             if (res.data.roles) {
                 localStorage.setItem('role', JSON.stringify(res.data.roles))
             }
-            if(res.data.roles.includes('super')){
-
+            if (res.data.roles.includes('super')) {
                 navigate('/superAdmin')
             }
-            if(res.data.roles.includes('estate')){
-
+            if (res.data.roles.includes('estate')) {
                 navigate('/estateManager')
             }
-            if(res.data.roles.includes('company')){
-
+            if (res.data.roles.includes('company')) {
                 navigate('/securityCompany')
-            
-
             }
         },
         onError: (err: any) => {
@@ -95,21 +87,7 @@ const Login = () => {
         let { email } = data
 
         email = email.toLowerCase().trim()
-
-        console.log({ email })
-
-        if (email === 'superadmin@admin.com') {
-            //  navigate('/superAdmin')
-            return mutate(data)
-        }
-
-        if (email === 'securitycompany@sesa.com') {
-            navigate('/securityCompany')
-        }
-
-        if (email === 'estatemanager@sesa.com') {
-            navigate('/estateManager')
-        }
+        return mutate(data)
     })
 
     return (
