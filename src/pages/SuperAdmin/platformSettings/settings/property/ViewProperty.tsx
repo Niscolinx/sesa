@@ -8,13 +8,25 @@ import Input from '../../../../../components/UI/input/Input'
 import { useParams } from 'react-router'
 import Spinner from '../../../../../components/UI/Spinner'
 
-export interface IPropertyType {
-    id: string
-    propertyType: string
-    description: string
-}
 
 const ViewProperty = () => {
+   
+     type ResponseMessage = {
+         className: string
+         displayMessage: string
+     }
+
+     type Inputs = {
+         property_type: string
+         description: string
+     }
+
+       type FormInputs = {
+           label: keyof Inputs
+           type?: string
+           pre?: string
+       }
+
     const params = useParams()
 
     const property_id = params.id?.replace(':', '')
@@ -33,22 +45,7 @@ const ViewProperty = () => {
         }
     }
 
-    type FormInputs = {
-        label: string
-        type?: string
-        pre?: string
-    }
-
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
-
-    type Inputs = {
-        property_type: string
-        description: string
-    }
-
+   
  
 
     const {
