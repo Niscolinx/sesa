@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Table from '../../../../Components/UI/table/Table'
+import Table from '../../../../components/UI/table/Table'
 import { useMutation } from 'react-query'
-import useAxios from '../../../../Components/hooks/useAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()

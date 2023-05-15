@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import Input, { SelectProps } from '../../../Components/UI/Input/Input'
-import ImageInput from '../../../Components/UI/Input/ImageInput'
-import useAxios from '../../../Components/hooks/useAxios'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import ImageInput from '../../../components/UI/Input/ImageInput'
+import useAxios from '../../../components/hooks/useAxios'
 import useFetchData from '../../../utils/useFetchData'
 import { useNavigate } from 'react-router'
-import Spinner from '../../../Components/UI/Spinner'
+import Spinner from '../../../components/UI/Spinner'
 
 const AddSecurityCompany = () => {
     interface Inputs {

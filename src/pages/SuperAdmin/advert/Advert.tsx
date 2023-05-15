@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Table from '../../../Components/UI/table/Table'
+import Table from '../../../components/UI/table/Table'
 
 function Advert() {
     return (

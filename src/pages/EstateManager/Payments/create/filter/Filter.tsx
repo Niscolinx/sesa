@@ -1,6 +1,6 @@
 import { FC, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { Select } from '../../../../../Components/SuperAdmin/UI/Select'
+import { Select } from '../../../../../components/SuperAdmin/UI/Select'
 import HouseholdFilter from './HouseholdFilter'
 import ResidentFilter from './ResidentFilter'
 

@@ -2,7 +2,7 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer } from 'react-toastify'
-import { ComplexSelect, Select } from '../../../Components/SuperAdmin/UI/Select'
+import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddProperty = () => {

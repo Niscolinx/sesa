@@ -3,8 +3,8 @@ import { AiOutlineDoubleRight } from 'react-icons/ai'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
-import { EstateChart as Chart } from '../../../Components/SuperAdmin/charts/OverviewChart'
-import { Select } from '../../../Components/SuperAdmin/UI/Select'
+import { EstateChart as Chart } from '../../../components/SuperAdmin/charts/OverviewChart'
+import { Select } from '../../../components/SuperAdmin/UI/Select'
 import { IoMdClose } from 'react-icons/io'
 import {
     PhoneNumber,

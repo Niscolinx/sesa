@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MultipleSelect } from '../../../../Components/SuperAdmin/UI/Select'
+import { MultipleSelect } from '../../../../components/SuperAdmin/UI/Select'
 import { useForm } from 'react-hook-form'
 import { ElectionDates, useCreateElectionContext } from '../createElection'
 

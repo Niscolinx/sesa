@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { GroupThreeImages } from '../../../../Components/UI/GroupThreeImages'
+import { GroupThreeImages } from '../../../../components/UI/GroupThreeImages'
 import { CandidateField, useCreateElectionContext } from '../createElection'
 
 const Last = () => {

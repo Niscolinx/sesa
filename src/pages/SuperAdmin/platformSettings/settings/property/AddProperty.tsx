@@ -3,12 +3,12 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../../Components/hooks/useAxios'
-import Input from '../../../../../Components/UI/Input/Input'
+import useAxios from '../../../../../components/hooks/useAxios'
+import Input from '../../../../../components/UI/Input/Input'
 import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { IoMdAdd } from 'react-icons/io'
-import Spinner from '../../../../../Components/UI/Spinner'
+import Spinner from '../../../../../components/UI/Spinner'
 
 export interface IPropertyType {
     id: string

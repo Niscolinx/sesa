@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import {
     MultipleSelect,
     Select,
-} from '../../../Components/SuperAdmin/UI/Select'
+} from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
 import {

@@ -4,7 +4,7 @@ import { GrAdd } from 'react-icons/gr'
 import {
     MappedSelect,
     Select,
-} from '../../../../Components/SuperAdmin/UI/Select'
+} from '../../../../components/SuperAdmin/UI/Select'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {

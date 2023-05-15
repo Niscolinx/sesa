@@ -2,9 +2,9 @@ import React from 'react'
 
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
-import OverviewChart from '../../Components/SuperAdmin/charts/OverviewChart'
-import { OverviewWallet } from '../../Components/SuperAdmin/overview/OverviewWallets'
-import useAxios from '../../Components/hooks/useAxios'
+import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
+import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
+import useAxios from '../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
 import useFetchData from '../../utils/useFetchData'
 

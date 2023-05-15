@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input from '../../../../Components/UI/Input/Input'
+import Input from '../../../../components/UI/Input/Input'
 
 const ResidentWalletDetails = () => {
     interface Inputs {

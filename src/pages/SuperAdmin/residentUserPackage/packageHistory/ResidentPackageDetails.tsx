@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../Components/UI/Input/Input'
-import useAxios from '../../../../Components/hooks/useAxios'
+import Input, { SelectProps } from '../../../../components/UI/Input/Input'
+import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'
 import { useParams } from 'react-router'

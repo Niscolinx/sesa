@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router'
-import Input, { SelectProps } from '../../../Components/UI/Input/Input'
-import useAxios from '../../../Components/hooks/useAxios'
+import Input, { SelectProps } from '../../../components/UI/Input/Input'
+import useAxios from '../../../components/hooks/useAxios'
 import { ToastContainer, toast } from 'react-toastify'
 import { useMutation, useQuery } from 'react-query'
-import Activate_Deactivate from '../../../Components/UI/Dialog/Activate_Deactivate'
-import Spinner from '../../../Components/UI/Spinner'
+import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import Spinner from '../../../components/UI/Spinner'
 
 const SecurityCompanyDetail = () => {
     interface Inputs {

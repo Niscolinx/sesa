@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../Components/hooks/useAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 
 export interface IPropertyType {
     id: string

@@ -36,7 +36,7 @@ import ViewArtisanCategory from '../../pages/SuperAdmin/artisans/category/ViewAr
 import AddProperty from '../../pages/SuperAdmin/platformSettings/settings/property/AddProperty'
 import Estates from '../../pages/SuperAdmin/estates/Estates'
 import EstateReport from '../../pages/SuperAdmin/estates/EstateReport'
-import ErrorBoundary from '../../Components/UI/ErrorBoundary'
+import ErrorBoundary from '../../components/UI/ErrorBoundary'
 import AddEstate from '../../pages/SuperAdmin/estates/AddEstate'
 import AddEstateManager from '../../pages/SuperAdmin/estateManagers/AddEstateManager'
 import ViewEstateManager from '../../pages/SuperAdmin/estateManagers/ViewEstateManager'

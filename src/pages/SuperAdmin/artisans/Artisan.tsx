@@ -1,6 +1,6 @@
 import { Fragment, useLayoutEffect, useState } from 'react'
-import Table from '../../../Components/UI/table/Table'
-import PrevLocation from '../../../Components/hooks/prevLocation'
+import Table from '../../../components/UI/table/Table'
+import PrevLocation from '../../../components/hooks/prevLocation'
 
 function ArtisanList() {
     return (

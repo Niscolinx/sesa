@@ -11,7 +11,7 @@ import {
 import {
     MultipleSelect,
     Select,
-} from '../../../Components/SuperAdmin/UI/Select'
+} from '../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,

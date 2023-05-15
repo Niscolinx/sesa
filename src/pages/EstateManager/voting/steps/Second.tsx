@@ -1,6 +1,6 @@
 import { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { Select } from '../../../../Components/SuperAdmin/UI/Select'
+import { Select } from '../../../../components/SuperAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 
