@@ -77,21 +77,19 @@ const ViewProperty = () => {
 
     const postDelete = () => {
         return axiosInstance({
-            url: '/change/status',
-            method: 'post',
-            data: { id: property_id },
+            url: `/platformsettings/propertytype/delete/${property_id}`,
+            method: 'delete',
         })
     }
 
     const {isLoading, data, error} = useQuery('property', get_request, {
         onSuccess: ({data}) => {
-            console.log({data})
-               const { property_type, description } = data
+            toast(`Property Type Updated`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+            })
 
-               reset({
-                   property_type,
-                   description,
-               })
+              
         }
     }) as any
 
