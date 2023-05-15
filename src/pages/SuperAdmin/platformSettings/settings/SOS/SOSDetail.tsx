@@ -47,14 +47,6 @@ const SOSDetail = () => {
 
     const phone_ref = useRef<HTMLInputElement[]>([])
 
-    useEffect(() => {
-        console.log({phone_ref}, phone_ref.current)
-
-        phone_ref.current.forEach((each, index) => {
-            each.value = '090232323'
-        })
-    }, [phone_ref.current])
-
 
     const [phone_numbs, set_phone_numbs] = useState<string[]>([''])
 

@@ -3,11 +3,12 @@ import { forwardRef, useState, ChangeEvent, useEffect } from "react"
 interface AddPhoneNumber {
     idx: number
     phoneError: any
+    value?: string
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-    ({ idx, phoneError }, ref) => {
-        const [phone, setPhone] = useState('')
+    ({ idx, phoneError, value }, ref) => {
+        const [phone, setPhone] = useState(value)
         const [isError, setIsError] = useState(false)
         const [errorMessage, setErrorMessage] = useState('')
 
