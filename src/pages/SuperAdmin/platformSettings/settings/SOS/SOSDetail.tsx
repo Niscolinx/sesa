@@ -88,8 +88,6 @@ const SOSDetail = () => {
             reset({
                 ...inputs,
             })
-
-            // setPhotoPreview((prev) => prev ?? image)
         }
     }, [get_response])
 
