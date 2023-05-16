@@ -1,13 +1,13 @@
 //import { isAuthenticated } from './../../utils/token';
 import { createSlice } from '@reduxjs/toolkit'
-import { AppState } from '../app/store'
+import { AppState } from '../app/Store'
 
 const initialState = {
     isAuth: false,
 }
 
 type StateKey = keyof typeof initialState
-type StateValue = typeof initialState[StateKey]
+type StateValue = (typeof initialState)[StateKey]
 
 const AuthSlice = createSlice({
     name: 'authSlice',
@@ -27,10 +27,9 @@ const AuthSlice = createSlice({
         setAuth: function (state, action) {
             const auth = action.payload
 
-           state.isAuth = auth
-           //state.isAuth= true
+            state.isAuth = auth
+            //state.isAuth= true
         },
-
     },
 })
 

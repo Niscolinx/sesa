@@ -4,7 +4,7 @@ import WalletBarChart from '../../../../components/superAdmin/charts/WalletBarCh
 import { OverviewWallet } from '../../../../components/superAdmin/overview/OverviewWallets'
 
 import Table from '../../../../components/ui/table/Table'
-import useFetchData from '../../../../utils/useFetchData'
+import useFetchData from '../../../../utils/UseFetchData'
 
 const ResidentWallet = () => {
     // const trend: Array<Trend> = ['This Week', 'This Month', 'This Year']

@@ -1,5 +1,5 @@
 import { setAuth } from '../store/features/Auth'
-import { useAppDispatch } from './../store/app/hooks'
+import { useAppDispatch } from '../store/app/Hooks'
 
 export const isAuthenticated = (): string | null => {
     const tokenData = localStorage.getItem('token')

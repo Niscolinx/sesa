@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch } from '../store/app/hooks'
+import { useAppDispatch } from '../store/app/Hooks'
 import { setAuth } from '../store/features/Auth'
 import Login from '../pages/Login'
 import { useNavigate } from 'react-router'
-import { clearAuth } from '../utils/token'
+import { clearAuth } from '../utils/Token'
 
 interface Props {
     children: React.ReactNode

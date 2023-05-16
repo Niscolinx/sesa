@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 import OverviewCard from '../../../components/superAdmin/overview/OverviewCard'
-import useFetchData from '../../../utils/useFetchData'
+import useFetchData from '../../../utils/UseFetchData'
 import Table from '../../../components/ui/table/Table'
 
 function EstateDetail() {

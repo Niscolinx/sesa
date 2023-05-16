@@ -9,7 +9,7 @@ interface FetchData {
     nested?: boolean
 }
 
-const useFetchData = ({
+const UseFetchData = ({
     url = '/states/get',
     params,
     name = 'states',
@@ -45,4 +45,4 @@ const useFetchData = ({
     }
 }
 
-export default useFetchData
+export default UseFetchData

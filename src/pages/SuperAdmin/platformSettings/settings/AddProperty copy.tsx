@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import useFetchData from '../../../../utils/useFetchData'
+import useFetchData from '../../../../utils/UseFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/UseAxios'
