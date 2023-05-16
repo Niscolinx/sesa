@@ -53,7 +53,7 @@ import ViewSecurityManager from '../../pages/SuperAdmin/securityManagers/ViewSec
 import AdvertClicks from '../../pages/SuperAdmin/advert/AdvertClicks'
 import AdvertViews from '../../pages/SuperAdmin/advert/AdvertViews'
 
-const superAdminRoutes = (
+const SuperAdminRoutes = (
     <Route
         path='/superAdmin'
         element={<SuperAdminDashboard />}
@@ -137,4 +137,4 @@ const superAdminRoutes = (
     </Route>
 )
 
-export default superAdminRoutes
+export default SuperAdminRoutes
