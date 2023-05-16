@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ImageInput from '../../../../components/ui/input/ImageInput'
 import useAxios from '../../../../components/hooks/UseAxios'
-import useFetchData from '../../../../utils/UseFetchData'
+import useFetchData from '../../../../components/hooks/UseFetchData'
 import Spinner from '../../../../components/ui/Spinner'
 
 type DialogType = 'validate' | 'add-Artisan'

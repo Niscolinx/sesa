@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import useAxios from '../components/hooks/UseAxios'
+import useAxios from './UseAxios'
 
 interface FetchData {
     url?: string
@@ -9,7 +9,7 @@ interface FetchData {
     nested?: boolean
 }
 
-const UseFetchData = ({
+const useFetchData = ({
     url = '/states/get',
     params,
     name = 'states',
