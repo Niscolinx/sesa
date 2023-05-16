@@ -49,7 +49,7 @@ import SiteWorker from 'src/pages/EstateManager/siteWorker/SiteWorker'
 import ViewSiteWorker from 'src/pages/EstateManager/siteWorker/ViewSiteWorker'
 import AddSiteWorker from 'src/pages/EstateManager/siteWorker/AddSiteWorker'
 
-const estateManagerRoutes = (
+const EstateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
         <Route index element={<Overview />} />
         <Route path='wallet' element={<Wallet />} />
@@ -112,4 +112,4 @@ const estateManagerRoutes = (
     </Route>
 )
 
-export default estateManagerRoutes
+export default EstateManagerRoutes

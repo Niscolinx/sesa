@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import StarRating from '../../../../components/SuperAdmin/UI/StarRating'
+import { Select } from '../../../../components/superAdmin/UI/Select'
+import StarRating from '../../../../components/superAdmin/UI/StarRating'
 
-import ValidatedResult from '../../../../components/UI/Dialog/ValidatedResult'
+import ValidatedResult from '../../../../components/ui/dialog/ValidatedResult'
 import { useParams } from 'react-router'
 import useAxios from '../../../../components/hooks/useAxios'
-import Activate_Deactivate from '../../../../components/UI/Dialog/Activate_Deactivate'
-import Input, { SelectProps } from '../../../../components/UI/Input/Input'
+import Activate_Deactivate from '../../../../components/ui/dialog/Activate_Deactivate'
+import Input, { SelectProps } from '../../../../components/ui/Input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
-import ValidateKY from '../../../../components/UI/Dialog/ValidateKY'
+import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
 
 const ArtisanDetail = () => {
     interface Inputs {

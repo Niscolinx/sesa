@@ -19,7 +19,7 @@ import PasswordSettings from '../../pages/SecurityCompany/dashboard/Settings/Pas
 import Settings from '../../pages/SecurityCompany/dashboard/Settings/Settings'
 import { Link } from 'react-router-dom'
 
-const securityCompanyRoutes = (
+const SecurityCompanyRoutes = (
     <Route path='/securityCompany' element={<SecurityCompanyDashboard />}>
         <Route index element={<SecurityCompanyOverview />} />
         <Route path='estates' element={<Estates />} />
@@ -48,4 +48,4 @@ const securityCompanyRoutes = (
     </Route>
 )
 
-export default securityCompanyRoutes
+export default SecurityCompanyRoutes

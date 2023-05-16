@@ -4,7 +4,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 
 import { useNavigate } from 'react-router-dom'
-import OverviewCard from '../../../../components/SuperAdmin/overview/OverviewCard'
+import OverviewCard from '../../../../components/superAdmin/overview/OverviewCard'
 
 export interface Overview {
     id: number

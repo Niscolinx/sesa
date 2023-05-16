@@ -3,9 +3,9 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
-import { EstateChart } from '../../../../components/SuperAdmin/charts/OverviewChart'
-import ReportChart from '../../../../components/SuperAdmin/charts/ReportsChart'
-import { EstateBarChart } from '../../../../components/SuperAdmin/charts/WalletBarChart'
+import { EstateChart } from '../../../../components/superAdmin/charts/OverviewChart'
+import ReportChart from '../../../../components/superAdmin/charts/ReportsChart'
+import { EstateBarChart } from '../../../../components/superAdmin/charts/WalletBarChart'
 
 export interface ReportDetail {
     id: number

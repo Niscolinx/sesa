@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/Input/Input'
+import Input, { SelectProps } from '../../../../components/ui/Input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
-import Spinner from '../../../../components/UI/Spinner'
+import Spinner from '../../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 
 const AddResidentUserPackage = () => {

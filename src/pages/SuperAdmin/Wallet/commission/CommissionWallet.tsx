@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../components/ui/table/Table'
 import CommissionDialog from './CommissionDialog'
 
 const CommissionWallet = () => {

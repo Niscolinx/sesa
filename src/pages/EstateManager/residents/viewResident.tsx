@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/superAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import ValidatedResult from '../../../components/UI/Dialog/ValidatedResult'
+import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 import { SetStateAction } from 'jotai'
 
 type Actions = 'Deactivate' | 'Delete'

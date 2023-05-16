@@ -3,7 +3,7 @@ import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
-import Input, { SelectProps } from '../../../../components/UI/Input/Input'
+import Input, { SelectProps } from '../../../../components/ui/Input/Input'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'

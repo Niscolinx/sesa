@@ -1,14 +1,11 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
-import { MultipleSelect, Select } from '../../SuperAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../superAdmin/UI/Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import {
-    UseFormClearErrors,
-    UseFormSetValue,
-} from 'react-hook-form'
+import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
 
 export interface SelectProps {
     isMulti?: boolean
-    textarea?:boolean
+    textarea?: boolean
     state: string[]
     absolute?: boolean
     isSearchable?: boolean
@@ -60,7 +57,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     required = true,
     formErrors,
     minLength = 3,
-    maxLength
+    maxLength,
 }) => {
     const form_pattern = new Map([
         [
@@ -83,9 +80,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     const [phone, setPhone] = useState('')
     const [price, setPrice] = useState('')
 
-      useEffect(() => {
-        if(label.includes('phone') && value){
-
+    useEffect(() => {
+        if (label.includes('phone') && value) {
             setPhone(value)
         }
     }, [label, value])
@@ -132,8 +128,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
             setPrice(transFormValue(value))
         }
     }
-
-   
 
     return (
         <div
@@ -251,7 +245,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         placeholder='908742323'
                                         inputMode='numeric'
                                         maxLength={10}
-                                        value={ phone}
+                                        value={phone}
                                         onChange={handlePhoneChange}
                                         className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 ${
                                             formErrors &&
@@ -320,8 +314,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                         'border-red-500 '
                                     }`}
                                 />
-                            ): (
-                                    <input
+                            ) : (
+                                <input
                                     id={label}
                                     disabled={disabled}
                                     type={type}

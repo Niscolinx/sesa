@@ -4,7 +4,7 @@ import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/superAdmin/UI/Select'
 
 interface Household {
     id: number

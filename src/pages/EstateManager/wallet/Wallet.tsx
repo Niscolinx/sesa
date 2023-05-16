@@ -12,8 +12,8 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
 import DialogWithdrawalSteps from '../../../components/estateManager/Wallet/DialogWithdrawalSteps'
-import WalletBarChart from '../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../components/superAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../components/superAdmin/overview/OverviewWallets'
 
 export interface TransactionHistory {
     id: number

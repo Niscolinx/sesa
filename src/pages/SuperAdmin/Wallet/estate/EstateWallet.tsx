@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import WalletBarChart from '../../../../components/SuperAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/SuperAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../../components/superAdmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../components/superAdmin/overview/OverviewWallets'
 
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../components/ui/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 
 const EstateWallet = () => {

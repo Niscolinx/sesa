@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import {
     ComplexSelect,
     Select,
-} from '../../../../components/SuperAdmin/UI/Select'
+} from '../../../../components/superAdmin/UI/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 type Actions = 'Deactivate' | 'Delete' | 'ReAssign'

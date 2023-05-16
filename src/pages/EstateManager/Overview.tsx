@@ -1,6 +1,6 @@
-import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
+import OverviewChart from '../../components/superAdmin/charts/OverviewChart'
 
-import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
+import { OverviewWallet } from '../../components/superAdmin/overview/OverviewWallets'
 import OverviewCard, {
     OverviewCard_CheckIn,
 } from '../../components/estateManager/OverviewCard'

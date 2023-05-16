@@ -3,10 +3,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AiOutlineLink } from 'react-icons/ai'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { useNavigate, useParams } from 'react-router'
-import ClickRateChart from '../../../components/SuperAdmin/charts/ClickRateChart'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import ClickRateChart from '../../../components/superAdmin/charts/ClickRateChart'
+import { Select } from '../../../components/superAdmin/UI/Select'
 import useFetchData from '../../../utils/useFetchData'
-import Activate_Deactivate from '../../../components/UI/Dialog/Activate_Deactivate'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 
 const AdvertDetail = () => {
     const navigate = useNavigate()

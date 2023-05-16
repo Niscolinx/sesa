@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
-import { Select } from '../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../components/superAdmin/UI/Select'
 import { AddedSiteWorkerContext } from './AddSiteWorker'
 
 export const AddedSiteWorkerSuccessfully = ({

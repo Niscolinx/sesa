@@ -5,7 +5,7 @@ import {
     MultipleSelect,
     Select,
     SelectedItems,
-} from '../../../components/SuperAdmin/UI/Select'
+} from '../../../components/superAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import EnergyTokenSpreadsheet from './Spreadsheet'
 

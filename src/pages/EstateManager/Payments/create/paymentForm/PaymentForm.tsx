@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../../components/superAdmin/UI/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
 
 interface PaymentForm {

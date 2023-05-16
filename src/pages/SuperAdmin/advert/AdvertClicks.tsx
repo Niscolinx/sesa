@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import Table from '../../../components/UI/table/Table'
+import Table from '../../../components/ui/table/Table'
 
 const AdvertClicks = () => {
     const params = useParams()

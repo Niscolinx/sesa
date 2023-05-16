@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Select } from '../../../../../components/SuperAdmin/UI/Select'
+import { Select } from '../../../../../components/superAdmin/UI/Select'
 
 export const PhoneNumber = () => {
     return (

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { Select } from '../../SuperAdmin/UI/Select'
+import { Select } from '../../superAdmin/UI/Select'
 import { useTableContext } from './Table'
 import SlicedPages from './SlicedPages'
 
@@ -51,8 +51,11 @@ const TableData = () => {
     const [extractedData, setExtractedData] = useState<any[]>([])
 
     const check_type = (toCheck: any) => {
-        if (typeof toCheck === 'string' && toCheck.toLowerCase() !== undefined) {
-            return toCheck.toLowerCase() 
+        if (
+            typeof toCheck === 'string' &&
+            toCheck.toLowerCase() !== undefined
+        ) {
+            return toCheck.toLowerCase()
         }
 
         return toCheck
@@ -254,7 +257,7 @@ const TableData = () => {
             return findData.some((item) => item.id === data.id)
         })
 
-        console.log({filteredData, findData})
+        console.log({ filteredData, findData })
 
         setFetchedData(filteredData)
     }

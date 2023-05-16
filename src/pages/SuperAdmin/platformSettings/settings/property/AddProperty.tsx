@@ -4,11 +4,11 @@ import useFetchData from '../../../../../utils/useFetchData'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/useAxios'
-import Input from '../../../../../components/UI/Input/Input'
+import Input from '../../../../../components/ui/Input/Input'
 import { useLocation, useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
 import { IoMdAdd } from 'react-icons/io'
-import Spinner from '../../../../../components/UI/Spinner'
+import Spinner from '../../../../../components/ui/Spinner'
 
 export interface IPropertyType {
     id: string

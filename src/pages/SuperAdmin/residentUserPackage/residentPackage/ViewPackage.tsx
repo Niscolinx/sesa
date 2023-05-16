@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/UI/Input/Input'
+import Input, { SelectProps } from '../../../../components/ui/Input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../../components/hooks/useAxios'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
-import Spinner from '../../../../components/UI/Spinner'
+import Spinner from '../../../../components/ui/Spinner'
 
 type Frequency = 'monthly' | 'weekly' | 'quarterly' | 'yearly'
 

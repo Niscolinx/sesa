@@ -12,8 +12,8 @@ import { QueryClient, useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/useFetchData'
 import useAxios from '../../../../../components/hooks/useAxios'
-import Input, { SelectProps } from '../../../../../components/UI/Input/Input'
-import Spinner from '../../../../../components/UI/Spinner'
+import Input, { SelectProps } from '../../../../../components/ui/Input/Input'
+import Spinner from '../../../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 
 interface AddPhoneNumber {

@@ -5,8 +5,8 @@ import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../../../components/hooks/useAxios'
-import { Select } from '../../../../components/SuperAdmin/UI/Select'
-import Table from '../../../../components/UI/table/Table'
+import { Select } from '../../../../components/superAdmin/UI/Select'
+import Table from '../../../../components/ui/table/Table'
 
 export interface ResidentPackageList {
     id: string

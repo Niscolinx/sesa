@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from 'react-router'
 import Sidebar from '../../components/estateManager/Sidebar'
-import Header from '../../components/SuperAdmin/dashboard/Header'
-import BreadCrumb from '../../components/UI/BreadCrumb'
+import Header from '../../components/superAdmin/dashboard/Header'
+import BreadCrumb from '../../components/ui/BreadCrumb'
 import { useEffect } from 'react'
 
 function Dashboard() {

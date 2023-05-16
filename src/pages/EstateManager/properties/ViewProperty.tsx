@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { ComplexSelect, Select } from '../../../components/SuperAdmin/UI/Select'
+import { ComplexSelect, Select } from '../../../components/superAdmin/UI/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const ViewProperty = () => {

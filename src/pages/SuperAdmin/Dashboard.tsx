@@ -1,10 +1,10 @@
 import { Outlet, useNavigate } from 'react-router'
-import Header from '../../components/SuperAdmin/dashboard/Header'
-import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
+import Header from '../../components/superAdmin/dashboard/Header'
+import Sidebar from '../../components/superAdmin/dashboard/Sidebar'
 // import Header from '../../../../components/SuperAdmin/dashboard/Header'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 
-import BreadCrumb from '../../components/UI/BreadCrumb'
+import BreadCrumb from '../../components/ui/BreadCrumb'
 import PrevLocation from '../../components/hooks/prevLocation'
 import AutoLogout from '../../components/AutoLogout'
 import { useEffect } from 'react'

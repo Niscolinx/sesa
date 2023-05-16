@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import TableDropDown from './TableDropDown'
 import { ToggleDropDown } from './TableData'
 import { Actions, useTableContext } from './Table'
-import StarRating from '../../SuperAdmin/UI/StarRating'
+import StarRating from '../../superAdmin/UI/StarRating'
 
 interface SlicedPages {
     pages: any[][] | null
@@ -43,7 +43,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const get_secondary_id = secondary_id && data[secondary_id]
 
-        console.log({id, restData})
+        console.log({ id, restData })
 
         const details: Map<any, any> = new Map<
             string,

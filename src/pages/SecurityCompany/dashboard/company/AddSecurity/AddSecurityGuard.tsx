@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import {
     ComplexSelect,
     Select,
-} from '../../../../../components/SuperAdmin/UI/Select'
+} from '../../../../../components/superAdmin/UI/Select'
 import {
     BVN_Number,
     DriversLicence,

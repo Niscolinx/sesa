@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router'
-import Table from '../../../../components/UI/table/Table'
+import Table from '../../../../components/ui/table/Table'
 import useFetchData from '../../../../utils/useFetchData'
 import { useState, FormEvent, useEffect } from 'react'
 import { useMutation } from 'react-query'

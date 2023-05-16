@@ -20,7 +20,7 @@ import {
 import {
     Select,
     MultipleSelect,
-} from '../../../components/SuperAdmin/UI/Select'
+} from '../../../components/superAdmin/UI/Select'
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 
