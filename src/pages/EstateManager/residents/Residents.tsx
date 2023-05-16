@@ -4,18 +4,15 @@ import ResidentProfile from './ResidentProfile'
 import UniqueResident from './UniqueResident'
 
 function Residents() {
-    type Path = 'unique' | 'profile'
+    type Path = 'unique_resident' | 'resident_profile'
 
-    const [isResident, setIsResident] = useState(false)
-    const [currentPath, setCurrentPath] = useState<Path>('unique')
+    const paths: Path[] = ['unique_resident', 'resident_profile']
 
-    const addResident = () => {
-        setIsResident(true)
-    }
+    const [currentPath, setCurrentPath] = useState<Path>('unique_resident')
 
-    const paths = new Map<Path, JSX.Element>([
-        ['unique', <UniqueResident />],
-        ['profile', <ResidentProfile />],
+    const displayPath = new Map<Path, JSX.Element>([
+        ['unique_resident', <UniqueResident />],
+        ['resident_profile', <ResidentProfile />],
     ])
 
     return (
