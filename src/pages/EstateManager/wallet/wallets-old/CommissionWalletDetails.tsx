@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ModalContext } from '../../../../Context/ModalContext'
+import { ModalContext } from '../../../../context/ModalContext'
 
 const CommissionWalletDetails = () => {
     const ModalContextData = useContext(ModalContext)

@@ -3,7 +3,7 @@ import OverviewChart from '../../components/SuperAdmin/charts/OverviewChart'
 import { OverviewWallet } from '../../components/SuperAdmin/overview/OverviewWallets'
 import OverviewCard, {
     OverviewCard_CheckIn,
-} from '../../components/EstateManager/OverviewCard'
+} from '../../components/estateManager/OverviewCard'
 import React from 'react'
 
 export const overviewChart_data = [

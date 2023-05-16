@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from 'react-router'
-import Sidebar from '../../components/EstateManager/Sidebar'
+import Sidebar from '../../components/estateManager/Sidebar'
 import Header from '../../components/SuperAdmin/dashboard/Header'
 import BreadCrumb from '../../components/UI/BreadCrumb'
 import { useEffect } from 'react'
