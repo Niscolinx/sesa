@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
 import OverviewCard from '../../../components/estateManager/OverviewCard'
 import ResidentProfile from './ResidentProfile'
 import UniqueResident from './UniqueResident'
@@ -21,7 +20,7 @@ function Residents() {
 
     return (
         <>
-            {isResident ? (
+            
                 <div>
                     <section className='bg-white rounded-lg p-8 grid text-[1.4rem] '>
                         <div
@@ -104,25 +103,7 @@ function Residents() {
                         </section>
                     </div>
                 </div>
-            ) : (
-                <div className='min-h-[60vh]'>
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
-                        <img src='/icons/admins/errorSvg.svg' alt='' />
-                        <p className='text'>
-                            Ooops you have not any resident list yet
-                        </p>
-                        <button
-                            className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addResident}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add Resident
-                        </button>
-                    </section>
-                </div>
-            )}
+           
         </>
     )
 }
