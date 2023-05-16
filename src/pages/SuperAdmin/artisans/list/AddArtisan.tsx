@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import { Select } from '../../../../components/ui/Select'
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
@@ -26,11 +26,6 @@ const AddArtisan = () => {
 
     interface ValidationTypeInput {
         validation_content: string
-    }
-
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
     }
 
     type FormInputs = {
@@ -61,8 +56,6 @@ const AddArtisan = () => {
     const [selectedGender, setSelectedGender] = useState<string>('')
     const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
 
     // const states_data = ['dsd']
     // const states_loading = false
@@ -112,9 +105,9 @@ const AddArtisan = () => {
     }
     const { mutate, isLoading } = useMutation(postRequest, {
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
+            toast(`${err?.response.data.message}`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
         },
 
@@ -135,9 +128,9 @@ const AddArtisan = () => {
         isLoading: validationType_isloading,
     } = useMutation(postValidationType, {
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
+            toast(`${err?.response.data.message}`, {
+                type: 'success',
+                className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
         },
     }) as any
@@ -492,13 +485,6 @@ const AddArtisan = () => {
                 </section>
             </dialog>
             <div className='grid p-8 bg-white min-h-[60vh] items-baseline overflow-y-scroll rounded-lg'>
-                {responseMessage?.displayMessage && (
-                    <p className='text-center my-5'>
-                        <span className={responseMessage?.className}>
-                            {responseMessage?.displayMessage}
-                        </span>
-                    </p>
-                )}
                 <form
                     onSubmit={onSubmit}
                     className='grid max-w-[84rem] gap-16 mt-12 '
