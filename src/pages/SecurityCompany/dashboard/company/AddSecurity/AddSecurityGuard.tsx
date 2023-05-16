@@ -3,10 +3,7 @@ import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
-import {
-    ComplexSelect,
-    Select,
-} from '../../../../../components/superAdmin/UI/Select'
+import { ComplexSelect, Select } from '../../../../../components/ui/Select'
 import {
     BVN_Number,
     DriversLicence,

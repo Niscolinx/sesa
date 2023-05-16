@@ -1,6 +1,6 @@
 import React, { FormEvent, useContext, useRef, useState } from 'react'
 
-import { Select } from '../../../../components/superAdmin/UI/Select'
+import { Select } from '../../../../components/ui/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { HouseholdContext } from './CreateHousehold'
 

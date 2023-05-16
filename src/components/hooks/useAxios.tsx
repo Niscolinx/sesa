@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from '../../store/app/hooks'
 import { getToken } from '../../utils/token'
-import { setAuth } from '../../store/features/auth'
+import { setAuth } from '../../store/features/Auth'
 import axios from 'axios'
 
 interface Props {

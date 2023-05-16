@@ -8,7 +8,7 @@ import {
     AddedSecurityGuardSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { Select } from '../../../components/superAdmin/UI/Select'
+import { Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,

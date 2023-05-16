@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
-import { Select } from '../../../components/superAdmin/UI/Select'
+import { Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 
 const AddEnergyToken = () => {

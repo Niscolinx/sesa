@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from '../store/app/hooks'
-import { setAuth, storeToken } from '../store/features/auth'
+import { setAuth, storeToken } from '../store/features/Auth'
 import AxiosRequest from '../utils/axios'
 import useAxios from '../components/hooks/UseAxios'
 

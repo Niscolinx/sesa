@@ -12,7 +12,7 @@ const initialState = {
 type StateKey = keyof typeof initialState
 type StateValue = (typeof initialState)[StateKey]
 
- const userSlice = createSlice({
+ const UserSlice = createSlice({
   name: 'userState',
   initialState,
   reducers: {
@@ -36,8 +36,8 @@ type StateValue = (typeof initialState)[StateKey]
   extraReducers: (builder) => {},
 });
 
-export const { clearUser, updateUser } = userSlice.actions;
+export const { clearUser, updateUser } = UserSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
-export default userSlice.reducer;
+export default UserSlice.reducer;

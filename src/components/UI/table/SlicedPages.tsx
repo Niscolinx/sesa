@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import TableDropDown from './TableDropDown'
 import { ToggleDropDown } from './TableData'
 import { Actions, useTableContext } from './Table'
-import StarRating from '../../superAdmin/UI/StarRating'
+import StarRating from '../StarRating'
 
 interface SlicedPages {
     pages: any[][] | null

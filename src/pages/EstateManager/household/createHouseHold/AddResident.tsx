@@ -1,10 +1,7 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
-import {
-    MappedSelect,
-    Select,
-} from '../../../../components/superAdmin/UI/Select'
+import { MappedSelect, Select } from '../../../../components/ui/Select'
 import { HouseholdContext } from './CreateHousehold'
 
 function AddResident() {

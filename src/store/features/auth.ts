@@ -9,7 +9,7 @@ const initialState = {
 type StateKey = keyof typeof initialState
 type StateValue = typeof initialState[StateKey]
 
-const authSlice = createSlice({
+const AuthSlice = createSlice({
     name: 'authSlice',
     initialState,
     reducers: {
@@ -34,8 +34,8 @@ const authSlice = createSlice({
     },
 })
 
-export const { storeToken, setAuth } = authSlice.actions
+export const { storeToken, setAuth } = AuthSlice.actions
 
 export const selectAuth = (state: AppState) => state.auth
 
-export default authSlice.reducer
+export default AuthSlice.reducer

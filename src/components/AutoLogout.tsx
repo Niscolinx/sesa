@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch } from '../store/app/hooks'
-import { setAuth } from '../store/features/auth'
+import { setAuth } from '../store/features/Auth'
 import Login from '../pages/Login'
 import { useNavigate } from 'react-router'
 import { clearAuth } from '../utils/token'
@@ -38,7 +38,7 @@ function AutoLogout({ children }: Props) {
             const currentTime = new Date()
             const timeSinceLastInteraction =
                 currentTime.getTime() - lastInteractionTime.getTime()
-                
+
             if (timeSinceLastInteraction > 20 * 60 * 1000) {
                 setIsActive(false)
                 dispatch(setAuth(false))

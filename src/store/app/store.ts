@@ -16,13 +16,12 @@ import {
     REHYDRATE,
 } from 'redux-persist'
 
-import userReducer from '../features/user/user'
-import authReducer from '../features/auth'
+import userReducer from '../features/user/User'
+import authReducer from '../features/Auth'
 
 const persistConfig = {
     key: 'root',
     storage,
-    
 }
 
 const rootReducer = combineReducers({
@@ -30,7 +29,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: persistedReducer,

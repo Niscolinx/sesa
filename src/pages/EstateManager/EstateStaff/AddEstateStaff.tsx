@@ -8,10 +8,7 @@ import {
     AddedEstateStaffSuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import {
-    MultipleSelect,
-    Select,
-} from '../../../components/superAdmin/UI/Select'
+import { MultipleSelect, Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     BVN_Number,

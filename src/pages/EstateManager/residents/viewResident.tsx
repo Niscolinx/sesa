@@ -3,7 +3,7 @@ import { IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
-import { Select } from '../../../components/superAdmin/UI/Select'
+import { Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 import { SetStateAction } from 'jotai'

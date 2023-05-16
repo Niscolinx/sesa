@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
-import { MultipleSelect, Select } from '../../superAdmin/UI/Select'
+import { MultipleSelect, Select } from '../Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
 

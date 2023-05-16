@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { AppDispatch } from '../store/app/store'
-import { setAuth } from '../store/features/auth'
+import { setAuth } from '../store/features/Auth'
 import { getToken } from './token'
 import { useAppDispatch } from '../store/app/hooks'
 
@@ -14,8 +14,7 @@ interface RequestOptions {
     headers: any
 }
 
-
- const AxiosRequest = ({
+const AxiosRequest = ({
     dispatch,
     ...options
 }: Partial<RequestOptions> & { dispatch: AppDispatch }) => {

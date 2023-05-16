@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import StarRating from '../../../components/superAdmin/UI/StarRating'
+import StarRating from '../../../components/ui/StarRating'
 
 export interface IArtisanList {
     id: string
