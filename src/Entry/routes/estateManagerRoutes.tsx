@@ -45,9 +45,9 @@ import Rules from '../../pages/estateManager/rules/Rules'
 import AddRule from '../../pages/estateManager/rules/AddRule'
 import BulkUpload from '../../pages/estateManager/energyToken/BulkUpload'
 // import EditSiteWorker from 'src/pages/estateManager/siteWorker/EditSiteWorker'
-import SiteWorker from 'src/pages/estateManager/siteWorker/SiteWorker'
-import ViewSiteWorker from 'src/pages/estateManager/siteWorker/ViewSiteWorker'
-import AddSiteWorker from 'src/pages/estateManager/siteWorker/AddSiteWorker'
+// import SiteWorker from 'src/pages/estateManager/siteWorker/SiteWorker'
+// import ViewSiteWorker from 'src/pages/estateManager/siteWorker/ViewSiteWorker'
+// import AddSiteWorker from 'src/pages/estateManager/siteWorker/AddSiteWorker'
 
 const EstateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -79,9 +79,9 @@ const EstateManagerRoutes = (
         <Route path='estate-staff/add' element={<AddEstateStaff />} />
         <Route path='estate-staff/view/:id' element={<ViewEstateStaff />} />
         <Route path='estate-staff/edit/:id' element={<EditEstateStaff />} />
-        <Route path='site-worker' element={<SiteWorker />} />
+        {/* <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
-        <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
+        <Route path='site-worker/view/:id' element={<ViewSiteWorker />} /> */}
         {/* <Route path='site-worker/edit/:id' element={<EditSiteWorker />} /> */}
         <Route path='security-guard' element={<SecurityGuard />} />
         <Route path='security-guard/add' element={<AddSecurityGuard />} />
