@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import Input, { SelectProps } from '../../../components/ui/Input/Input'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import ImageInput from '../../../components/ui/input/ImageInput'

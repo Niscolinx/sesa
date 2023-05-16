@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../components/ui/Input/Input'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import useAxios from '../../../components/hooks/UseAxios'

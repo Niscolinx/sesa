@@ -4,7 +4,7 @@ import useFetchData from '../../../../../utils/UseFetchData'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../../components/hooks/UseAxios'
-import Input from '../../../../../components/ui/Input/Input'
+import Input from '../../../../../components/ui/input/Input'
 import { useNavigate, useParams } from 'react-router'
 import Spinner from '../../../../../components/ui/Spinner'
 

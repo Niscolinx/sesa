@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Input, { SelectProps } from '../../../../components/ui/Input/Input'
+import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'

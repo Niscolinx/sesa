@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams, useNavigate } from 'react-router'
-import Input, { SelectProps } from '../../../components/ui/Input/Input'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
 import useAxios from '../../../components/hooks/UseAxios'
 import { ToastContainer, toast } from 'react-toastify'
 import { useMutation, useQuery } from 'react-query'

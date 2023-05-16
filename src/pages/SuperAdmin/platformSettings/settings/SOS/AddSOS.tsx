@@ -12,7 +12,7 @@ import { QueryClient, useMutation } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../../../utils/UseFetchData'
 import useAxios from '../../../../../components/hooks/UseAxios'
-import Input, { SelectProps } from '../../../../../components/ui/Input/Input'
+import Input, { SelectProps } from '../../../../../components/ui/input/Input'
 import Spinner from '../../../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 

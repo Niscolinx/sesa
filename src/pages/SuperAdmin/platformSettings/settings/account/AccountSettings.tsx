@@ -4,7 +4,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'
 import useAxios from '../../../../../components/hooks/UseAxios'
-import Input from '../../../../../components/ui/Input/Input'
+import Input from '../../../../../components/ui/input/Input'
 
 const AccountSettings = () => {
     type FormInputs = {
