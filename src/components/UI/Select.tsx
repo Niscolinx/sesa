@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
+import { ValidateInputTypes } from '../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
 
 type Complex = {
     name: string
@@ -474,8 +474,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 >
                     <div
                         className={`flex items-center gap-2 ${
-                            textarea
-                                && 'flex-wrap'
+                            textarea && 'flex-wrap'
                         }`}
                     >
                         {selected && selected.length > 0 ? (

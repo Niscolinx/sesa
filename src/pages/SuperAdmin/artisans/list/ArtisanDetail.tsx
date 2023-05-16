@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import { Select } from '../../../../components/superAdmin/UI/Select'
-import StarRating from '../../../../components/superAdmin/UI/StarRating'
+import { Select } from '../../../../components/ui/Select'
+import StarRating from '../../../../components/ui/StarRating'
 
 import ValidatedResult from '../../../../components/ui/dialog/ValidatedResult'
 import { useParams } from 'react-router'

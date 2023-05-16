@@ -4,7 +4,7 @@ import useAxios from '../../hooks/UseAxios'
 import { useForm } from 'react-hook-form'
 import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import { Select } from '../../superAdmin/UI/Select'
+import { Select } from '../Select'
 import Input from '../Input/Input'
 import { toast, ToastContainer } from 'react-toastify'
 

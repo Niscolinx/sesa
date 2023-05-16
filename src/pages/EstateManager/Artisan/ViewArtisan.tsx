@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { Select } from '../../../components/superAdmin/UI/Select'
-import StarRating from '../../../components/superAdmin/UI/StarRating'
+import { Select } from '../../../components/ui/Select'
+import StarRating from '../../../components/ui/StarRating'
 
 type Actions = 'Deactivate' | 'Delete'
 

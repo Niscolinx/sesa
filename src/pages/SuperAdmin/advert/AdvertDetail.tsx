@@ -4,7 +4,7 @@ import { AiOutlineLink } from 'react-icons/ai'
 import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { useNavigate, useParams } from 'react-router'
 import ClickRateChart from '../../../components/superAdmin/charts/ClickRateChart'
-import { Select } from '../../../components/superAdmin/UI/Select'
+import { Select } from '../../../components/ui/Select'
 import useFetchData from '../../../utils/useFetchData'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 

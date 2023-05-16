@@ -17,10 +17,7 @@ import {
     AddBankAccount,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import {
-    Select,
-    MultipleSelect,
-} from '../../../components/superAdmin/UI/Select'
+import { Select, MultipleSelect } from '../../../components/ui/Select'
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 
