@@ -10,7 +10,7 @@ import Activate_Deactivate from '../../../../components/ui/dialog/Activate_Deact
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
-import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../../components/ui/dialog/validateKY'
 
 const ArtisanDetail = () => {
     interface Inputs {
