@@ -106,8 +106,8 @@ const AddArtisan = () => {
     const { mutate, isLoading } = useMutation(postRequest, {
         onError: (err: any) => {
             toast(`${err?.response.data.message}`, {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
 
@@ -129,8 +129,8 @@ const AddArtisan = () => {
     } = useMutation(postValidationType, {
         onError: (err: any) => {
             toast(`${err?.response.data.message}`, {
-                type: 'success',
-                className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
     }) as any
