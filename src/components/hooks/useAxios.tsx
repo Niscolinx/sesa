@@ -7,7 +7,7 @@ import axios from 'axios'
 interface Props {
     is_form_data?: boolean
 }
-function UseAxios({ is_form_data }: Props = { is_form_data: true }) {
+function useAxios({ is_form_data }: Props = { is_form_data: true }) {
     const dispatch = useAppDispatch()
     const axiosInstance = axios.create({
         baseURL: 'https://sesa-digital.herokuapp.com/api',
@@ -41,4 +41,4 @@ function UseAxios({ is_form_data }: Props = { is_form_data: true }) {
     return axiosInstance
 }
 
-export default UseAxios
+export default useAxios
