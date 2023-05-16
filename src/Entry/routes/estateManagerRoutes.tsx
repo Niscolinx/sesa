@@ -44,10 +44,10 @@ import ApprovalDetail from '../../pages/EstateManager/Approvals/ApprovalDetail'
 import Rules from '../../pages/EstateManager/rules/Rules'
 import AddRule from '../../pages/EstateManager/rules/AddRule'
 import BulkUpload from '../../pages/EstateManager/EnergyToken/BulkUpload'
-// import AddSiteWorker from 'src/pages/EstateManager/siteWorker/AddSiteWorker'
 import EditSiteWorker from 'src/pages/EstateManager/siteWorker/EditSiteWorker'
 import SiteWorker from 'src/pages/EstateManager/siteWorker/SiteWorker'
 import ViewSiteWorker from 'src/pages/EstateManager/siteWorker/ViewSiteWorker'
+import AddSiteWorker from 'src/pages/EstateManager/siteWorker/AddSiteWorker'
 
 const estateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -80,7 +80,7 @@ const estateManagerRoutes = (
         <Route path='estate-staff/view/:id' element={<ViewEstateStaff />} />
         <Route path='estate-staff/edit/:id' element={<EditEstateStaff />} />
         <Route path='site-worker' element={<SiteWorker />} />
-        {/* <Route path='site-worker/add' element={<AddSiteWorker />} /> */}
+        <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
         <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
         <Route path='security-guard' element={<SecurityGuard />} />
