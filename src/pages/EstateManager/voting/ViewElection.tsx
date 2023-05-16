@@ -9,7 +9,7 @@ import { IoMdClose } from 'react-icons/io'
 import {
     PhoneNumber,
     ResidentCode,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+} from '../../securityCompany/dashboard/company/addSecurity/Inputs'
 
 const ViewElection = () => {
     const navigate = useNavigate()

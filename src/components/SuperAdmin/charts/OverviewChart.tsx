@@ -1,23 +1,19 @@
 import { PieChart, Pie, Cell } from 'recharts'
-import { overviewChart_colors } from '../../../pages/SuperAdmin/Overview'
-import { overviewChart_data } from '../../../pages/SuperAdmin/Wallet'
+import { overviewChart_colors } from '../../../pages/superAdmin/Overview'
+import { overviewChart_data } from '../../../pages/superAdmin/Wallet'
 import { IEstateChart } from './WalletBarChart'
-
-
 
 export const estateChart_data = [
     { name: 'security guard', value: 120 },
     { name: 'sesa', value: 120 },
 ]
 
-
 export const EstateChart = ({
     color1 = '#08d231',
     color2 = '#f7e541',
     outerRadius = 80,
-    data = estateChart_data
+    data = estateChart_data,
 }: IEstateChart) => {
-    
     const estateChart_colors = [color1, color2]
 
     return (

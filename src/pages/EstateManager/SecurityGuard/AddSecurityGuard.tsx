@@ -17,7 +17,7 @@ import {
     NIN_Number,
     PhoneNumber,
     Voters_Card,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+} from '../../securityCompany/dashboard/company/addSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-securityGuard' | 'reassign'
 

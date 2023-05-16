@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../../pages/SecurityCompany/dashboard/company/AddSecurity/AddSecurityGuard'
+import { ValidateInputTypes } from '../../pages/securityCompany/dashboard/company/addSecurity/AddSecurityGuard'
 
 type Complex = {
     name: string

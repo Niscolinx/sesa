@@ -10,7 +10,7 @@ import {
     NIN_Number,
     DriversLicence,
     International_PassPort,
-} from '../../SecurityCompany/dashboard/company/AddSecurity/Inputs'
+} from '../../securityCompany/dashboard/company/addSecurity/Inputs'
 
 type DialogType = 'validate' | 'add-resident' | 'view-kyr'
 
