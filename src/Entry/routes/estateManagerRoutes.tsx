@@ -44,7 +44,7 @@ import ApprovalDetail from '../../pages/estateManager/approvals/ApprovalDetail'
 import Rules from '../../pages/estateManager/rules/Rules'
 import AddRule from '../../pages/estateManager/rules/AddRule'
 import BulkUpload from '../../pages/estateManager/energyToken/BulkUpload'
-import EditSiteWorker from 'src/pages/estateManager/siteWorker/EditSiteWorker'
+// import EditSiteWorker from 'src/pages/estateManager/siteWorker/EditSiteWorker'
 import SiteWorker from 'src/pages/estateManager/siteWorker/SiteWorker'
 import ViewSiteWorker from 'src/pages/estateManager/siteWorker/ViewSiteWorker'
 import AddSiteWorker from 'src/pages/estateManager/siteWorker/AddSiteWorker'
@@ -82,7 +82,7 @@ const EstateManagerRoutes = (
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
-        <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
+        {/* <Route path='site-worker/edit/:id' element={<EditSiteWorker />} /> */}
         <Route path='security-guard' element={<SecurityGuard />} />
         <Route path='security-guard/add' element={<AddSecurityGuard />} />
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />
