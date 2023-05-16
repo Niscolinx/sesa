@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import useAxios from '../../hooks/useAxios'
+import useAxios from '../../hooks/UseAxios'
 import { useForm } from 'react-hook-form'
 import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { useMutation } from 'react-query'

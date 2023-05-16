@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
-import useAxios from '../../hooks/useAxios'
+import useAxios from '../../hooks/UseAxios'
 
 interface Props {
     id: string
@@ -30,28 +30,26 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
 
     const queryClient = useQueryClient()
 
-    const { mutate, isLoading } =
-        useMutation(postDeactivate, {
-            onSuccess: (res) => {
-                toast(`${title} ${currentStatus + 'd'} successfully`, {
-                    type: 'success',
-                    className:
-                        'bg-green-100 text-green-600 text-[1.4rem] capitalize',
-                })
-            },
-            onError: (err: any) => {
-                toast(`Failed to ${currentStatus} ${title}`, {
-                    type: 'error',
-                    className:
-                        'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-                })
-            },
+    const { mutate, isLoading } = useMutation(postDeactivate, {
+        onSuccess: (res) => {
+            toast(`${title} ${currentStatus + 'd'} successfully`, {
+                type: 'success',
+                className:
+                    'bg-green-100 text-green-600 text-[1.4rem] capitalize',
+            })
+        },
+        onError: (err: any) => {
+            toast(`Failed to ${currentStatus} ${title}`, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+            })
+        },
 
-            onSettled: () => {
-                queryClient.invalidateQueries(queryCache)
-                return handleClose()
-            },
-        })
+        onSettled: () => {
+            queryClient.invalidateQueries(queryCache)
+            return handleClose()
+        },
+    })
 
     const handleClose = () => {
         if (dialogRef.current) {
@@ -121,18 +119,14 @@ function Activate_Deactivate({ id, url, status, title, queryCache }: Props) {
                                     className='bg-green-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={postHandler}
                                 >
-                                    {isLoading
-                                        ? 'Loading...'
-                                        : 'activate'}
+                                    {isLoading ? 'Loading...' : 'activate'}
                                 </button>
                             ) : (
                                 <button
                                     className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem] capitalize'
                                     onClick={postHandler}
                                 >
-                                    {isLoading
-                                        ? 'Loading...'
-                                        : 'deactivate'}
+                                    {isLoading ? 'Loading...' : 'deactivate'}
                                 </button>
                             )}
                         </div>

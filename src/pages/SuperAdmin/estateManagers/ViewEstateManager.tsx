@@ -4,7 +4,7 @@ import { useMutation, useQuery } from 'react-query'
 import Input, { SelectProps } from '../../../components/ui/Input/Input'
 import { useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import useAxios from '../../../components/hooks/useAxios'
+import useAxios from '../../../components/hooks/UseAxios'
 import Spinner from '../../../components/ui/Spinner'
 
 const ViewEstateManager = () => {

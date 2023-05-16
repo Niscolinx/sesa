@@ -5,7 +5,7 @@ import StarRating from '../../../../components/superAdmin/UI/StarRating'
 
 import ValidatedResult from '../../../../components/ui/dialog/ValidatedResult'
 import { useParams } from 'react-router'
-import useAxios from '../../../../components/hooks/useAxios'
+import useAxios from '../../../../components/hooks/UseAxios'
 import Activate_Deactivate from '../../../../components/ui/dialog/Activate_Deactivate'
 import Input, { SelectProps } from '../../../../components/ui/Input/Input'
 import { useMutation, useQuery } from 'react-query'

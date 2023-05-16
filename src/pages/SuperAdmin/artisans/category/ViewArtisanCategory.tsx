@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../utils/useFetchData'
 import Table from '../../../../components/ui/table/Table'
 import { useMutation } from 'react-query'
-import useAxios from '../../../../components/hooks/useAxios'
+import useAxios from '../../../../components/hooks/UseAxios'
 
 const ViewArtisanCategory = () => {
     const navigate = useNavigate()

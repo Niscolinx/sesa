@@ -1,12 +1,17 @@
 import { Dispatch, createContext, useContext, useState } from 'react'
 import { NavigateFunction, useNavigate } from 'react-router'
-import useAxios from '../../hooks/useAxios'
+import useAxios from '../../hooks/UseAxios'
 import { AxiosInstance } from 'axios'
 import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
 import TableData from './TableData'
 
-export type Actions = 'view details' | 'deactivate' | 'activate' | 'delete' | 'remove'
+export type Actions =
+    | 'view details'
+    | 'deactivate'
+    | 'activate'
+    | 'delete'
+    | 'remove'
 
 interface Table {
     fetch_url?: string
@@ -90,7 +95,7 @@ const Table = ({
         type: string
     }>({
         isOpen: false,
-        type: 'deactivate'
+        type: 'deactivate',
     })
 
     return (

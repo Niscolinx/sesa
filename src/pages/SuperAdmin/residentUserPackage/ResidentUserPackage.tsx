@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import ResidentPackageHistory from './packageHistory/ResidentPackageHistory'
 import ResidentPackageList from './residentPackage/ResidentPackageList'
-import useAxios from '../../../components/hooks/useAxios'
+import useAxios from '../../../components/hooks/UseAxios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 

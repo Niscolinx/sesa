@@ -12,7 +12,7 @@ import {
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
 import { Select } from '../../../components/superAdmin/UI/Select'
-import useAxios from '../../../components/hooks/useAxios'
+import useAxios from '../../../components/hooks/UseAxios'
 
 type Estate = {
     id: string

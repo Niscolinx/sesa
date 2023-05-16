@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import useAxios from '../components/hooks/useAxios'
+import useAxios from '../components/hooks/UseAxios'
 
 interface FetchData {
     url?: string
