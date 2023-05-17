@@ -107,8 +107,6 @@ const AddResidnet = () => {
             }
         }
 
-        setResponseMessage(null)
-
         const adminData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
