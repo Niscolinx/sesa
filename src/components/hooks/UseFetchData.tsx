@@ -45,4 +45,4 @@ const useFetchData = ({
     }
 }
 
-export default UseFetchData
+export default useFetchData

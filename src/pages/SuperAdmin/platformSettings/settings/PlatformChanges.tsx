@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
-import useFetchData from '../../../../utils/UseFetchData'
+import useFetchData from '../../../../components/hooks/UseFetchData'
 import Input from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'

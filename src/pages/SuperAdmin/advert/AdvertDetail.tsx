@@ -5,7 +5,7 @@ import { HiArrowSmUp, HiArrowSmDown } from 'react-icons/hi'
 import { useNavigate, useParams } from 'react-router'
 import ClickRateChart from '../../../components/superAdmin/charts/ClickRateChart'
 import { Select } from '../../../components/ui/Select'
-import useFetchData from '../../../utils/UseFetchData'
+import useFetchData from '../../../components/hooks/UseFetchData'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 
 const AdvertDetail = () => {
