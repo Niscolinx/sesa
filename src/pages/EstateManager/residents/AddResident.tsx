@@ -7,8 +7,9 @@ import useAxios from '../../../components/hooks/UseAxios'
 import Spinner from '../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
+import { ToastContainer, toast } from 'react-toastify'
 
-const AddAdmin = () => {
+const AddResidnet = () => {
     interface Inputs {
         email_address: string
         first_name: string
@@ -16,10 +17,7 @@ const AddAdmin = () => {
         dob: string
         phone_number: string
     }
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
-    }
+   
 
     type FormInputs = {
         label?: string
@@ -29,6 +27,7 @@ const AddAdmin = () => {
     }
     const axiosInstance = useAxios()
     const navigate = useNavigate()
+
     const genderState = ['Male', 'Female']
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -70,9 +69,9 @@ const AddAdmin = () => {
             handleOpen()
         },
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
+            toast(`${err?.response.data.message}`, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
             })
         },
         onSettled: () => {
@@ -101,9 +100,9 @@ const AddAdmin = () => {
                 const MBSize = Number(KBSize) / 1000
                 return (
                     MBSize > 2 &&
-                    setResponseMessage({
-                        className: 'text-red-600',
-                        displayMessage: 'File size must less than 2MB',
+                    toast('File size must less than 2MB', {
+                        type: 'error',
+                        className: 'bg-red-100 text-red-600 text-[1.4rem]',
                     })
                 )
             }
@@ -172,12 +171,13 @@ const AddAdmin = () => {
 
     return (
         <>
+            <ToastContainer />
             <Spinner start={isLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                         <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an Admin</p>
+                        <p>You have successfully added a Resident</p>
 
                         <div className='flex w-full justify-center gap-8'>
                             <button
@@ -195,13 +195,7 @@ const AddAdmin = () => {
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
                 </p>
-                {responseMessage?.displayMessage && (
-                    <p className='text-center'>
-                        <span className={responseMessage?.className}>
-                            {responseMessage?.displayMessage}
-                        </span>
-                    </p>
-                )}
+               
 
                 <form
                     onSubmit={onSubmit}
@@ -248,4 +242,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default AddResidnet
