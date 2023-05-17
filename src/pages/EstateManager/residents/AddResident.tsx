@@ -51,8 +51,7 @@ const AddResidnet = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
+  
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
