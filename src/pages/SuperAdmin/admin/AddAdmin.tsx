@@ -4,7 +4,7 @@ import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/Dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
-import useServiceProvider from '../../../components/hooks/useAddPageMutation'
+import useAddPageMutation  from '../../../components/hooks/useAddPageMutation'
 
 const AddAdmin = () => {
     const {
@@ -20,7 +20,7 @@ const AddAdmin = () => {
         photoPreview,
         register,
         setValue,
-    } = useServiceProvider()
+    } = useAddPageMutation()
 
     const genderState = ['Male', 'Female']
     type FormInputs = {
