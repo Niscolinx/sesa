@@ -4,10 +4,23 @@ import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/Dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
-
+import useServiceProvider from '../../../components/hooks/ServiceProvider'
 
 const AddAdmin = () => {
-
+    const {
+        clearErrors,
+        formErrors,
+        onSubmit,
+        openDialolog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+    } = useServiceProvider()
 
     const genderState = ['Male', 'Female']
     type FormInputs = {
@@ -51,7 +64,7 @@ const AddAdmin = () => {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
-            <AddedSuccess open={false} title={'admin'}/>
+            <AddedSuccess open={false} title={'admin'} />
             <p className='text-[2rem] font-Satoshi-Medium'>
                 Personal Information
             </p>

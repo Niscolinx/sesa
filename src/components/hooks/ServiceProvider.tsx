@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
-import useAxios from '../components/hooks/UseAxios'
-import Spinner from '../components/ui/Spinner'
+import useAxios from './UseAxios'
+import Spinner from '../ui/Spinner'
 import { NavigateFunction, useNavigate } from 'react-router'
 
 interface Props {
@@ -26,12 +26,13 @@ interface Props {
 
 // const Context = React.createContext<ContextProps | null>(null)
 
-function ServiceProvider() {
+function useServiceProvider() {
     const axiosInstance = useAxios()
    
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+    const [openDialolog, setOpenDialog] = useState(false)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -56,7 +57,7 @@ function ServiceProvider() {
     const queryClient = useQueryClient()
     const { mutate, isLoading: postLoading } = useMutation(postRequest, {
         onSuccess: () => {
-            handleOpen()
+            setOpenDialog(true)
         },
         onError: (err: any) => {
             toast(`${err?.response.data.message}`, {
@@ -135,6 +136,8 @@ function ServiceProvider() {
         setError,
         clearErrors,
         formErrors,
+        setOpenDialog,
+        openDialolog
     }
 
    return providerValue
@@ -151,7 +154,7 @@ function ServiceProvider() {
 //     return context
 // }
 
-export default ServiceProvider
+export default useServiceProvider
 
 
 
