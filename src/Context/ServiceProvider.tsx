@@ -4,22 +4,39 @@ import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from '../components/hooks/UseAxios'
 import Spinner from '../components/ui/Spinner'
-import { useNavigate } from 'react-router'
-
-const Context = React.createContext<any>({})
+import { NavigateFunction, useNavigate } from 'react-router'
 
 interface Props {
     children: React.ReactNode
+    genderState: string[]
 }
 
-function ServiceProvider({ children }: Props) {
+interface ContextProps {
+    photoPreview: string
+    selectedGender: string
+    setSelectedGender: React.Dispatch<React.SetStateAction<string>>
+    register: any
+    handleSubmit: any
+    setValue: any
+    setError: any
+    clearErrors: any
+    formState: any
+    postLoading: boolean
+    handlePicture: () => void
+    navigate: NavigateFunction
+    onSubmit: () => void
+}
+
+const Context = React.createContext<ContextProps | null>(null)
+
+function ServiceProvider({ children, genderState }: Props) {
     const axiosInstance = useAxios()
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
-    const genderState = ['Male', 'Female']
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
+
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
     const {
@@ -31,7 +48,7 @@ function ServiceProvider({ children }: Props) {
         formState: { errors: formErrors },
     } = useForm()
 
-    const postAdmin = (data: any) => {
+    const postRequest = (data: any) => {
         return axiosInstance({
             url: '/admin/create',
             method: 'post',
@@ -41,7 +58,7 @@ function ServiceProvider({ children }: Props) {
     }
 
     const queryClient = useQueryClient()
-    const { mutate, isLoading } = useMutation(postAdmin, {
+    const { mutate, isLoading: postLoading } = useMutation(postRequest, {
         onSuccess: () => {
             handleOpen()
         },
@@ -120,7 +137,8 @@ function ServiceProvider({ children }: Props) {
 
     const providerValue = {
         onSubmit,
-        isLoading,
+        postLoading,
+        handlePicture,
     }
 
     return (

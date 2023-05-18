@@ -9,9 +9,12 @@ import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import { toast } from 'react-toastify'
 import AddBtn from '../../../components/ui/button/AddBtn'
-import { ServiceProvider } from '../../../Context/ServiceProvider'
+import { ServiceProvider, useServiceContext } from '../../../Context/ServiceProvider'
 
 const AddAdmin = () => {
+    const { onSubmit, handlePicture,  register, setValue, clearErrors, postLoading, photoPreview } = useServiceContext()
+
+    const genderState = ['Male', 'Female']
     type FormInputs = {
         label?: string
         type?: string
@@ -51,7 +54,7 @@ const AddAdmin = () => {
     ] satisfies FormInputs[]
 
     return (
-        <ServiceProvider>
+        <ServiceProvider genderState={genderState}>
             <div className='bg-white rounded-2xl grid p-8'>
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
@@ -89,7 +92,7 @@ const AddAdmin = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <AddBtn isLoading={true} />
+                        <AddBtn isLoading={postLoading} />
                     </>
                 </form>
             </div>
