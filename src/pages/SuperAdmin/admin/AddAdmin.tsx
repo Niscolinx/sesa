@@ -7,6 +7,7 @@ import useAxios from '../../../components/hooks/UseAxios'
 import Spinner from '../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
+import { toast } from 'react-toastify'
 
 const AddAdmin = () => {
     interface Inputs {
@@ -15,10 +16,6 @@ const AddAdmin = () => {
         last_name: string
         dob: string
         phone_number: string
-    }
-    type ResponseMessage = {
-        className: string
-        displayMessage: string
     }
 
     type FormInputs = {
@@ -34,14 +31,14 @@ const AddAdmin = () => {
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
 
-     const {
-         register,
-         handleSubmit,
-         setValue,
-         setError,
-         clearErrors,
-         formState: { errors: formErrors },
-     } = useForm<Inputs>()
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        setError,
+        clearErrors,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -50,8 +47,6 @@ const AddAdmin = () => {
         setPhotoPreview(preview)
         setImageFile(file)
     }
-
-   
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -74,15 +69,14 @@ const AddAdmin = () => {
                 const MBSize = Number(KBSize) / 1000
                 return (
                     MBSize > 2 &&
-                    setResponseMessage({
-                        className: 'text-red-600',
-                        displayMessage: 'File size must less than 2MB',
+                    toast(`File size must less than 2MB`, {
+                        type: 'error',
+                        className: 'bg-red-100 text-red-600 text-[1.4rem]',
                     })
                 )
             }
         }
 
-        setResponseMessage(null)
 
         const adminData = {
             name: `${first_name} ${last_name}`,
@@ -168,7 +162,6 @@ const AddAdmin = () => {
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
                 </p>
-                
 
                 <form
                     onSubmit={onSubmit}
