@@ -11,13 +11,7 @@ import { toast } from 'react-toastify'
 import AddBtn from '../../../components/ui/button/AddBtn'
 
 const AddAdmin = () => {
-    interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        phone_number: string
-    }
+   
 
     type FormInputs = {
         label?: string

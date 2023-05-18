@@ -6,8 +6,6 @@ import useAxios from '../components/hooks/UseAxios'
 import Spinner from '../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 
-
-
 const Context = React.createContext<any>({})
 
 interface Props {
@@ -48,11 +46,10 @@ function Provider({ children }: Props) {
             handleOpen()
         },
         onError: (err: any) => {
-             toast(`${err?.response.data.message}`, {
-                 type: 'error',
-                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
-             })
-           
+            toast(`${err?.response.data.message}`, {
+                type: 'error',
+                className: 'bg-red-100 text-red-600 text-[1.4rem]',
+            })
         },
         onSettled: () => {
             queryClient.invalidateQueries('admin')
@@ -121,8 +118,13 @@ function Provider({ children }: Props) {
         }
     }
 
+    const providerValue = {
+        onSubmit,
+        isLoading,
+    }
+
     return (
-        <Context.Provider value={{ onSubmit, isLoading }}>
+        <Context.Provider value={providerValue}>
             <Spinner start={isLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
