@@ -1,18 +1,25 @@
-import React, { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { IoMdAdd } from 'react-icons/io'
-import { useMutation, useQueryClient } from 'react-query'
+import React from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
-import useAxios from '../../../components/hooks/UseAxios'
-import Spinner from '../../../components/ui/Spinner'
-import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
-import { toast } from 'react-toastify'
 import AddBtn from '../../../components/ui/button/AddBtn'
-import { ServiceProvider, useServiceContext } from '../../../Context/ServiceProvider'
+import {
+    ServiceProvider,
+    useServiceContext,
+} from '../../../Context/ServiceProvider'
 
 const AddAdmin = () => {
-    const { onSubmit, handlePicture,  register, setValue, clearErrors, postLoading, photoPreview,selectedGender, setSelectedGender, formErrors } = useServiceContext()
+    const {
+        onSubmit,
+        handlePicture,
+        register,
+        setValue,
+        clearErrors,
+        postLoading,
+        photoPreview,
+        selectedGender,
+        setSelectedGender,
+        formErrors,
+    } = useServiceContext()
 
     const genderState = ['Male', 'Female']
     type FormInputs = {
