@@ -6,13 +6,7 @@ import useAxios from '../components/hooks/UseAxios'
 import Spinner from '../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 
-export interface Inputs {
-    email_address: string
-    first_name: string
-    last_name: string
-    dob: string
-    phone_number: string
-}
+
 
 const Context = React.createContext<any>({})
 
@@ -37,9 +31,9 @@ function Provider({ children }: Props) {
         setError,
         clearErrors,
         formState: { errors: formErrors },
-    } = useForm<Inputs>()
+    } = useForm()
 
-    const postAdmin = (data: Inputs) => {
+    const postAdmin = (data: any) => {
         return axiosInstance({
             url: '/admin/create',
             method: 'post',
@@ -54,10 +48,11 @@ function Provider({ children }: Props) {
             handleOpen()
         },
         onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
-            })
+             toast(`${err?.response.data.message}`, {
+                 type: 'error',
+                 className: 'bg-red-100 text-red-600 text-[1.4rem]',
+             })
+           
         },
         onSettled: () => {
             queryClient.invalidateQueries('admin')
