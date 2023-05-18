@@ -27,13 +27,21 @@ const AddAdmin = () => {
         name?: string
         selectProps?: SelectProps
     }
-    const axiosInstance = useAxios()
     const navigate = useNavigate()
     const genderState = ['Male', 'Female']
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+
+     const {
+         register,
+         handleSubmit,
+         setValue,
+         setError,
+         clearErrors,
+         formState: { errors: formErrors },
+     } = useForm<Inputs>()
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -43,42 +51,7 @@ const AddAdmin = () => {
         setImageFile(file)
     }
 
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        setError,
-        clearErrors,
-        formState: { errors: formErrors },
-    } = useForm<Inputs>()
-
-    const [responseMessage, setResponseMessage] =
-        useState<ResponseMessage | null>(null)
-
-    const postAdmin = (data: Inputs) => {
-        return axiosInstance({
-            url: '/admin/create',
-            method: 'post',
-            data,
-            headers: { 'Content-Type': 'multipart/form-data' },
-        })
-    }
-
-    const queryClient = useQueryClient()
-    const { mutate, isLoading } = useMutation(postAdmin, {
-        onSuccess: () => {
-            handleOpen()
-        },
-        onError: (err: any) => {
-            setResponseMessage({
-                className: 'text-red-600',
-                displayMessage: err?.response.data.message,
-            })
-        },
-        onSettled: () => {
-            queryClient.invalidateQueries('admin')
-        },
-    }) as any
+   
 
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
@@ -195,13 +168,7 @@ const AddAdmin = () => {
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information
                 </p>
-                {responseMessage?.displayMessage && (
-                    <p className='text-center'>
-                        <span className={responseMessage?.className}>
-                            {responseMessage?.displayMessage}
-                        </span>
-                    </p>
-                )}
+                
 
                 <form
                     onSubmit={onSubmit}
