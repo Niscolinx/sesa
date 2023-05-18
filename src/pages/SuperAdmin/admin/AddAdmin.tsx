@@ -9,19 +9,15 @@ import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import { toast } from 'react-toastify'
 import AddBtn from '../../../components/ui/button/AddBtn'
+import { ServiceProvider } from '../../../Context/ServiceProvider'
 
 const AddAdmin = () => {
-   
-
     type FormInputs = {
         label?: string
         type?: string
         name?: string
         selectProps?: SelectProps
     }
-
-
-   
 
     const formInputs = [
         {
@@ -55,9 +51,7 @@ const AddAdmin = () => {
     ] satisfies FormInputs[]
 
     return (
-        <>
-           
-
+        <ServiceProvider>
             <div className='bg-white rounded-2xl grid p-8'>
                 <p className='text-[2rem] font-Satoshi-Medium'>
                     Personal Information

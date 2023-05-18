@@ -12,7 +12,7 @@ interface Props {
     children: React.ReactNode
 }
 
-function Provider({ children }: Props) {
+function ServiceProvider({ children }: Props) {
     const axiosInstance = useAxios()
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -148,7 +148,7 @@ function Provider({ children }: Props) {
     )
 }
 
-const useContext = () => {
+const useServiceContext = () => {
     const context = React.useContext(Context)
     if (!context) {
         throw new Error('useAdmin must be used within a Provider')
@@ -157,4 +157,4 @@ const useContext = () => {
     return context
 }
 
-export { Provider, useContext }
+export { ServiceProvider, useServiceContext }
