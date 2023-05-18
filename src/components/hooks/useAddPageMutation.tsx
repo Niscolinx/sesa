@@ -1,30 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from './UseAxios'
-import Spinner from '../ui/Spinner'
-import { NavigateFunction, useNavigate } from 'react-router'
-
-interface Props {
-    children: React.ReactNode
-}
-
-// interface ContextProps {
-//     photoPreview: string
-//     selectedGender: string
-//     setSelectedGender: React.Dispatch<React.SetStateAction<string>>
-//     register: any
-//     setValue: any
-//     setError: any
-//     clearErrors: any
-//     formErrors: any
-//     postLoading: boolean
-//     handlePicture: (e: React.ChangeEvent) => void
-//     onSubmit: () => void
-// }
-
-// const Context = React.createContext<ContextProps | null>(null)
 
 function useAddPageMutation() {
     const axiosInstance = useAxios()
@@ -139,6 +117,4 @@ function useAddPageMutation() {
     return providerValue
 }
 
-
 export default useAddPageMutation
-
