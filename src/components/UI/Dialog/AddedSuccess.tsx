@@ -23,6 +23,7 @@ function AddedSuccess({ title, open = false, close }: Props) {
     }
     const handleClose = () => {
         navigate(-1)
+        close(false)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
