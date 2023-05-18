@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router'
 
 interface Props {
     title: string
+    open: boolean
 }
 
-function AddedSuccess({ title }: Props) {
+function AddedSuccess({ title, open = false }: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
-        
-    }, [])
+        handleOpen()
+    }, [open])
 
     const handleOpen = () => {
         if (dialogRef.current) {
