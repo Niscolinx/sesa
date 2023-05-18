@@ -13,7 +13,9 @@ function AddedSuccess({ title, open = false, close }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
-        handleOpen()
+        if (open) {
+            handleOpen()
+        }
     }, [open])
 
     const handleOpen = () => {

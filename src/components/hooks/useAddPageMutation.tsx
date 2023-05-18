@@ -26,7 +26,7 @@ interface Props {
 
 // const Context = React.createContext<ContextProps | null>(null)
 
-function useServiceProvider() {
+function useAddPageMutation() {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -139,15 +139,6 @@ function useServiceProvider() {
     return providerValue
 }
 
-// const useServiceContext = () => {
-//     const context = React.useContext(Context)
-//     if (!context) {
-//         throw new Error('service must be used within a Provider')
-//     }
 
-//     return context
-// }
+export default useAddPageMutation
 
-export default useServiceProvider
-
-// export { ServiceProvider, useServiceContext }

@@ -4,7 +4,7 @@ import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/Dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
-import useServiceProvider from '../../../components/hooks/ServiceProvider'
+import useServiceProvider from '../../../components/hooks/useAddPageMutation'
 
 const AddAdmin = () => {
     const {
