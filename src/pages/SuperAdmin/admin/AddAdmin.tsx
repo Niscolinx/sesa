@@ -64,7 +64,7 @@ const AddAdmin = () => {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
-            <AddedSuccess open={openDialolog} title={'admin'} close={setOpenDialog} />
+            <AddedSuccess open={openDialog} title={'admin'} close={setOpenDialog} />
             <p className='text-[2rem] font-Satoshi-Medium'>
                 Personal Information
             </p>

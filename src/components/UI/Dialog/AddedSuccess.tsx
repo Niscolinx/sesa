@@ -1,12 +1,14 @@
+import { Dispatch, SetStateAction } from 'react'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 
 interface Props {
     title: string
     open: boolean
+    close: Dispatch<SetStateAction<boolean>>
 }
 
-function AddedSuccess({ title, open = false }: Props) {
+function AddedSuccess({ title, open = false, close }: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
