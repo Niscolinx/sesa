@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 
 interface Props {
@@ -8,6 +8,10 @@ interface Props {
 function AddedSuccess({ title }: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    useEffect(() => {
+        
+    }, [])
 
     const handleOpen = () => {
         if (dialogRef.current) {
@@ -26,7 +30,7 @@ function AddedSuccess({ title }: Props) {
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                     <img src='/icons/admins/modalSuccess.svg' alt='' />
-                    <p>You have successfully added an Admin</p>
+                    <p className='capitalize'>{title} successfully added</p>
 
                     <div className='flex w-full justify-center gap-8'>
                         <button
