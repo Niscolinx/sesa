@@ -4,14 +4,18 @@ import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from './UseAxios'
 
-function useAddPageMutation() {
+
+interface Props {
+    url: string
+}
+function useAddPageMutation({url}: Props) {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [openDialog, setOpenDialog] = useState(false)
 
-    const [selectedGender, setSelectedGender] = useState<string>('')
+    const [selectedGender, setSelectedGender] = useState('Male')
 
     const {
         register,
@@ -24,7 +28,7 @@ function useAddPageMutation() {
 
     const postRequest = (data: any) => {
         return axiosInstance({
-            url: '/admin/create',
+            url,
             method: 'post',
             data,
             headers: { 'Content-Type': 'multipart/form-data' },

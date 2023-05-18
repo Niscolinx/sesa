@@ -20,7 +20,7 @@ const AddAdmin = () => {
         photoPreview,
         register,
         setValue,
-    } = useAddPageMutation()
+    } = useAddPageMutation({ url: '/admin/create' })
 
     const genderState = ['Male', 'Female']
     type FormInputs = {
