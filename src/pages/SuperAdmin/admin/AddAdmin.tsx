@@ -12,7 +12,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import { ServiceProvider, useServiceContext } from '../../../Context/ServiceProvider'
 
 const AddAdmin = () => {
-    const { onSubmit, handlePicture,  register, setValue, clearErrors, postLoading, photoPreview } = useServiceContext()
+    const { onSubmit, handlePicture,  register, setValue, clearErrors, postLoading, photoPreview,selectedGender, setSelectedGender, formErrors } = useServiceContext()
 
     const genderState = ['Male', 'Female']
     type FormInputs = {

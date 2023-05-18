@@ -16,11 +16,10 @@ interface ContextProps {
     selectedGender: string
     setSelectedGender: React.Dispatch<React.SetStateAction<string>>
     register: any
-    handleSubmit: any
     setValue: any
     setError: any
     clearErrors: any
-    formState: any
+    formErrors: any
     postLoading: boolean
     handlePicture: () => void
     navigate: NavigateFunction
@@ -139,7 +138,17 @@ function ServiceProvider({ children, genderState }: Props) {
         onSubmit,
         postLoading,
         handlePicture,
+        selectedGender,
+        setSelectedGender,
+        photoPreview,
+        register,
+        handleSubmit,
+        setValue,
+        setError,
+        clearErrors,
+        formErrors,
     }
+
 
     return (
         <Context.Provider value={providerValue}>
