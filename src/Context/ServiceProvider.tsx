@@ -22,6 +22,22 @@ interface Props {
 
 function Provider({ children }: Props) {
     const axiosInstance = useAxios()
+    const navigate = useNavigate()
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
+
+    const genderState = ['Male', 'Female']
+    const [photoPreview, setPhotoPreview] = useState('')
+    const [imageFile, setImageFile] = useState<File | null>(null)
+    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        setError,
+        clearErrors,
+        formState: { errors: formErrors },
+    } = useForm<Inputs>()
 
     const postAdmin = (data: Inputs) => {
         return axiosInstance({
@@ -103,30 +119,12 @@ function Provider({ children }: Props) {
         setImageFile(file)
     }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
     const handleClose = () => {
         navigate(-1)
         if (dialogRef.current) {
             dialogRef.current.close()
         }
     }
-
-    const navigate = useNavigate()
-    const genderState = ['Male', 'Female']
-
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
-
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        setError,
-        clearErrors,
-        formState: { errors: formErrors },
-    } = useForm<Inputs>()
 
     return (
         <Context.Provider value={{ onSubmit, isLoading }}>
