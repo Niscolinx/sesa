@@ -11,7 +11,7 @@ const AddAdmin = () => {
         clearErrors,
         formErrors,
         onSubmit,
-        openDialolog,
+        openDialog,
         setOpenDialog,
         selectedGender,
         setSelectedGender,
@@ -64,7 +64,7 @@ const AddAdmin = () => {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
-            <AddedSuccess open={false} title={'admin'} />
+            <AddedSuccess open={openDialolog} title={'admin'} close={setOpenDialog} />
             <p className='text-[2rem] font-Satoshi-Medium'>
                 Personal Information
             </p>

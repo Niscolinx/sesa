@@ -28,11 +28,10 @@ interface Props {
 
 function useServiceProvider() {
     const axiosInstance = useAxios()
-   
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
-    const [openDialolog, setOpenDialog] = useState(false)
+    const [openDialog, setOpenDialog] = useState(false)
 
     const [selectedGender, setSelectedGender] = useState<string>('')
 
@@ -112,7 +111,6 @@ function useServiceProvider() {
         mutate(updatedData)
     })
 
-   
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -120,8 +118,6 @@ function useServiceProvider() {
         setPhotoPreview(preview)
         setImageFile(file)
     }
-
-   
 
     const providerValue = {
         onSubmit,
@@ -137,13 +133,11 @@ function useServiceProvider() {
         clearErrors,
         formErrors,
         setOpenDialog,
-        openDialolog
+        openDialog,
     }
 
-   return providerValue
+    return providerValue
 }
-
-
 
 // const useServiceContext = () => {
 //     const context = React.useContext(Context)
@@ -155,7 +149,5 @@ function useServiceProvider() {
 // }
 
 export default useServiceProvider
-
-
 
 // export { ServiceProvider, useServiceContext }
