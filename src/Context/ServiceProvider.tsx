@@ -21,8 +21,7 @@ interface ContextProps {
     clearErrors: any
     formErrors: any
     postLoading: boolean
-    handlePicture: () => void
-    navigate: NavigateFunction
+    handlePicture: (e: React.ChangeEvent) => void
     onSubmit: () => void
 }
 
@@ -149,10 +148,9 @@ function ServiceProvider({ children, genderState }: Props) {
         formErrors,
     }
 
-
     return (
         <Context.Provider value={providerValue}>
-            <Spinner start={isLoading ? true : false} />
+            <Spinner start={postLoading ? true : false} />
             <dialog className='dialog' ref={dialogRef}>
                 <section className='grid place-content-center w-full h-[100vh]'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>

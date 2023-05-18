@@ -96,7 +96,7 @@ const AddAdmin = () => {
                     </>
                 </form>
             </div>
-        </>
+        </ServiceProvider>
     )
 }
 
