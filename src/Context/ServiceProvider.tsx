@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import useAxios from '../components/hooks/UseAxios'
 import Spinner from '../components/ui/Spinner'
 import { NavigateFunction, useNavigate } from 'react-router'
+import AddAdmin from '../pages/superAdmin/admin/AddAdmin'
 
 interface Props {
     children: React.ReactNode
@@ -100,7 +101,7 @@ function ServiceProvider({ children, genderState }: Props) {
             }
         }
 
-        const adminData = {
+        const updatedData = {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
@@ -110,7 +111,7 @@ function ServiceProvider({ children, genderState }: Props) {
             image: imageFile,
         }
 
-        mutate(adminData)
+        mutate(updatedData)
     })
 
     const handleOpen = () => {
@@ -168,6 +169,7 @@ function ServiceProvider({ children, genderState }: Props) {
                     </div>
                 </section>
             </dialog>
+            <p>Hello world</p>
             {children}
         </Context.Provider>
     )
@@ -176,10 +178,13 @@ function ServiceProvider({ children, genderState }: Props) {
 const useServiceContext = () => {
     const context = React.useContext(Context)
     if (!context) {
-        throw new Error('useAdmin must be used within a Provider')
+        throw new Error('service must be used within a Provider')
     }
 
     return context
 }
+
+
+
 
 export { ServiceProvider, useServiceContext }
