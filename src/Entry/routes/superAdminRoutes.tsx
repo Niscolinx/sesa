@@ -12,11 +12,7 @@ import ResidentPackageDetails from '../../pages/superAdmin/residentUserPackage/p
 import SecurityCompany from '../../pages/superAdmin/securityCompany/SecurityCompany'
 import SecurityCompanyDetail from '../../pages/superAdmin/securityCompany/SecurityCompanyDetail'
 import Wallet from '../../pages/superAdmin/Wallet'
-import EstateWallet from '../../pages/superAdmin/wallet/estate/EstateWallet'
-import ResidentWallet from '../../pages/superAdmin/wallet/resident/ResidentWallet'
-import CommissionWallet from '../../pages/superAdmin/wallet/commission/CommissionWallet'
 
-import SecurityCompanyWallet from '../../pages/superAdmin/wallet/security/SecurityCompanyWallet'
 import SecurityCompanyWalletDetails from '../../pages/estateManager/wallet/wallets-old/SecurityCompanyDetails'
 import Artisan from '../../pages/superAdmin/artisans/Artisan'
 import AddArtisan from '../../pages/superAdmin/artisans/list/AddArtisan'
@@ -26,7 +22,6 @@ import ViewArtisanGroup from '../../pages/superAdmin/artisans/group/ViewArtisanG
 import Advert from '../../pages/superAdmin/advert/Advert'
 import AddAdvert from '../../pages/superAdmin/advert/AddAdvert'
 import AdvertDetail from '../../pages/superAdmin/advert/AdvertDetail'
-import PlatformSettings from '../../pages/superAdmin/platformSettings/PlatformSettings'
 import AddSOS from '../../pages/superAdmin/platformSettings/settings/sos/AddSOS'
 import SOSDetail from '../../pages/superAdmin/platformSettings/settings/sos/SOSDetail'
 import AddSecurityCompany from '../../pages/superAdmin/securityCompany/AddSecurityCompany'
@@ -44,14 +39,20 @@ import AddResidentUserPackage from '../../pages/superAdmin/residentUserPackage/r
 import ViewProperty from '../../pages/superAdmin/platformSettings/settings/property/ViewProperty'
 import EditEstate from '../../pages/superAdmin/estates/EditEstate'
 import ViewPackage from '../../pages/superAdmin/residentUserPackage/residentPackage/ViewPackage'
-import ResidentWalletDetails from '../../pages/superAdmin/wallet/resident/ResidentWalletDetails'
-import EstateWalletDetails from '../../pages/superAdmin/wallet/estate/EstateWalletDetails'
-import CommissionWalletDetails from '../../pages/superAdmin/wallet/commission/CommissionWalletDetails'
+
 import SecurityManagers from '../../pages/superAdmin/securityManagers/SecurityManagers'
 import AddSecurityManager from '../../pages/superAdmin/securityManagers/AddSecurityManager'
 import ViewSecurityManager from '../../pages/superAdmin/securityManagers/ViewSecurityManager'
 import AdvertClicks from '../../pages/superAdmin/advert/AdvertClicks'
 import AdvertViews from '../../pages/superAdmin/advert/AdvertViews'
+import CommissionWalletDetails from '../../pages/superAdmin/Wallet/commission/CommissionWalletDetails'
+import CommissionWallet from '../../pages/superAdmin/Wallet/commission/CommissionWallet'
+import EstateWallet from '../../pages/superAdmin/Wallet/estate/EstateWallet'
+import ResidentWallet from '../../pages/superAdmin/Wallet/resident/ResidentWallet'
+import ResidentWalletDetails from '../../pages/superAdmin/Wallet/resident/ResidentWalletDetails'
+import SecurityCompanyWallet from '../../pages/superAdmin/Wallet/security/SecurityCompanyWallet'
+import PlatformSettings from '../../pages/superAdmin/platformSettings/platformSettings'
+import EstateWalletDetails from '../../pages/superAdmin/Wallet/estate/EstateWalletDetails'
 
 const SuperAdminRoutes = (
     <Route

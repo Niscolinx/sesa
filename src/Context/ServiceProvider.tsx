@@ -5,38 +5,35 @@ import { toast } from 'react-toastify'
 import useAxios from '../components/hooks/UseAxios'
 import Spinner from '../components/ui/Spinner'
 import { NavigateFunction, useNavigate } from 'react-router'
-import AddAdmin from '../pages/superAdmin/admin/AddAdmin'
 
 interface Props {
     children: React.ReactNode
-    genderState: string[]
 }
 
-interface ContextProps {
-    photoPreview: string
-    selectedGender: string
-    setSelectedGender: React.Dispatch<React.SetStateAction<string>>
-    register: any
-    setValue: any
-    setError: any
-    clearErrors: any
-    formErrors: any
-    postLoading: boolean
-    handlePicture: (e: React.ChangeEvent) => void
-    onSubmit: () => void
-}
+// interface ContextProps {
+//     photoPreview: string
+//     selectedGender: string
+//     setSelectedGender: React.Dispatch<React.SetStateAction<string>>
+//     register: any
+//     setValue: any
+//     setError: any
+//     clearErrors: any
+//     formErrors: any
+//     postLoading: boolean
+//     handlePicture: (e: React.ChangeEvent) => void
+//     onSubmit: () => void
+// }
 
-const Context = React.createContext<ContextProps | null>(null)
+// const Context = React.createContext<ContextProps | null>(null)
 
-function ServiceProvider({ children, genderState }: Props) {
+function ServiceProvider() {
     const axiosInstance = useAxios()
-    const navigate = useNavigate()
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+   
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
 
-    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
+    const [selectedGender, setSelectedGender] = useState<string>('')
 
     const {
         register,
@@ -114,11 +111,7 @@ function ServiceProvider({ children, genderState }: Props) {
         mutate(updatedData)
     })
 
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+   
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
         const file: File = (target.files as FileList)[0]
@@ -127,12 +120,7 @@ function ServiceProvider({ children, genderState }: Props) {
         setImageFile(file)
     }
 
-    const handleClose = () => {
-        navigate(-1)
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
+   
 
     const providerValue = {
         onSubmit,
@@ -149,42 +137,22 @@ function ServiceProvider({ children, genderState }: Props) {
         formErrors,
     }
 
-    return (
-        <Context.Provider value={providerValue}>
-            <Spinner start={postLoading ? true : false} />
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added an Admin</p>
-
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleClose}
-                            >
-                                Ok
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </dialog>
-            <p>Hello world</p>
-            {children}
-        </Context.Provider>
-    )
-}
-
-const useServiceContext = () => {
-    const context = React.useContext(Context)
-    if (!context) {
-        throw new Error('service must be used within a Provider')
-    }
-
-    return context
+   return providerValue
 }
 
 
 
+// const useServiceContext = () => {
+//     const context = React.useContext(Context)
+//     if (!context) {
+//         throw new Error('service must be used within a Provider')
+//     }
 
-export { ServiceProvider, useServiceContext }
+//     return context
+// }
+
+export default ServiceProvider
+
+
+
+// export { ServiceProvider, useServiceContext }
