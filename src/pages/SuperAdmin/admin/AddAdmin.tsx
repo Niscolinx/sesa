@@ -66,7 +66,7 @@ const AddAdmin = () => {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess open={openDialog} title={'admin'} close={setOpenDialog} />
             <p className='text-[2rem] font-Satoshi-Medium'>
-                Personal Information!
+                Personal Information
             </p>
 
             <form
