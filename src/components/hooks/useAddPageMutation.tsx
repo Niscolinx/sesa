@@ -85,7 +85,6 @@ function useAddPageMutation({url}: Props) {
             gender: selectedGender,
             dob,
             email: email_address,
-            address: 'no 4 odeyim street',
             phone: `+234${phone_number}`,
             image: imageFile,
         }
