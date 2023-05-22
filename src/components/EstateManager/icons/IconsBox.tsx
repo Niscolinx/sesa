@@ -34,7 +34,7 @@ function IconsBox() {
                 </Link>
             </li>
             <li className='iconsBox__list'>
-                <Link to='/estateManager/estate-admin' className='fillIcon'>
+                <Link to='/estateManager/estate-admin' >
                     {' '}
                     <EstateAdminSvg />
                     <span>Estate Admin</span>
