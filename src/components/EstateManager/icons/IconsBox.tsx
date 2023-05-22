@@ -15,6 +15,7 @@ import RolesAndPermSvg from './sidebar/RolesAndPermSvg'
 import SecurityCompSvg from './sidebar/SecurityCompSvg'
 import SettingsSvg from './sidebar/SettingsSvg'
 import WalletSvg from './sidebar/WalletSvg'
+import EstateAdminSvg from './sidebar/EstateAdminSvg'
 
 function IconsBox() {
     return (
@@ -35,8 +36,8 @@ function IconsBox() {
             <li className='iconsBox__list'>
                 <Link to='/estateManager/estate-admin' className='fillIcon'>
                     {' '}
-                    <WalletSvg />
-                    <span>Wallet</span>
+                    <EstateAdminSvg />
+                    <span>Estate Admin</span>
                 </Link>
             </li>
             <li className='iconsBox__list'>

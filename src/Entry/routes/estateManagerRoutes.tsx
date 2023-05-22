@@ -48,7 +48,7 @@ import AddSiteWorker from '../../pages/estateManager/siteWorker/AddSiteWorker'
 import Approvals from '../../pages/estateManager/approvals/Approvals'
 import BulkUpload from '../../pages/estateManager/energyToken/BulkUpload'
 import ViewResident from '../../pages/estateManager/residents/ViewResident'
-import EstateAdmin from '../../components/estateManager/icons/sidebar/EstateAdmin'
+import EstateAdmin from '../../components/estateManager/icons/sidebar/EstateAdminSvg'
 import AddEstateAdmin from '../../pages/estateManager/estateAdmins/AddEstateAdmin'
 
 const EstateManagerRoutes = (

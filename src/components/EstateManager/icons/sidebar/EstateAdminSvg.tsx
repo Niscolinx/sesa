@@ -1,5 +1,5 @@
 
-const EstateAdmin = () => {
+const EstateAdminSvg = () => {
     return (
         <svg
             width='24'
@@ -35,4 +35,4 @@ const EstateAdmin = () => {
     )
 }
 
-export default EstateAdmin
+export default EstateAdminSvg
