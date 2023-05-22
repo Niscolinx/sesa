@@ -14,7 +14,7 @@ import Input, { SelectProps } from '../../../components/ui/input/Input'
 
 type DialogType = 'validate' | 'add-Artisan'
 
-const AddArtisan = () => {
+const AddEstateAdmin = () => {
     interface Inputs {
         first_name: string
         last_name: string
@@ -600,4 +600,4 @@ const AddArtisan = () => {
     )
 }
 
-export default AddArtisan
+export default AddEstateAdmin

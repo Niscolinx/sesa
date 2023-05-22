@@ -48,6 +48,8 @@ import AddSiteWorker from '../../pages/estateManager/siteWorker/AddSiteWorker'
 import Approvals from '../../pages/estateManager/approvals/Approvals'
 import BulkUpload from '../../pages/estateManager/energyToken/BulkUpload'
 import ViewResident from '../../pages/estateManager/residents/ViewResident'
+import EstateAdmin from '../../components/estateManager/icons/sidebar/EstateAdmin'
+import AddEstateAdmin from '../../pages/estateManager/estateAdmins/AddEstateAdmin'
 
 const EstateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -57,6 +59,8 @@ const EstateManagerRoutes = (
             path='wallet/transaction-details/:id'
             element={<WalletDetails />}
         />
+        <Route path='estate-admin' element={<EstateAdmin />} />
+        <Route path='estate-admin/add' element={<AddEstateAdmin />} />
         <Route path='residents' element={<Residents />} />
         <Route path='residents/add' element={<AddResident />} />
         <Route path='residents/edit/:id' element={<EditResident />} />
