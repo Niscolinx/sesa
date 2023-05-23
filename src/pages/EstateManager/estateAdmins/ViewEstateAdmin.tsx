@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
@@ -7,25 +7,46 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
+import { useNavigate, useParams } from 'react-router'
+import { toast } from 'react-toastify'
 
 function ViewEstateAdmin() {
     type FormInputs = {
         label?: string
         type?: string
         name?: string
+        value?: string | number,
         selectProps?: SelectProps
+    }
+
+    const genderState = ['Male', 'Female']
+    const [selectedPermissions, setSelectedPermissions] = React.useState<
+        string[]
+    >([])
+    const [phone, setPhone] = useState(0)
+
+    const params = useParams()
+    const navigate = useNavigate()
+
+    const id = params.id?.replace(':', '')
+
+    if (!id) {
+        toast('Estate Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+        })
+
+        navigate(-1)
     }
 
     const { isLoading, data: permissionState } = useFetchData({
         url: '/manager/estate-admin/permission',
         name: 'estate-admin_permissions',
     })
-
-    const genderState = ['Male', 'Female']
-
-    const [selectedPermissions, setSelectedPermissions] = React.useState<
-        string[]
-    >([])
+    const { isLoading: estate_admin_loading, data } = useFetchData({
+        url: `/manager/estate-admin/get/${id}`,
+        name: `view_estate_admin_${id}`,
+    })
 
     const {
         clearErrors,
@@ -40,6 +61,7 @@ function ViewEstateAdmin() {
         photoPreview,
         register,
         setValue,
+        reset
     } = useAddPageMutation({
         url: '/manager/estate-admin/create',
         props: {
@@ -48,6 +70,29 @@ function ViewEstateAdmin() {
             validation_option: 'phone_number',
         },
     })
+
+      useEffect(() => {
+          if (data) {
+              const { name, email, phone, image, dob, gender } =
+                  data
+              const first_name = name.split(' ')[0]
+              const last_name = name.split(' ')[1]
+
+              const phone_number = parseInt(phone.slice(3, -1))
+              setPhone(phone_number)
+
+              reset({
+                  first_name,
+                  last_name,
+                  dob,
+                  email_address: email,
+                  phone_number,
+              })
+
+              // setPhotoPreview((prev) => prev ?? image)
+              setSelectedGender(gender)
+          }
+      }, [data])
 
     if (isLoading) {
         return <Spinner start={true} />
@@ -89,6 +134,7 @@ function ViewEstateAdmin() {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
+            value: phone
         },
         {
             name: 'Email Address',
@@ -117,7 +163,7 @@ function ViewEstateAdmin() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps } = input
+                        const { label, type, name, selectProps, value } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -125,6 +171,7 @@ function ViewEstateAdmin() {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                value={value}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}

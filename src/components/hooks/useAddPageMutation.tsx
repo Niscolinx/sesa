@@ -23,6 +23,7 @@ function useAddPageMutation({ url, props }: Props) {
         register,
         handleSubmit,
         setValue,
+        reset,
         setError,
         clearErrors,
         formState: { errors: formErrors },
@@ -121,6 +122,7 @@ function useAddPageMutation({ url, props }: Props) {
         formErrors,
         setOpenDialog,
         openDialog,
+        reset
     }
 
     return providerValue

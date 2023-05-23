@@ -104,8 +104,25 @@ const ViewAdmin = () => {
             data,
         })
     }
+ 
 
-    const getAdmin = () => {
+    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
+        useMutation(postUpdateAdmin, {
+            onSuccess: (res) => {
+                toast('Admin Updated successfully', {
+                    type: 'success',
+                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
+                })
+            },
+            onError: (err: any) => {
+                setResponseMessage({
+                    className: 'text-red-600',
+                    displayMessage: err?.response?.data.message,
+                })
+            },
+        })
+
+          const getAdmin = () => {
         return axiosInstance({
             url: `/admin/get/${admin_id}`,
         })
@@ -133,27 +150,11 @@ const ViewAdmin = () => {
                 phone_number,
             })
 
-            // setPhotoPreview((prev) => prev ?? image)
+           // setPhotoPreview((prev) => prev ?? image)
             setSelectedGender(gender)
         }
     }, [get_response])
-
-    const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
-        useMutation(postUpdateAdmin, {
-            onSuccess: (res) => {
-                toast('Admin Updated successfully', {
-                    type: 'success',
-                    className: 'bg-green-100 text-green-600 text-[1.4rem]',
-                })
-            },
-            onError: (err: any) => {
-                setResponseMessage({
-                    className: 'text-red-600',
-                    displayMessage: err?.response?.data.message,
-                })
-            },
-        })
-
+    
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 
