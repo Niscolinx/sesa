@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router'
 interface Props {
     title: string
     open: boolean
+    type?: string
     close: Dispatch<SetStateAction<boolean>>
 }
 
-function AddedSuccess({ title, open = false, close }: Props) {
+function AddedSuccess({ title, open = false, close, type = 'added' }: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -36,7 +37,7 @@ function AddedSuccess({ title, open = false, close }: Props) {
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                     <img src='/icons/admins/modalSuccess.svg' alt='' />
-                    <p className='capitalize'>{title} successfully added</p>
+                    <p className='capitalize'>{title} successfully {type}</p>
 
                     <div className='flex w-full justify-center gap-8'>
                         <button

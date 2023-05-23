@@ -152,6 +152,7 @@ function ViewEstateAdmin() {
             <AddedSuccess
                 open={openDialog}
                 title={'estate admin'}
+                type={'updated'}
                 close={setOpenDialog}
             />
 
