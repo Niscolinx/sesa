@@ -43,8 +43,6 @@ const SlicedPages: FC<SlicedPages> = ({
 
         const get_secondary_id = secondary_id && data[secondary_id]
 
-        console.log({ id, restData })
-
         const details: Map<any, any> = new Map<
             string,
             string | { name: string; image: string | null }
@@ -131,12 +129,18 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         )
                     }
-                    if (key === 'created_at' || key === 'onboarding_date') {
+                    if (key === 'created_at' || key === 'onboarding_date' || key.includes('date')) {
+                        const get_only_date = value.slice(0, 10)
+                    
                         return (
                             <p key={idx}>
-                                {new Date(value)
+                                {/* {new Date(value)
                                     .toLocaleDateString()
-                                    .replace(/\//g, '-')}
+                                    .replace(/\//g, '-')} */}
+
+                                {
+                                    JSON.stringify(get_only_date)
+                                }
                             </p>
                         )
                     }
