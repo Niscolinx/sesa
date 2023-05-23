@@ -25,7 +25,6 @@ function ViewEstateAdmin() {
     const [selectedPermissions, setSelectedPermissions] = React.useState<
         string[]
     >([])
-    const [permissionState, setPermissionState] = useState([])
     const [phone, setPhone] = useState(0)
 
     const params = useParams()
@@ -46,6 +45,25 @@ function ViewEstateAdmin() {
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
     })
+
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
+
+    const promise_resolved = Promise.allSettled([
+        useFetchData({
+            url: `/manager/estate-admin/get/${id}`,
+            name: `view_estate_admin_${id}kk`,
+        }),
+        useFetchData({
+            url: '/manager/estate-admin/permission',
+            name: 'estate-admin_permissionskk',
+        }),
+    ])
+
+    console.log({ permissionState, data })
+    promise_resolved.then((data) => console.log({ data }))
 
     const {
         clearErrors,
@@ -72,20 +90,20 @@ function ViewEstateAdmin() {
 
     useEffect(() => {
         if (data) {
-            const { name, email, phone, dob, gender, permissions } = data
+            const { name, email, phone, dob, gender } = data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
             const phone_number = parseInt(phone.slice(3, -1))
             setPhone(phone_number)
             setSelectedGender(gender)
-            setPermissionState(permissions)
+            setSelectedPermissions(data.permissions)
 
             reset({
                 first_name,
                 last_name,
                 dob,
-                email_address: email,
+                email,
                 phone_number,
             })
         }
@@ -120,7 +138,7 @@ function ViewEstateAdmin() {
             label: 'permissions',
             type: 'select',
             selectProps: {
-                state: permissionState,
+                state: data.permissions,
                 isMulti: true,
                 textarea: true,
                 selectedState: selectedPermissions,
@@ -195,11 +213,12 @@ function ViewEstateAdmin() {
                     <div className='grid items-center'>
                         <ValidateKY title={'Know your Estate Admin'} />
                     </div>
-                    <ImageInput
-                        handlePicture={handlePicture}
-                        photoPreview={photoPreview}
+
+                    <AddBtn
+                        isLoading={postLoading}
+                        title={'Save'}
+                        is_addBtn={false}
                     />
-                    <AddBtn isLoading={postLoading} />
                 </>
             </form>
         </div>
