@@ -43,7 +43,7 @@ function AddAdmin() {
     } = useAddPageMutation({
         url: '/manager/estate-admin/create',
         props: {
-            permission: [selectedPermissions],
+            permission: selectedPermissions,
         },
     })
 

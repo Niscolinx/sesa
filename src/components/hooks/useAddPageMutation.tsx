@@ -56,7 +56,7 @@ function useAddPageMutation({ url, props }: Props) {
     const onSubmit = handleSubmit((data) => {
         console.log({ data, props })
 
-        const { first_name, last_name, dob, email, phone_number } = data
+        const { first_name, last_name, dob, phone_number } = data
 
         if (!phone_number || phone_number.length <= 9) {
             return setError('phone_number', {
@@ -92,7 +92,7 @@ function useAddPageMutation({ url, props }: Props) {
             dob,
             phone: `+234${phone_number}`,
             image: imageFile,
-
+            validation_option: 'phone_number'
         }
 
         mutate(updatedData)
