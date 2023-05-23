@@ -56,7 +56,7 @@ function useAddPageMutation({url, props}: Props) {
     })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data})
+        console.log({data, props})
         debugger
         const { first_name, last_name, dob, email_address, phone_number } = data
 
