@@ -99,7 +99,7 @@ function AddAdmin() {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
-                title={'admin'}
+                title={'estate admin'}
                 close={setOpenDialog}
             />
 
