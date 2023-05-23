@@ -5,12 +5,11 @@ import { IoMdClose } from 'react-icons/io'
 
 interface Props {
     image: string
-    setImageFile: Dispatch<SetStateAction<File | null>>
+    handlePicture: (e: React.ChangeEvent) => void
 }
-function ValidatedResult({ image, setImageFile }: Props) {
+function ValidatedResult({ image, handlePicture}: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [isValidated, setIsValidated] = useState(false)
-    const [photoPreview, setPhotoPreview] = useState('/default-avatar.jpg')
 
     const closeValidatedDialog = () => {
         if (dialogRef.current) {
@@ -24,13 +23,7 @@ function ValidatedResult({ image, setImageFile }: Props) {
         }
     }
 
-    const handlePicture = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        const preview = URL.createObjectURL(file)
-        setPhotoPreview(preview)
-        setImageFile(file)
-    }
+  
 
     return (
         <>
@@ -127,7 +120,7 @@ function ValidatedResult({ image, setImageFile }: Props) {
                     className='grid gap-4 cursor-pointer justify-items-center'
                 >
                     <img
-                        src={image || photoPreview}
+                        src={image || '/default-avatar.jpg'}
                         alt='photoPreview'
                         className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                     />

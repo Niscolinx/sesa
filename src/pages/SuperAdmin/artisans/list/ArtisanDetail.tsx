@@ -155,6 +155,15 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
+     const handlePicture = (e: React.ChangeEvent) => {
+         const target = e.target as HTMLInputElement
+         const file: File = (target.files as FileList)[0]
+
+         const preview = URL.createObjectURL(file)
+         setPhotoPreview(preview)
+         setImageFile(file)
+     }
+
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
     }
@@ -230,7 +239,7 @@ const ArtisanDetail = () => {
                     <div className='flex justify-between items-center mb-10'>
                         <ValidatedResult
                             image={photoPreview}
-                            setImageFile={setImageFile}
+                            handlePicture={handlePicture}
                         />
 
                         <Activate_Deactivate
@@ -278,7 +287,7 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                            <ValidateKY />
+                            <ValidateKY title={'Validate Artisan'}/>
                         </div>
 
                         <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start capitalize'>

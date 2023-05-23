@@ -9,13 +9,15 @@ import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { useNavigate, useParams } from 'react-router'
 import { toast } from 'react-toastify'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
+import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 function ViewEstateAdmin() {
     type FormInputs = {
         label?: string
         type?: string
         name?: string
-        value?: string | number,
+        value?: string | number
         selectProps?: SelectProps
     }
 
@@ -23,6 +25,7 @@ function ViewEstateAdmin() {
     const [selectedPermissions, setSelectedPermissions] = React.useState<
         string[]
     >([])
+    const [permissionState, setPermissionState] = useState([])
     const [phone, setPhone] = useState(0)
 
     const params = useParams()
@@ -39,10 +42,6 @@ function ViewEstateAdmin() {
         navigate(-1)
     }
 
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions',
-    })
     const { isLoading: estate_admin_loading, data } = useFetchData({
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
@@ -61,7 +60,7 @@ function ViewEstateAdmin() {
         photoPreview,
         register,
         setValue,
-        reset
+        reset,
     } = useAddPageMutation({
         url: '/manager/estate-admin/create',
         props: {
@@ -71,29 +70,28 @@ function ViewEstateAdmin() {
         },
     })
 
-      useEffect(() => {
-          if (data) {
-              const { name, email, phone, dob, gender } =
-                  data
-              const first_name = name.split(' ')[0]
-              const last_name = name.split(' ')[1]
+    useEffect(() => {
+        if (data) {
+            const { name, email, phone, dob, gender, permissions } = data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
 
-              const phone_number = parseInt(phone.slice(3, -1))
-              setPhone(phone_number)
-              setSelectedGender(gender)
+            const phone_number = parseInt(phone.slice(3, -1))
+            setPhone(phone_number)
+            setSelectedGender(gender)
+            setPermissionState(permissions)
 
-              reset({
-                  first_name,
-                  last_name,
-                  dob,
-                  email_address: email,
-                  phone_number,
-              })
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email_address: email,
+                phone_number,
+            })
+        }
+    }, [data])
 
-          }
-      }, [data])
-
-    if (isLoading || estate_admin_loading) {
+    if (estate_admin_loading) {
         return <Spinner start={true} />
     }
 
@@ -133,7 +131,7 @@ function ViewEstateAdmin() {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
-            value: phone
+            value: phone,
         },
         {
             name: 'Email Address',
@@ -150,6 +148,21 @@ function ViewEstateAdmin() {
                 title={'estate admin'}
                 close={setOpenDialog}
             />
+
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Admin'}
+                    queryCache={`view_estate_admin_${id}`}
+                />
+            </div>
 
             <form
                 onSubmit={onSubmit}
