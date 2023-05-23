@@ -17,6 +17,7 @@ function ViewEstateAdmin() {
         type?: string
         name?: string
         value?: string | number
+        required?: boolean
         selectProps?: SelectProps
     }
 
@@ -137,6 +138,7 @@ function ViewEstateAdmin() {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
+            required: false,
             value: phone,
         },
         {
@@ -182,7 +184,7 @@ function ViewEstateAdmin() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, value } = input
+                        const { label, type, name, selectProps, value, required } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -191,6 +193,7 @@ function ViewEstateAdmin() {
                                 formErrors={formErrors}
                                 type={type}
                                 value={value}
+                                required={required}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}
