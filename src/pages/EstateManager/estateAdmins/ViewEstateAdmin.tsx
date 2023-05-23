@@ -65,7 +65,7 @@ function ViewEstateAdmin() {
         setValue,
         reset,
     } = useAddPageMutation({
-        url: '/manager/estate-admin/create',
+        url: `/manager/estate-admin/update/${id}`,
         props: {
             permission: selectedPermissions,
             is_kyr_approved: 0,
