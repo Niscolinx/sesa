@@ -9,8 +9,9 @@ interface Props {
     props?: {
         [key: string]: any
     }
+    title: string
 }
-function useAddPageMutation({ url, props }: Props) {
+function useAddPageMutation({ url, props, title }: Props) {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -50,16 +51,15 @@ function useAddPageMutation({ url, props }: Props) {
             })
         },
         onSettled: () => {
-            queryClient.invalidateQueries('admin')
+            queryClient.invalidateQueries(title)
         },
     })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({ data, props })
+
 
         const { first_name, last_name, dob, phone } = data
 
-        console.log(phone)
 
         if (!phone || phone.length <= 9) {
             return setError('phone', {
