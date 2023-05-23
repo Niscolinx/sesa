@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import { Actions, useTableContext } from './Table'
 import { SetStateAction } from 'jotai'
 import { ToggleDropDown } from './TableData'
+import {BsThreeDotsVertical} from 'react-icons/bs'
 
 interface TableDropDown {
     id: number
@@ -97,8 +98,8 @@ const TableDropDown = ({
                     }))
                 }
             >
-                <span className='text-color-primary'>
-                    <img src='/icons/admins/threeDots.svg' alt='' />
+                <span className='text-color-primary text-3xl'>
+                    <BsThreeDotsVertical/>
                 </span>
             </label>
             <input
@@ -115,7 +116,7 @@ const TableDropDown = ({
             />
 
             {isDropDownOpen && index === id && (
-                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid shadow z-20 capitalize'>
+                <div className='absolute top-0 translate-x-[4rem] border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid shadow z-20 capitalize right-0 m-10'>
                     <>
                         <input
                             type='text'
