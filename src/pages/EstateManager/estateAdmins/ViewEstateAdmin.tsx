@@ -51,21 +51,25 @@ function ViewEstateAdmin() {
     //     name: 'estate-admin_permissions',
     // })
 
-    const promise_resolved =  Promise.allSettled([
-        useFetchData({
-            url: `/manager/estate-admin/get/${id}`,
-            name: `view_estate_admin_${id}kk`,
-        }),
-        useFetchData({
-            url: '/manager/estate-admin/permission',
-            name: 'estate-admin_permissionskk',
-        }),
-    ])
+    const promise_resolved = async () => {
+        const resolved = await Promise.allSettled([
+            useFetchData({
+                url: `/manager/estate-admin/get/${id}`,
+                name: `view_estate_admin_${id}kk`,
+            }),
+            useFetchData({
+                url: '/manager/estate-admin/permission',
+                name: 'estate-admin_permissionskk',
+            }),
+        ])
+
+        return resolved
+    }
 
     //console.log({ permissionState, data })
-    const data_value =  promise_resolved
+    const data_value = promise_resolved()
 
-    console.log({data_value})
+    console.log({ data_value })
 
     const {
         clearErrors,
