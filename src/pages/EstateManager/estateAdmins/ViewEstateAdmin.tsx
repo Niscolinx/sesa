@@ -51,31 +51,26 @@ function ViewEstateAdmin() {
     //     name: 'estate-admin_permissions',
     // })
 
+    const results = []
     const promise_resolved = Promise.allSettled([
-                useFetchData({
-                    url: `/manager/estate-admin/get/${id}`,
-                    name: `view_estate_admin_${id}kk`,
-                }),
-                useFetchData({
-                    url: '/manager/estate-admin/permission',
-                    name: 'estate-admin_permissionskk',
-                }),
-            ]).then((res) => {
+        useFetchData({
+            url: `/manager/estate-admin/get/${id}`,
+            name: `view_estate_admin_${id}kk`,
+        }),
+        useFetchData({
+            url: '/manager/estate-admin/permission',
+            name: 'estate-admin_permissionskk',
+        }),
+    ]).then((res) => {
+        res.forEach((e) => {
+            if (e.status === 'fulfilled') {
+                console.log(e.value)
+                return results.push(e.value)
+            }
+        })
+    })
 
-               return res.forEach((e) => {
-                    if(e.status === 'fulfilled'){
-                        return e.value
-                    }
-                })
-            })
-        
-    }
-
-    //console.log({ permissionState, data })
-    const data_value = promise_resolved()
-
-
-    console.log(data_value)
+    console.log({results})
 
     const {
         clearErrors,
@@ -180,9 +175,6 @@ function ViewEstateAdmin() {
             />
 
             <div className='flex justify-between items-center mb-10'>
-                {
-                    JSON.stringify(data_value)
-                }
                 <ValidatedResult
                     image={photoPreview}
                     handlePicture={handlePicture}
