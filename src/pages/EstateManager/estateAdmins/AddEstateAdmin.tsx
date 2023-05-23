@@ -23,7 +23,13 @@ const AddAdmin = () => {
         setValue,
     } = useAddPageMutation({ url: '/admin/create' })
 
+
     const genderState = ['Male', 'Female']
+
+    const [selectedPermissions, setSelectedPermissions] = React.useState<string[]>([])
+
+    const permissionState = ['view', 'manage', 'edit']
+
     type FormInputs = {
         label?: string
         type?: string
@@ -53,6 +59,15 @@ const AddAdmin = () => {
             },
         },
         {
+            label: 'permissions',
+            type: 'select',
+            selectProps: {
+                state: permissionState,
+                selectedState: selectedPermissions,
+                setSelectedState: setSelectedPermissions,
+            },
+        },
+        {
             label: 'phone_number',
             type: 'tel',
         },
@@ -70,9 +85,7 @@ const AddAdmin = () => {
                 title={'admin'}
                 close={setOpenDialog}
             />
-            <p className='text-[2rem] font-Satoshi-Medium'>
-                Personal Information
-            </p>
+          
 
             <form
                 onSubmit={onSubmit}
@@ -102,7 +115,7 @@ const AddAdmin = () => {
                         )
                     })}
                     <div>
-                        <ValidateKY />
+                        <ValidateKY title={'Know your Estate Admin'} />
                     </div>
                     <ImageInput
                         handlePicture={handlePicture}

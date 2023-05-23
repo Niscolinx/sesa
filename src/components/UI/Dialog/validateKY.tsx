@@ -8,12 +8,11 @@ import { Select } from '../Select'
 import { toast, ToastContainer } from 'react-toastify'
 import Input from '../input/Input'
 
-
 interface Props {
     title: string
 }
 
-function ValidateKY({title}: Props) {
+function ValidateKY({ title }: Props) {
     interface ValidationTypeInput {
         validation_content: string
     }
@@ -92,12 +91,7 @@ function ValidateKY({title}: Props) {
                             className='grid gap-12'
                             onSubmit={onSubmitValidation}
                         >
-                            <h3
-                                className='text-[2rem] font-Satoshi-Medium border-b '
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
+                            <h3 className='text-[2rem] font-Satoshi-Medium border-b capitalize'>
                                 {title}
                             </h3>
 
