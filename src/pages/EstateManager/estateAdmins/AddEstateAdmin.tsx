@@ -8,14 +8,25 @@ import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 
-const AddAdmin = () => {
-     type FormInputs = {
+function AddAdmin() {
+    type FormInputs = {
         label?: string
         type?: string
         name?: string
         selectProps?: SelectProps
     }
-    
+
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
+
+    const genderState = ['Male', 'Female']
+
+    const [selectedPermissions, setSelectedPermissions] = React.useState<
+        string[]
+    >([])
+
     const {
         clearErrors,
         formErrors,
@@ -29,21 +40,16 @@ const AddAdmin = () => {
         photoPreview,
         register,
         setValue,
-    } = useAddPageMutation({ url: '/admin/create' })
-
-    const {isLoading, data} = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions'
+    } = useAddPageMutation({
+        url: '/manager/estate-admin/create',
+        props: {
+            permission: [selectedPermissions],
+        },
     })
 
-
-    const genderState = ['Male', 'Female']
-
-    const [selectedPermissions, setSelectedPermissions] = React.useState<string[]>([])
-
-    const permissionState = ['view', 'manage', 'edit']
-
-   
+    if (isLoading) {
+        return <Spinner start={true} />
+    }
 
     const formInputs = [
         {
@@ -95,7 +101,6 @@ const AddAdmin = () => {
                 title={'admin'}
                 close={setOpenDialog}
             />
-          
 
             <form
                 onSubmit={onSubmit}
@@ -124,7 +129,7 @@ const AddAdmin = () => {
                             />
                         )
                     })}
-                    <div>
+                    <div className='grid items-center'>
                         <ValidateKY title={'Know your Estate Admin'} />
                     </div>
                     <ImageInput

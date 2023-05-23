@@ -6,9 +6,13 @@ import useAxios from './UseAxios'
 
 
 interface Props {
-    url: string
+    url: string,
+    props?: {
+        [key: string]: any
+    }
 }
-function useAddPageMutation({url}: Props) {
+function useAddPageMutation({url, props}: Props) {
+   
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -52,6 +56,8 @@ function useAddPageMutation({url}: Props) {
     })
 
     const onSubmit = handleSubmit((data) => {
+        console.log({data})
+        debugger
         const { first_name, last_name, dob, email_address, phone_number } = data
 
         if (!phone_number || phone_number.length <= 9) {

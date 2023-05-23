@@ -512,7 +512,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     <div
                         className={`${
                             absolute && 'absolute top-[6rem] left-0'
-                        } border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll`}
+                        } border border-color-primary-light bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[20rem] overflow-y-scroll w-full`}
                     >
                         <div className='relative flex items-center text-[1.4rem]'>
                             <img
