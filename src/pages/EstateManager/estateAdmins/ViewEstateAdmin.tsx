@@ -66,6 +66,7 @@ function ViewEstateAdmin() {
         setValue,
         reset,
     } = useAddPageMutation({
+        title: `view_estate_admin_${id}`,
         url: `/manager/estate-admin/update/${id}`,
         props: {
             permission: selectedPermissions,
@@ -73,7 +74,6 @@ function ViewEstateAdmin() {
             validation_option: 'phone_number',
         },
     })
-
 
     useEffect(() => {
         if (data) {
@@ -91,7 +91,7 @@ function ViewEstateAdmin() {
                 last_name,
                 dob,
                 email,
-                phone:phone_number,
+                phone: phone_number,
             })
         }
     }, [data])
@@ -99,8 +99,6 @@ function ViewEstateAdmin() {
     if (estate_admin_loading || isLoading) {
         return <Spinner start={true} />
     }
-
-   
 
     const formInputs = [
         {
@@ -184,7 +182,14 @@ function ViewEstateAdmin() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, value, required } = input
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            value,
+                            required,
+                        } = input
                         return (
                             <Input
                                 key={idx + label}
