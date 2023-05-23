@@ -26,6 +26,7 @@ function ViewEstateAdmin() {
         string[]
     >([])
     const [phone, setPhone] = useState(0)
+    const [fetchedResults, setFetchedResults] = useState([])
 
     const params = useParams()
     const navigate = useNavigate()
@@ -41,38 +42,42 @@ function ViewEstateAdmin() {
         navigate(-1)
     }
 
+    console.time('time')
+
     const { isLoading: estate_admin_loading, data } = useFetchData({
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
     })
 
-    
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
 
-    // const { isLoading, data: permissionState } = useFetchData({
-    //     url: '/manager/estate-admin/permission',
-    //     name: 'estate-admin_permissions',
-    // })
-
-    const results: any[] = []
-    const promise_resolved = async function handleAll() {
-        await Promise.all([
-            useFetchData({
-                url: `/manager/estate-admin/get/${id}`,
-                name: `view_estate_admin_${id}kk`,
-            }),
-            useFetchData({
-                url: '/manager/estate-admin/permission',
-                name: 'estate-admin_permissionskk',
-            }),
-        ]).then((res) => {
-            res.forEach((e) => {
-               console.log(e)
+    useEffect(() => {
+        const results: any[] = []
+        const promise_resolved = async function handleAll() {
+            await Promise.all([
+                useFetchData({
+                    url: `/manager/estate-admin/get/${id}`,
+                    name: `view_estate_admin_${id}kk`,
+                }),
+                useFetchData({
+                    url: '/manager/estate-admin/permission',
+                    name: 'estate-admin_permissionskk',
+                }),
+            ]).then((res) => {
+                res.forEach((e) => {
+                    results.push(e)
+                })
             })
+        }
+
+        promise_resolved().then(() => {
+            console.log(results)
         })
-    }
 
-    promise_resolved()
-
+    }, [])
 
     const {
         clearErrors,
@@ -118,9 +123,10 @@ function ViewEstateAdmin() {
         }
     }, [data])
 
-    if (estate_admin_loading) {
+    if (estate_admin_loading || isLoading) {
         return <Spinner start={true} />
     }
+
 
     const formInputs = [
         {
