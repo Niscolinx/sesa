@@ -63,6 +63,7 @@ const AddAdmin = () => {
             type: 'select',
             selectProps: {
                 state: permissionState,
+                isMulti: true,
                 selectedState: selectedPermissions,
                 setSelectedState: setSelectedPermissions,
             },
