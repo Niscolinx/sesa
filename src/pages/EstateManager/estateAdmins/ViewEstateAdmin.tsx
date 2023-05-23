@@ -93,7 +93,7 @@ function ViewEstateAdmin() {
           }
       }, [data])
 
-    if (isLoading) {
+    if (isLoading || estate_admin_loading) {
         return <Spinner start={true} />
     }
 
