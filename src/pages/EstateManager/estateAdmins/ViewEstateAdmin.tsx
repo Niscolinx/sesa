@@ -46,12 +46,12 @@ function ViewEstateAdmin() {
         name: `view_estate_admin_${id}`,
     })
 
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions',
-    })
+    // const { isLoading, data: permissionState } = useFetchData({
+    //     url: '/manager/estate-admin/permission',
+    //     name: 'estate-admin_permissions',
+    // })
 
-    const promise_resolved = Promise.allSettled([
+    const promise_resolved =  Promise.allSettled([
         useFetchData({
             url: `/manager/estate-admin/get/${id}`,
             name: `view_estate_admin_${id}kk`,
@@ -62,8 +62,10 @@ function ViewEstateAdmin() {
         }),
     ])
 
-    console.log({ permissionState, data })
-    promise_resolved.then((data) => console.log({ data }))
+    //console.log({ permissionState, data })
+    const data_value =  promise_resolved
+
+    console.log({data_value})
 
     const {
         clearErrors,
