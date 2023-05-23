@@ -59,6 +59,8 @@ function useAddPageMutation({ url, props }: Props) {
 
         const { first_name, last_name, dob, phone } = data
 
+        console.log(phone)
+
         if (!phone || phone.length <= 9) {
             return setError('phone', {
                 type: 'manual',

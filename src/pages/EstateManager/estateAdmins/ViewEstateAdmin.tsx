@@ -91,7 +91,7 @@ function ViewEstateAdmin() {
                 last_name,
                 dob,
                 email,
-                phone_number,
+                phone:phone_number,
             })
         }
     }, [data])
@@ -127,7 +127,7 @@ function ViewEstateAdmin() {
             label: 'permissions',
             type: 'select',
             selectProps: {
-                state: data.permissions,
+                state: permissionState,
                 isMulti: true,
                 textarea: true,
                 selectedState: selectedPermissions,
