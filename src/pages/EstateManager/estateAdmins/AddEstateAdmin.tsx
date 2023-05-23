@@ -6,6 +6,7 @@ import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import useFetchData from '../../../components/hooks/UseFetchData'
 
 const AddAdmin = () => {
     const {
@@ -22,6 +23,11 @@ const AddAdmin = () => {
         register,
         setValue,
     } = useAddPageMutation({ url: '/admin/create' })
+
+    const {isLoading, data} = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions'
+    })
 
 
     const genderState = ['Male', 'Female']
@@ -64,6 +70,7 @@ const AddAdmin = () => {
             selectProps: {
                 state: permissionState,
                 isMulti: true,
+                textarea: true,
                 selectedState: selectedPermissions,
                 setSelectedState: setSelectedPermissions,
             },
