@@ -181,7 +181,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
-                            <div className='absolute right-0'>
+                            <div className='absolute right-0 mr-10'>
 
                             <TableDropDown
                                 toggleDropDown={toggleDropDown}
