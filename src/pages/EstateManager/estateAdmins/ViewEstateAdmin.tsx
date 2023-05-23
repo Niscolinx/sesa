@@ -26,7 +26,7 @@ function ViewEstateAdmin() {
         string[]
     >([])
     const [phone, setPhone] = useState(0)
-    const [fetchedResults, setFetchedResults] = useState([])
+    const [fetchedResults, setFetchedResults] = useState<any[]>([])
 
     const params = useParams()
     const navigate = useNavigate()
@@ -42,8 +42,6 @@ function ViewEstateAdmin() {
         navigate(-1)
     }
 
-    console.time('time')
-
     const { isLoading: estate_admin_loading, data } = useFetchData({
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
@@ -55,9 +53,8 @@ function ViewEstateAdmin() {
     })
 
     useEffect(() => {
-        const results: any[] = []
         const promise_resolved = async function handleAll() {
-            await Promise.all([
+           const results =  await Promise.all([
                 useFetchData({
                     url: `/manager/estate-admin/get/${id}`,
                     name: `view_estate_admin_${id}kk`,
@@ -66,17 +63,12 @@ function ViewEstateAdmin() {
                     url: '/manager/estate-admin/permission',
                     name: 'estate-admin_permissionskk',
                 }),
-            ]).then((res) => {
-                res.forEach((e) => {
-                    results.push(e)
-                })
-            })
+            ])
+
+            console.log({results})
         }
 
-        promise_resolved().then(() => {
-            console.log(results)
-        })
-
+        promise_resolved()
     }, [])
 
     const {
@@ -123,10 +115,11 @@ function ViewEstateAdmin() {
         }
     }, [data])
 
+    console.log({ fetchedResults })
+
     if (estate_admin_loading || isLoading) {
         return <Spinner start={true} />
     }
-
 
     const formInputs = [
         {
