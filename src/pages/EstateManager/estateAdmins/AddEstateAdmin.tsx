@@ -88,7 +88,8 @@ function AddAdmin() {
             type: 'tel',
         },
         {
-            label: 'email_address',
+            name: 'Email Address',
+            label: 'email',
             type: 'email',
         },
     ] satisfies FormInputs[]
