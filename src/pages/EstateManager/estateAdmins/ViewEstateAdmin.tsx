@@ -8,7 +8,7 @@ import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 
-function AddEstateAdmin() {
+function ViewEstateAdmin() {
     type FormInputs = {
         label?: string
         type?: string
@@ -45,7 +45,7 @@ function AddEstateAdmin() {
         props: {
             permission: selectedPermissions,
             is_kyr_approved: 0,
-            validation_option: 'phone_number'
+            validation_option: 'phone_number',
         },
     })
 
@@ -147,4 +147,4 @@ function AddEstateAdmin() {
     )
 }
 
-export default AddEstateAdmin
+export default ViewEstateAdmin

@@ -50,6 +50,7 @@ import BulkUpload from '../../pages/estateManager/energyToken/BulkUpload'
 import ViewResident from '../../pages/estateManager/residents/ViewResident'
 import AddEstateAdmin from '../../pages/estateManager/estateAdmins/AddEstateAdmin'
 import EstateAdmin from '../../pages/estateManager/estateAdmins/EstateAdmin'
+import ViewEstateAdmin from '../../pages/estateManager/estateAdmins/ViewEstateAdmin'
 
 const EstateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
@@ -61,6 +62,7 @@ const EstateManagerRoutes = (
         />
         <Route path='estate-admin' element={<EstateAdmin />} />
         <Route path='estate-admin/add' element={<AddEstateAdmin />} />
+        <Route path='estate-admin/view' element={<ViewEstateAdmin />} />
         <Route path='residents' element={<Residents />} />
         <Route path='residents/add' element={<AddResident />} />
         <Route path='residents/edit/:id' element={<EditResident />} />
