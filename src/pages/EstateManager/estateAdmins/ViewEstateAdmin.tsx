@@ -73,13 +73,14 @@ function ViewEstateAdmin() {
 
       useEffect(() => {
           if (data) {
-              const { name, email, phone, image, dob, gender } =
+              const { name, email, phone, dob, gender } =
                   data
               const first_name = name.split(' ')[0]
               const last_name = name.split(' ')[1]
 
               const phone_number = parseInt(phone.slice(3, -1))
               setPhone(phone_number)
+              setSelectedGender(gender)
 
               reset({
                   first_name,
@@ -89,8 +90,6 @@ function ViewEstateAdmin() {
                   phone_number,
               })
 
-              // setPhotoPreview((prev) => prev ?? image)
-              setSelectedGender(gender)
           }
       }, [data])
 
