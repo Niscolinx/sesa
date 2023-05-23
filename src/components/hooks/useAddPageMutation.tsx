@@ -56,16 +56,16 @@ function useAddPageMutation({ url, props }: Props) {
     const onSubmit = handleSubmit((data) => {
         console.log({ data, props })
 
-        const { first_name, last_name, dob, phone_number } = data
+        const { first_name, last_name, dob, phone } = data
 
-        if (!phone_number || phone_number.length <= 9) {
-            return setError('phone_number', {
+        if (!phone || phone.length <= 9) {
+            return setError('phone', {
                 type: 'manual',
                 message: 'Must be 10 characters',
             })
         }
 
-        clearErrors('phone_number')
+        clearErrors('phone')
 
         if (imageFile) {
             const size = imageFile.size / 1000
@@ -90,7 +90,7 @@ function useAddPageMutation({ url, props }: Props) {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            phone: `+234${phone_number}`,
+            phone: `+234${phone}`,
             image: imageFile,
           
         }

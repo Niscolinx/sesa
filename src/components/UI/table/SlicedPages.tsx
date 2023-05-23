@@ -181,6 +181,8 @@ const SlicedPages: FC<SlicedPages> = ({
 
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
+                            <div className='absolute right-0'>
+
                             <TableDropDown
                                 toggleDropDown={toggleDropDown}
                                 setToggleDropDown={setToggleDropDown}
@@ -191,6 +193,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 }
                                 key={idx}
                             />
+                            </div>
                         ) : null
                     }
                     if (key.toLowerCase() === 'rating') {
@@ -233,7 +236,7 @@ const SlicedPages: FC<SlicedPages> = ({
         <>
             {page.map((data, idx) => (
                 <div
-                    className={`grid justify-between border-b grid-cols-${THeader.length} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis`}
+                    className={`grid justify-between border-b grid-cols-${THeader.length - 1} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis relative`}
                     key={`${idx}`}
                 >
                     <TableItem data={data} />

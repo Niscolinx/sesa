@@ -86,7 +86,8 @@ function AddAdmin() {
             },
         },
         {
-            label: 'phone_number',
+            name: 'phone_number',
+            label: 'phone',
             type: 'tel',
         },
         {

@@ -327,37 +327,41 @@ const TableData = () => {
 
                                 <div className='grid bg-white'>
                                     <div
-                                        className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${THeader.length}`}
+                                        className={`grid justify-between text-color-dark-1 bg-color-grey p-8  items-center gap-8 text-[1.4rem] capitalize grid-cols-${
+                                            THeader.length - 1
+                                        }`}
                                     >
-                                        {THeader.map(
-                                            (header: string, idx: number) =>
-                                                idx === 0 ? (
-                                                    <div
-                                                        className='flex items-center gap-2'
-                                                        key={idx}
-                                                    >
-                                                        {' '}
-                                                        {is_checkbox && (
-                                                            <input
-                                                                type='checkbox'
-                                                                className='cursor-pointer'
-                                                            />
-                                                        )}
-                                                        <p>
-                                                            {header.replaceAll(
-                                                                '_',
-                                                                ' '
-                                                            )}
-                                                        </p>
-                                                    </div>
-                                                ) : (
-                                                    <p key={idx}>
+                                        {THeader.slice(
+                                            0,
+                                            THeader.length - 1
+                                        ).map((header: string, idx: number) =>
+                                            idx === 0 ? (
+                                                <div
+                                                    className='flex items-center gap-2'
+                                                    key={idx}
+                                                >
+                                                    {' '}
+                                                    {is_checkbox && (
+                                                        <input
+                                                            type='checkbox'
+                                                            className='cursor-pointer'
+                                                        />
+                                                    )}
+                                                    <p>
                                                         {header.replaceAll(
                                                             '_',
                                                             ' '
                                                         )}
                                                     </p>
-                                                )
+                                                </div>
+                                            ) : (
+                                                <p key={idx}>
+                                                    {header.replaceAll(
+                                                        '_',
+                                                        ' '
+                                                    )}
+                                                </p>
+                                            )
                                         )}
                                     </div>
 
