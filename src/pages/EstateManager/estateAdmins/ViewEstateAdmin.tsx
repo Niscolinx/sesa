@@ -51,7 +51,7 @@ function ViewEstateAdmin() {
     //     name: 'estate-admin_permissions',
     // })
 
-    const results = []
+    let results: any[] = []
     const promise_resolved = Promise.allSettled([
         useFetchData({
             url: `/manager/estate-admin/get/${id}`,
@@ -65,12 +65,12 @@ function ViewEstateAdmin() {
         res.forEach((e) => {
             if (e.status === 'fulfilled') {
                 console.log(e.value)
-                return results.push(e.value)
+                return results = [...e]
             }
         })
     })
 
-    console.log({results})
+console.log(results)
 
     const {
         clearErrors,
