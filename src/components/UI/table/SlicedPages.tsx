@@ -129,18 +129,23 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         )
                     }
-                    if (key === 'created_at' || key === 'onboarding_date' || key.includes('date')) {
+                    if (
+                        key === 'created_at' ||
+                        key === 'onboarding_date' ||
+                        key.includes('date')
+                    ) {
                         const get_only_date = value.slice(0, 10)
-                    
+
                         return (
                             <p key={idx}>
-                                {new Date(get_only_date).toLocaleDateString('en-US', {
-                                    day: 'numeric',
-                                    month: 'short',
-                                    year: 'numeric',
-                                })
-                                  }
-
+                                {new Date(get_only_date).toLocaleDateString(
+                                    'en-US',
+                                    {
+                                        day: 'numeric',
+                                        month: 'short',
+                                        year: 'numeric',
+                                    }
+                                )}
                             </p>
                         )
                     }
@@ -210,7 +215,14 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         )
                     } else {
-                        return <p key={idx} className='max-w-[20rem] overflow-hidden text-ellipsis'>{value}</p>
+                        return (
+                            <p
+                                key={idx}
+                                className='max-w-[20rem] overflow-hidden text-ellipsis'
+                            >
+                                {value}
+                            </p>
+                        )
                     }
                 })}
             </>

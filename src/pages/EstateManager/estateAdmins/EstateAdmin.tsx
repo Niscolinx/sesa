@@ -28,7 +28,9 @@ function EstateAdmin() {
                     'onboarding_date',
                     'status',
                 ]}
-                deactivateProp={{ url: '/admin/deactivate_activate' }}
+                deactivateProp={{
+                    url: '/manager/estate-admin/deactivate_activate',
+                }}
             />
         </div>
     )
