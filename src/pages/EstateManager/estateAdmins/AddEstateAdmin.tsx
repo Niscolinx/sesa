@@ -9,6 +9,13 @@ import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 
 const AddAdmin = () => {
+     type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
+    }
+    
     const {
         clearErrors,
         formErrors,
@@ -36,12 +43,7 @@ const AddAdmin = () => {
 
     const permissionState = ['view', 'manage', 'edit']
 
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
+   
 
     const formInputs = [
         {
