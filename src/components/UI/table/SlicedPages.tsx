@@ -134,13 +134,13 @@ const SlicedPages: FC<SlicedPages> = ({
                     
                         return (
                             <p key={idx}>
-                                {/* {new Date(value)
-                                    .toLocaleDateString()
-                                    .replace(/\//g, '-')} */}
+                                {new Date(get_only_date).toLocaleDateString('en-US', {
+                                    day: 'numeric',
+                                    month: 'short',
+                                    year: 'numeric',
+                                })
+                                  }
 
-                                {
-                                    JSON.stringify(get_only_date)
-                                }
                             </p>
                         )
                     }
@@ -197,7 +197,10 @@ const SlicedPages: FC<SlicedPages> = ({
                         )
                     ) {
                         return (
-                            <div key={idx} className='flex items-center'>
+                            <div
+                                key={idx}
+                                className='flex items-center max-w-[20rem] overflow-hidden text-ellipsis'
+                            >
                                 <img
                                     src='/icons/Naira.svg'
                                     alt=''
@@ -207,7 +210,7 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         )
                     } else {
-                        return <p key={idx}>{value}</p>
+                        return <p key={idx} className='max-w-[20rem] overflow-hidden text-ellipsis'>{value}</p>
                     }
                 })}
             </>
