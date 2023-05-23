@@ -53,8 +53,9 @@ function ViewEstateAdmin() {
     //     name: 'estate-admin_permissions',
     // })
 
+    const results: any[] = []
     const promise_resolved = async function handleAll() {
-        await Promise.allSettled([
+        await Promise.all([
             useFetchData({
                 url: `/manager/estate-admin/get/${id}`,
                 name: `view_estate_admin_${id}kk`,
@@ -65,14 +66,13 @@ function ViewEstateAdmin() {
             }),
         ]).then((res) => {
             res.forEach((e) => {
-                if (e.status === 'fulfilled') {
-                    console.log({e})
-                }
+               console.log(e)
             })
         })
     }
 
-    console.log(results)
+    promise_resolved()
+
 
     const {
         clearErrors,
