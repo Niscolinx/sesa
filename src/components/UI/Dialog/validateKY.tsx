@@ -8,7 +8,12 @@ import { Select } from '../Select'
 import { toast, ToastContainer } from 'react-toastify'
 import Input from '../input/Input'
 
-function ValidateKY() {
+
+interface Props {
+    title: string
+}
+
+function ValidateKY({title}: Props) {
     interface ValidationTypeInput {
         validation_content: string
     }
@@ -93,7 +98,7 @@ function ValidateKY() {
                                     fontFamily: 'Satoshi-Medium',
                                 }}
                             >
-                                Know Your Artisan (KYA)
+                                {title}
                             </h3>
 
                             <Select

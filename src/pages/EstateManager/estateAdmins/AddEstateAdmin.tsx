@@ -2,10 +2,10 @@ import React from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
-import AddedSuccess from '../../../components/ui/Dialog/AddedSuccess'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/validateKY'
+import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 
 const AddAdmin = () => {
     const {
@@ -101,8 +101,9 @@ const AddAdmin = () => {
                             />
                         )
                     })}
-
-<ValidateKY/>
+                    <div>
+                        <ValidateKY />
+                    </div>
                     <ImageInput
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}

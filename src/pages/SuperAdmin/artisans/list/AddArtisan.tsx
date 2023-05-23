@@ -10,6 +10,8 @@ import ImageInput from '../../../../components/ui/input/ImageInput'
 import useAxios from '../../../../components/hooks/UseAxios'
 import useFetchData from '../../../../components/hooks/UseFetchData'
 import Spinner from '../../../../components/ui/Spinner'
+import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
+import AddBtn from '../../../../components/ui/button/AddBtn'
 
 type DialogType = 'validate' | 'add-Artisan'
 
@@ -520,78 +522,8 @@ const AddArtisan = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <div className='grid gap-8'>
-                            <div className='grid max-w-[40rem]'>
-                                <div className='flex items-center justify-between'>
-                                    <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
-                                        KYG{' '}
-                                        <span className='text-[#043FA7]'>
-                                            <BsQuestionCircle />
-                                        </span>
-                                    </p>
-                                    <div
-                                        onClick={toggleIskyg}
-                                        className='cursor-pointer'
-                                    >
-                                        {iskyg ? (
-                                            <img
-                                                src='/icons/admins/switchOn.svg'
-                                                alt=''
-                                            />
-                                        ) : (
-                                            <img
-                                                src='/icons/admins/switchOff.svg'
-                                                alt=''
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-
-                                {isValidated ? (
-                                    <div className='flex gap-8 text-[1.6rem]'>
-                                        <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
-                                            KYG Validated{' '}
-                                            <IoMdCheckmarkCircleOutline />
-                                        </p>
-                                        <button
-                                            className='text-green-600 flex items-center gap-2'
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                            onClick={() => openValidateDialog()}
-                                        >
-                                            View Results <BsQuestionCircle />
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <>
-                                        {iskyg && (
-                                            <div className='flex justify-between text-[1.6rem]'>
-                                                <p
-                                                    className='text-[#098DFF] cursor-pointer'
-                                                    onClick={() =>
-                                                        handleOpen('validate')
-                                                    }
-                                                    style={{
-                                                        fontFamily:
-                                                            'Satoshi-Medium',
-                                                    }}
-                                                >
-                                                    Click here to validate this
-                                                    person
-                                                </p>
-                                            </div>
-                                        )}
-                                    </>
-                                )}
-                            </div>
-                            <button className='btn justify-self-start btn-blue'>
-                                <span>
-                                    <IoMdAdd />
-                                </span>{' '}
-                                {isLoading ? 'Loading...' : 'Add'}
-                            </button>
-                        </div>
+                        <ValidateKY title={'Know Your Artisan (KYA)'}/>
+                        <AddBtn isLoading={isLoading}/>
                     </>
                 </form>
             </div>

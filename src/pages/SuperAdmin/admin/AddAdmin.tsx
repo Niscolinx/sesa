@@ -2,9 +2,9 @@ import React from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
-import AddedSuccess from '../../../components/ui/Dialog/AddedSuccess'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
-import useAddPageMutation  from '../../../components/hooks/useAddPageMutation'
+import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 
 const AddAdmin = () => {
     const {
@@ -64,7 +64,11 @@ const AddAdmin = () => {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
-            <AddedSuccess open={openDialog} title={'admin'} close={setOpenDialog} />
+            <AddedSuccess
+                open={openDialog}
+                title={'admin'}
+                close={setOpenDialog}
+            />
             <p className='text-[2rem] font-Satoshi-Medium'>
                 Personal Information
             </p>
