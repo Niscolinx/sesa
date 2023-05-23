@@ -4,15 +4,13 @@ import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
 import useAxios from './UseAxios'
 
-
 interface Props {
-    url: string,
+    url: string
     props?: {
         [key: string]: any
     }
 }
-function useAddPageMutation({url, props}: Props) {
-   
+function useAddPageMutation({ url, props }: Props) {
     const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
@@ -56,9 +54,9 @@ function useAddPageMutation({url, props}: Props) {
     })
 
     const onSubmit = handleSubmit((data) => {
-        console.log({data, props})
-        debugger
-        const { first_name, last_name, dob, email_address, phone_number } = data
+        console.log({ data, props })
+
+        const { first_name, last_name, dob, email, phone_number } = data
 
         if (!phone_number || phone_number.length <= 9) {
             return setError('phone_number', {
@@ -87,12 +85,14 @@ function useAddPageMutation({url, props}: Props) {
         }
 
         const updatedData = {
+            ...data,
+            ...props,
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
-            email: email_address,
             phone: `+234${phone_number}`,
             image: imageFile,
+
         }
 
         mutate(updatedData)
