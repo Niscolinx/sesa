@@ -44,6 +44,8 @@ function AddAdmin() {
         url: '/manager/estate-admin/create',
         props: {
             permission: selectedPermissions,
+            is_kyr_approved: 0,
+            validation_option: 'phone_number'
         },
     })
 

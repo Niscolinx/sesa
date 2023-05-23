@@ -92,7 +92,7 @@ function useAddPageMutation({ url, props }: Props) {
             dob,
             phone: `+234${phone_number}`,
             image: imageFile,
-            validation_option: 'phone_number'
+          
         }
 
         mutate(updatedData)
