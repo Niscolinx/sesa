@@ -45,7 +45,7 @@ function Residents() {
                         iconUrl='/icons/estateManager/people.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
-                        bottomLeft={`%${alpha}`}
+                        bottomLeft={`Alpha %${alpha}`}
                         bottomRight={`%${resident_user}`}
                     />
                     <OverviewCard
