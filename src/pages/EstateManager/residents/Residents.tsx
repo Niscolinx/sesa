@@ -5,7 +5,7 @@ import Table from '../../../components/ui/table/Table'
 
 function Residents() {
     const { isLoading: statistics_loading, data: {
-        residents,
+        residents: res_num,
         alpha,
         resident_user,
         kyr
@@ -36,7 +36,7 @@ function Residents() {
                 >
                     <OverviewCard
                         title='Unique Residents'
-                        number={residents}
+                        number={res_num}
                         iconUrl='/icons/estateManager/people.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
