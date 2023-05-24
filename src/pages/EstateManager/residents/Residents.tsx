@@ -4,20 +4,11 @@ import ResidentProfile from './ResidentProfile'
 import UniqueResident from './UniqueResident'
 
 function Residents() {
-    type Path = 'unique_resident' | 'resident_profile'
-
-    const paths: Path[] = ['unique_resident', 'resident_profile']
-
-    const [currentPath, setCurrentPath] = useState<Path>('unique_resident')
-
-    const displayPath = new Map<Path, JSX.Element>([
-        ['unique_resident', <UniqueResident />],
-        ['resident_profile', <ResidentProfile />],
-    ])
+    
 
     return (
         <>
-            <div>
+
                 <section className='bg-white rounded-lg p-8 grid text-[1.4rem] '>
                     <div
                         className=' grid gap-8'
@@ -55,34 +46,8 @@ function Residents() {
                     </div>
                 </section>
 
-                <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-                    <div className='estateDetail__radioBox'>
-                        {paths.map((path) => (
-                            <>
-                                <input
-                                    type='radio'
-                                    name='resident'
-                                    id={path}
-                                    className='hidden'
-                                    onChange={() => setCurrentPath(path)}
-                                    defaultChecked = {currentPath === path}
-                                />
-                                <label
-                                    htmlFor={path}
-                                    className={` capitalize ${
-                                        currentPath === path &&
-                                        'font-Satoshi-Medium'
-                                    }`}
-                                >
-                                    {path.replaceAll('_', ' ')}
-                                </label>
-                            </>
-                        ))}
-                    </div>
+                
 
-                    <div>{displayPath.get(currentPath)}</div>
-                </div>
-            </div>
         </>
     )
 }
