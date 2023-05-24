@@ -1,8 +1,20 @@
 import OverviewCard from '../../../components/estateManager/OverviewCard'
+import useFetchData from '../../../components/hooks/UseFetchData'
+import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Residents() {
     
+    const {isLoading, data} = useFetchData({
+        url: '/manager/resident/getall/residentStatistics',
+        name: 'residentStatistics'
+    })
+
+    if(isLoading){
+        return <Spinner start={isLoading}/>
+    }
+
+
 
     return (
         <>
@@ -31,15 +43,7 @@ function Residents() {
                         textColor='text-[#1A8F56]'
                         bottomLeft='% of residents whose identity has been validated'
                     />
-                    <OverviewCard
-                        title='Resident Profiles'
-                        number={18100}
-                        iconUrl='/icons/estateManager/profiles.svg'
-                        bgColor='bg-[#FCF3FA]'
-                        textColor='text-[#B6008E]'
-                        bottomLeft='LR 39% - TR 29%'
-                        bottomRight='LD 10% - LNR 2%'
-                    />
+                   
                 </div>
             </section>
 
