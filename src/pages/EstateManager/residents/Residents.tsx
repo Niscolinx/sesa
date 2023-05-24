@@ -1,4 +1,5 @@
 import OverviewCard from '../../../components/estateManager/OverviewCard'
+import Table from '../../../components/ui/table/Table'
 
 function Residents() {
     
@@ -44,10 +45,10 @@ function Residents() {
 
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/admin/get/all'}
-                    title={'admin'}
-                    view_page_url={'/superAdmin/admin/view/'}
-                    add_page_url={'/superAdmin/admin/add'}
+                    fetch_url={'/manager/resident/getall'}
+                    title={'residents'}
+                    view_page_url={'/estateManager/resident/view/'}
+                    add_page_url={'/estateManager/resident/add'}
                     is_add_btn={true}
                     THeader={[
                         'name',
@@ -65,7 +66,9 @@ function Residents() {
                         'created_at',
                         'status',
                     ]}
-                    deactivateProp={{ url: '/admin/deactivate_activate' }}
+                    deactivateProp={{
+                        url: '/manager/resident/deactivate_activate',
+                    }}
                 />
             </div>
         </>
