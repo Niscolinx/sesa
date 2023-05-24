@@ -52,18 +52,18 @@ function Residents() {
                     is_add_btn={true}
                     THeader={[
                         'name',
+                        'resident code',
                         'gender',
                         'phone number',
-                        'onboarding date',
                         'status',
                         'actions',
                     ]}
                     data_to_display={[
                         'name',
                         'image',
+                        'resident_code',
                         'gender',
                         'phone',
-                        'created_at',
                         'status',
                     ]}
                     deactivateProp={{
