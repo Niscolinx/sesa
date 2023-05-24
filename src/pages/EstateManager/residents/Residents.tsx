@@ -4,17 +4,25 @@ import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Residents() {
-    
-    const {isLoading, data} = useFetchData({
-        url: '/manager/resident/getall/residentStatistics',
-        name: 'residentStatistics'
+    const { isLoading: statistics_loading, data: {
+        residents,
+        alpha,
+        resident_user,
+        kyr
+    } } =
+        useFetchData({
+            url: '/manager/resident/getall/residentStatistics',
+            name: 'residentStatistics',
+        })
+
+    const { isLoading, data } = useFetchData({
+        url: '/manager/resident/getall',
+        name: 'residents',
     })
 
-    if(isLoading){
-        return <Spinner start={isLoading}/>
+    if (isLoading || statistics_loading) {
+        return <Spinner start={isLoading} />
     }
-
-
 
     return (
         <>
@@ -28,29 +36,29 @@ function Residents() {
                 >
                     <OverviewCard
                         title='Unique Residents'
-                        number={1532}
+                        number={residents}
                         iconUrl='/icons/estateManager/people.svg'
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
-                        bottomLeft='Alpha 56%'
-                        bottomRight='Res. User 44%'
+                        bottomLeft={`%${alpha}`}
+                        bottomRight={`%${resident_user}`}
                     />
                     <OverviewCard
                         title='KYR Validation'
-                        number='45%'
+                        number={`%${kyr}`}
                         iconUrl='/icons/estateManager/validation.svg'
                         bgColor='bg-[#EDFDEC]'
                         textColor='text-[#1A8F56]'
-                        bottomLeft='% of residents whose identity has been validated'
+                        bottomLeft={`${kyr}% of residents whose identity has been validated`}
                     />
-                   
                 </div>
             </section>
 
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/manager/resident/getall'}
                     title={'residents'}
+                    isDataProvided
+                    providedData={data.data}
                     view_page_url={'/estateManager/resident/view/'}
                     add_page_url={'/estateManager/resident/add'}
                     is_add_btn={true}
