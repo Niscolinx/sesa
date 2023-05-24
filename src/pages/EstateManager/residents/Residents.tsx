@@ -4,25 +4,30 @@ import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Residents() {
-    const { isLoading: statistics_loading, data: {
-        residents: res_num,
-        alpha,
-        resident_user,
-        kyr
-    } } =
-        useFetchData({
-            url: '/manager/resident/getall/residentStatistics',
-            name: 'residentStatistics',
-        })
+    // const { isLoading: statistics_loading, data: statistics_data } =
+    //     useFetchData({
+    //         url: '/manager/resident/getall/residentStatistics',
+    //         name: 'residentStatistics',
+    //     })
 
-    const { isLoading, data } = useFetchData({
+    const {
+        isLoading,
+        data: { data: residents_data },
+    } = useFetchData({
         url: '/manager/resident/getall',
-        name: 'residents',
+        name: 'estateManager_residents',
     })
 
-    if (isLoading || statistics_loading) {
+    if (isLoading ) {
         return <Spinner start={isLoading} />
     }
+
+    // const {
+    //     residents: res_num,
+    //     kyr,
+    //     resident_user,
+    //     alpha
+    // } = statistics_data
 
     return (
         <>
@@ -34,7 +39,7 @@ function Residents() {
                             'repeat(auto-fit, minmax(30rem, 1fr))',
                     }}
                 >
-                    <OverviewCard
+                    {/* <OverviewCard
                         title='Unique Residents'
                         number={res_num}
                         iconUrl='/icons/estateManager/people.svg'
@@ -50,15 +55,15 @@ function Residents() {
                         bgColor='bg-[#EDFDEC]'
                         textColor='text-[#1A8F56]'
                         bottomLeft={`${kyr}% of residents whose identity has been validated`}
-                    />
+                    /> */}
                 </div>
             </section>
 
-            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+            {/* <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
                     title={'residents'}
                     isDataProvided
-                    providedData={data.data}
+                    providedData={residents_data}
                     view_page_url={'/estateManager/resident/view/'}
                     add_page_url={'/estateManager/resident/add'}
                     is_add_btn={true}
@@ -82,7 +87,7 @@ function Residents() {
                         url: '/manager/resident/deactivate_activate',
                     }}
                 />
-            </div>
+            </div> */}
         </>
     )
 }
