@@ -24,10 +24,11 @@ function Residents() {
 
     const {
         residents: res_num,
-        kyr,
         resident_user,
         alpha
     } = statistics_data
+
+    const kyr = Math.floor(statistics_data.kyr)
 
     return (
         <>
@@ -46,7 +47,7 @@ function Residents() {
                         bgColor='bg-[#F5F9FA]'
                         textColor='text-[#00C2FF]'
                         bottomLeft={`Alpha %${alpha}`}
-                        bottomRight={`%${resident_user}`}
+                        bottomRight={`Res. User %${resident_user}`}
                     />
                     <OverviewCard
                         title='KYR Validation'

@@ -1,252 +1,224 @@
-import React, { useRef, useState } from 'react'
-import { IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
-import { toast, ToastContainer } from 'react-toastify'
-
-import { Select } from '../../../components/ui/Select'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import React, { useEffect, useRef, useState } from 'react'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
+import AddBtn from '../../../components/ui/button/AddBtn'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
+import Spinner from '../../../components/ui/Spinner'
+import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import useFetchData from '../../../components/hooks/UseFetchData'
+import { useNavigate, useParams } from 'react-router'
+import { toast } from 'react-toastify'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
-import { SetStateAction } from 'jotai'
 
-type Actions = 'Deactivate' | 'Delete'
-
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
-
-const ViewResident = () => {
-    const [selectedGender, setSelectedGender] = useState<string>('')
-    const [isValidated, setIsValidated] = useState(false)
-    const [openValidatedDialog, setOpenValidatedDialog] = useState(false)
-
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+function ViewResident() {
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        value?: string | number
+        required?: boolean
+        selectProps?: SelectProps
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-    }
+    const genderState = ['Male', 'Female']
+    const [selectedPermissions, setSelectedPermissions] = React.useState<
+        string[]
+    >([])
+    const [phone, setPhone] = useState(0)
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const params = useParams()
+    const navigate = useNavigate()
 
-    const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
+    const id = params.id?.replace(':', '')
 
-    const handleCloseDeleteOrDeactivateDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleDeactivateResident = () => {
-        handleCloseDeleteOrDeactivateDialog()
-
-        toast('Resident deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
+    if (!id) {
+        toast('Estate Admin not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
         })
+
+        navigate(-1)
     }
+
+    const { isLoading: estate_admin_loading, data } = useFetchData({
+        url: `/manager/estate-admin/get/${id}`,
+        name: `view_estate_admin_${id}`,
+    })
+
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
+
+    const {
+        clearErrors,
+        formErrors,
+        onSubmit,
+        openDialog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+        reset,
+    } = useAddPageMutation({
+        title: `view_estate_admin_${id}`,
+        url: `/manager/estate-admin/update/${id}`,
+        props: {
+            permission: selectedPermissions,
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
+        },
+    })
+
+    useEffect(() => {
+        if (data) {
+            const { name, email, phone, dob, gender } = data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            const phone_number = parseInt(phone.slice(3, -1))
+            setPhone(phone_number)
+            setSelectedGender(gender)
+            setSelectedPermissions(data.permissions)
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email,
+                phone: phone_number,
+            })
+        }
+    }, [data])
+
+    if (estate_admin_loading || isLoading) {
+        return <Spinner start={true} />
+    }
+
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'permissions',
+            type: 'select',
+            selectProps: {
+                state: permissionState,
+                isMulti: true,
+                textarea: true,
+                selectedState: selectedPermissions,
+                setSelectedState: setSelectedPermissions,
+            },
+        },
+        {
+            name: 'phone_number',
+            label: 'phone',
+            type: 'tel',
+            required: false,
+            value: phone,
+        },
+        {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+    ] satisfies FormInputs[]
 
     return (
-        <>
-            <ToastContainer />
+        <div className='bg-white rounded-2xl grid p-8'>
+            <Spinner start={postLoading ? true : false} />
+            <AddedSuccess
+                open={openDialog}
+                title={'estate admin'}
+                type={'updated'}
+                close={setOpenDialog}
+            />
 
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <>
-                            <img
-                                src='/icons/admins/modalDeactivate.svg'
-                                alt=''
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Admin'}
+                    queryCache={`view_estate_admin_${id}`}
+                />
+            </div>
+
+            <form
+                onSubmit={onSubmit}
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    columnGap: '10rem',
+                }}
+            >
+                <>
+                    {formInputs.map((input, idx) => {
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            value,
+                            required,
+                        } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                type={type}
+                                value={value}
+                                required={required}
+                                clearErrors={clearErrors}
+                                name={name}
+                                setValue={setValue}
+                                isSelect={type === 'select'}
+                                select={selectProps}
                             />
-                            <p className='text-[1.6rem]'>
-                                Are you sure you want to deactivate this
-                                resident?
-                            </p>
-
-                            <div className='flex w-full justify-center gap-8'>
-                                <button
-                                    className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                    onClick={() =>
-                                        handleCloseDeleteOrDeactivateDialog()
-                                    }
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                    onClick={handleDeactivateResident}
-                                >
-                                    Deactivate
-                                </button>
-                            </div>
-                        </>
+                        )
+                    })}
+                    <div className='grid items-center'>
+                        <ValidateKY title={'Know your Estate Admin'} />
                     </div>
-                </section>
-            </dialog>
-            <main className='bg-white grid gap-10 rounded-lg py-10'>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='flex justify-between items-center'>
-                        <ValidatedResult
-                            image={''}
-                            setImageFile={function (
-                                value: SetStateAction<File | null>
-                            ): void {
-                                throw new Error('Function not implemented.')
-                            }}
-                        />
 
-                        <div className='flex gap-8'>
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    openDeleteOrDeactivateDialog('Deactivate')
-                                }
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Deactivate
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <form
-                        onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12'
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        }}
-                    >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                First Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='firstName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Middle Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Date of Birth
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Phone Number *
-                            </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                                />
-                            </div>
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Email Address *
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-                    </form>
-                </section>
-                {/* <button
-                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full'
-                    style={{ justifySelf: 'start' }}
-                >
-                    <span>
-                        <img
-                            src='/icons/admins/saveDisk.svg'
-                            alt=''
-                            className='w-[1.7rem] h-[1.7rem]'
-                        />
-                    </span>{' '}
-                    Save Changes
-                </button> */}
-            </main>
-        </>
+                    <AddBtn
+                        isLoading={postLoading}
+                        title={'Save'}
+                        is_addBtn={false}
+                    />
+                </>
+            </form>
+        </div>
     )
 }
 

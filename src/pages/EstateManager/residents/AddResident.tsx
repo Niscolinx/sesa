@@ -1,137 +1,57 @@
-import React, { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { IoMdAdd } from 'react-icons/io'
-import { useMutation, useQueryClient } from 'react-query'
+import React from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
-import useAxios from '../../../components/hooks/UseAxios'
-import Spinner from '../../../components/ui/Spinner'
-import { useNavigate } from 'react-router'
 import ImageInput from '../../../components/ui/input/ImageInput'
-import { ToastContainer, toast } from 'react-toastify'
+import AddBtn from '../../../components/ui/button/AddBtn'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
+import Spinner from '../../../components/ui/Spinner'
+import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import useFetchData from '../../../components/hooks/UseFetchData'
 
-const AddResidnet = () => {
-    interface Inputs {
-        email_address: string
-        first_name: string
-        last_name: string
-        dob: string
-        phone_number: string
-    }
-   
-
+function AddResident() {
     type FormInputs = {
         label?: string
         type?: string
         name?: string
         selectProps?: SelectProps
     }
-    const axiosInstance = useAxios()
-    const navigate = useNavigate()
+
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
 
     const genderState = ['Male', 'Female']
 
-    const [photoPreview, setPhotoPreview] = useState('')
-    const [imageFile, setImageFile] = useState<File | null>(null)
-    const [selectedGender, setSelectedGender] = useState<string>(genderState[0])
-
-    const handlePicture = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement
-        const file: File = (target.files as FileList)[0]
-        const preview = URL.createObjectURL(file)
-        setPhotoPreview(preview)
-        setImageFile(file)
-    }
+    const [selectedPermissions, setSelectedPermissions] = React.useState<
+        string[]
+    >([])
 
     const {
-        register,
-        handleSubmit,
-        setValue,
-        setError,
         clearErrors,
-        formState: { errors: formErrors },
-    } = useForm<Inputs>()
-
-  
-
-    const postAdmin = (data: Inputs) => {
-        return axiosInstance({
-            url: '/admin/create',
-            method: 'post',
-            data,
-            headers: { 'Content-Type': 'multipart/form-data' },
-        })
-    }
-
-    const queryClient = useQueryClient()
-    const { mutate, isLoading } = useMutation(postAdmin, {
-        onSuccess: () => {
-            handleOpen()
+        formErrors,
+        onSubmit,
+        openDialog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+    } = useAddPageMutation({
+        title: 'admin',
+        url: '/manager/estate-admin/create',
+        props: {
+            permission: selectedPermissions,
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
         },
-        onError: (err: any) => {
-            toast(`${err?.response.data.message}`, {
-                type: 'error',
-                className: 'bg-red-100 text-red-600 text-[1.4rem]',
-            })
-        },
-        onSettled: () => {
-            queryClient.invalidateQueries('admin')
-        },
-    }) as any
-
-    const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, email_address, phone_number } = data
-
-        if (!phone_number || phone_number.length <= 9) {
-            return setError('phone_number', {
-                type: 'manual',
-                message: 'Must be 10 characters',
-            })
-        }
-
-        clearErrors('phone_number')
-
-        if (imageFile) {
-            const size = imageFile.size / 1000
-
-            const KBSize = size.toString().split('.')[0]
-
-            if (KBSize.length > 3) {
-                const MBSize = Number(KBSize) / 1000
-                return (
-                    MBSize > 2 &&
-                    toast('File size must less than 2MB', {
-                        type: 'error',
-                        className: 'bg-red-100 text-red-600 text-[1.4rem]',
-                    })
-                )
-            }
-        }
-
-        const adminData = {
-            name: `${first_name} ${last_name}`,
-            gender: selectedGender,
-            dob,
-            email: email_address,
-            phone: `+234${phone_number}`,
-            image: imageFile,
-        }
-
-        mutate(adminData)
     })
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        navigate(-1)
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleOpen = () => {
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
+    if (isLoading) {
+        return <Spinner start={true} />
     }
 
     const formInputs = [
@@ -156,86 +76,76 @@ const AddResidnet = () => {
             },
         },
         {
-            label: 'phone_number',
+            label: 'permissions',
+            type: 'select',
+            selectProps: {
+                state: permissionState,
+                isMulti: true,
+                textarea: true,
+                selectedState: selectedPermissions,
+                setSelectedState: setSelectedPermissions,
+            },
+        },
+        {
+            name: 'phone_number',
+            label: 'phone',
             type: 'tel',
         },
         {
-            label: 'email_address',
+            name: 'Email Address',
+            label: 'email',
             type: 'email',
         },
     ] satisfies FormInputs[]
 
     return (
-        <>
-            <ToastContainer />
-            <Spinner start={isLoading ? true : false} />
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        <img src='/icons/admins/modalSuccess.svg' alt='' />
-                        <p>You have successfully added a Resident</p>
+        <div className='bg-white rounded-2xl grid p-8'>
+            <Spinner start={postLoading ? true : false} />
+            <AddedSuccess
+                open={openDialog}
+                title={'estate admin'}
+                close={setOpenDialog}
+            />
 
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleClose}
-                            >
-                                Ok
-                            </button>
-                        </div>
+            <form
+                onSubmit={onSubmit}
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    columnGap: '10rem',
+                }}
+            >
+                <>
+                    {formInputs.map((input, idx) => {
+                        const { label, type, name, selectProps } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                type={type}
+                                clearErrors={clearErrors}
+                                name={name}
+                                setValue={setValue}
+                                isSelect={type === 'select'}
+                                select={selectProps}
+                            />
+                        )
+                    })}
+                    <div className='grid items-center'>
+                        <ValidateKY title={'Know your Estate Admin'} />
                     </div>
-                </section>
-            </dialog>
-
-            <div className='bg-white rounded-2xl grid p-8'>
-                <p className='text-[2rem] font-Satoshi-Medium'>
-                    Personal Information
-                </p>
-               
-
-                <form
-                    onSubmit={onSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 '
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        columnGap: '10rem',
-                    }}
-                >
-                    <>
-                        {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps } = input
-                            return (
-                                <Input
-                                    key={idx + label}
-                                    label={label}
-                                    register={register}
-                                    formErrors={formErrors}
-                                    type={type}
-                                    clearErrors={clearErrors}
-                                    name={name}
-                                    setValue={setValue}
-                                    isSelect={type === 'select'}
-                                    select={selectProps}
-                                />
-                            )
-                        })}
-
-                        <ImageInput
-                            handlePicture={handlePicture}
-                            photoPreview={photoPreview}
-                        />
-                        <button className='btn justify-self-start btn-blue'>
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            {isLoading ? 'Loading...' : 'Add'}
-                        </button>
-                    </>
-                </form>
-            </div>
-        </>
+                    <ImageInput
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
+                    />
+                    <AddBtn isLoading={postLoading} />
+                </>
+            </form>
+        </div>
     )
 }
 
-export default AddResidnet
+export default AddResident
