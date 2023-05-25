@@ -1,126 +1,117 @@
-
 import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import Spinner from '../../../components/ui/Spinner'
 
-
 function Property() {
-
-
-   
-
     const { isLoading, data } = useFetchData({
         url: '/property/propertyData',
-        name: 'property_data'
+        name: 'property_data',
+    })
+    const { isLoading: type_loading, data: type_data } = useFetchData({
+        url: '/property/propertyTypeData',
+        name: 'property_type_data',
     })
 
-    if(isLoading){
-        return <Spinner start={isLoading}/>
+    if (isLoading || type_loading) {
+        return <Spinner start={isLoading} />
     }
 
-
-     const property_data = [
-         { name: 'residential', value: 8 },
-         { name: 'business', value: data.business_property },
-     ]
-    
+    const property_data = [
+        { name: 'residential', value: data.resident_property },
+        { name: 'business', value: data.business_property },
+    ]
 
     return (
         <>
-          
-                <div>
-                    <section className=' grid grid-cols-2 gap-16 '>
-                        <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
-                            <div className='overviewChart__box'>
-                                <EstateChart
-                                    color1='#098DFF'
-                                    color2='#23C375'
-                                    data={property_data}
-                                />
+            <div>
+                <section className=' grid grid-cols-2 gap-16 '>
+                    <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
+                        <div className='overviewChart__box'>
+                            <EstateChart
+                                color1='#098DFF'
+                                color2='#23C375'
+                                data={property_data}
+                            />
 
-                                <div className='overviewChart__label'>
-                                    <p className='text-[3rem] font-Satoshi-Medium relative'>
-                                        {data.resident_property + data.business_property}
-                                    </p>
-                                    <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                        Total Properties
-                                    </p>
-                                </div>
-                            </div>
-                            <div className='grid gap-4'>
-                                <section className='flex items-center justify-between gap-4'>
-                                    <div className='flex items-center gap-2'>
-                                        <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
-                                            {' '}
-                                        </span>{' '}
-                                        <p>Residential</p>
-                                    </div>
-                                    <p>{data.resident_property}</p>
-                                </section>
-                                <section className='flex items-center justify-between gap-4'>
-                                    <div className='flex items-center gap-2'>
-                                        <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
-                                            {' '}
-                                        </span>{' '}
-                                        <p>Business</p>
-                                    </div>
-                                    <p>{data.business_property}</p>
-                                </section>
+                            <div className='overviewChart__label'>
+                                <p className='text-[3rem] font-Satoshi-Medium relative'>
+                                    {data.resident_property +
+                                        data.business_property}
+                                </p>
+                                <p className='text-[1.2rem] max-w-[9.8rem]'>
+                                    Total Properties
+                                </p>
                             </div>
                         </div>
-                        <div className='flex justify-between bg-white rounded-lg p-8'>
-                            <div>
-                                <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
-                                    Property Type
-                                </p>
+                        <div className='grid gap-4'>
+                            <section className='flex items-center justify-between gap-4'>
+                                <div className='flex items-center gap-2'>
+                                    <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
+                                        {' '}
+                                    </span>{' '}
+                                    <p>Residential</p>
+                                </div>
+                                <p>{data.resident_property}</p>
+                            </section>
+                            <section className='flex items-center justify-between gap-4'>
+                                <div className='flex items-center gap-2'>
+                                    <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
+                                        {' '}
+                                    </span>{' '}
+                                    <p>Business</p>
+                                </div>
+                                <p>{data.business_property}</p>
+                            </section>
+                        </div>
+                    </div>
+                    <div className='flex justify-between bg-white rounded-lg p-8 max-h-[30rem] overflow-y-auto'>
+                        <div>
+                            <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
+                                Property Type
+                            </p>
 
-                                <div className='grid gap-4'>
-                                    {Array.from({ length: 3 }).map((_, i) => {
+                            <div className='grid gap-4'>
+                                {type_data.data.map(
+                                    (
+                                        type: Record<string, string>,
+                                        i: number
+                                    ) => {
                                         return (
-                                            <p className='flex items-center gap-4'>
+                                            <p className='flex items-center gap-4' key={i}>
                                                 <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
                                                     &nbsp;
                                                 </span>
-                                                <span>{i + 2}</span> -
-                                                <span>bedroom Self Con.</span>
+                                               {type.property_type}
                                             </p>
                                         )
-                                    })}
-                                    <p className='flex items-center gap-4'>
-                                        {' '}
-                                        <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
-                                            &nbsp;
-                                        </span>
-                                        Duplex
-                                    </p>
-                                </div>
-                            </div>
-                            <div>
-                                <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
-                                    Count
-                                </p>
-
-                                <div className='grid gap-4'>
-                                    {Array.from({ length: 4 }).map((_, i) => {
-                                        return <p className=''>30</p>
-                                    })}
-
-                                    <Link to='/estateManager/'>
-                                        <span className='text-[#098DFF]'>
-                                            See More
-                                        </span>
-                                    </Link>
-                                </div>
+                                    }
+                                )}
                             </div>
                         </div>
-                    </section>
+                        <div>
+                            <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
+                                Count
+                            </p>
 
-                   
-                </div>
-       
-               
-            
+                            <div className='grid gap-4'>
+                                {type_data.data.map(
+                                    (
+                                        type: Record<string, string>,
+                                        i: number
+                                    ) => {
+                                        return (
+                                            <p className='flex items-center gap-4' key={i}>
+                                               {type.property_count}
+                                            </p>
+                                        )
+                                    }
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </>
     )
 }
