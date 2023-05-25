@@ -2,15 +2,10 @@ import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
-import UniqueResident from '../residents/UniqueResident'
 import PropertyTable from './PropertyTable'
 
 function Property() {
-    const [isProperty, setIsProperty] = useState(false)
 
-    const addproperty = () => {
-        setIsProperty(true)
-    }
 
     const property_data = [
         { name: 'residential', value: 120 },
@@ -19,7 +14,7 @@ function Property() {
 
     return (
         <>
-            {isProperty ? (
+          
                 <div>
                     <section className=' grid grid-cols-2 gap-16 '>
                         <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
@@ -107,31 +102,11 @@ function Property() {
                         </div>
                     </section>
 
-                    <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
-                        <section>
-                            <PropertyTable />
-                        </section>
-                    </div>
+                   
                 </div>
-            ) : (
-                <div className='min-h-[60vh]'>
-                    <section className='grid place-content-center w-full h-full justify-items-center gap-4 bg-white'>
-                        <img src='/icons/admins/errorSvg.svg' alt='' />
-                        <p className='text'>
-                            Ooops you have not any property list yet
-                        </p>
-                        <button
-                            className='bg-color-blue-1 text-white flex gap-2 items-center rounded-lg justify-self-center py-4 px-16 text-[1.6rem]'
-                            onClick={addproperty}
-                        >
-                            <span>
-                                <IoMdAdd />
-                            </span>{' '}
-                            Add property
-                        </button>
-                    </section>
-                </div>
-            )}
+       
+               
+            
         </>
     )
 }
