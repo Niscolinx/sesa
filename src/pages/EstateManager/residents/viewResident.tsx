@@ -102,9 +102,8 @@ const AddAdmin = () => {
             label: 'last_name',
         },
         {
-            label: 'dob',
+            label: 'date_of_birth',
             type: 'date',
-            name: 'date of birth',
         },
         {
             label: 'gender',
@@ -135,6 +134,7 @@ const AddAdmin = () => {
             <AddedSuccess
                 open={openDialog}
                 title={'resident'}
+                type={'updated'}
                 close={setOpenDialog}
             />
 
