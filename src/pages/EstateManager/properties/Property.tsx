@@ -1,15 +1,30 @@
 
 import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
+import useFetchData from '../../../components/hooks/UseFetchData'
+import Spinner from '../../../components/ui/Spinner'
 
 
 function Property() {
 
 
-    const property_data = [
-        { name: 'residential', value: 120 },
-        { name: 'business', value: 80 },
-    ]
+   
+
+    const { isLoading, data } = useFetchData({
+        url: '/property/propertyData',
+        name: 'property_data'
+    })
+
+    if(isLoading){
+        return <Spinner start={isLoading}/>
+    }
+
+
+     const property_data = [
+         { name: 'residential', value: data.resident_property },
+         { name: 'business', value: data.business_property },
+     ]
+    
 
     return (
         <>
