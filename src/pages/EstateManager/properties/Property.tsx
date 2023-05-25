@@ -21,7 +21,7 @@ function Property() {
 
 
      const property_data = [
-         { name: 'residential', value: data.resident_property },
+         { name: 'residential', value: 8 },
          { name: 'business', value: data.business_property },
      ]
     
