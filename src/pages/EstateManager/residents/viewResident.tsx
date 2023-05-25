@@ -8,6 +8,8 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import { ToastContainer, toast } from 'react-toastify'
 import useFetchData from '../../../components/hooks/UseFetchData'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
+import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 const AddAdmin = () => {
     type FormInputs = {
@@ -16,6 +18,16 @@ const AddAdmin = () => {
         name?: string
         selectProps?: SelectProps
     }
+
+    const genderState = ['Male', 'Female']
+
+    const [phone, setPhone] = useState(0)
+
+    const params = useParams()
+    const navigate = useNavigate()
+
+    const id = params.id?.replace(':', '')
+
     const {
         clearErrors,
         formErrors,
@@ -30,18 +42,11 @@ const AddAdmin = () => {
         register,
         setValue,
     } = useAddPageMutation({
-        title: `view_estate_admin_${id}`,
-        url: `/manager/estate-admin/update/${id}`,
+        title: `view_resident_${id}`,
+        url: `/manager/resident/update/${id}`,
     })
 
-    const genderState = ['Male', 'Female']
-
-    const [phone, setPhone] = useState(0)
-
-    const params = useParams()
-    const navigate = useNavigate()
-
-    const id = params.id?.replace(':', '')
+    
 
     if (!id) {
         toast('Resident not Found', {
@@ -53,8 +58,8 @@ const AddAdmin = () => {
     }
 
     const { isLoading: estate_admin_loading, data } = useFetchData({
-        url: `/manager/estate-admin/get/${id}`,
-        name: `view_estate_admin_${id}`,
+        url: `/manager/resident/getbyid/${id}`,
+        name: `view_resident_${id}`,
     })
 
     const formInputs = [
@@ -92,13 +97,28 @@ const AddAdmin = () => {
 
     return (
         <div className='bg-white rounded-2xl grid p-8'>
-            <ToastContainer/>
+            <ToastContainer />
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
                 title={'resident'}
                 close={setOpenDialog}
             />
+
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/resident/deactivate_activate'}
+                    status={data?.status}
+                    title={'resident'}
+                    queryCache={`view_resident_${id}`}
+                />
+            </div>
 
             <form
                 onSubmit={onSubmit}
