@@ -41,15 +41,6 @@ function ViewEstateAdmin() {
         navigate(-1)
     }
 
-    const { isLoading: estate_admin_loading, data } = useFetchData({
-        url: `/manager/estate-admin/get/${id}`,
-        name: `view_estate_admin_${id}`,
-    })
-
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions',
-    })
 
     const {
         clearErrors,
@@ -75,13 +66,25 @@ function ViewEstateAdmin() {
         },
     })
 
+
+    const { isLoading: estate_admin_loading, data } = useFetchData({
+        url: `/manager/estate-admin/get/${id}`,
+        name: `view_estate_admin_${id}`,
+    })
+
+    const { isLoading, data: permissionState } = useFetchData({
+        url: '/manager/estate-admin/permission',
+        name: 'estate-admin_permissions',
+    })
+
+
     useEffect(() => {
         if (data) {
             const { name, email, phone, dob, gender } = data
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            const phone_number = parseInt(phone.slice(3, -1))
+            const phone_number = parseInt(phone.slice(4))
             setPhone(phone_number)
             setSelectedGender(gender)
             setSelectedPermissions(data.permissions)

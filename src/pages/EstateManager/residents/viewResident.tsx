@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
@@ -12,21 +12,22 @@ import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactiva
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 const AddAdmin = () => {
+    
     type FormInputs = {
         label?: string
         type?: string
         name?: string
+        value?: number | string
         selectProps?: SelectProps
     }
 
     const genderState = ['Male', 'Female']
 
-    const [phone, setPhone] = useState(0)
-
     const params = useParams()
     const navigate = useNavigate()
-
     const id = params.id?.replace(':', '')
+
+    const [phone, setPhone] = useState(0)
 
     const {
         clearErrors,
@@ -39,6 +40,7 @@ const AddAdmin = () => {
         postLoading,
         handlePicture,
         photoPreview,
+        reset,
         register,
         setValue,
     } = useAddPageMutation({
@@ -61,10 +63,36 @@ const AddAdmin = () => {
         navigate(-1)
     }
 
-    const { isLoading: estate_admin_loading, data } = useFetchData({
+    const { isLoading , data } = useFetchData({
         url: `/manager/resident/getbyid/${id}`,
         name: `view_resident_${id}`,
     })
+
+    useEffect(() => {
+        if (data) {
+            const { name, email, phone, dob, gender } = data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
+
+            
+
+            const phone_number = parseInt(phone.slice(4))
+            setPhone(phone_number)
+            setSelectedGender(gender)
+
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email,
+                phone: phone_number,
+            })
+        }
+    }, [data])
+
+    if (isLoading) {
+        return <Spinner start={true} />
+    }
 
     const formInputs = [
         {
@@ -91,6 +119,7 @@ const AddAdmin = () => {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
+            value: phone,
         },
         {
             name: 'Email Address',
@@ -135,7 +164,7 @@ const AddAdmin = () => {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps } = input
+                        const { label, type, name, selectProps, value } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -143,6 +172,7 @@ const AddAdmin = () => {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                value={value}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}
@@ -156,7 +186,11 @@ const AddAdmin = () => {
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
                     />
-                    <AddBtn isLoading={postLoading} />
+                    <AddBtn
+                        isLoading={postLoading}
+                        title={'Save'}
+                        is_addBtn={false}
+                    />
                 </>
             </form>
         </div>

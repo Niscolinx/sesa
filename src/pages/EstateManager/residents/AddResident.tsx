@@ -21,7 +21,14 @@ const AddAdmin = () => {
         photoPreview,
         register,
         setValue,
-    } = useAddPageMutation({ url: '/manager/resident/create', title: 'resident' })
+    } = useAddPageMutation({
+        url: '/manager/resident/create',
+        title: 'resident',
+        props: {
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
+        },
+    })
 
     const genderState = ['Male', 'Female']
     type FormInputs = {
