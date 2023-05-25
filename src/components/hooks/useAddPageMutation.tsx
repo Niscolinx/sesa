@@ -58,7 +58,7 @@ function useAddPageMutation({ url, props, title }: Props) {
     const onSubmit = handleSubmit((data) => {
 
 
-        const { first_name, last_name, dob, phone } = data
+        const { first_name, last_name, dob, phone, date_of_birth } = data
 
 
         if (!phone || phone.length <= 9) {
@@ -93,6 +93,7 @@ function useAddPageMutation({ url, props, title }: Props) {
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
+            date_of_birth,
             phone: `+234${phone}`,
             image: imageFile,
           

@@ -5,6 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import { ToastContainer } from 'react-toastify'
 
 const AddAdmin = () => {
     const {
@@ -38,9 +39,8 @@ const AddAdmin = () => {
             label: 'last_name',
         },
         {
-            label: 'dob',
+            label: 'date_of_birth',
             type: 'date',
-            name: 'date of birth',
         },
         {
             label: 'gender',
@@ -65,6 +65,7 @@ const AddAdmin = () => {
 
     return (
         <div className='bg-white rounded-2xl grid p-8'>
+            <ToastContainer/>
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}

@@ -44,6 +44,10 @@ const AddAdmin = () => {
     } = useAddPageMutation({
         title: `view_resident_${id}`,
         url: `/manager/resident/update/${id}`,
+        props: {
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
+        },
     })
 
     
