@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { IoMdAdd } from 'react-icons/io'
+
 import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
-import PropertyTable from './PropertyTable'
+
 
 function Property() {
 
