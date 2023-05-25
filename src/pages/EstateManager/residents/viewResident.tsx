@@ -6,6 +6,8 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import { ToastContainer, toast } from 'react-toastify'
+import useFetchData from '../../../components/hooks/UseFetchData'
 
 const AddAdmin = () => {
     type FormInputs = {
@@ -28,8 +30,8 @@ const AddAdmin = () => {
         register,
         setValue,
     } = useAddPageMutation({
-        url: '/manager/resident/create',
-        title: 'resident',
+        title: `view_estate_admin_${id}`,
+        url: `/manager/estate-admin/update/${id}`,
     })
 
     const genderState = ['Male', 'Female']
@@ -42,7 +44,7 @@ const AddAdmin = () => {
     const id = params.id?.replace(':', '')
 
     if (!id) {
-        toast('Estate Admin not Found', {
+        toast('Resident not Found', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
         })
@@ -90,6 +92,7 @@ const AddAdmin = () => {
 
     return (
         <div className='bg-white rounded-2xl grid p-8'>
+            <ToastContainer/>
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
