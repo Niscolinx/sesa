@@ -1,30 +1,39 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
+import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
-import useFetchData from '../../../components/hooks/UseFetchData'
-import { useNavigate, useParams } from 'react-router'
-import { toast } from 'react-toastify'
-import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
-import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
-function ViewResident() {
+const AddAdmin = () => {
     type FormInputs = {
         label?: string
         type?: string
         name?: string
-        value?: string | number
-        required?: boolean
         selectProps?: SelectProps
     }
+    const {
+        clearErrors,
+        formErrors,
+        onSubmit,
+        openDialog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+    } = useAddPageMutation({
+        url: '/manager/resident/create',
+        title: 'resident',
+    })
 
     const genderState = ['Male', 'Female']
-    const [selectedPermissions, setSelectedPermissions] = React.useState<
-        string[]
-    >([])
+
     const [phone, setPhone] = useState(0)
 
     const params = useParams()
@@ -45,60 +54,6 @@ function ViewResident() {
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
     })
-
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions',
-    })
-
-    const {
-        clearErrors,
-        formErrors,
-        onSubmit,
-        openDialog,
-        setOpenDialog,
-        selectedGender,
-        setSelectedGender,
-        postLoading,
-        handlePicture,
-        photoPreview,
-        register,
-        setValue,
-        reset,
-    } = useAddPageMutation({
-        title: `view_estate_admin_${id}`,
-        url: `/manager/estate-admin/update/${id}`,
-        props: {
-            permission: selectedPermissions,
-            is_kyr_approved: 0,
-            validation_option: 'phone_number',
-        },
-    })
-
-    useEffect(() => {
-        if (data) {
-            const { name, email, phone, dob, gender } = data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            const phone_number = parseInt(phone.slice(3, -1))
-            setPhone(phone_number)
-            setSelectedGender(gender)
-            setSelectedPermissions(data.permissions)
-
-            reset({
-                first_name,
-                last_name,
-                dob,
-                email,
-                phone: phone_number,
-            })
-        }
-    }, [data])
-
-    if (estate_admin_loading || isLoading) {
-        return <Spinner start={true} />
-    }
 
     const formInputs = [
         {
@@ -122,22 +77,9 @@ function ViewResident() {
             },
         },
         {
-            label: 'permissions',
-            type: 'select',
-            selectProps: {
-                state: permissionState,
-                isMulti: true,
-                textarea: true,
-                selectedState: selectedPermissions,
-                setSelectedState: setSelectedPermissions,
-            },
-        },
-        {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
-            required: false,
-            value: phone,
         },
         {
             name: 'Email Address',
@@ -151,25 +93,9 @@ function ViewResident() {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
-                title={'estate admin'}
-                type={'updated'}
+                title={'resident'}
                 close={setOpenDialog}
             />
-
-            <div className='flex justify-between items-center mb-10'>
-                <ValidatedResult
-                    image={photoPreview}
-                    handlePicture={handlePicture}
-                />
-
-                <Activate_Deactivate
-                    id={id!}
-                    url={'/manager/estate-admin/deactivate_activate'}
-                    status={data?.status}
-                    title={'Estate Admin'}
-                    queryCache={`view_estate_admin_${id}`}
-                />
-            </div>
 
             <form
                 onSubmit={onSubmit}
@@ -182,14 +108,7 @@ function ViewResident() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const {
-                            label,
-                            type,
-                            name,
-                            selectProps,
-                            value,
-                            required,
-                        } = input
+                        const { label, type, name, selectProps } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -197,8 +116,6 @@ function ViewResident() {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
-                                value={value}
-                                required={required}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}
@@ -207,19 +124,16 @@ function ViewResident() {
                             />
                         )
                     })}
-                    <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Admin'} />
-                    </div>
 
-                    <AddBtn
-                        isLoading={postLoading}
-                        title={'Save'}
-                        is_addBtn={false}
+                    <ImageInput
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
                     />
+                    <AddBtn isLoading={postLoading} />
                 </>
             </form>
         </div>
     )
 }
 
-export default ViewResident
+export default AddAdmin
