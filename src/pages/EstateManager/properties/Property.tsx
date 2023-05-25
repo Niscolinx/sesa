@@ -41,7 +41,7 @@ function Property() {
 
                                 <div className='overviewChart__label'>
                                     <p className='text-[3rem] font-Satoshi-Medium relative'>
-                                        50,000
+                                        {data.resident_property + data.business_property}
                                     </p>
                                     <p className='text-[1.2rem] max-w-[9.8rem]'>
                                         Total Properties
@@ -56,7 +56,7 @@ function Property() {
                                         </span>{' '}
                                         <p>Residential</p>
                                     </div>
-                                    <p>20,000</p>
+                                    <p>{data.resident_property}</p>
                                 </section>
                                 <section className='flex items-center justify-between gap-4'>
                                     <div className='flex items-center gap-2'>
@@ -65,7 +65,7 @@ function Property() {
                                         </span>{' '}
                                         <p>Business</p>
                                     </div>
-                                    <p>30,000</p>
+                                    <p>{data.business_property}</p>
                                 </section>
                             </div>
                         </div>
