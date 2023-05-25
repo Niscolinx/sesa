@@ -63,9 +63,9 @@ const EstateManagerRoutes = (
         <Route path='estate-admin' element={<EstateAdmin />} />
         <Route path='estate-admin/add' element={<AddEstateAdmin />} />
         <Route path='estate-admin/view/:id' element={<ViewEstateAdmin />} />
-        <Route path='residents' element={<Residents />} />
-        <Route path='residents/add' element={<AddResident />} />
-        <Route path='residents/view/:id' element={<ViewResident />} />
+        <Route path='resident' element={<Residents />} />
+        <Route path='resident/add' element={<AddResident />} />
+        <Route path='resident/view/:id' element={<ViewResident />} />
         <Route path='property' element={<Property />} />
         <Route path='property/add' element={<AddProperty />} />
         <Route path='property/view/:id' element={<ViewProperty />} />

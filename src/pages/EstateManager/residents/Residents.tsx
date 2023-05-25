@@ -62,7 +62,7 @@ function Residents() {
 
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    title={'residents'}
+                    title={'resident'}
                     isDataProvided
                     providedData={data.data}
                     view_page_url={'/estateManager/resident/view/'}

@@ -5,28 +5,8 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
-import useFetchData from '../../../components/hooks/UseFetchData'
 
-function AddResident() {
-    type FormInputs = {
-        label?: string
-        type?: string
-        name?: string
-        selectProps?: SelectProps
-    }
-
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
-        name: 'estate-admin_permissions',
-    })
-
-    const genderState = ['Male', 'Female']
-
-    const [selectedPermissions, setSelectedPermissions] = React.useState<
-        string[]
-    >([])
-
+const AddAdmin = () => {
     const {
         clearErrors,
         formErrors,
@@ -40,18 +20,14 @@ function AddResident() {
         photoPreview,
         register,
         setValue,
-    } = useAddPageMutation({
-        title: 'admin',
-        url: '/manager/estate-admin/create',
-        props: {
-            permission: selectedPermissions,
-            is_kyr_approved: 0,
-            validation_option: 'phone_number',
-        },
-    })
+    } = useAddPageMutation({ url: '/admin/create', title: 'admin' })
 
-    if (isLoading) {
-        return <Spinner start={true} />
+    const genderState = ['Male', 'Female']
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        selectProps?: SelectProps
     }
 
     const formInputs = [
@@ -76,17 +52,6 @@ function AddResident() {
             },
         },
         {
-            label: 'permissions',
-            type: 'select',
-            selectProps: {
-                state: permissionState,
-                isMulti: true,
-                textarea: true,
-                selectedState: selectedPermissions,
-                setSelectedState: setSelectedPermissions,
-            },
-        },
-        {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
@@ -103,9 +68,10 @@ function AddResident() {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
-                title={'estate admin'}
+                title={'resident'}
                 close={setOpenDialog}
             />
+           
 
             <form
                 onSubmit={onSubmit}
@@ -134,9 +100,7 @@ function AddResident() {
                             />
                         )
                     })}
-                    <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Admin'} />
-                    </div>
+
                     <ImageInput
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
@@ -148,4 +112,4 @@ function AddResident() {
     )
 }
 
-export default AddResident
+export default AddAdmin
