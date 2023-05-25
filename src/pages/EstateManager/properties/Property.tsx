@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import Spinner from '../../../components/ui/Spinner'
+import Table from '../../../components/ui/table/Table'
 
 function Property() {
     const { isLoading, data } = useFetchData({
@@ -24,93 +25,121 @@ function Property() {
 
     return (
         <>
-            <div>
-                <section className=' grid grid-cols-2 gap-16 '>
-                    <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
-                        <div className='overviewChart__box'>
-                            <EstateChart
-                                color1='#098DFF'
-                                color2='#23C375'
-                                data={property_data}
-                            />
+            <section className=' grid grid-cols-2 gap-16 '>
+                <div className='flex items-center gap-8 bg-white rounded-lg p-8'>
+                    <div className='overviewChart__box'>
+                        <EstateChart
+                            color1='#098DFF'
+                            color2='#23C375'
+                            data={property_data}
+                        />
 
-                            <div className='overviewChart__label'>
-                                <p className='text-[3rem] font-Satoshi-Medium relative'>
-                                    {data.resident_property +
-                                        data.business_property}
-                                </p>
-                                <p className='text-[1.2rem] max-w-[9.8rem]'>
-                                    Total Properties
-                                </p>
-                            </div>
+                        <div className='overviewChart__label'>
+                            <p className='text-[3rem] font-Satoshi-Medium relative'>
+                                {data.resident_property +
+                                    data.business_property}
+                            </p>
+                            <p className='text-[1.2rem] max-w-[9.8rem]'>
+                                Total Properties
+                            </p>
                         </div>
+                    </div>
+                    <div className='grid gap-4'>
+                        <section className='flex items-center justify-between gap-4'>
+                            <div className='flex items-center gap-2'>
+                                <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
+                                    {' '}
+                                </span>{' '}
+                                <p>Residential</p>
+                            </div>
+                            <p>{data.resident_property}</p>
+                        </section>
+                        <section className='flex items-center justify-between gap-4'>
+                            <div className='flex items-center gap-2'>
+                                <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
+                                    {' '}
+                                </span>{' '}
+                                <p>Business</p>
+                            </div>
+                            <p>{data.business_property}</p>
+                        </section>
+                    </div>
+                </div>
+                <div className='flex justify-between bg-white rounded-lg p-8 max-h-[30rem] overflow-y-auto'>
+                    <div>
+                        <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
+                            Property Type
+                        </p>
+
                         <div className='grid gap-4'>
-                            <section className='flex items-center justify-between gap-4'>
-                                <div className='flex items-center gap-2'>
-                                    <span className='bg-[#098DFF] rounded-full w-[1rem] h-[1rem] flex'>
-                                        {' '}
-                                    </span>{' '}
-                                    <p>Residential</p>
-                                </div>
-                                <p>{data.resident_property}</p>
-                            </section>
-                            <section className='flex items-center justify-between gap-4'>
-                                <div className='flex items-center gap-2'>
-                                    <span className='bg-[#23C375] rounded-full w-[1rem] h-[1rem] flex'>
-                                        {' '}
-                                    </span>{' '}
-                                    <p>Business</p>
-                                </div>
-                                <p>{data.business_property}</p>
-                            </section>
+                            {type_data.data.map(
+                                (type: Record<string, string>, i: number) => {
+                                    return (
+                                        <p
+                                            className='flex items-center gap-4'
+                                            key={i}
+                                        >
+                                            <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
+                                                &nbsp;
+                                            </span>
+                                            {type.property_type}
+                                        </p>
+                                    )
+                                }
+                            )}
                         </div>
                     </div>
-                    <div className='flex justify-between bg-white rounded-lg p-8 max-h-[30rem] overflow-y-auto'>
-                        <div>
-                            <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
-                                Property Type
-                            </p>
+                    <div>
+                        <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
+                            Count
+                        </p>
 
-                            <div className='grid gap-4'>
-                                {type_data.data.map(
-                                    (
-                                        type: Record<string, string>,
-                                        i: number
-                                    ) => {
-                                        return (
-                                            <p className='flex items-center gap-4' key={i}>
-                                                <span className='bg-[#5856D6] rounded-full w-[1rem] h-[1rem] flex'>
-                                                    &nbsp;
-                                                </span>
-                                               {type.property_type}
-                                            </p>
-                                        )
-                                    }
-                                )}
-                            </div>
-                        </div>
-                        <div>
-                            <p className='font-Satoshi-Medium text-[1.8rem] mb-5'>
-                                Count
-                            </p>
-
-                            <div className='grid gap-4'>
-                                {type_data.data.map(
-                                    (
-                                        type: Record<string, string>,
-                                        i: number
-                                    ) => {
-                                        return (
-                                            <p className='flex items-center gap-4' key={i}>
-                                               {type.property_count}
-                                            </p>
-                                        )
-                                    }
-                                )}
-                            </div>
+                        <div className='grid gap-4'>
+                            {type_data.data.map(
+                                (type: Record<string, string>, i: number) => {
+                                    return (
+                                        <p
+                                            className='flex items-center gap-4'
+                                            key={i}
+                                        >
+                                            {type.property_count}
+                                        </p>
+                                    )
+                                }
+                            )}
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
+            <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
+                <Table
+                    fetch_url={'/manager/estate-admin/get/all'}
+                    title={'estateAdmin'}
+                    view_page_url={'/estateManager/estate-admin/view/'}
+                    add_page_url={'/estateManager/estate-admin/add'}
+                    is_add_btn={true}
+                    THeader={[
+                        'name',
+                        'gender',
+                        'phone number',
+                        'estate',
+                        'onboarding date',
+                        'status',
+                        'actions',
+                    ]}
+                    data_to_display={[
+                        'name',
+                        'image',
+                        'gender',
+                        'phone',
+                        'estate_name',
+                        'onboarding_date',
+                        'status',
+                    ]}
+                    deactivateProp={{
+                        url: '/manager/estate-admin/deactivate_activate',
+                    }}
+                />
             </div>
         </>
     )
