@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { EstateChart } from '../../../components/superAdmin/charts/OverviewChart'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import Spinner from '../../../components/ui/Spinner'
