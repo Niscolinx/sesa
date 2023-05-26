@@ -44,6 +44,8 @@ function TableDialog() {
                 data: { id: fetchedId },
             })
         }
+        alert('start')
+        
         return axiosInstance({
             url,
             method: 'post',
@@ -54,6 +56,8 @@ function TableDialog() {
     const queryClient = useQueryClient()
     const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
     const type = isDialogOpen.type
+
+    console.log({title})
 
     const prevData: any[] = []
     const { mutate, isLoading } = useMutation(postRequest, {

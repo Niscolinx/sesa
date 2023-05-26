@@ -51,7 +51,7 @@ const SlicedPages: FC<SlicedPages> = ({
         const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
-            console.log({details})
+
 
             if (data_to_display.includes(key)) {
 
