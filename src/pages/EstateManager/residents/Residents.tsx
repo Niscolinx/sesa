@@ -10,27 +10,20 @@ function Residents() {
             name: 'residentStatistics',
         })
 
-    const {
-        isLoading,
-        data,
-    } = useFetchData({
+    const { isLoading, data } = useFetchData({
         url: '/manager/resident/getall',
-        name: 'residents',
+        name: 'resident',
     })
 
     if (isLoading || statistics_loading) {
         return <Spinner start={isLoading} />
     }
 
-    const {
-        residents: res_num,
-        resident_user,
-        alpha
-    } = statistics_data
+    const { residents: res_num } = statistics_data
 
     const kyr = Math.floor(statistics_data.kyr)
-
-    console.log(data.data, 'data---')
+    const resident_user = Math.floor(statistics_data.resident_user)
+    const alpha = Math.floor(statistics_data.alpha)
 
     return (
         <>

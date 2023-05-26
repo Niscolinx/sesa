@@ -24,7 +24,7 @@ const useFetchData = ({
         }).then((res) => (nested ? res.data : res))
 
     const { isLoading, error, data, refetch, isFetching, isError, isFetched } =
-        useQuery<any, Error>([name, queryParams], fetchData, {
+        useQuery<any, Error>([name], fetchData, {
             refetchOnMount: false,
             refetchOnWindowFocus: false,
         })
