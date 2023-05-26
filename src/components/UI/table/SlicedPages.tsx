@@ -104,41 +104,37 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-        console.log({sorted})
+
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
                 if (idx === 0) {
-                    // console.log(key, value)
                         return (
-                            // <div className='flex items-center gap-4 ' key={idx}>
-                            //     {is_checkbox && (
-                            //         <input
-                            //             type='checkbox'
-                            //             className='cursor-pointer'
-                            //         />
-                            //     )}
+                            <div className='flex items-center gap-4 ' key={idx}>
+                                {is_checkbox && (
+                                    <input
+                                        type='checkbox'
+                                        className='cursor-pointer'
+                                    />
+                                )}
 
-                            //     <div className='flex items-center gap-2'>
-                            //         {value.image && (
-                            //             <figure className='w-[3.5rem] h-[3.5rem]'>
-                            //                 <img
-                            //                     src={value.image}
-                            //                     alt=''
-                            //                     width={'56px'}
-                            //                     height={'56px'}
-                            //                     className='w-full h-full rounded-full object-cover'
-                            //                 />
-                            //             </figure>
-                            //         )}
+                                <div className='flex items-center gap-2'>
+                                    {value.image && (
+                                        <figure className='w-[3.5rem] h-[3.5rem]'>
+                                            <img
+                                                src={value.image}
+                                                alt=''
+                                                width={'56px'}
+                                                height={'56px'}
+                                                className='w-full h-full rounded-full object-cover'
+                                            />
+                                        </figure>
+                                    )}
 
-                            //         <p className=''>{value.name}</p>
-                            //     </div>
-                            // </div>
-                            <p>
-
-                                {JSON.stringify(value)}
-                            </p>
+                                    <p className=''>{value.name}</p>
+                                </div>
+                            </div>
+                           
                         )
                     }
                     if (
@@ -235,8 +231,7 @@ const SlicedPages: FC<SlicedPages> = ({
                                 key={idx}
                                 className='max-w-[20rem] overflow-hidden text-ellipsis'
                             >
-                                {/* {value} */}
-                                {JSON.stringify(value)}
+                                {value}
                             </p>
                         )
                     }
