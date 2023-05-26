@@ -4,7 +4,7 @@ import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Property() {
-    const { isLoading, data } = useFetchData({
+    const { isLoading: chart_loading, data: chart_data } = useFetchData({
         url: '/property/propertyData',
         name: 'property_data',
     })
@@ -13,13 +13,18 @@ function Property() {
         name: 'property_type_data',
     })
 
-    if (isLoading || type_loading) {
+    const { isLoading, data } = useFetchData({
+        url: '/property/getall',
+        name: 'property_type_data',
+    })
+
+    if (isLoading || type_loading || chart_loading) {
         return <Spinner start={isLoading} />
     }
 
     const property_data = [
-        { name: 'residential', value: data.resident_property },
-        { name: 'business', value: data.business_property },
+        { name: 'residential', value: chart_data.resident_property },
+        { name: 'business', value: chart_data.business_property },
     ]
 
     return (
@@ -35,8 +40,8 @@ function Property() {
 
                         <div className='overviewChart__label'>
                             <p className='text-[3rem] font-Satoshi-Medium relative'>
-                                {data.resident_property +
-                                    data.business_property}
+                                {chart_data.resident_property +
+                                    chart_data.business_property}
                             </p>
                             <p className='text-[1.2rem] max-w-[9.8rem]'>
                                 Total Properties
