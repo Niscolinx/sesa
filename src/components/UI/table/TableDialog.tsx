@@ -44,7 +44,6 @@ function TableDialog() {
                 data: { id: fetchedId },
             })
         }
-        alert('start')
         
         return axiosInstance({
             url,
@@ -131,7 +130,7 @@ function TableDialog() {
             return {
                 previousData: prevData[0],
             }
-        },
+       },
 
         onSuccess: () => {
             toast(`${messageTitle} ${type + 'd'} Successfully`, {
@@ -142,7 +141,7 @@ function TableDialog() {
         },
 
         onError: (_error, _option, context) => {
-            queryClient.setQueryData(title, context?.previousData)
+           // queryClient.setQueryData(title, context?.previousData)
 
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
