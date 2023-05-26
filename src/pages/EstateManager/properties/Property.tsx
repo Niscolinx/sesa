@@ -120,8 +120,8 @@ function Property() {
                     title={'property'}
                     isDataProvided
                     providedData={data.data}
-                    view_page_url={'/estateManager/estate-admin/view/'}
-                    add_page_url={'/estateManager/estate-admin/add'}
+                    view_page_url={'/estateManager/property/view/'}
+                    add_page_url={'/estateManager/property/add'}
                     is_add_btn={true}
                     THeader={[
                         'name',
@@ -136,7 +136,7 @@ function Property() {
                         'estate_name',
                         'image_url',
                         'property_code',
-                        'property_address',
+                        'area_or_street',
                         'property_type',
                         'property_category',
                         'status',

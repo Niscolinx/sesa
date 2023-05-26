@@ -30,6 +30,8 @@ function Residents() {
 
     const kyr = Math.floor(statistics_data.kyr)
 
+    console.log(data.data, 'data---')
+
     return (
         <>
             <section className='bg-white rounded-lg p-8 grid text-[1.4rem] '>

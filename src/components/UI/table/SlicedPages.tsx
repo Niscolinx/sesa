@@ -51,20 +51,26 @@ const SlicedPages: FC<SlicedPages> = ({
         const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
+            console.log({details})
+
             if (data_to_display.includes(key)) {
+
+                const firstTableItem = details.get(data_to_display[0]) ?? ''
+
                 if (key === data_to_display[0]) {
-                    return details.set(key, {
+                    return details.set(data_to_display[0], {
                         name: value,
-                        image: null,
+                        image: firstTableItem.image,
                     })
                 }
 
-                if (key.includes('image')) {
-                    const firstKey = details.keys().next().value
-                    const firstValue = details.get(firstKey)
 
-                    return details.set(firstKey, {
-                        name: firstValue.name,
+
+                if (key === 'image') {
+
+
+                    return details.set(data_to_display[0], {
+                        name: firstTableItem.name,
                         image: value,
                     })
                 } else {
@@ -98,35 +104,41 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
+        console.log({sorted})
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
-                    if (idx === 0) {
+                if (idx === 0) {
+                    // console.log(key, value)
                         return (
-                            <div className='flex items-center gap-4 ' key={idx}>
-                                {is_checkbox && (
-                                    <input
-                                        type='checkbox'
-                                        className='cursor-pointer'
-                                    />
-                                )}
+                            // <div className='flex items-center gap-4 ' key={idx}>
+                            //     {is_checkbox && (
+                            //         <input
+                            //             type='checkbox'
+                            //             className='cursor-pointer'
+                            //         />
+                            //     )}
 
-                                <div className='flex items-center gap-2'>
-                                    {value.image && (
-                                        <figure className='w-[3.5rem] h-[3.5rem]'>
-                                            <img
-                                                src={value.image}
-                                                alt=''
-                                                width={'56px'}
-                                                height={'56px'}
-                                                className='w-full h-full rounded-full object-cover'
-                                            />
-                                        </figure>
-                                    )}
+                            //     <div className='flex items-center gap-2'>
+                            //         {value.image && (
+                            //             <figure className='w-[3.5rem] h-[3.5rem]'>
+                            //                 <img
+                            //                     src={value.image}
+                            //                     alt=''
+                            //                     width={'56px'}
+                            //                     height={'56px'}
+                            //                     className='w-full h-full rounded-full object-cover'
+                            //                 />
+                            //             </figure>
+                            //         )}
 
-                                    <p className=''>{value.name}</p>
-                                </div>
-                            </div>
+                            //         <p className=''>{value.name}</p>
+                            //     </div>
+                            // </div>
+                            <p>
+
+                                {JSON.stringify(value)}
+                            </p>
                         )
                     }
                     if (
@@ -223,7 +235,8 @@ const SlicedPages: FC<SlicedPages> = ({
                                 key={idx}
                                 className='max-w-[20rem] overflow-hidden text-ellipsis'
                             >
-                                {value}
+                                {/* {value} */}
+                                {JSON.stringify(value)}
                             </p>
                         )
                     }
