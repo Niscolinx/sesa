@@ -15,7 +15,7 @@ function Property() {
 
     const { isLoading, data } = useFetchData({
         url: '/property/getall',
-        name: 'property_type_data',
+        name: 'property_all',
     })
 
     if (isLoading || type_loading || chart_loading) {
@@ -117,31 +117,32 @@ function Property() {
             </section>
             <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
                 <Table
-                    fetch_url={'/manager/estate-admin/get/all'}
-                    title={'estateAdmin'}
+                    title={'property'}
+                    isDataProvided
+                    providedData={data.data}
                     view_page_url={'/estateManager/estate-admin/view/'}
                     add_page_url={'/estateManager/estate-admin/add'}
                     is_add_btn={true}
                     THeader={[
                         'name',
-                        'gender',
-                        'phone number',
-                        'estate',
-                        'onboarding date',
+                        'code',
+                        'address',
+                        'type',
+                        'category',
                         'status',
                         'actions',
                     ]}
                     data_to_display={[
-                        'name',
-                        'image',
-                        'gender',
-                        'phone',
                         'estate_name',
-                        'onboarding_date',
+                        'image_url',
+                        'property_code',
+                        'property_address',
+                        'property_type',
+                        'property_category',
                         'status',
                     ]}
                     deactivateProp={{
-                        url: '/manager/estate-admin/deactivate_activate',
+                        url: '/property/deactivate_activate',
                     }}
                 />
             </div>

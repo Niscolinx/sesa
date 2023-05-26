@@ -59,7 +59,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     })
                 }
 
-                if (key === 'image') {
+                if (key.includes('image')) {
                     const firstKey = details.keys().next().value
                     const firstValue = details.get(firstKey)
 
