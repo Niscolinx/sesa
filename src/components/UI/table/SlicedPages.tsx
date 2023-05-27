@@ -66,7 +66,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
 
 
-                if (key === 'image') {
+                if (key.includes('image')) {
 
 
                     return details.set(data_to_display[0], {

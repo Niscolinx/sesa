@@ -15,7 +15,7 @@ function Property() {
 
     const { isLoading, data } = useFetchData({
         url: '/property/getall',
-        name: 'property_all',
+        name: 'property',
     })
 
     if (isLoading || type_loading || chart_loading) {
