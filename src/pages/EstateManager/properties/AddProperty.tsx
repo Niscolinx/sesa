@@ -15,15 +15,66 @@ function AddProperty() {
         name?: string
         selectProps?: SelectProps
     }
+    ;[
+        {
+            key: 'block_number',
+            value: '200',
+            description: '',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'property_type',
+            value: '8',
+            description: '',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'property_category',
+            value: 'business',
+            description: 'residential or business',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'name',
+            value: 'French Primary School',
+            description: '',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'description',
+            value: 'French Primary School is a business ',
+            description: '',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'area_or_street',
+            value: 'lagos Island street',
+            description: '',
+            type: 'text',
+            enabled: true,
+        },
+        {
+            key: 'image',
+            description: '',
+            type: 'file',
+            enabled: true,
+            value: [],
+        },
+    ]
 
-    const { isLoading, data: permissionState } = useFetchData({
-        url: '/manager/estate-admin/permission',
+    const { isLoading, data: category_data } = useFetchData({
+        url: '/platformsettings/propertytype/getall',
         name: 'estate-admin_permissions',
     })
 
     const genderState = ['Male', 'Female']
 
-    const [selectedPermissions, setSelectedPermissions] = React.useState<
+    const [selectedCategory, setSelectedCategory] = React.useState<
         string[]
     >([])
 
@@ -43,16 +94,20 @@ function AddProperty() {
     } = useAddPageMutation({
         title: 'admin',
         url: '/manager/estate-admin/create',
-        props: {
-            permission: selectedPermissions,
-            is_kyr_approved: 0,
-            validation_option: 'phone_number',
-        },
+        // props: {
+        //     permission: selectedPermissions,
+        //     is_kyr_approved: 0,
+        //     validation_option: 'phone_number',
+        // },
     })
 
     if (isLoading) {
         return <Spinner start={true} />
     }
+
+    const property_category = category_data.map(
+        (category: Record<string, string>) => category.property_type
+    )
 
     const formInputs = [
         {
@@ -60,42 +115,40 @@ function AddProperty() {
             label: 'name',
         },
         {
-            label: 'last_name',
+            name: 'property (block No. & Flat No.)',
+            label: 'block_number',
+            type: 'number',
         },
         {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
+            label: 'area_or_street',
         },
+
         {
-            label: 'gender',
+            label: 'property_category',
             type: 'select',
             selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
+                state: property_category,
+                selectedState: selectedCategory,
+                setSelectedState: setSelectedCategory,
             },
         },
         {
-            label: 'permissions',
+            label: 'property_type',
             type: 'select',
             selectProps: {
-                state: permissionState,
-                isMulti: true,
-                textarea: true,
-                selectedState: selectedPermissions,
-                setSelectedState: setSelectedPermissions,
+                state: property_category,
+                selectedState: selectedCategory,
+                setSelectedState: setSelectedCategory,
             },
         },
+
         {
-            name: 'phone_number',
-            label: 'phone',
-            type: 'tel',
+            name: 'name',
+            
         },
         {
-            name: 'Email Address',
-            label: 'email',
-            type: 'email',
+            name: 'address description',
+            label: 'description',
         },
     ] satisfies FormInputs[]
 
