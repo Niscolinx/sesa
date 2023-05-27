@@ -23,6 +23,8 @@ interface Input {
     tag?: string
     options: any
     id?: number
+    placeholder?: number
+    isTextArea?: boolean
     setValue?: UseFormSetValue<any>
     value?: any
     required?: boolean
@@ -46,6 +48,8 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     isSelect,
     ref,
     pre,
+    placeholder,
+    isTextArea,
     fullWidth,
     disabled,
     clearErrors,

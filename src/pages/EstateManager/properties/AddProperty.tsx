@@ -13,6 +13,8 @@ function AddProperty() {
         label?: string
         type?: string
         name?: string
+        placeholder?: string
+        fullWidth?: boolean
         disabled?: boolean
         selectProps?: SelectProps
     }
@@ -103,6 +105,8 @@ function AddProperty() {
         {
             name: 'address description',
             label: 'description',
+            fullWidth: true,
+            placeholder: 'This is the address that would be displayed on the print out handed to the visitor at check in'
         },
     ] satisfies FormInputs[]
 
@@ -126,15 +130,17 @@ function AddProperty() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, disabled } =
+                        const { label, type, name, selectProps, disabled, fullWidth, placeholder } =
                             input
                         return (
                             <Input
                                 key={idx + label}
                                 label={label}
+                                fullWidth={fullWidth}
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                placeholder={placeholder}
                                 clearErrors={clearErrors}
                                 disabled={disabled}
                                 name={name}
