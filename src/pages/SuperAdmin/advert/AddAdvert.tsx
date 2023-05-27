@@ -136,7 +136,7 @@ const AddAdvert = () => {
         return <p className='p-8'>Loading...</p>
     }
 
-    const slicedEstates: string[] = estates_data.map(
+    const estate_names: string[] = estates_data.map(
         ({ estate_name }: any) => estate_name
     )
 
@@ -149,7 +149,7 @@ const AddAdvert = () => {
             type: 'select',
             selectProps: {
                 isMulti: true,
-                state: slicedEstates,
+                state: estate_names,
                 isSearchable: true,
                 selectedState: selectedEstates,
                 setSelectedState: setSelectedEstates,

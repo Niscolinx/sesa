@@ -19,16 +19,23 @@ function AddProperty() {
         selectProps?: SelectProps
     }
 
+    const categoryState = ['business', 'residential']
+
+    const [selectedCategory, setSelectedCategory] = useState<string[]>([])
+    const [selectedType, setSelectedType] = useState<string[]>([])
+    const [selectedEstate, setSelectedEstate] = useState('')
+
+    const [isName, setIsName] = useState(true)
+
     const { isLoading, data: property_type } = useFetchData({
         url: '/platformsettings/propertytype/getall',
         name: 'property_type',
     })
 
-    const categoryState = ['business', 'residential']
-
-    const [selectedCategory, setSelectedCategory] = useState<string[]>([])
-    const [selectedType, setSelectedType] = useState<string[]>([])
-    const [isName, setIsName] = useState(true)
+    const { data: estates_data, isLoading: estates_loading } = useFetchData({
+        url: '/estate/fetchDropdownEstate',
+        name: 'active_estates',
+    })
 
     useEffect(() => {
         selectedType.length > 0 ? setIsName(false) : setIsName(true)
@@ -55,6 +62,14 @@ function AddProperty() {
         // },
     })
 
+    const getEstateName = () => {
+        const estate_id: string[] = estates_data
+            .filter(({ estate_name }: any) =>
+                selectedEstate.includes(estate_name)
+            )
+            .map(({ id }: any) => id)
+    }
+
     if (isLoading) {
         return <Spinner start={true} />
     }
@@ -63,10 +78,20 @@ function AddProperty() {
         (type: Record<string, string>) => type.property_type
     )
 
+    const estate_names: string[] = estates_data.map(
+        ({ estate_name }: any) => estate_name
+    )
+
     const formInputs = [
         {
-            name: 'estate_name',
-            label: 'name',
+            label: 'estate_name',
+            type: 'select',
+            selectProps: {
+                state: estate_names,
+                isSearchable: true,
+                selectedState: selectedEstate,
+                setSelectedState: setSelectedEstate,
+            },
         },
         {
             name: 'property (block No. & Flat No.)',
@@ -96,10 +121,10 @@ function AddProperty() {
             },
         },
 
-        {
-            label: 'name',
-            disabled: isName,
-        },
+        // {
+        //     label: 'name',
+        //     disabled: isName,
+        // },
         {
             name: 'address description',
             label: 'description',
@@ -135,7 +160,7 @@ function AddProperty() {
                             type,
                             name,
                             selectProps,
-                            disabled,
+                            // disabled,
                             fullWidth,
                             placeholder,
                         } = input
@@ -149,7 +174,7 @@ function AddProperty() {
                                 type={type}
                                 placeholder={placeholder}
                                 clearErrors={clearErrors}
-                                disabled={disabled}
+                                // disabled={disabled}
                                 name={name}
                                 setValue={setValue}
                                 isSelect={type === 'select'}
