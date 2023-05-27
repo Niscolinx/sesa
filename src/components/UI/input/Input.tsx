@@ -23,8 +23,7 @@ interface Input {
     tag?: string
     options: any
     id?: number
-    placeholder?: number
-    isTextArea?: boolean
+    placeholder?: string 
     setValue?: UseFormSetValue<any>
     value?: any
     required?: boolean
@@ -49,7 +48,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
     ref,
     pre,
     placeholder,
-    isTextArea,
     fullWidth,
     disabled,
     clearErrors,
@@ -227,6 +225,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <textarea
                                     id={label}
                                     rows={4}
+                                    placeholder={placeholder}
                                     maxLength={30}
                                     disabled={disabled}
                                     {...(register &&
@@ -325,6 +324,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 <input
                                     id={label}
                                     disabled={disabled}
+                                    placeholder={placeholder}
                                     type={type}
                                     {...(register &&
                                         register(label, validationOptions))}

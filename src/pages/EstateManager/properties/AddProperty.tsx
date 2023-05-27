@@ -105,8 +105,10 @@ function AddProperty() {
         {
             name: 'address description',
             label: 'description',
+            type: 'textarea',
             fullWidth: true,
-            placeholder: 'This is the address that would be displayed on the print out handed to the visitor at check in'
+            placeholder:
+                'This is the address that would be displayed on the print out handed to the visitor at check in',
         },
     ] satisfies FormInputs[]
 
@@ -130,8 +132,15 @@ function AddProperty() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, disabled, fullWidth, placeholder } =
-                            input
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            disabled,
+                            fullWidth,
+                            placeholder,
+                        } = input
                         return (
                             <Input
                                 key={idx + label}
