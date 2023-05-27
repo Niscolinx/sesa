@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
@@ -16,7 +16,6 @@ function AddProperty() {
         disabled?: boolean
         selectProps?: SelectProps
     }
-    
 
     const { isLoading, data: property_type } = useFetchData({
         url: '/platformsettings/propertytype/getall',
@@ -25,8 +24,13 @@ function AddProperty() {
 
     const categoryState = ['business', 'residential']
 
-    const [selectedCategory, setSelectedCategory] = React.useState<string[]>([])
-    const [selectedType, setSelectedType] = React.useState<string[]>([])
+    const [selectedCategory, setSelectedCategory] = useState<string[]>([])
+    const [selectedType, setSelectedType] = useState<string[]>([])
+    const [isName, setIsName] = useState(true)
+
+    useEffect(() => {
+        selectedType.length > 0 ? setIsName(false) : setIsName(true)
+    }, [selectedType])
 
     const {
         clearErrors,
@@ -94,7 +98,7 @@ function AddProperty() {
 
         {
             label: 'name',
-            disabled: true
+            disabled: isName,
         },
         {
             name: 'address description',
@@ -122,7 +126,8 @@ function AddProperty() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, disabled } = input
+                        const { label, type, name, selectProps, disabled } =
+                            input
                         return (
                             <Input
                                 key={idx + label}
@@ -139,7 +144,7 @@ function AddProperty() {
                             />
                         )
                     })}
-                    
+
                     <ImageInput
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
