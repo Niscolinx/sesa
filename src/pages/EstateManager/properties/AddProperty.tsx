@@ -46,8 +46,8 @@ function AddProperty() {
         register,
         setValue,
     } = useAddPageMutation({
-        title: 'admin',
-        url: '/manager/estate-admin/create',
+        title: 'add_property',
+        url: '/property/create',
         // props: {
         //     permission: selectedPermissions,
         //     is_kyr_approved: 0,
