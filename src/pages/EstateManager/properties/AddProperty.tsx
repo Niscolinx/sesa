@@ -13,70 +13,20 @@ function AddProperty() {
         label?: string
         type?: string
         name?: string
+        disabled?: boolean
         selectProps?: SelectProps
     }
-    ;[
-        {
-            key: 'block_number',
-            value: '200',
-            description: '',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'property_type',
-            value: '8',
-            description: '',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'property_category',
-            value: 'business',
-            description: 'residential or business',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'name',
-            value: 'French Primary School',
-            description: '',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'description',
-            value: 'French Primary School is a business ',
-            description: '',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'area_or_street',
-            value: 'lagos Island street',
-            description: '',
-            type: 'text',
-            enabled: true,
-        },
-        {
-            key: 'image',
-            description: '',
-            type: 'file',
-            enabled: true,
-            value: [],
-        },
-    ]
+    
 
-    const { isLoading, data: category_data } = useFetchData({
+    const { isLoading, data: property_type } = useFetchData({
         url: '/platformsettings/propertytype/getall',
-        name: 'estate-admin_permissions',
+        name: 'property_type',
     })
 
-    const genderState = ['Male', 'Female']
+    const categoryState = ['business', 'residential']
 
-    const [selectedCategory, setSelectedCategory] = React.useState<
-        string[]
-    >([])
+    const [selectedCategory, setSelectedCategory] = React.useState<string[]>([])
+    const [selectedType, setSelectedType] = React.useState<string[]>([])
 
     const {
         clearErrors,
@@ -105,8 +55,8 @@ function AddProperty() {
         return <Spinner start={true} />
     }
 
-    const property_category = category_data.map(
-        (category: Record<string, string>) => category.property_type
+    const property_types = property_type.map(
+        (type: Record<string, string>) => type.property_type
     )
 
     const formInputs = [
@@ -127,7 +77,7 @@ function AddProperty() {
             label: 'property_category',
             type: 'select',
             selectProps: {
-                state: property_category,
+                state: categoryState,
                 selectedState: selectedCategory,
                 setSelectedState: setSelectedCategory,
             },
@@ -136,15 +86,15 @@ function AddProperty() {
             label: 'property_type',
             type: 'select',
             selectProps: {
-                state: property_category,
-                selectedState: selectedCategory,
-                setSelectedState: setSelectedCategory,
+                state: property_types,
+                selectedState: selectedType,
+                setSelectedState: setSelectedType,
             },
         },
 
         {
-            name: 'name',
-            
+            label: 'name',
+            disabled: true
         },
         {
             name: 'address description',
@@ -172,7 +122,7 @@ function AddProperty() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps } = input
+                        const { label, type, name, selectProps, disabled } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -181,6 +131,7 @@ function AddProperty() {
                                 formErrors={formErrors}
                                 type={type}
                                 clearErrors={clearErrors}
+                                disabled={disabled}
                                 name={name}
                                 setValue={setValue}
                                 isSelect={type === 'select'}
@@ -188,9 +139,7 @@ function AddProperty() {
                             />
                         )
                     })}
-                    <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Admin'} />
-                    </div>
+                    
                     <ImageInput
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
