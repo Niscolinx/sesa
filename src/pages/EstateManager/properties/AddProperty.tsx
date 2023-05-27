@@ -40,8 +40,6 @@ function AddProperty() {
         onSubmit,
         openDialog,
         setOpenDialog,
-        selectedGender,
-        setSelectedGender,
         postLoading,
         handlePicture,
         photoPreview,
