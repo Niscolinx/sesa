@@ -70,7 +70,7 @@ function AddProperty() {
             .map(({ id }: any) => id)
     }
 
-    if (isLoading) {
+    if (isLoading || estates_loading) {
         return <Spinner start={true} />
     }
 
@@ -121,10 +121,10 @@ function AddProperty() {
             },
         },
 
-        // {
-        //     label: 'name',
-        //     disabled: isName,
-        // },
+        {
+            label: 'name',
+            disabled: isName,
+        },
         {
             name: 'address description',
             label: 'description',
@@ -160,7 +160,7 @@ function AddProperty() {
                             type,
                             name,
                             selectProps,
-                            // disabled,
+                            disabled,
                             fullWidth,
                             placeholder,
                         } = input
