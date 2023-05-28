@@ -32,11 +32,6 @@ function AddProperty() {
         name: 'property_type',
     })
 
-    const { data: estates_data, isLoading: estates_loading } = useFetchData({
-        url: '/estate/fetchDropdownEstate',
-        name: 'active_estates',
-    })
-
     useEffect(() => {
         selectedType.length > 0 ? setIsName(false) : setIsName(true)
     }, [selectedType])
@@ -62,13 +57,7 @@ function AddProperty() {
         // },
     })
 
-    const getEstateName = () => {
-        const estate_id: string[] = estates_data
-            .filter(({ estate_name }: any) =>
-                selectedEstate.includes(estate_name)
-            )
-            .map(({ id }: any) => id)
-    }
+  
 
     if (isLoading || estates_loading) {
         return <Spinner start={true} />
@@ -78,20 +67,12 @@ function AddProperty() {
         (type: Record<string, string>) => type.property_type
     )
 
-    const estate_names: string[] = estates_data.map(
-        ({ estate_name }: any) => estate_name
-    )
+ 
 
     const formInputs = [
         {
-            label: 'estate_name',
-            type: 'select',
-            selectProps: {
-                state: estate_names,
-                isSearchable: true,
-                selectedState: selectedEstate,
-                setSelectedState: setSelectedEstate,
-            },
+            label: 'name',
+            disabled: isName,
         },
         {
             name: 'property (block No. & Flat No.)',
@@ -121,10 +102,6 @@ function AddProperty() {
             },
         },
 
-        {
-            label: 'name',
-            disabled: isName,
-        },
         {
             name: 'address description',
             label: 'description',
@@ -174,7 +151,7 @@ function AddProperty() {
                                 type={type}
                                 placeholder={placeholder}
                                 clearErrors={clearErrors}
-                                // disabled={disabled}
+                                disabled={disabled}
                                 name={name}
                                 setValue={setValue}
                                 isSelect={type === 'select'}
