@@ -57,17 +57,13 @@ function AddProperty() {
         // },
     })
 
-  
-
-    if (isLoading || estates_loading) {
+    if (isLoading) {
         return <Spinner start={true} />
     }
 
     const property_types = property_type.map(
         (type: Record<string, string>) => type.property_type
     )
-
- 
 
     const formInputs = [
         {
