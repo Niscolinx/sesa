@@ -26,7 +26,7 @@ function AddEstateStaff() {
         },
         {
             name: 'weekends - (Sat - Sun)',
-            disabled: false,
+            disabled: true,
         },
         {
             name: 'mon',
@@ -38,7 +38,7 @@ function AddEstateStaff() {
         },
         {
             name: 'wed',
-            disabled: false,
+            disabled: true,
         },
         {
             name: 'thur',
@@ -46,7 +46,7 @@ function AddEstateStaff() {
         },
         {
             name: 'fri',
-            disabled: false,
+            disabled: true,
         },
         {
             name: 'sat',
