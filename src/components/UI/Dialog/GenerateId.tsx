@@ -1,13 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 
 interface Props {
-    title: string
     open: boolean
     type?: string
     close: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function GenerateId({ title, open = false, close }: Props) {
+function GenerateId({ open = false, close }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
