@@ -55,8 +55,8 @@ function AddProperty() {
         reset,
         setValue,
     } = useAddPageMutation({
-        title: 'add_property',
-        url: '/property/create',
+        title: `view_property_${id}`,
+        url: `/property/update/${id}`,
         props: {
             property_type: selectedType,
             property_category: selectedCategory,
@@ -94,7 +94,7 @@ function AddProperty() {
         }
     }, [data])
 
-    if (isLoading) {
+    if (isLoading || propertyType_loading) {
         return <Spinner start={true} />
     }
 
