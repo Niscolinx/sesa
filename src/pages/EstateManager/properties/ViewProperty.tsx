@@ -7,7 +7,7 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer, toast } from 'react-toastify'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 function AddProperty() {
     type FormInputs = {
@@ -26,12 +26,15 @@ function AddProperty() {
     const [selectedType, setSelectedType] = useState('')
     const [isName, setIsName] = useState(true)
 
+    const params = useParams()
     const navigate = useNavigate()
+    const id = params.id?.replace(':', '')
 
-    const { isLoading: propertyType_loading, data: property_type } = useFetchData({
-        url: '/platformsettings/propertytype/getall',
-        name: 'property_type',
-    })
+    const { isLoading: propertyType_loading, data: property_type } =
+        useFetchData({
+            url: '/platformsettings/propertytype/getall',
+            name: 'property_type',
+        })
 
     useEffect(() => {
         selectedCategory.toLowerCase() === 'business'
@@ -59,42 +62,41 @@ function AddProperty() {
             property_category: selectedCategory,
         },
     })
-  if (!id) {
-      toast('Resident not Found', {
-          type: 'error',
-          className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-      })
+    if (!id) {
+        toast('Resident not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+        })
 
-      navigate(-1)
-  }
+        navigate(-1)
+    }
 
-  const { isLoading, data } = useFetchData({
-      url: `/manager/resident/getbyid/${id}`,
-      name: `view_resident_${id}`,
-  })
+    const { isLoading, data } = useFetchData({
+        url: `/manager/resident/getbyid/${id}`,
+        name: `view_resident_${id}`,
+    })
 
-  useEffect(() => {
-      if (data) {
-          const { name, email, phone, dob, gender } = data
-          const first_name = name.split(' ')[0]
-          const last_name = name.split(' ')[1]
+    useEffect(() => {
+        if (data) {
+            const { name, email, phone, dob, gender } = data
+            const first_name = name.split(' ')[0]
+            const last_name = name.split(' ')[1]
 
-          const phone_number = parseInt(phone.slice(4))
-        
+            const phone_number = parseInt(phone.slice(4))
 
-          reset({
-              first_name,
-              last_name,
-              dob,
-              email,
-              phone: phone_number,
-          })
-      }
-  }, [data])
+            reset({
+                first_name,
+                last_name,
+                dob,
+                email,
+                phone: phone_number,
+            })
+        }
+    }, [data])
 
-  if (isLoading) {
-      return <Spinner start={true} />
-  }
+    if (isLoading) {
+        return <Spinner start={true} />
+    }
 
     const property_types = property_type.map(
         (type: Record<string, string>) => type.property_type
