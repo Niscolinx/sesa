@@ -6,10 +6,17 @@ interface Props {
     title: string
     open: boolean
     type?: string
+    isBank?: boolean
     close: Dispatch<SetStateAction<boolean>>
 }
 
-function AddedSuccess({ title, open = false, close, type = 'added' }: Props) {
+function AddedSuccess({
+    title,
+    open = false,
+    close,
+    type = 'added',
+    isBank,
+}: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -25,7 +32,7 @@ function AddedSuccess({ title, open = false, close, type = 'added' }: Props) {
         }
     }
     const handleClose = () => {
-        if(type === 'added'){
+        if (type === 'added') {
             navigate(-1)
         }
         close(false)
@@ -39,7 +46,9 @@ function AddedSuccess({ title, open = false, close, type = 'added' }: Props) {
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
                     <img src='/icons/admins/modalSuccess.svg' alt='' />
-                    <p className='capitalize'>{title} successfully {type}</p>
+                    <p className='capitalize'>
+                        {title} successfully {type}
+                    </p>
 
                     <div className='flex w-full justify-center gap-8'>
                         <button
@@ -47,6 +56,33 @@ function AddedSuccess({ title, open = false, close, type = 'added' }: Props) {
                             onClick={handleClose}
                         >
                             Ok
+                        </button>
+                    </div>
+
+                    <p
+                        className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
+                        style={{
+                            fontFamily: 'Satoshi-Medium',
+                        }}
+                    >
+                        Do you want to open a bank account for this Estate Staff
+                        ?
+                    </p>
+
+                    <div className='flex w-full justify-center gap-8 mt-10'>
+                        <button
+                            className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
+                            onClick={() => handleClose()}
+                        >
+                            Skip, Later
+                        </button>
+                        <button
+                            className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                            onClick={() =>
+                                setAddedEstateStaffStep('addBankAccount')
+                            }
+                        >
+                            Open an Account
                         </button>
                     </div>
                 </div>

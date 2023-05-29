@@ -56,6 +56,8 @@ function AddEstateStaff() {
         url: '/manager/estate-admin/create',
         props: {
             permission: selectedWorkdays,
+            work_days: selectedWorkdays,
+            state: selectedState,
             is_kyr_approved: 0,
             validation_option: 'phone_number',
         },
