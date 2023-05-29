@@ -25,7 +25,6 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
-    disabled?: boolean
     absolute?: boolean
     fullWidth?: boolean
     kyr?: boolean
@@ -60,11 +59,10 @@ interface ComplexSelect extends Omit<ISelect<string>, 'state'> {
 }
 
 interface IMultipleSelect {
-    selectFrom: Array<string>
+    selectFrom: Array<string> | {name: string, disabled: boolean}[]
     selected: Array<string>
     textarea?: boolean
     id?: number
-    disabled?: boolean
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
@@ -80,7 +78,6 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     id,
-    disabled,
     absolute = true,
     selectFormErrors,
     fullWidth,
@@ -227,7 +224,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         {selectFrom.map((item, index) => (
                             <button
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left'
-                                disabled={disabled}
+                               // disabled={disabled}
                                 key={item + index}
                                 onClick={() => handleSelectedState(item)}
                             >
@@ -367,7 +364,6 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     setSelected,
     textarea = false,
     selectFormErrors,
-    disabled,
     label,
     absolute = true,
     placeholder,
@@ -439,7 +435,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                     name={item + index}
                     id={item + index}
                     value={item}
-                    disabled={disabled}
+                    disabled={item.disabled}
                     checked={selected.includes(item)}
                     onChange={(e) => handleSelectedState(e, item)}
                 />

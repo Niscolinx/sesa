@@ -6,7 +6,7 @@ import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
 export interface SelectProps {
     isMulti?: boolean
     textarea?: boolean
-    state: string[] | Record<string, string>[]
+    state: string[] | {name: string, disabled: boolean}[]
     absolute?: boolean
     isSearchable?: boolean
     selectedState: string | string[]
