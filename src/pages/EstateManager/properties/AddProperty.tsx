@@ -32,7 +32,9 @@ function AddProperty() {
     })
 
     useEffect(() => {
-        selectedCategory.toLowerCase() === 'business' ? setIsName(false) : setIsName(true)
+        selectedCategory.toLowerCase() === 'business'
+            ? setIsName(false)
+            : setIsName(true)
     }, [selectedCategory])
 
     const {
@@ -50,9 +52,7 @@ function AddProperty() {
         title: 'add_property',
         url: '/property/create',
         props: {
-            property_type: selectedType,
-            property_category: selectedCategory
-          
+            property_category: selectedCategory,
         },
     })
 
@@ -65,19 +65,16 @@ function AddProperty() {
     )
 
     const formInputs = [
-        // {
-        //     label: 'property_type',
-        //     type: 'select',
-        //     selectProps: {
-        //         state: property_types,
-        //         selectedState: selectedType,
-        //         setSelectedState: setSelectedType,
-        //     },
-        // },
         {
             label: 'property_type',
-            type: 'number'
+            type: 'select',
+            selectProps: {
+                state: property_types,
+                selectedState: selectedType,
+                setSelectedState: setSelectedType,
+            },
         },
+       
         {
             name: 'property (block No. & Flat No.)',
             label: 'block_number',
@@ -100,7 +97,7 @@ function AddProperty() {
         {
             label: 'name',
             disabled: isName,
-            placeholder: 'Only for business category'
+            placeholder: 'Only for business category',
         },
         {
             name: 'address description',
@@ -115,7 +112,7 @@ function AddProperty() {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
-            <ToastContainer/>
+            <ToastContainer />
             <AddedSuccess
                 open={openDialog}
                 title={'estate admin'}
@@ -142,6 +139,11 @@ function AddProperty() {
                             fullWidth,
                             placeholder,
                         } = input
+
+                        if(label === 'name' && isName){
+                            return null
+                        }
+                     
                         return (
                             <Input
                                 key={idx + label}
@@ -160,6 +162,10 @@ function AddProperty() {
                             />
                         )
                     })}
+
+                    
+                   
+                    
 
                     <ImageInput
                         handlePicture={handlePicture}
