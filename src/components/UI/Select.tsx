@@ -25,6 +25,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
+    disable?:boolean
     absolute?: boolean
     fullWidth?: boolean
     kyr?: boolean
@@ -63,6 +64,7 @@ interface IMultipleSelect {
     selected: Array<string>
     textarea?: boolean
     id?: number
+    disable?:boolean
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
@@ -78,6 +80,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     id,
+    disable,
     absolute = true,
     selectFormErrors,
     fullWidth,
@@ -363,6 +366,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     setSelected,
     textarea = false,
     selectFormErrors,
+    disable,
     label,
     absolute = true,
     placeholder,
