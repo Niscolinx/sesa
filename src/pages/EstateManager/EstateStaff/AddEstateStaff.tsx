@@ -22,10 +22,30 @@ function AddEstateStaff() {
     const workdaysState = [
         {
             name: 'weekdays - (Mon - Fri)',
-            
+            disabled: false,
         },
-        'weekdays - (Mon - Fri)',
-        'weekends - (Sat - Sun)',
+        {
+            name: 'weekends - (Sat - Sun)',
+            disabled: false,
+        },
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+        },
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+        },
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+        },
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+        },
+
+        '',
         'mon',
         'tue',
         'wed',
