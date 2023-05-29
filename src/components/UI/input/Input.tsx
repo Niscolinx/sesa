@@ -7,7 +7,7 @@ export interface SelectProps {
     isMulti?: boolean
     textarea?: boolean
     state: string[]
-    disable?: boolean
+    disabled?: boolean
     absolute?: boolean
     isSearchable?: boolean
     selectedState: string | string[]
@@ -149,7 +149,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
                             textarea={select.textarea}
-                            disable={select.disable}
+                            disabled={select.disabled}
                             selectFrom={select.state}
                             id={id}
                             absolute={select.absolute}
@@ -165,7 +165,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             isSearchable={select.isSearchable}
                             state={select.state}
                             id={id}
-                            disable={select.disable}
+                            disabled={select.disabled}
                             absolute={select.absolute}
                             selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}

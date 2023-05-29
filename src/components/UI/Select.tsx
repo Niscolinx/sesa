@@ -25,7 +25,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
-    disabled?:boolean
+    disabled?: boolean
     absolute?: boolean
     fullWidth?: boolean
     kyr?: boolean
@@ -64,7 +64,7 @@ interface IMultipleSelect {
     selected: Array<string>
     textarea?: boolean
     id?: number
-    disabled?:boolean
+    disabled?: boolean
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
@@ -225,16 +225,16 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         )}
 
                         {selectFrom.map((item, index) => (
-                            <label
+                            <button
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                key={item+index}
+                                disabled
+                                key={item + index}
                                 onClick={() => handleSelectedState(item)}
                             >
-                                <input type="text" id={item+index} />
                                 {Array.isArray(item)
                                     ? item
                                     : item.replaceAll('_', ' ')}
-                            </label>
+                            </button>
                         ))}
                         {kyr && (
                             <p className='text-color-primary px-4 text-[1.4rem] py-1'>
@@ -445,7 +445,9 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
                 />
                 <label
                     htmlFor={item + index}
-                    className={`text-[1.4rem] p-4 cursor-pointer w-full ${disabled && 'cursor-not-allowed opacity-50'}`}
+                    className={`text-[1.4rem] p-4 cursor-pointer w-full ${
+                        disabled && 'cursor-not-allowed opacity-50'
+                    }`}
                 >
                     {item}
                 </label>
