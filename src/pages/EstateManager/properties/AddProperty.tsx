@@ -31,7 +31,7 @@ function AddProperty() {
     })
 
     useEffect(() => {
-        selectedCategory.length > 0 ? setIsName(false) : setIsName(true)
+        selectedCategory.toLowerCase() === 'business' ? setIsName(false) : setIsName(true)
     }, [selectedCategory])
 
     const {
@@ -65,8 +65,13 @@ function AddProperty() {
 
     const formInputs = [
         {
-            label: 'name',
-            disabled: isName,
+            label: 'property_type',
+            type: 'select',
+            selectProps: {
+                state: property_types,
+                selectedState: selectedType,
+                setSelectedState: setSelectedType,
+            },
         },
         {
             name: 'property (block No. & Flat No.)',
@@ -86,16 +91,12 @@ function AddProperty() {
                 setSelectedState: setSelectedCategory,
             },
         },
-        {
-            label: 'property_type',
-            type: 'select',
-            selectProps: {
-                state: property_types,
-                selectedState: selectedType,
-                setSelectedState: setSelectedType,
-            },
-        },
 
+        {
+            label: 'name',
+            disabled: isName,
+            placeholder: 'Only for business category'
+        },
         {
             name: 'address description',
             label: 'description',
