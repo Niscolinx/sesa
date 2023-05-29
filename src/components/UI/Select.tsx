@@ -226,8 +226,8 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
 
                         {selectFrom.map((item, index) => (
                             <button
-                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                disabled
+                                className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left'
+                                disabled={disabled}
                                 key={item + index}
                                 onClick={() => handleSelectedState(item)}
                             >
