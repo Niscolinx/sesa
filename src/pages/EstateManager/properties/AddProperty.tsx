@@ -52,6 +52,7 @@ function AddProperty() {
         title: 'add_property',
         url: '/property/create',
         props: {
+            property_type: selectedType,
             property_category: selectedCategory,
         },
     })
@@ -74,7 +75,7 @@ function AddProperty() {
                 setSelectedState: setSelectedType,
             },
         },
-       
+
         {
             name: 'property (block No. & Flat No.)',
             label: 'block_number',
@@ -140,10 +141,10 @@ function AddProperty() {
                             placeholder,
                         } = input
 
-                        if(label === 'name' && isName){
+                        if (label === 'name' && isName) {
                             return null
                         }
-                     
+
                         return (
                             <Input
                                 key={idx + label}
@@ -162,10 +163,6 @@ function AddProperty() {
                             />
                         )
                     })}
-
-                    
-                   
-                    
 
                     <ImageInput
                         handlePicture={handlePicture}
