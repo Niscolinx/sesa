@@ -79,8 +79,8 @@ const AddBankAccount = ({ selectedBank, setSelectedBank }: Props) => {
         <>
             {
                 {
-                    first: first,
-                    second: second,
+                    first,
+                    second,
                 }[step]
             }
         </>
