@@ -14,6 +14,7 @@ function AddEstateStaff() {
         label?: string
         type?: string
         name?: string
+        fullWidth?: boolean 
         selectProps?: SelectProps
     }
 
@@ -123,7 +124,8 @@ function AddEstateStaff() {
 
         {
             label: 'security_guard_message',
-            type: 'textarea'
+            type: 'textarea',
+            fullWidth: true
         }
     ] satisfies FormInputs[]
 
@@ -148,7 +150,7 @@ function AddEstateStaff() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps } = input
+                        const { label, type, name, selectProps, fullWidth } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -156,6 +158,7 @@ function AddEstateStaff() {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                fullWidth={fullWidth}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}
