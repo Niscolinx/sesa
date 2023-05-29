@@ -1,16 +1,16 @@
-import { useContext } from 'react'
+import React, { useState } from 'react'
 import { TbCopy } from 'react-icons/tb'
-import { Select } from '../../../components/ui/Select'
+import { Select } from '../Select'
 
+interface Props {
+    selectedBank: string
+    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
+}
 
-export const AddBankAccount = () => {
-    const { selectedBank, setSelectedBank, setAddedEstateStaffStep } =
-        useContext(context)
+const AddBankAccount = ({ selectedBank, setSelectedBank }: Props) => {
+    const [step, setStep] = useState('first')
 
-
-    
-
-    return (
+    const first = (
         <div className='w-[40rem] grid justify-items-center gap-10'>
             <p
                 className='border-b w-full text-left pb-2'
@@ -35,30 +35,14 @@ export const AddBankAccount = () => {
 
             <button
                 className='bg-[#0556E5] py-6 px-12 w-full text-white text-[1.6rem] rounded-lg mt-10'
-                onClick={() =>
-                    setAddedEstateStaffStep('openedBankAccountSuccessful')
-                }
+                onClick={() => setStep('second')}
             >
                 Generate Account Number
             </button>
         </div>
     )
-}
 
-export const OpenedBankAccountSuccessful = ({
-    context,
-}: {
-    context: React.Context<AddedEstateStaffContext>
-}) => {
-    const { handleClose, selectedBank, setAddedEstateStaffStep } =
-        useContext(context)
-
-    const closeSteps = () => {
-        handleClose()
-        setAddedEstateStaffStep('addedEstateStaffSuccessful')
-    }
-
-    return (
+    const second = (
         <div className='w-full grid justify-items-center gap-4'>
             <img src='/icons/admins/modalSuccess.svg' alt='' />
 
@@ -84,13 +68,23 @@ export const OpenedBankAccountSuccessful = ({
                 </p>
             </div>
             <div className='flex justify-center gap-8 w-full mt-10'>
-                <button
-                    className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                    onClick={() => closeSteps()}
-                >
+                <button className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
                     Ok
                 </button>
             </div>
         </div>
     )
+
+    return (
+        <>
+            {
+                {
+                    first: first,
+                    second: second,
+                }[step]
+            }
+        </>
+    )
 }
+
+export default AddBankAccount

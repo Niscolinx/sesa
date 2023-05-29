@@ -6,11 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { MultipleSelect, Select } from '../../../components/ui/Select'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
-import {
-    AddBankAccount,
-    AddedEstateStaffSuccessfully,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
+import AddBank from '../../../components/ui/dialog/AddBank'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -130,212 +126,16 @@ const ViewEstateStaff = () => {
         }
     }
 
-    const addedEstateStaffSteps = new Map([
-        [
-            'addedEstateStaffSuccessful',
-            <AddedEstateStaffSuccessfully
-                context={CreateAddedEstateStaffContext}
-            />,
-        ],
-        [
-            'addBankAccount',
-            <AddBankAccount context={CreateAddedEstateStaffContext} />,
-        ],
-        [
-            'openedBankAccountSuccessful',
-            <OpenedBankAccountSuccessful
-                context={CreateAddedEstateStaffContext}
-            />,
-        ],
-    ])
+
 
     return (
-        <CreateAddedEstateStaffContext.Provider
-            value={{
-                addedEstateStaffStep,
-                setAddedEstateStaffStep,
-                handleClose,
-                selectedBank,
-                setSelectedBank,
-            }}
-        >
-            <ToastContainer />
-
-            <dialog className='dialog' ref={validatedDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidatedDialog()}
-                        />
-
-                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
-                            />
-                        </div>
-                        <div className='mt-20'>
-                            <h2>Validation Result</h2>
-
-                            <div className='border grid mt-5'>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
-                            onClick={() => closeValidatedDialog()}
-                        >
-                            Ok
-                        </button>
-                    </div>
-                </section>
-            </dialog>
-
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
-                        {dialogType === 'Deactivate' ? (
-                            <>
-                                <img
-                                    src='/icons/admins/modalDeactivate.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to deactivate this
-                                    Estate Staff
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() =>
-                                            handleCloseDeleteOrDeactivateDialog()
-                                        }
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeactivateStaff}
-                                    >
-                                        Deactivate
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <img
-                                    src='/icons/admins/modalWarning.svg'
-                                    alt=''
-                                />
-                                <p className='text-[1.6rem]'>
-                                    Are you sure you want to delete this Estate
-                                    Staff
-                                </p>
-
-                                <div className='flex w-full justify-center gap-8'>
-                                    <button
-                                        className='btn border-[#0556E5] text-[#0556E5] border rounded-lg w-[15rem]'
-                                        onClick={() =>
-                                            handleCloseDeleteOrDeactivateDialog()
-                                        }
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        className='bg-red-600 py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                        onClick={handleDeleteStaff}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </section>
-            </dialog>
-            <dialog className='dialog' ref={bankRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
-                        {bankDialogState === 'generateId' ? (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center  gap-8 text-[1.6rem]'>
-                                <img src='/img/new_Id.svg' alt='' />
-                                <button
-                                    className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
-                                    onClick={() => handleClose()}
-                                >
-                                    Print
-                                </button>
-                            </div>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedEstateStaffSteps.get(
-                                    addedEstateStaffStep
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </section>
-            </dialog>
-            <main>
+     
+        
+        
+        
+        
+        <main>
+                <ToastContainer />
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-8 items-center'>
@@ -666,7 +466,6 @@ const ViewEstateStaff = () => {
                     </button>
                 </section>
             </main>
-        </CreateAddedEstateStaffContext.Provider>
     )
 }
 
