@@ -20,9 +20,8 @@ function AddProperty() {
 
     const categoryState = ['business', 'residential']
 
-    const [selectedCategory, setSelectedCategory] = useState<string[]>([])
+    const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedType, setSelectedType] = useState<string[]>([])
-    const [selectedEstate, setSelectedEstate] = useState('')
 
     const [isName, setIsName] = useState(true)
 
@@ -32,8 +31,8 @@ function AddProperty() {
     })
 
     useEffect(() => {
-        selectedType.length > 0 ? setIsName(false) : setIsName(true)
-    }, [selectedType])
+        selectedCategory.length > 0 ? setIsName(false) : setIsName(true)
+    }, [selectedCategory])
 
     const {
         clearErrors,
