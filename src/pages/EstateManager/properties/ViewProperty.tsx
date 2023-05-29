@@ -63,7 +63,7 @@ function AddProperty() {
         },
     })
     if (!id) {
-        toast('Resident not Found', {
+        toast('Property not Found', {
             type: 'error',
             className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
         })
@@ -72,8 +72,8 @@ function AddProperty() {
     }
 
     const { isLoading, data } = useFetchData({
-        url: `/manager/resident/getbyid/${id}`,
-        name: `view_resident_${id}`,
+        url: `/property/getbyid/${id}`,
+        name: `view_property_${id}`,
     })
 
     useEffect(() => {
