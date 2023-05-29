@@ -21,7 +21,7 @@ function AddProperty() {
     const categoryState = ['business', 'residential']
 
     const [selectedCategory, setSelectedCategory] = useState('')
-    const [selectedType, setSelectedType] = useState<string[]>([])
+    const [selectedType, setSelectedType] = useState('')
 
     const [isName, setIsName] = useState(true)
 
@@ -48,11 +48,11 @@ function AddProperty() {
     } = useAddPageMutation({
         title: 'add_property',
         url: '/property/create',
-        // props: {
-        //     permission: selectedPermissions,
-        //     is_kyr_approved: 0,
-        //     validation_option: 'phone_number',
-        // },
+        props: {
+            property_type: selectedType,
+            property_category: selectedCategory
+          
+        },
     })
 
     if (isLoading) {
