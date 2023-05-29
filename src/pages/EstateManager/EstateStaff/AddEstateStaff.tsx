@@ -163,7 +163,6 @@ function AddEstateStaff() {
                                 label={label}
                                 register={register}
                                 formErrors={formErrors}
-
                                 type={type}
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
