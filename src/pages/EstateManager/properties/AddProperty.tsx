@@ -65,14 +65,18 @@ function AddProperty() {
     )
 
     const formInputs = [
+        // {
+        //     label: 'property_type',
+        //     type: 'select',
+        //     selectProps: {
+        //         state: property_types,
+        //         selectedState: selectedType,
+        //         setSelectedState: setSelectedType,
+        //     },
+        // },
         {
             label: 'property_type',
-            type: 'select',
-            selectProps: {
-                state: property_types,
-                selectedState: selectedType,
-                setSelectedState: setSelectedType,
-            },
+            type: 'number'
         },
         {
             name: 'property (block No. & Flat No.)',
