@@ -15,6 +15,7 @@ function AddEstateStaff() {
         type?: string
         name?: string
         fullWidth?: boolean 
+        placeholder?: string
         selectProps?: SelectProps
     }
 
@@ -125,7 +126,8 @@ function AddEstateStaff() {
         {
             label: 'security_guard_message',
             type: 'textarea',
-            fullWidth: true
+            fullWidth: true,
+            placeholder: 'The message will be displayed to the security guard when the site worker checks In/Out'
         }
     ] satisfies FormInputs[]
 
@@ -150,7 +152,7 @@ function AddEstateStaff() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, fullWidth } = input
+                        const { label, type, name, selectProps, fullWidth, placeholder } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -158,6 +160,7 @@ function AddEstateStaff() {
                                 register={register}
                                 formErrors={formErrors}
                                 type={type}
+                                placeholder={placeholder}
                                 fullWidth={fullWidth}
                                 clearErrors={clearErrors}
                                 name={name}
