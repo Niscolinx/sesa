@@ -120,6 +120,11 @@ function AddEstateStaff() {
                 setSelectedState: setSelectedState,
             },
         },
+
+        {
+            label: 'security_guard_message',
+            type: 'textarea'
+        }
     ] satisfies FormInputs[]
 
     return (
