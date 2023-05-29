@@ -31,11 +31,22 @@ function useAddPageMutation({ url, props, title }: Props) {
     } = useForm()
 
     const postRequest = (data: any) => {
-        return axiosInstance({
-            url,
-            method: 'post',
-            data,
-            headers: { 'Content-Type': 'multipart/form-data' },
+        // return axiosInstance({
+        //     url,
+        //     method: 'post',
+        //     data,
+        //     headers: { 'Content-Type': 'multipart/form-data' },
+        // })
+
+       return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    data: {
+                        message: 'Success',
+                    },
+                })
+            }, 2000)
+        
         })
     }
 

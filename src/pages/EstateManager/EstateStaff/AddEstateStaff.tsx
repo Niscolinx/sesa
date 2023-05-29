@@ -138,6 +138,7 @@ function AddEstateStaff() {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
+                isBank
                 title={'estate staff'}
                 close={setOpenDialog}
             />
