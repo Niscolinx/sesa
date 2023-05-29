@@ -56,13 +56,10 @@ function useAddPageMutation({ url, props, title }: Props) {
     })
 
     const onSubmit = handleSubmit((data) => {
+        const { first_name, last_name, dob, date_of_birth } = data
 
-        props && props.isPhone = true
-
-        const { first_name, last_name, dob, phone, date_of_birth } = data
-
-
-        if (props?.isPhone && (!phone || phone.length <= 9)) {
+        const phone = data.phone
+        if (phone && phone.length <= 9) {
             return setError('phone', {
                 type: 'manual',
                 message: 'Must be 10 characters',
@@ -97,7 +94,6 @@ function useAddPageMutation({ url, props, title }: Props) {
             phone: `+234${phone}`,
             image: imageFile,
             ...props,
-          
         }
 
         mutate(updatedData)
@@ -126,7 +122,7 @@ function useAddPageMutation({ url, props, title }: Props) {
         formErrors,
         setOpenDialog,
         openDialog,
-        reset
+        reset,
     }
 
     return providerValue
