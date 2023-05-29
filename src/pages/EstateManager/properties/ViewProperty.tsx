@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
-import ImageInput from '../../../components/ui/input/ImageInput'
+import ImageInput, { ShowImage } from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
@@ -8,6 +8,7 @@ import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate, useParams } from 'react-router'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 
 function AddProperty() {
     type FormInputs = {
@@ -157,6 +158,21 @@ function AddProperty() {
                 close={setOpenDialog}
             />
 
+            <div className='flex justify-between items-center mb-10'>
+                <ShowImage
+                    photoPreview={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Admin'}
+                    queryCache={`view_estate_admin_${id}`}
+                />
+            </div>
+
             <form
                 onSubmit={onSubmit}
                 className='grid max-w-[84rem] gap-16 mt-12 '
@@ -201,10 +217,6 @@ function AddProperty() {
                         )
                     })}
 
-                    <ImageInput
-                        handlePicture={handlePicture}
-                        photoPreview={photoPreview}
-                    />
                     <AddBtn isLoading={postLoading} />
                 </>
             </form>
