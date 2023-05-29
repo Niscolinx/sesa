@@ -5,7 +5,6 @@ interface Props {
     title: string
     open: boolean
     type?: string
-    isBank?: boolean
     close: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -13,8 +12,6 @@ function GenerateId({
     title,
     open = false,
     close,
-    type = 'added',
-    isBank,
 }: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
 
@@ -37,14 +34,14 @@ function GenerateId({
     }
 
     return (
-        <dialog className='dialog' ref={bankRef}>
+        <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 p-10'>
                     <div className='bg-white rounded-2xl grid place-content-center justify-items-center  gap-8 text-[1.6rem]'>
                         <img src='/img/new_Id.svg' alt='' />
                         <button
                             className='btn text-white bg-color-blue-1 py-4 px-16 rounded-lg w-[15rem]'
-                            // onClick={() => handleClose()}
+                            onClick={() => handleClose}
                         >
                             Print
                         </button>
