@@ -154,7 +154,7 @@ function AddProperty() {
             <ToastContainer />
             <AddedSuccess
                 open={openDialog}
-                title={'estate admin'}
+                title={'Property'}
                 close={setOpenDialog}
             />
 
@@ -166,10 +166,10 @@ function AddProperty() {
 
                 <Activate_Deactivate
                     id={id!}
-                    url={'/manager/estate-admin/deactivate_activate'}
+                    url={'/property/deactivate_activate'}
                     status={data?.status}
-                    title={'Estate Admin'}
-                    queryCache={`view_estate_admin_${id}`}
+                    title={'Property'}
+                    queryCache={`view_property_${id}`}
                 />
             </div>
 

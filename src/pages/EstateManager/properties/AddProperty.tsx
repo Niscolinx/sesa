@@ -116,7 +116,7 @@ function AddProperty() {
             <ToastContainer />
             <AddedSuccess
                 open={openDialog}
-                title={'estate admin'}
+                title={'Property'}
                 close={setOpenDialog}
             />
 
