@@ -212,7 +212,6 @@ const AddArtisan = () => {
             image: imageFile,
         }
 
-        console.log({ updatedData })
 
         mutate(updatedData)
     })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
@@ -17,7 +17,6 @@ function AddEstateStaff() {
         selectProps?: SelectProps
     }
 
-   
     const workdaysState = [
         'weekdays - (Mon - Fri)',
         'weekends - (Sat - Sun)',
@@ -27,14 +26,15 @@ function AddEstateStaff() {
         'thu',
         'fri',
         'sat',
-        'sun'
+        'sun',
     ]
 
     const genderState = ['Male', 'Female']
 
-    const [selectedWorkdays, setSelectedWorkdays] = React.useState<
-        string[]
-    >([])
+    const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
+    const [selectedState, setSelectedState] = useState<string[]>([])
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     const {
         clearErrors,
@@ -55,11 +55,15 @@ function AddEstateStaff() {
         props: {
             permission: selectedWorkdays,
             is_kyr_approved: 0,
-            validation_option: 'phone_number'
+            validation_option: 'phone_number',
         },
     })
 
-    
+    if (states_loading) {
+        return <Spinner start={true} />
+    }
+
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
     const formInputs = [
         {
@@ -101,6 +105,16 @@ function AddEstateStaff() {
                 setSelectedState: setSelectedWorkdays,
             },
         },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
+        },
 
         {
             name: 'Email Address',
@@ -117,7 +131,7 @@ function AddEstateStaff() {
                 title={'estate admin'}
                 close={setOpenDialog}
             />
-            <ToastContainer/>
+            <ToastContainer />
 
             <form
                 onSubmit={onSubmit}
