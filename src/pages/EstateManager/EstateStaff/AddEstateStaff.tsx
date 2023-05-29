@@ -127,7 +127,7 @@ function AddEstateStaff() {
             <Spinner start={postLoading ? true : false} />
             <AddedSuccess
                 open={openDialog}
-                title={'estate admin'}
+                title={'estate staff'}
                 close={setOpenDialog}
             />
             <ToastContainer />
@@ -160,7 +160,7 @@ function AddEstateStaff() {
                         )
                     })}
                     <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Admin'} />
+                        <ValidateKY title={'Know your Estate Staff'} />
                     </div>
                     <ImageInput
                         handlePicture={handlePicture}
