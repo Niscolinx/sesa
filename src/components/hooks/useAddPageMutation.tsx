@@ -89,13 +89,13 @@ function useAddPageMutation({ url, props, title }: Props) {
 
         const updatedData = {
             ...data,
-            ...props,
             name: `${first_name} ${last_name}`,
             gender: selectedGender,
             dob,
             date_of_birth,
             phone: `+234${phone}`,
             image: imageFile,
+            ...props,
           
         }
 

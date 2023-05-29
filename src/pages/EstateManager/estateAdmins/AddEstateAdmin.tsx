@@ -7,6 +7,7 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
+import { ToastContainer } from 'react-toastify'
 
 function AddEstateAdmin() {
     type FormInputs = {
@@ -106,6 +107,7 @@ function AddEstateAdmin() {
                 title={'estate admin'}
                 close={setOpenDialog}
             />
+            <ToastContainer/>
 
             <form
                 onSubmit={onSubmit}

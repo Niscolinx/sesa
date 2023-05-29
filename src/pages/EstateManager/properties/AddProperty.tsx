@@ -6,6 +6,7 @@ import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import useFetchData from '../../../components/hooks/UseFetchData'
+import { ToastContainer } from 'react-toastify'
 
 function AddProperty() {
     type FormInputs = {
@@ -110,6 +111,7 @@ function AddProperty() {
     return (
         <div className='bg-white rounded-2xl grid p-8'>
             <Spinner start={postLoading ? true : false} />
+            <ToastContainer/>
             <AddedSuccess
                 open={openDialog}
                 title={'estate admin'}
