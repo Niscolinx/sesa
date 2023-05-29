@@ -76,6 +76,11 @@ function AddEstateStaff() {
             label: 'middle_name',
         },
         {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+        {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
@@ -114,12 +119,6 @@ function AddEstateStaff() {
                 selectedState: selectedState,
                 setSelectedState: setSelectedState,
             },
-        },
-
-        {
-            name: 'Email Address',
-            label: 'email',
-            type: 'email',
         },
     ] satisfies FormInputs[]
 
