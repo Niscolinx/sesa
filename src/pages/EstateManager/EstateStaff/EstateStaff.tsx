@@ -7,8 +7,8 @@ function EstateStaff() {
             <Table
                 fetch_url={'/estate-staff/getall'}
                 title={'estateStaff'}
-                view_page_url={'/estateManager/estate-admin/view/'}
-                add_page_url={'/estateManager/estate-admin/add'}
+                view_page_url={'/estateManager/estate-staff/view/'}
+                add_page_url={'/estateManager/estate-staff/add'}
                 is_add_btn={true}
                 THeader={[
                     'staff code',
