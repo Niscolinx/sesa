@@ -61,7 +61,7 @@ function AddProperty() {
         title: `view_property_${id}`,
         url: `/property/update/${id}`,
         props: {
-            property_type: selectedType,
+             property_type: selectedType,
             property_category: selectedCategory,
         },
     })
@@ -152,6 +152,7 @@ function AddProperty() {
             <AddedSuccess
                 open={openDialog}
                 title={'Property'}
+                type={'updated'}
                 close={setOpenDialog}
             />
 
