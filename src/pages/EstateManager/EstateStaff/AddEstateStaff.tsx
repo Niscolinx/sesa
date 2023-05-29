@@ -110,7 +110,6 @@ function AddEstateStaff() {
                 state: workdaysState,
                 disabled: true,
                 isMulti: true,
-                textarea: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
             },
