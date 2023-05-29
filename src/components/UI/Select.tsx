@@ -25,7 +25,7 @@ interface ISelect<T> {
     placeholder?: string
     validate?: boolean
     isSearchable?: boolean
-    disable?:boolean
+    disabled?:boolean
     absolute?: boolean
     fullWidth?: boolean
     kyr?: boolean
@@ -64,7 +64,7 @@ interface IMultipleSelect {
     selected: Array<string>
     textarea?: boolean
     id?: number
-    disable?:boolean
+    disabled?:boolean
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
     label: string
@@ -80,7 +80,7 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
     placeholder,
     kyr,
     id,
-    disable,
+    disabled,
     absolute = true,
     selectFormErrors,
     fullWidth,
@@ -225,15 +225,16 @@ export const Select: FC<ISelect<ValidateInputTypes | string>> = ({
                         )}
 
                         {selectFrom.map((item, index) => (
-                            <p
+                            <label
                                 className='text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer'
-                                key={index}
+                                key={item+index}
                                 onClick={() => handleSelectedState(item)}
                             >
+                                <input type="text" id={item+index} />
                                 {Array.isArray(item)
                                     ? item
                                     : item.replaceAll('_', ' ')}
-                            </p>
+                            </label>
                         ))}
                         {kyr && (
                             <p className='text-color-primary px-4 text-[1.4rem] py-1'>
@@ -366,7 +367,7 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
     setSelected,
     textarea = false,
     selectFormErrors,
-    disable,
+    disabled,
     label,
     absolute = true,
     placeholder,
@@ -434,16 +435,17 @@ export const MultipleSelect: FC<IMultipleSelect> = ({
             >
                 <input
                     type='checkbox'
-                    className='cursor-pointer'
+                    className='cursor-pointer '
                     name={item + index}
                     id={item + index}
                     value={item}
+                    disabled={disabled}
                     checked={selected.includes(item)}
                     onChange={(e) => handleSelectedState(e, item)}
                 />
                 <label
                     htmlFor={item + index}
-                    className='text-[1.4rem] p-4 cursor-pointer w-full'
+                    className={`text-[1.4rem] p-4 cursor-pointer w-full ${disabled && 'cursor-not-allowed opacity-50'}`}
                 >
                     {item}
                 </label>
