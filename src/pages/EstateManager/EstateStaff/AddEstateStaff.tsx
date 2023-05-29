@@ -108,6 +108,7 @@ function AddEstateStaff() {
             type: 'select',
             selectProps: {
                 state: workdaysState,
+                disabled: true,
                 isMulti: true,
                 textarea: true,
                 selectedState: selectedWorkdays,
@@ -162,6 +163,7 @@ function AddEstateStaff() {
                                 label={label}
                                 register={register}
                                 formErrors={formErrors}
+
                                 type={type}
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
