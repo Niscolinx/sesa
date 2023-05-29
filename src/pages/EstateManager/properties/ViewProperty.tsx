@@ -26,6 +26,7 @@ function AddProperty() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedType, setSelectedType] = useState('')
     const [isName, setIsName] = useState(true)
+    const [imageUrl, setImageUrl] = useState('')
 
     const params = useParams()
     const navigate = useNavigate()
@@ -79,18 +80,13 @@ function AddProperty() {
 
     useEffect(() => {
         if (data) {
-            const { name, email, phone, dob, gender } = data
-            const first_name = name.split(' ')[0]
-            const last_name = name.split(' ')[1]
-
-            const phone_number = parseInt(phone.slice(4))
+            const {  property_category, image_url } = data
+        
+            setImageUrl(image_url)
+            setSelectedCategory(property_category)
 
             reset({
-                first_name,
-                last_name,
-                dob,
-                email,
-                phone: phone_number,
+               ...data
             })
         }
     }, [data])
@@ -160,7 +156,7 @@ function AddProperty() {
 
             <div className='flex justify-between items-center mb-10'>
                 <ShowImage
-                    photoPreview={photoPreview}
+                    photoPreview={imageUrl || photoPreview}
                     handlePicture={handlePicture}
                 />
 
