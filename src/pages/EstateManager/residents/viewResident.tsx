@@ -74,8 +74,6 @@ const AddAdmin = () => {
             const first_name = name.split(' ')[0]
             const last_name = name.split(' ')[1]
 
-            
-
             const phone_number = parseInt(phone.slice(4))
             setPhone(phone_number)
             setSelectedGender(gender)
