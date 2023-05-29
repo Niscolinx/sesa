@@ -50,41 +50,39 @@ function AddedSuccess({
                         {title} successfully {type}
                     </p>
 
-                    <div className='flex w-full justify-center gap-8'>
-                        <button
-                            className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                            onClick={handleClose}
-                        >
-                            Ok
-                        </button>
-                    </div>
+                    {isBank ? (
+                        <>
+                            <p
+                                className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                            >
+                                Do you want to open a bank account for {title} ?
+                            </p>
 
-                    <p
-                        className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
-                        style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}
-                    >
-                        Do you want to open a bank account for this Estate Staff
-                        ?
-                    </p>
-
-                    <div className='flex w-full justify-center gap-8 mt-10'>
-                        <button
-                            className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
-                            onClick={() => handleClose()}
-                        >
-                            Skip, Later
-                        </button>
-                        <button
-                            className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
-                            onClick={() =>
-                                setAddedEstateStaffStep('addBankAccount')
-                            }
-                        >
-                            Open an Account
-                        </button>
-                    </div>
+                            <div className='flex w-full justify-center gap-8 mt-10'>
+                                <button
+                                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
+                                    onClick={() => handleClose()}
+                                >
+                                    Skip, Later
+                                </button>
+                                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
+                                    Open an Account
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <div className='flex w-full justify-center gap-8'>
+                            <button
+                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                                onClick={handleClose}
+                            >
+                                Ok
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
         </dialog>
