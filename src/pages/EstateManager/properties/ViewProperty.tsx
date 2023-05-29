@@ -214,7 +214,11 @@ function AddProperty() {
                         )
                     })}
 
-                    <AddBtn isLoading={postLoading} />
+                    <AddBtn
+                        isLoading={postLoading}
+                        title={'Save'}
+                        is_addBtn={false}
+                    />
                 </>
             </form>
         </div>
