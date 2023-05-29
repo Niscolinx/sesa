@@ -119,6 +119,7 @@ function useAddPageMutation({ url, props, title }: Props) {
         selectedGender,
         setSelectedGender,
         photoPreview,
+        setPhotoPreview,
         register,
         handleSubmit,
         setValue,

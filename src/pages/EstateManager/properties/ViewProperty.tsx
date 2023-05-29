@@ -26,7 +26,7 @@ function AddProperty() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedType, setSelectedType] = useState('')
     const [isName, setIsName] = useState(true)
-    const [imageUrl, setImageUrl] = useState('')
+
 
     const params = useParams()
     const navigate = useNavigate()
@@ -52,6 +52,7 @@ function AddProperty() {
         setOpenDialog,
         postLoading,
         handlePicture,
+        setPhotoPreview,
         photoPreview,
         register,
         reset,
@@ -82,7 +83,7 @@ function AddProperty() {
         if (data) {
             const {  property_category, image_url } = data
         
-            setImageUrl(image_url)
+            setPhotoPreview(image_url)
             setSelectedCategory(property_category)
 
             reset({
@@ -156,7 +157,7 @@ function AddProperty() {
 
             <div className='flex justify-between items-center mb-10'>
                 <ShowImage
-                    photoPreview={imageUrl || photoPreview}
+                    photoPreview={photoPreview}
                     handlePicture={handlePicture}
                 />
 
