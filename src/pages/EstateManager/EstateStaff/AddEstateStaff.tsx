@@ -14,7 +14,7 @@ function AddEstateStaff() {
         label?: string
         type?: string
         name?: string
-        fullWidth?: boolean 
+        fullWidth?: boolean
         placeholder?: string
         selectProps?: SelectProps
     }
@@ -29,30 +29,33 @@ function AddEstateStaff() {
             disabled: false,
         },
         {
-            name: 'weekdays - (Mon - Fri)',
+            name: 'mon',
             disabled: false,
         },
         {
-            name: 'weekdays - (Mon - Fri)',
+            name: 'tue',
             disabled: false,
         },
         {
-            name: 'weekdays - (Mon - Fri)',
+            name: 'wed',
             disabled: false,
         },
         {
-            name: 'weekdays - (Mon - Fri)',
+            name: 'thur',
             disabled: false,
         },
-
-        '',
-        'mon',
-        'tue',
-        'wed',
-        'thu',
-        'fri',
-        'sat',
-        'sun',
+        {
+            name: 'fri',
+            disabled: false,
+        },
+        {
+            name: 'sat',
+            disabled: false,
+        },
+        {
+            name: 'sun',
+            disabled: false,
+        },
     ]
 
     const genderState = ['Male', 'Female']
@@ -153,8 +156,9 @@ function AddEstateStaff() {
             label: 'security_guard_message',
             type: 'textarea',
             fullWidth: true,
-            placeholder: 'The message will be displayed to the security guard when the site worker checks In/Out'
-        }
+            placeholder:
+                'The message will be displayed to the security guard when the site worker checks In/Out',
+        },
     ] satisfies FormInputs[]
 
     return (
@@ -179,7 +183,14 @@ function AddEstateStaff() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const { label, type, name, selectProps, fullWidth, placeholder } = input
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            fullWidth,
+                            placeholder,
+                        } = input
                         return (
                             <Input
                                 key={idx + label}
