@@ -57,11 +57,12 @@ function useAddPageMutation({ url, props, title }: Props) {
 
     const onSubmit = handleSubmit((data) => {
 
+        props && props.isPhone = true
 
         const { first_name, last_name, dob, phone, date_of_birth } = data
 
 
-        if (!phone || phone.length <= 9) {
+        if (props?.isPhone && (!phone || phone.length <= 9)) {
             return setError('phone', {
                 type: 'manual',
                 message: 'Must be 10 characters',
