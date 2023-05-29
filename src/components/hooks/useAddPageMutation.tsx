@@ -56,9 +56,14 @@ function useAddPageMutation({ url, props, title }: Props) {
     })
 
     const onSubmit = handleSubmit((data) => {
-        const { first_name, last_name, dob, date_of_birth } = data
+        const { dob, date_of_birth, name } = data
 
         const phone = data.phone
+        const first_name = data.first_name
+        const last_name = data.last_name
+
+        const checkName = first_name && last_name ? `${first_name} ${last_name}` : name
+
         if (phone && phone.length <= 9) {
             return setError('phone', {
                 type: 'manual',
@@ -87,7 +92,7 @@ function useAddPageMutation({ url, props, title }: Props) {
 
         const updatedData = {
             ...data,
-            name: `${first_name} ${last_name}`,
+            name: checkName,
             gender: selectedGender,
             dob,
             date_of_birth,
