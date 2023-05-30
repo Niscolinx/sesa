@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
+import { setAuth, storeToken } from '../store/features/auth'
+import useAxios from '../components/hooks/useAxios'
 import { useAppDispatch } from '../store/app/Hooks'
-import { setAuth, storeToken } from '../store/features/Auth'
-import AxiosRequest from '../utils/axios'
-import useAxios from '../components/hooks/UseAxios'
 
 const Login = () => {
     const navigate = useNavigate()
