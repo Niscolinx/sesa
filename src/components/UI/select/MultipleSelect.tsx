@@ -10,9 +10,11 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
 export interface IMultipleSelect {
-    selectFrom: string[] | Record<string, string>[]
+    selectFrom: string[]
+    objState: Record<string, string>[]
     selected: Array<string>
     textarea?: boolean
+    isDouble?: boolean
     id?: number
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
@@ -25,6 +27,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
     setSelected,
+    isDouble,
     textarea = false,
     selectFormErrors,
     label,
@@ -33,6 +36,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
+
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -76,9 +80,6 @@ const MultipleSelect: FC<IMultipleSelect> = ({
         setSearch(value)
 
         if (value.length > 0) {
-
-
-
             //  const updated =   selectFrom.filter((item) => {
             //         if (typeof item === 'string') {
             //             return item.toLowerCase().includes(value.toLowerCase())
@@ -88,11 +89,6 @@ const MultipleSelect: FC<IMultipleSelect> = ({
             //                 .includes(value.toLowerCase())
             //         }
             //     })
-
-            
-           
-           
-
         } else {
             setSelectedFrom(selectFrom)
         }
