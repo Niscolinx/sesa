@@ -5,7 +5,6 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import { TbCopy } from 'react-icons/tb'
-import AddBank from '../../../components/ui/dialog/AddBank'
 
 type Actions = 'Deactivate' | 'Delete'
 
