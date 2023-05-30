@@ -3,9 +3,9 @@ import { IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
-import { ComplexSelect, Select } from '../../../../components/ui/Select'
 
 import { TbCopy } from 'react-icons/tb'
+import { CompoundSelect } from '../../../../components/ui/select/CompoundSelect'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -594,7 +594,7 @@ const ViewGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
