@@ -105,11 +105,11 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <SelectedItems
+                                    <SingleSelectedItems
                                         selectFrom={tokenSerialNumbers}
                                         label={'Token Serial Number'}
                                     />
-                                    <SelectedItems
+                                    <SingleSelectedItems
                                         selectFrom={tokenCodes}
                                         label={'Token Code'}
                                     />
@@ -126,11 +126,11 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <SelectedItems
+                                    <SingleSelectedItems
                                         selectFrom={tokenSerialNumbers}
                                         label={'Token Serial Number'}
                                     />
-                                    <SelectedItems
+                                    <SingleSelectedItems
                                         selectFrom={tokenCodes}
                                         label={'Token Code'}
                                     />
@@ -143,7 +143,7 @@ const BulkUpload = () => {
                                         ' repeat(auto-fit, minmax(35rem, 1fr))',
                                 }}
                             >
-                                <Select
+                                <SingleSelect
                                     label='Customer Notification'
                                     state={['SMS', 'In-App']}
                                     selectedState={customerNofication}
@@ -190,7 +190,7 @@ const BulkUpload = () => {
                                 </div>
 
                                 <div>
-                                    <Select
+                                    <SingleSelect
                                         label='Notification Threshold'
                                         state={[
                                             '10%',

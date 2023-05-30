@@ -527,7 +527,7 @@ const EditEditSecurityGuard = () => {
                                     />
                                 </div>
                             </div>
-                            <Select
+                            <SingleSelect
                                 label='Gender'
                                 state={['Male', 'Female']}
                                 selectedState={selectedGender}
@@ -563,7 +563,7 @@ const EditEditSecurityGuard = () => {
                                 />
                             </div>
 
-                            <Select
+                            <SingleSelect
                                 label='State'
                                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
                                 placeholder='Select State'

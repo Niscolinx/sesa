@@ -1,7 +1,8 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
-import { MultipleSelect, Select } from '../Select'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
+import MultipleSelect from '../select/MultipleSelect'
+import SingleSelect from '../select/SingleSelect'
 
 export interface SelectProps {
     isMulti?: boolean
@@ -158,7 +159,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             }
                         />
                     ) : (
-                        <Select
+                        <SingleSelect
                             label={name ?? label.replaceAll('_', ' ')}
                             isSearchable={select.isSearchable}
                             state={select.state}

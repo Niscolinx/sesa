@@ -126,346 +126,339 @@ const ViewEstateStaff = () => {
         }
     }
 
-
-
     return (
-     
-        
-        
-        
-        
         <main>
-                <ToastContainer />
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-8 items-center'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='grid gap-4 cursor-pointer justify-items-center'
-                            >
-                                <img
-                                    src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                    alt='photoPreview'
-                                    className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
-                                />
-                                <span className='text-color-blue-1 text-[1.4rem]'>
-                                    Edit
-                                </span>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
+            <ToastContainer />
+            <section className='grid p-8 bg-white items-baseline rounded-lg'>
+                <div className='flex justify-between items-center'>
+                    <div className='flex gap-8 items-center'>
+                        <label
+                            htmlFor='photoUpload'
+                            className='grid gap-4 cursor-pointer justify-items-center'
+                        >
+                            <img
+                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
+                                alt='photoPreview'
+                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
                             />
-                            <div className='grid gap-2 justify-items-start'>
-                                <p
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    Guard Code :{' '}
-                                    <span
-                                        style={{
-                                            fontFamily: 'Satoshi-Medium',
-                                        }}
-                                    >
-                                        SG09897
-                                    </span>
-                                </p>
-                                <p className='flex items-center gap-4'>
-                                    <span className='flex items-center gap-2'>
-                                        KYG Status <BsQuestionCircle />:
-                                    </span>
-                                    {isValidated ? (
-                                        <span
-                                            className='text-green-600'
-                                            style={{
-                                                fontFamily: 'Satoshi-Light',
-                                            }}
-                                        >
-                                            Validated
-                                        </span>
-                                    ) : (
-                                        <span
-                                            className='text-red-600'
-                                            style={{
-                                                fontFamily: 'Satoshi-Light',
-                                            }}
-                                        >
-                                            Not Validated
-                                        </span>
-                                    )}
-                                </p>
-                                <button
+                            <span className='text-color-blue-1 text-[1.4rem]'>
+                                Edit
+                            </span>
+                        </label>
+                        <input
+                            type='file'
+                            name='photoUpload'
+                            id='photoUpload'
+                            accept='image/*'
+                            className='hidden'
+                            onClick={handlePhotoPreview}
+                        />
+                        <div className='grid gap-2 justify-items-start'>
+                            <p
+                                style={{
+                                    fontFamily: 'Satoshi-Light',
+                                }}
+                            >
+                                Guard Code :{' '}
+                                <span
                                     style={{
                                         fontFamily: 'Satoshi-Medium',
                                     }}
-                                    className='text-color-blue'
-                                    onClick={() => openValidatedDialog()}
                                 >
-                                    Click here to view results
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className='flex gap-8'>
-                            <button
-                                className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    openDeleteOrDeactivateDialog('Deactivate')
-                                }
-                            >
-                                <span className=' text-[1.4rem] font-semibold'>
-                                    Deactivate
+                                    SG09897
                                 </span>
-                            </button>
-                            <button
-                                className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                                onClick={() =>
-                                    openDeleteOrDeactivateDialog('Delete')
-                                }
-                            >
-                                <img src='/icons/admins/delete.svg' alt='' />
-                                <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                    Delete
+                            </p>
+                            <p className='flex items-center gap-4'>
+                                <span className='flex items-center gap-2'>
+                                    KYG Status <BsQuestionCircle />:
                                 </span>
+                                {isValidated ? (
+                                    <span
+                                        className='text-green-600'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Validated
+                                    </span>
+                                ) : (
+                                    <span
+                                        className='text-red-600'
+                                        style={{
+                                            fontFamily: 'Satoshi-Light',
+                                        }}
+                                    >
+                                        Not Validated
+                                    </span>
+                                )}
+                            </p>
+                            <button
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                                className='text-color-blue'
+                                onClick={() => openValidatedDialog()}
+                            >
+                                Click here to view results
                             </button>
                         </div>
                     </div>
 
-                    <form
-                        onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12 '
+                    <div className='flex gap-8'>
+                        <button
+                            className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() =>
+                                openDeleteOrDeactivateDialog('Deactivate')
+                            }
+                        >
+                            <span className=' text-[1.4rem] font-semibold'>
+                                Deactivate
+                            </span>
+                        </button>
+                        <button
+                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
+                            onClick={() =>
+                                openDeleteOrDeactivateDialog('Delete')
+                            }
+                        >
+                            <img src='/icons/admins/delete.svg' alt='' />
+                            <span className='text-red-600 text-[1.4rem] font-semibold'>
+                                Delete
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <form
+                    onSubmit={handleSubmit}
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                >
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='firstName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            First Name *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='firstName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Last Name *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Middle Name *
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+                    <div className='grid gap-4 relative '>
+                        <label
+                            htmlFor='lastName'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Date of Birth
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='lastName'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
+                    <div className='grid gap-4'>
+                        <label
+                            htmlFor='phoneNumber'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Phone Number *
+                        </label>
+
+                        <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
+                            <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
+                                <option value='234'>+234</option>
+                            </select>
+                            <input
+                                required
+                                type='number'
+                                inputMode='numeric'
+                                id='phoneNumber'
+                                placeholder='Phone Number'
+                                className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                            />
+                        </div>
+                    </div>
+                    <SingleSelect
+                        label='Gender'
+                        state={['Male', 'Female']}
+                        selectedState={selectedGender}
+                        setSelectedState={setSelectedGender}
+                    />
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='email'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Email Address *
+                        </label>
+                        <input
+                            type='email'
+                            required
+                            id='email'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
+                    <div className='grid gap-4 relative'>
+                        <label
+                            htmlFor='address1'
+                            className='text-[1.4rem] font-Satoshi-Medium'
+                        >
+                            Address
+                        </label>
+                        <input
+                            type='text'
+                            required
+                            id='address1'
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                    </div>
+
+                    <SingleSelect
+                        label='State'
+                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
+                        placeholder='Select State'
+                        selectedState={selectedState}
+                        setSelectedState={setSelectedState}
+                    />
+                    <MultipleSelect
+                        label='Work Day'
+                        selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
+                        placeholder='Select Work days'
+                        selected={workDays}
+                        setSelected={setWorkDays}
+                    />
+
+                    <div className='col-span-full'>
+                        <label
+                            htmlFor='address'
+                            className='flex mb-2 gap-4 items-center cursor-pointer'
+                        >
+                            Estate Staff Message
+                        </label>
+
+                        <textarea
+                            name='address'
+                            id='address'
+                            placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
+                            rows={4}
+                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                        />
+                        <p className='text-gray-400 text-[1.4rem]'>
+                            Maximum of 30 characters
+                        </p>
+                    </div>
+                </form>
+                <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
+                    <h2
+                        className='text-[2rem] mb-10'
                         style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
+                            fontFamily: 'Satoshi-Medium',
                         }}
                     >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                First Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='firstName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Middle Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Date of Birth
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
+                        Account Information
+                    </h2>
 
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Phone Number *
-                            </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
+                    {isAccountCreated ? (
+                        <div className='columns-2 justify-between items-center gap-10'>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='bankName'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
+                                >
+                                    Bank Name
+                                </label>
                                 <input
+                                    type='text'
                                     required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
+                                    id='bankName'
+                                    placeholder={`First City Monument Bank`}
+                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                                 />
                             </div>
-                        </div>
-                        <Select
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Email Address *
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
 
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Address
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <Select
-                            label='State'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
-                        />
-                        <MultipleSelect
-                            label='Work Day'
-                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select Work days'
-                            selected={workDays}
-                            setSelected={setWorkDays}
-                        />
-
-                        <div className='col-span-full'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Estate Staff Message
-                            </label>
-
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 30 characters
-                            </p>
-                        </div>
-                    </form>
-                    <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
-                        <h2
-                            className='text-[2rem] mb-10'
-                            style={{
-                                fontFamily: 'Satoshi-Medium',
-                            }}
-                        >
-                            Account Information
-                        </h2>
-
-                        {isAccountCreated ? (
-                            <div className='columns-2 justify-between items-center gap-10'>
-                                <div className='grid gap-4 relative '>
-                                    <label
-                                        htmlFor='bankName'
-                                        className='text-[1.4rem] font-Satoshi-Medium'
-                                    >
-                                        Bank Name
-                                    </label>
+                            <div className='grid gap-4 relative '>
+                                <label
+                                    htmlFor='firstName'
+                                    className='text-[1.4rem] font-Satoshi-Medium'
+                                >
+                                    Account Number
+                                </label>
+                                <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
                                     <input
-                                        type='text'
+                                        type='number'
                                         required
-                                        id='bankName'
-                                        placeholder={`First City Monument Bank`}
-                                        className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
+                                        id='firstName'
+                                        placeholder={`2084827323`}
+                                        className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
                                     />
-                                </div>
 
-                                <div className='grid gap-4 relative '>
-                                    <label
-                                        htmlFor='firstName'
-                                        className='text-[1.4rem] font-Satoshi-Medium'
-                                    >
-                                        Account Number
-                                    </label>
-                                    <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
-                                        <input
-                                            type='number'
-                                            required
-                                            id='firstName'
-                                            placeholder={`2084827323`}
-                                            className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
-                                        />
-
-                                        <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
-                                    </div>
+                                    <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
                                 </div>
                             </div>
-                        ) : (
-                            <p className='flex items-cente gap-2'>
-                                <span>No account Information created.</span>
-                                <button
-                                    className=' text-color-blue'
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    onClick={() => openBankDialog('openBank')}
-                                >
-                                    Open a bank account
-                                </button>
-                            </p>
-                        )}
-                    </section>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
-                        style={{ justifySelf: 'start' }}
-                        onClick={() => openBankDialog('generateId')}
-                    >
-                        Generate ID Card
-                    </button>
+                        </div>
+                    ) : (
+                        <p className='flex items-cente gap-2'>
+                            <span>No account Information created.</span>
+                            <button
+                                className=' text-color-blue'
+                                style={{
+                                    fontFamily: 'Satoshi-Medium',
+                                }}
+                                onClick={() => openBankDialog('openBank')}
+                            >
+                                Open a bank account
+                            </button>
+                        </p>
+                    )}
                 </section>
-            </main>
+                <button
+                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
+                    style={{ justifySelf: 'start' }}
+                    onClick={() => openBankDialog('generateId')}
+                >
+                    Generate ID Card
+                </button>
+            </section>
+        </main>
     )
 }
 

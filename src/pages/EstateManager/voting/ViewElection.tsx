@@ -157,7 +157,7 @@ const ViewElection = () => {
                                         className='grid gap-12'
                                         onSubmit={handleDialogSubmit}
                                     >
-                                        <Select
+                                        <SingleSelect
                                             state={[
                                                 'Phone Number',
                                                 'Resident Code',

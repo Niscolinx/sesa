@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { Select } from '../../../../components/ui/Select'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {

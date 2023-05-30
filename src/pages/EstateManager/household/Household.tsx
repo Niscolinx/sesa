@@ -249,7 +249,7 @@ function HouseHold() {
                                 Create Household
                             </h3>
                             <div className='w-[30rem]'>
-                                <Select
+                                <SingleSelect
                                     state={[
                                         'ThomasEstate/SO-2345CDGK1',
                                         'ThomasEstate/SO-2345CDGK2',
