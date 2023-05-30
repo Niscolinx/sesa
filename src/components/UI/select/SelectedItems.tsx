@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import { IMultipleSelect } from './MultipleSelect'
 
-export const SelectedItems: FC<
-    Pick<IMultipleSelect, 'selectFrom' | 'label'>
-> = ({ selectFrom, label }) => {
+const SelectedItems: FC<Pick<IMultipleSelect, 'selectFrom' | 'label'>> = ({
+    selectFrom,
+    label,
+}) => {
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold'>{label}</p>
@@ -39,3 +40,5 @@ export const SelectedItems: FC<
         </div>
     )
 }
+
+export default SelectedItems

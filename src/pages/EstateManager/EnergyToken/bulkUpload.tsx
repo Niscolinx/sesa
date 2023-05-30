@@ -3,6 +3,7 @@ import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 import EnergyTokenSpreadsheet from './Spreadsheet'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
+import SelectedItems  from '../../../components/ui/select/SelectedItems'
 
 const BulkUpload = () => {
     const [isUploaded, setIsUploaded] = useState(false)
