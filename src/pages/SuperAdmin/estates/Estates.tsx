@@ -11,7 +11,7 @@ import {
     HiOutlineChevronRight,
 } from 'react-icons/hi'
 import { TbCurrencyNaira } from 'react-icons/tb'
-import { Select } from '../../../components/ui/Select'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 import useAxios from '../../../components/hooks/UseAxios'
 
 type Estate = {

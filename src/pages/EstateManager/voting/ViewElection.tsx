@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
 import { EstateChart as Chart } from '../../../components/superAdmin/charts/OverviewChart'
-import { Select } from '../../../components/ui/Select'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 import { IoMdClose } from 'react-icons/io'
 import {
     PhoneNumber,

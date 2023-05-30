@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { Select } from '../../../components/ui/Select'
 import StarRating from '../../../components/ui/StarRating'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 type Actions = 'Deactivate' | 'Delete'
 
@@ -157,7 +157,7 @@ const ViewArtisan = () => {
                                 />
                             </div>
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Gender'
                             state={['Male', 'Female']}
                             placeholder='Male'

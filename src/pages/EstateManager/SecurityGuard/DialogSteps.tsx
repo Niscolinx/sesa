@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
-import { Select } from '../../../components/ui/Select'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 export const AddedSecurityGuardSuccessfully = ({
     contextData,

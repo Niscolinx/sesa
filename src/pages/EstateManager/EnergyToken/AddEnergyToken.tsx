@@ -2,8 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
-import { Select } from '../../../components/ui/Select'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 const AddEnergyToken = () => {
     const [denomination, setDenomination] = useState('')
@@ -119,7 +118,7 @@ const AddEnergyToken = () => {
                                 />
                             </div>
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Customer Notification'
                             state={['SMS', 'In-App']}
                             selectedState={customerNofication}
@@ -168,7 +167,7 @@ const AddEnergyToken = () => {
                         </div>
 
                         <div>
-                            <Select
+                            <SingleSelect
                                 label='Notification Threshold'
                                 state={['10%', '20%', '30%', '40%', '50%']}
                                 selectedState={notificationThreshold}

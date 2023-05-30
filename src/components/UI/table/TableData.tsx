@@ -6,6 +6,7 @@ import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useTableContext } from './Table'
 import SlicedPages from './SlicedPages'
+import SingleSelect from '../select/SingleSelect'
 
 export type ToggleDropDown = {
     isDropDownOpen: boolean
@@ -291,7 +292,7 @@ const TableData = () => {
                                     </div>
                                     <div className='w-max grid self-baseline '>
                                         {searchFields.length > 0 && (
-                                            <Select
+                                            <SingleSelect
                                                 state={searchFields}
                                                 selectedState={filterBy}
                                                 placeholder={searchFields.find(
