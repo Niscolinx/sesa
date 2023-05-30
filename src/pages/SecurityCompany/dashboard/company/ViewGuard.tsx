@@ -629,7 +629,7 @@ const ViewGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -663,7 +663,7 @@ const ViewGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -697,7 +697,7 @@ const ViewGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
