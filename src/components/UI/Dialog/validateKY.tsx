@@ -4,9 +4,9 @@ import useAxios from '../../hooks/UseAxios'
 import { useForm } from 'react-hook-form'
 import { IoMdClose, IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import { Select } from '../Select'
 import { toast, ToastContainer } from 'react-toastify'
 import Input from '../input/Input'
+import SingleSelect from '../select/SingleSelect'
 
 interface Props {
     title: string
@@ -95,7 +95,7 @@ function ValidateKY({ title }: Props) {
                                 {title}
                             </h3>
 
-                            <Select
+                            <SingleSelect
                                 state={['Phone Number', 'Name']}
                                 label='Validation Option'
                                 selectedState={validationType}

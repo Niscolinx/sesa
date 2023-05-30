@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TbCopy } from 'react-icons/tb'
-import { Select } from '../Select'
+import SingleSelect from '../select/SingleSelect'
 
 interface Props {
     selectedBank: string
@@ -21,7 +21,7 @@ const AddBankAccount = ({ selectedBank, setSelectedBank }: Props) => {
                 Open a bank Account
             </p>
             <div className='w-full'>
-                <Select
+                <SingleSelect
                     label='Select Bank'
                     state={[
                         'FCMB Easy Wallet',

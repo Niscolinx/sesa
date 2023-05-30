@@ -4,7 +4,6 @@ import { useQuery } from 'react-query'
 import { ToastContainer } from 'react-toastify'
 import React from 'react'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
-import { Select } from '../Select'
 import { useTableContext } from './Table'
 import SlicedPages from './SlicedPages'
 
