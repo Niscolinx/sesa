@@ -3,7 +3,6 @@ import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { getPhotoUrl } from '../../../../../utils/getPhotoUrl'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
-import { ComplexSelect, Select } from '../../../../../components/ui/Select'
 import {
     BVN_Number,
     DriversLicence,
@@ -17,6 +16,8 @@ import {
     AddedSecuritySuccessfully,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
+import SingleSelect from '../../../../../components/ui/select/SingleSelect'
+import CompoundSelect from '../../../../../components/ui/select/CompoundSelect'
 
 type DialogType = 'validate' | 'add-security-guard' | 'reassign'
 
@@ -542,7 +543,7 @@ const AddSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -569,7 +570,7 @@ const AddSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -596,7 +597,7 @@ const AddSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -623,7 +624,7 @@ const AddSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
