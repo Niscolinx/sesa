@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import MultipleSelect from '../../../components/ui/select/MultipleSelect'
-import SingleSelect from '../../../components/ui/select/SingleSelect'import RecipientList from './RecipientList'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
+import RecipientList from './RecipientList'
 
 const ComposeMessage = () => {
     const [selectedChannelType, setSelectedChannelType] = useState<string[]>([])

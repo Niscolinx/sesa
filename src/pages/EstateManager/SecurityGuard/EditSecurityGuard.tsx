@@ -4,7 +4,8 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { toast, ToastContainer } from 'react-toastify'
 
 import MultipleSelect from '../../../components/ui/select/MultipleSelect'
-import SingleSelect from '../../../components/ui/select/SingleSelect'import { getPhotoUrl } from '../../../utils/getPhotoUrl'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
+import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import {
     AddBankAccount,
     AddedSecurityGuardSuccessfully,
