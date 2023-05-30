@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from "react"
+import { FC, useState, ChangeEvent, useEffect, useRef } from "react"
 import { GrUp, GrDown } from "react-icons/gr"
 import { ISelect } from "./SingleSelect"
 
@@ -22,6 +22,25 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     double,
     isSearchable = false,
 }) => {
+     const containerRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(() => {
+        const handler = (e: any) => {
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(e.target)
+            ) {
+                console.log('close')
+                setToggleStateMenu(false)
+            }
+        }
+
+        window.addEventListener('click', handler)
+        return () => {
+            window.removeEventListener('click', handler)
+        }
+    })
+    
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
