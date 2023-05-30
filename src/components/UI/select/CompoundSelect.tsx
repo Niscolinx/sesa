@@ -185,6 +185,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                                     className='cursor-pointer '
                                     name={`${index}`}
                                     id={`${index}`}
+                                    disabled={item.disabled}
                                     checked={selectedState.includes(item.name)}
                                     onChange={(e) =>
                                         handleSelectedState(e, item.name)
@@ -200,7 +201,6 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                                         double ? 'grid' : 'flex justify-between'
                                     }`}
                                     key={index}
-                                    // disabled={item.disabled}
                                 >
                                     {double ? (
                                         <>
