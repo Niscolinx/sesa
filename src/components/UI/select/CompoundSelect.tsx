@@ -110,11 +110,12 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                             </div>
                         )}
                         {selectFrom.map((item, index) => (
-                            <p
-                                className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${
+                            <button
+                                className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${item.disabled && 'opacity-50 cursor-not-allowed'} ${
                                     double ? 'grid' : 'flex justify-between'
                                 }`}
                                 key={index}
+                                disabled={item.disabled}
                                 onClick={() => handleSelectedState(item.name)}
                             >
                                 {double ? (
@@ -130,7 +131,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                                         <span>{item.No}</span>
                                     </>
                                 )}
-                            </p>
+                            </button>
                         ))}
                     </div>
                 )}
