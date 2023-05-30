@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import { TbCopy } from 'react-icons/tb'
 import { CompoundSelect } from '../../../../components/ui/select/CompoundSelect'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 type Actions = 'Deactivate' | 'Delete'
 
