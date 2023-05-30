@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify'
-import { Select } from '../../../../components/ui/Select'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
@@ -211,7 +211,6 @@ const AddArtisan = () => {
             gender: selectedGender,
             image: imageFile,
         }
-
 
         mutate(updatedData)
     })
@@ -521,8 +520,8 @@ const AddArtisan = () => {
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
                         />
-                        <ValidateKY title={'Know Your Artisan (KYA)'}/>
-                        <AddBtn isLoading={isLoading}/>
+                        <ValidateKY title={'Know Your Artisan (KYA)'} />
+                        <AddBtn isLoading={isLoading} />
                     </>
                 </form>
             </div>

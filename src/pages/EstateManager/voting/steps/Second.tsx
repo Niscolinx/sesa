@@ -1,6 +1,6 @@
 import { FormEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { Select } from '../../../../components/ui/Select'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 import { useCreateElectionContext } from '../createElection'
 

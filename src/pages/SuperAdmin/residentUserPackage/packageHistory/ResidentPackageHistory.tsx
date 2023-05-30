@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
 import useAxios from '../../../../components/hooks/UseAxios'
-import { Select } from '../../../../components/ui/Select'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 export interface ResidentPackageHistory {
     id: string

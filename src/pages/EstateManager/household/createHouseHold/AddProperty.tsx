@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { Select } from '../../../../components/ui/Select'
 import { HouseholdContext } from './CreateHousehold'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 function AddProperty() {
     const { selectedPropertyCode, setSelectedPropertyCode } =
@@ -9,7 +9,7 @@ function AddProperty() {
     return (
         <div className='grid gap-16'>
             <div className='w-[30rem]'>
-                <Select
+                <SingleSelect
                     state={[
                         'ThomasEstate/SO-2345CDGK1',
                         'ThomasEstate/SO-2345CDGK2',
