@@ -122,7 +122,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                 className='relative items-center max-w-[40rem] grid'
                 ref={containerRef}
             >
-                <p
+                <div
                     className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex gap-4 items-center ${
                         textarea
                             ? 'flex-wrap'
@@ -136,7 +136,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                     // }}
                     onClick={toggleStateHandler}
                 >
-                    <div
+                    <p
                         className={`flex items-center gap-2 ${
                             textarea && 'flex-wrap'
                         }`}
@@ -163,7 +163,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                                 {placeholder || ''}
                             </span>
                         )}
-                    </div>
+                    </p>
                     <div className='flex'>
                         {toggleStateMenu ? (
                             <GrUp className='text-[1.4rem] ' />
@@ -171,7 +171,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                             <GrDown className='text-[1.4rem] ' />
                         )}
                     </div>
-                </p>
+                </div>
                 {toggleStateMenu && (
                     <div
                         className={`${

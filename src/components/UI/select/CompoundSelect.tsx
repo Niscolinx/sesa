@@ -1,6 +1,6 @@
-import { FC, useState, ChangeEvent, useEffect, useRef } from "react"
-import { GrUp, GrDown } from "react-icons/gr"
-import { ISelect } from "./SingleSelect"
+import { FC, useState, ChangeEvent, useEffect, useRef } from 'react'
+import { GrUp, GrDown } from 'react-icons/gr'
+import { ISelect } from './SingleSelect'
 
 type Compound = {
     name: string
@@ -22,7 +22,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     double,
     isSearchable = false,
 }) => {
-     const containerRef = useRef<HTMLDivElement | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const handler = (e: any) => {
@@ -40,7 +40,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
             window.removeEventListener('click', handler)
         }
     })
-    
+
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
     const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
@@ -70,7 +70,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
-            <div className='relative flex items-center'>
+            <div className='relative flex items-center' ref={containerRef}>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                     onClick={stateMenuToggler}
@@ -86,56 +86,55 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                 ) : (
                     <GrDown className='absolute right-4' />
                 )}
+                {toggleStateMenu && (
+                    <div
+                        className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
+                    >
+                        {isSearchable && (
+                            <div className='relative flex items-center text-[1.4rem]'>
+                                <img
+                                    src='/icons/admins/search.svg'
+                                    alt=''
+                                    className='absolute left-4'
+                                />
+
+                                <input
+                                    type='text'
+                                    placeholder='Search Parameters'
+                                    value={search}
+                                    onChange={handleSearch}
+                                    className={`pl-16 ${
+                                        double ? 'w-full' : 'w-[25rem] '
+                                    } rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none`}
+                                />
+                            </div>
+                        )}
+                        {selectFrom.map((item, index) => (
+                            <p
+                                className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${
+                                    double ? 'grid' : 'flex justify-between'
+                                }`}
+                                key={index}
+                                onClick={() => handleSelectedState(item.name)}
+                            >
+                                {double ? (
+                                    <>
+                                        <span className='font-Satoshi-Medium text-[1.6rem]'>
+                                            {item.name}
+                                        </span>
+                                        <span>{item.sub}</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span>{item.name}</span>
+                                        <span>{item.No}</span>
+                                    </>
+                                )}
+                            </p>
+                        ))}
+                    </div>
+                )}
             </div>
-
-            {toggleStateMenu && (
-                <div
-                    className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
-                >
-                    {isSearchable && (
-                        <div className='relative flex items-center text-[1.4rem]'>
-                            <img
-                                src='/icons/admins/search.svg'
-                                alt=''
-                                className='absolute left-4'
-                            />
-
-                            <input
-                                type='text'
-                                placeholder='Search Parameters'
-                                value={search}
-                                onChange={handleSearch}
-                                className={`pl-16 ${
-                                    double ? 'w-full' : 'w-[25rem] '
-                                } rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none`}
-                            />
-                        </div>
-                    )}
-                    {selectFrom.map((item, index) => (
-                        <p
-                            className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${
-                                double ? 'grid' : 'flex justify-between'
-                            }`}
-                            key={index}
-                            onClick={() => handleSelectedState(item.name)}
-                        >
-                            {double ? (
-                                <>
-                                    <span className='font-Satoshi-Medium text-[1.6rem]'>
-                                        {item.name}
-                                    </span>
-                                    <span>{item.sub}</span>
-                                </>
-                            ) : (
-                                <>
-                                    <span>{item.name}</span>
-                                    <span>{item.No}</span>
-                                </>
-                            )}
-                        </p>
-                    ))}
-                </div>
-            )}
         </div>
     )
 }
