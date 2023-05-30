@@ -31,7 +31,6 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                 containerRef.current &&
                 !containerRef.current.contains(e.target)
             ) {
-                console.log('close')
                 setToggleStateMenu(false)
             }
         }
