@@ -1,6 +1,6 @@
 import { FC, useState, ChangeEvent, useEffect, useRef } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
-import { ISelect } from './SingleSelect'
+import { IoMdClose } from 'react-icons/io'
 
 type Compound = {
     name: string
@@ -9,9 +9,16 @@ type Compound = {
     disabled?: boolean
 }
 
-interface CompoundSelect extends Omit<ISelect<string>, 'state'> {
+interface CompoundSelect {
     state: Array<Compound>
     double?: boolean
+    selectedState: string[]
+    setSelectedState: React.Dispatch<React.SetStateAction<string[]>>
+    selectFormErrors?: Record<string, string> | null
+    textarea?: boolean
+    label?: string
+    placeholder?: string
+    isSearchable?: boolean
 }
 
 export const CompoundSelect: FC<CompoundSelect> = ({
@@ -19,6 +26,8 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     selectedState,
     setSelectedState,
     label,
+    textarea = false,
+    selectFormErrors,
     placeholder,
     double,
     isSearchable = false,
@@ -43,13 +52,23 @@ export const CompoundSelect: FC<CompoundSelect> = ({
 
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
 
-    const stateMenuToggler = () => setToggleStateMenu(!toggleStateMenu)
+    const toggleStateHandler = () => setToggleStateMenu(!toggleStateMenu)
+
     const [search, setSearch] = useState('')
     const [selectFrom, setSelectFrom] = useState(state)
 
-    const handleSelectedState = (item: string) => {
-        setSelectedState(item)
-        setToggleStateMenu(false)
+    function handleSelectedState(
+        e: ChangeEvent<HTMLInputElement>,
+        item: string
+    ) {
+        const checked = e.target.checked
+
+        if (checked) {
+            setSelectedState((prev) => [...prev, item])
+        } else {
+            const filtered = selectedState.filter((i) => i !== item)
+            setSelectedState(filtered)
+        }
     }
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -67,20 +86,69 @@ export const CompoundSelect: FC<CompoundSelect> = ({
         }
     }
 
+    const removeSelectedItem = (item: string) => {
+        setSelectedState((prev) => prev.filter((i) => i !== item))
+    }
+
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
-            <div className='relative flex items-center' ref={containerRef}>
-                <p
-                    className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
-                    onClick={stateMenuToggler}
+            <div
+                className='relative grid max-w-[40rem] items-center'
+                ref={containerRef}
+            >
+                <div
+                    className={`border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem] flex gap-4 items-center ${
+                        textarea
+                            ? 'flex-wrap'
+                            : ' overflow-hidden overflow-x-scroll'
+                    } ${
+                        selectedState.length > 0
+                            ? 'justify-between'
+                            : 'justify-end'
+                    }`}
+                    // style={{
+                    //     gridTemplateColumns:
+                    //         'repeat(auto-fit, minmax(12rem, 1fr))',
+                    // }}
+                    onClick={toggleStateHandler}
                 >
-                    {selectedState || (
-                        <span className='text-gray-500'>
-                            {placeholder || ''}
-                        </span>
-                    )}
-                </p>
+                    <p
+                        className={`flex items-center gap-2 capitalize ${
+                            textarea && 'flex-wrap'
+                        }`}
+                    >
+                        {selectedState && selectedState.length > 0 ? (
+                            selectedState.map((item, i) => (
+                                <span
+                                    className={`text-white  bg-color-blue-1 rounded-lg px-4 relative flex items-center h-[3.8rem] z-[2] pr-12 whitespace-nowrap`}
+                                    key={i}
+                                >
+                                    {item}
+
+                                    <IoMdClose
+                                        className='absolute right-2 text-[1.4rem] cursor-pointer'
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            removeSelectedItem(item)
+                                        }}
+                                    />
+                                </span>
+                            ))
+                        ) : (
+                            <span className='text-gray-500'>
+                                {placeholder || ''}
+                            </span>
+                        )}
+                    </p>
+                    <div className='flex'>
+                        {toggleStateMenu ? (
+                            <GrUp className='text-[1.4rem] ' />
+                        ) : (
+                            <GrDown className='text-[1.4rem] ' />
+                        )}
+                    </div>
+                </div>
                 {toggleStateMenu ? (
                     <GrUp className='absolute right-4' />
                 ) : (
@@ -108,32 +176,56 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                             </div>
                         )}
                         {selectFrom.map((item, index) => (
-                            <button
-                                className={`text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer ${item.disabled && 'opacity-50 cursor-not-allowed'} ${
-                                    double ? 'grid' : 'flex justify-between'
-                                }`}
+                            <div
+                                className='flex items-center pl-4 cursor-pointer hover:bg-color-grey capitalize'
                                 key={index}
-                                disabled={item.disabled}
-                                onClick={() => handleSelectedState(item.name)}
                             >
-                                {double ? (
-                                    <>
-                                        <span className='font-Satoshi-Medium text-[1.6rem]'>
-                                            {item.name}
-                                        </span>
-                                        <span>{item.sub}</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <span>{item.name}</span>
-                                        <span>{item.No}</span>
-                                    </>
-                                )}
-                            </button>
+                                <input
+                                    type='checkbox'
+                                    className='cursor-pointer '
+                                    name={`${index}`}
+                                    id={`${index}`}
+                                    checked={selectedState.includes(item.name)}
+                                    onChange={(e) =>
+                                        handleSelectedState(e, item.name)
+                                    }
+                                />
+
+                                <label
+                                    htmlFor={`${index}`}
+                                    className={`text-[1.4rem] w-full hover:bg-color-grey border-b p-4 cursor-pointer ${
+                                        item.disabled &&
+                                        'opacity-50 cursor-not-allowed'
+                                    } ${
+                                        double ? 'grid' : 'flex justify-between'
+                                    }`}
+                                    key={index}
+                                    // disabled={item.disabled}
+                                >
+                                    {double ? (
+                                        <>
+                                            <span className='font-Satoshi-Medium text-[1.6rem]'>
+                                                {item.name}
+                                            </span>
+                                            <span>{item.sub}</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span>{item.name}</span>
+                                            <span>{item.No}</span>
+                                        </>
+                                    )}
+                                </label>
+                            </div>
                         ))}
                     </div>
                 )}
             </div>
+            {label && selectFormErrors && selectFormErrors[label] && (
+                <p className='text-[1.2rem] text-red-500'>
+                    {selectFormErrors[label]}
+                </p>
+            )}
         </div>
     )
 }

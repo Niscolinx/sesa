@@ -152,7 +152,7 @@ function AddEstateStaff() {
             type: 'select',
             selectProps: {
                 state: workdays,
-                isMulti: true,
+                isCompound: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
             },
