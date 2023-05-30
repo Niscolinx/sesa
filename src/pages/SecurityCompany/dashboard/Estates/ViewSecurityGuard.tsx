@@ -3,6 +3,8 @@ import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
+import CompoundSelect from '../../../../components/ui/select/CompoundSelect'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 type Actions = 'Deactivate' | 'Delete' | 'ReAssign'
 
