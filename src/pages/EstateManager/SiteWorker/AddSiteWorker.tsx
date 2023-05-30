@@ -17,7 +17,8 @@ import {
     AddBankAccount,
     OpenedBankAccountSuccessful,
 } from './DialogSteps'
-import { Select, MultipleSelect } from '../../../components/ui/Select'
+import MultipleSelect from '../../../components/ui/select/MultipleSelect'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
 
