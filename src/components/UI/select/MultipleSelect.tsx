@@ -77,19 +77,22 @@ const MultipleSelect: FC<IMultipleSelect> = ({
 
         if (value.length > 0) {
 
-             const updated =   selectFrom.filter((item) => {
-                    if (typeof item === 'string') {
-                        return item.toLowerCase().includes(value.toLowerCase())
-                    } else if (item.hasOwnProperty('name')) {
-                        return item.name
-                            ?.toLowerCase()
-                            .includes(value.toLowerCase())
-                    }
-                })
 
+
+            //  const updated =   selectFrom.filter((item) => {
+            //         if (typeof item === 'string') {
+            //             return item.toLowerCase().includes(value.toLowerCase())
+            //         } else if (item.hasOwnProperty('name')) {
+            //             return item.name
+            //                 ?.toLowerCase()
+            //                 .includes(value.toLowerCase())
+            //         }
+            //     })
+
+            
+           
            
 
-            setSelectedFrom()
         } else {
             setSelectedFrom(selectFrom)
         }
