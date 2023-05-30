@@ -74,6 +74,7 @@ function AddEstateStaff() {
 
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
+    const [workdays, setWorkdays] = useState<Object[]>(workdaysState)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -146,7 +147,7 @@ function AddEstateStaff() {
             label: 'work_days',
             type: 'select',
             selectProps: {
-                state: workdaysState,
+                state: workdays,
                 isCompound: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
