@@ -9,7 +9,7 @@ import React, {
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
-interface IMultipleSelect {
+export interface IMultipleSelect {
     selectFrom: Array<string>
     selected: Array<string>
     textarea?: boolean

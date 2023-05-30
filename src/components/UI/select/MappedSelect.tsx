@@ -1,3 +1,7 @@
+import { FC, useState, ChangeEvent } from "react"
+import { GrUp, GrDown } from "react-icons/gr"
+import { IoMdClose } from "react-icons/io"
+
 interface MappedSelect {
     state: Array<string>
     selectedState: {

@@ -4,7 +4,7 @@ import { IoMdClose } from 'react-icons/io'
 import { ValidateInputTypes } from '../../../pages/estateManager/securityGuard/AddSecurityGuard'
 
 
-interface ISelect<T> {
+export interface ISelect<T> {
     state: Array<string>
     selectedState: string | string[]
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
