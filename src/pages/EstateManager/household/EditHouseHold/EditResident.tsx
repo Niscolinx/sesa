@@ -2,6 +2,8 @@ import { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import { EditHouseholdContext } from './EditHousehold'
+import MappedSelect from '../../../../components/ui/select/MappedSelect'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 function EditResident() {
     type DialogType = 'alphaResident' | 'residentUser'
