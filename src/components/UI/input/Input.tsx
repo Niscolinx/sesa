@@ -3,15 +3,16 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
 import MultipleSelect from '../select/MultipleSelect'
 import SingleSelect from '../select/SingleSelect'
-import  CompoundSelect from '../select/CompoundSelect'
+import CompoundSelect from '../select/CompoundSelect'
 
 export interface SelectProps {
     isMulti?: boolean
-    isCompound?:boolean
+    isCompound?: boolean
     textarea?: boolean
-    state: string[] 
+    state: string[]
     absolute?: boolean
     isSearchable?: boolean
+    placeholder?: string
     selectedState: string | string[]
     setSelectedState:
         | React.Dispatch<React.SetStateAction<string>>
@@ -26,7 +27,7 @@ interface Input {
     tag?: string
     options: any
     id?: number
-    placeholder?: string 
+    placeholder?: string
     setValue?: UseFormSetValue<any>
     value?: any
     required?: boolean
@@ -134,9 +135,6 @@ const Input: FC<Partial<Input> & { label: string }> = ({
         }
     }
 
-
-
-
     return (
         <div
             className={`w-full grid gap-4 self-baseline ${
@@ -163,19 +161,11 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                     ) : select.isCompound &&
                       Array.isArray(select.selectedState) ? (
                         <CompoundSelect
-                            state={[
-                                { name: 'Gwarimpa Estate', No: 3 },
-                                { name: 'Ibara Estate', No: 12 },
-                                { name: 'Peace estate', No: 1 },
-                                {
-                                    name: 'Iba Estate',
-                                    No: 2,
-                                },
-                            ]}
-                            placeholder='Gwarimpa Estate'
-                            selectedState={selectedEstate1}
+                            state={select.state}
+                            placeholder={select.placeholder}
+                            selectedState={select.selectedState}
                             isSearchable={true}
-                            setSelectedState={setSelectedEstate1}
+                            setSelectedState={select.setSelectedState}
                         />
                     ) : (
                         <SingleSelect
