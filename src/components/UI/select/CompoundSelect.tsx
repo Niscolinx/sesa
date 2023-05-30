@@ -6,6 +6,7 @@ type Compound = {
     name: string
     No?: number
     sub?: string
+    disabled?: boolean
 }
 
 interface CompoundSelect extends Omit<ISelect<string>, 'state'> {
