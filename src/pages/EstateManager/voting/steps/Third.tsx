@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { MultipleSelect } from '../../../../components/ui/Select'
 import { useForm } from 'react-hook-form'
 import { ElectionDates, useCreateElectionContext } from '../createElection'
 
