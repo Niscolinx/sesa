@@ -3,9 +3,11 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { UseFormClearErrors, UseFormSetValue } from 'react-hook-form'
 import MultipleSelect from '../select/MultipleSelect'
 import SingleSelect from '../select/SingleSelect'
+import  CompoundSelect from '../select/CompoundSelect'
 
 export interface SelectProps {
     isMulti?: boolean
+    isCompound?:boolean
     textarea?: boolean
     state: string[] 
     absolute?: boolean
@@ -158,13 +160,29 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                                 >
                             }
                         />
+                    ) : select.isCompound &&
+                      Array.isArray(select.selectedState) ? (
+                        <CompoundSelect
+                            state={[
+                                { name: 'Gwarimpa Estate', No: 3 },
+                                { name: 'Ibara Estate', No: 12 },
+                                { name: 'Peace estate', No: 1 },
+                                {
+                                    name: 'Iba Estate',
+                                    No: 2,
+                                },
+                            ]}
+                            placeholder='Gwarimpa Estate'
+                            selectedState={selectedEstate1}
+                            isSearchable={true}
+                            setSelectedState={setSelectedEstate1}
+                        />
                     ) : (
                         <SingleSelect
                             label={name ?? label.replaceAll('_', ' ')}
                             isSearchable={select.isSearchable}
                             state={select.state}
                             id={id}
-
                             absolute={select.absolute}
                             selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState as string}
