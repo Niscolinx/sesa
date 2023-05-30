@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoMdClose } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
-import { ComplexSelect, Select } from '../../../../components/ui/Select'
 import { getPhotoUrl } from '../../../../utils/getPhotoUrl'
 
 type Actions = 'Deactivate' | 'Delete' | 'ReAssign'
@@ -568,7 +567,7 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -602,7 +601,7 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -636,7 +635,7 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
@@ -670,7 +669,7 @@ const ViewSecurityGuard = () => {
                                 </p>
                             </div>
                             <div>
-                                <ComplexSelect
+                                <CompoundSelect
                                     state={[
                                         { name: 'Gwarimpa Estate', No: 3 },
                                         { name: 'Ibara Estate', No: 12 },
