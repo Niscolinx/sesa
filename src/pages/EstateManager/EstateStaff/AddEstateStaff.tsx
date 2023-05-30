@@ -26,7 +26,7 @@ function AddEstateStaff() {
         },
         {
             name: 'weekends - (Sat - Sun)',
-            disabled: true,
+            disabled: false,
         },
         {
             name: 'mon',
@@ -38,7 +38,7 @@ function AddEstateStaff() {
         },
         {
             name: 'wed',
-            disabled: true,
+            disabled: false,
         },
         {
             name: 'thur',
@@ -46,7 +46,7 @@ function AddEstateStaff() {
         },
         {
             name: 'fri',
-            disabled: true,
+            disabled: false,
         },
         {
             name: 'sat',
@@ -79,7 +79,7 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        
+
     }, [selectedWorkdays])
 
     const {
@@ -152,7 +152,7 @@ function AddEstateStaff() {
             type: 'select',
             selectProps: {
                 state: workdays,
-                isCompound: true,
+                isMulti: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
             },
