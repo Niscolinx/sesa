@@ -85,7 +85,8 @@ const Login = () => {
         let { email } = data
 
         email = email.toLowerCase().trim()
-        return mutate(data)
+       // return mutate(data)
+          navigate('/securityCompany')
     })
 
     return (
