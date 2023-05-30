@@ -1,7 +1,9 @@
-import React, { Fragment, useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
 import { HouseholdContext } from './CreateHousehold'
+import MappedSelect from '../../../../components/ui/select/MappedSelect'
+import SingleSelect from '../../../../components/ui/select/SingleSelect'
 
 function AddResident() {
     type DialogType = 'alphaResident' | 'residentUser'

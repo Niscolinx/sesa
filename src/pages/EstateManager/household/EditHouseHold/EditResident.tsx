@@ -1,7 +1,6 @@
-import React, { Fragment, useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { GrAdd } from 'react-icons/gr'
-import { MappedSelect, Select } from '../../../../components/ui/Select'
 import { EditHouseholdContext } from './EditHousehold'
 
 function EditResident() {
