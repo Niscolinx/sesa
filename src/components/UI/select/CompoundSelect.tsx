@@ -58,12 +58,12 @@ export const CompoundSelect: FC<CompoundSelect> = ({
 
         if (value.length > 0) {
             setSelectFrom((prev) => {
-                return prev.filter((item) => {
+                return state.filter((item) => {
                     return item.name.toLowerCase().includes(value.toLowerCase())
                 })
             })
         } else {
-            setSelectFrom(selectFrom)
+            setSelectFrom(state)
         }
     }
 
@@ -88,7 +88,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                 )}
                 {toggleStateMenu && (
                     <div
-                        className={`absolute top-[8rem] w-full left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
+                        className={`absolute top-[6rem] w-full left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
                     >
                         {isSearchable && (
                             <div className='relative flex items-center text-[1.4rem]'>

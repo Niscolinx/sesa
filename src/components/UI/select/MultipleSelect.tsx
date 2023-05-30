@@ -77,7 +77,7 @@ const MultipleSelect: FC<IMultipleSelect> = ({
 
         if (value.length > 0) {
             setSelectedFrom((prev) => {
-                return prev.filter((item) => {
+                return selectFrom.filter((item) => {
                     return item.toLowerCase().includes(value.toLowerCase())
                 })
             })
