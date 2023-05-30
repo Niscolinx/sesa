@@ -9,7 +9,7 @@ export interface SelectProps {
     isMulti?: boolean
     isCompound?: boolean
     textarea?: boolean
-    state: string[]
+    state: any[]
     absolute?: boolean
     isSearchable?: boolean
     placeholder?: string
