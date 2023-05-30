@@ -10,7 +10,7 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
 export interface IMultipleSelect {
-    selectFrom: Array<string> | Record<string, string>[]
+    selectFrom: string[] | Record<string, string>[]
     selected: Array<string>
     textarea?: boolean
     id?: number
@@ -76,8 +76,8 @@ const MultipleSelect: FC<IMultipleSelect> = ({
         setSearch(value)
 
         if (value.length > 0) {
-            setSelectedFrom((prev) => {
-                return  selectFrom.filter((item) => {
+
+             const updated =   selectFrom.filter((item) => {
                     if (typeof item === 'string') {
                         return item.toLowerCase().includes(value.toLowerCase())
                     } else if (item.hasOwnProperty('name')) {
@@ -86,7 +86,10 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                             .includes(value.toLowerCase())
                     }
                 })
-            })
+
+           
+
+            setSelectedFrom()
         } else {
             setSelectedFrom(selectFrom)
         }
