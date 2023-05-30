@@ -19,43 +19,55 @@ function AddEstateStaff() {
         selectProps?: SelectProps
     }
 
+    // const workdaysState = [
+    //     {
+    //         name: 'weekdays - (Mon - Fri)',
+    //         disabled: false,
+    //     },
+    //     {
+    //         name: 'weekends - (Sat - Sun)',
+    //         disabled: true,
+    //     },
+    //     {
+    //         name: 'mon',
+    //         disabled: false,
+    //     },
+    //     {
+    //         name: 'tue',
+    //         disabled: false,
+    //     },
+    //     {
+    //         name: 'wed',
+    //         disabled: true,
+    //     },
+    //     {
+    //         name: 'thur',
+    //         disabled: false,
+    //     },
+    //     {
+    //         name: 'fri',
+    //         disabled: true,
+    //     },
+    //     {
+    //         name: 'sat',
+    //         disabled: false,
+    //     },
+    //     {
+    //         name: 'sun',
+    //         disabled: false,
+    //     },
+    // ]
+
     const workdaysState = [
-        {
-            name: 'weekdays - (Mon - Fri)',
-            disabled: false,
-        },
-        {
-            name: 'weekends - (Sat - Sun)',
-            disabled: true,
-        },
-        {
-            name: 'mon',
-            disabled: false,
-        },
-        {
-            name: 'tue',
-            disabled: false,
-        },
-        {
-            name: 'wed',
-            disabled: true,
-        },
-        {
-            name: 'thur',
-            disabled: false,
-        },
-        {
-            name: 'fri',
-            disabled: true,
-        },
-        {
-            name: 'sat',
-            disabled: false,
-        },
-        {
-            name: 'sun',
-            disabled: false,
-        },
+        'weekdays - (Mon - Fri)',
+        'weekends - (Sat - Sun)',
+        'mon',
+        'tue',
+        'wed',
+        'thu',
+        'fri',
+        'sat',
+        'sun',
     ]
 
     const genderState = ['Male', 'Female']
@@ -135,7 +147,6 @@ function AddEstateStaff() {
             type: 'select',
             selectProps: {
                 state: workdaysState,
-                disabled: true,
                 isMulti: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
