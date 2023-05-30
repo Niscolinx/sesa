@@ -171,7 +171,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <SingleSelect
                             label={name ?? label.replaceAll('_', ' ')}
                             isSearchable={select.isSearchable}
-                            state={Array.isArray(select.state) && typeof select.state[0] === 'string' && select.state}
+                            state={select.state as string[]}
                             id={id}
                             absolute={select.absolute}
                             selectFormErrors={selectFormErrors}
