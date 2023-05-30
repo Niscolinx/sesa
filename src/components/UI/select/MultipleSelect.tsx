@@ -10,11 +10,9 @@ import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 
 export interface IMultipleSelect {
-    selectFrom: string[]
-    objState: Record<string, string>[]
+    selectFrom: Array<string>
     selected: Array<string>
     textarea?: boolean
-    isDouble?: boolean
     id?: number
     absolute?: boolean
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
@@ -27,7 +25,6 @@ const MultipleSelect: FC<IMultipleSelect> = ({
     selectFrom,
     selected,
     setSelected,
-    isDouble,
     textarea = false,
     selectFormErrors,
     label,
@@ -36,7 +33,6 @@ const MultipleSelect: FC<IMultipleSelect> = ({
 }) => {
     const [toggleStateMenu, setToggleStateMenu] = useState(false)
     const [search, setSearch] = useState('')
-
     const [selectedFrom, setSelectedFrom] = useState(selectFrom)
 
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -80,15 +76,11 @@ const MultipleSelect: FC<IMultipleSelect> = ({
         setSearch(value)
 
         if (value.length > 0) {
-            //  const updated =   selectFrom.filter((item) => {
-            //         if (typeof item === 'string') {
-            //             return item.toLowerCase().includes(value.toLowerCase())
-            //         } else if (item.hasOwnProperty('name')) {
-            //             return item.name
-            //                 ?.toLowerCase()
-            //                 .includes(value.toLowerCase())
-            //         }
-            //     })
+            setSelectedFrom((prev) => {
+                return selectFrom.filter((item) => {
+                    return item.toLowerCase().includes(value.toLowerCase())
+                })
+            })
         } else {
             setSelectedFrom(selectFrom)
         }
