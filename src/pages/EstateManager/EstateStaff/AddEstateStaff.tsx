@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
@@ -77,6 +77,10 @@ function AddEstateStaff() {
     const [workdays, setWorkdays] = useState<Object[]>(workdaysState)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    useEffect(() => {
+        
+    }, [selectedWorkdays])
 
     const {
         clearErrors,
