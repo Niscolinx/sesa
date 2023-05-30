@@ -70,7 +70,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
-            <div className='relative flex items-center' ref={containerRef}>
+            <div className='relative flex items-centern' ref={containerRef}>
                 <p
                     className='border border-color-grey p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer min-h-[5rem]'
                     onClick={stateMenuToggler}
@@ -88,7 +88,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                 )}
                 {toggleStateMenu && (
                     <div
-                        className={`absolute top-[8rem]  left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
+                        className={`absolute top-[8rem] w-full left-0 border border-color-primary-light min-w-[12rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize max-h-[40rem] overflow-y-scroll`}
                     >
                         {isSearchable && (
                             <div className='relative flex items-center text-[1.4rem]'>
@@ -103,9 +103,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
                                     placeholder='Search Parameters'
                                     value={search}
                                     onChange={handleSearch}
-                                    className={`pl-16 ${
-                                        double ? 'w-full' : 'w-[25rem] '
-                                    } rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none`}
+                                    className={`pl-16 w-full rounded-lg border border-color-blue-light py-4 px-8 outline-none appearance-none`}
                                 />
                             </div>
                         )}
