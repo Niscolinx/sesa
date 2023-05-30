@@ -287,7 +287,7 @@ const AddSiteWorker = () => {
                                     Know Your Guard (kysw)
                                 </h3>
 
-                                <Select
+                                <SingleSelect
                                     state={[
                                         'Phone Number',
                                         'BVN Number',
@@ -333,7 +333,7 @@ const AddSiteWorker = () => {
                 <section className='grid p-8 bg-white items-baseline rounded-lg'>
                     <div>
                         <div className='w-[40rem]'>
-                            <Select
+                            <SingleSelect
                                 state={[
                                     'ThomasEstate/SO-2345CDGK1',
                                     'ThomasEstate/SO-2345CDGK2',
@@ -491,7 +491,7 @@ const AddSiteWorker = () => {
                                 />
                             </div>
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Gender'
                             state={['Male', 'Female']}
                             selectedState={selectedGender}
@@ -527,7 +527,7 @@ const AddSiteWorker = () => {
                             />
                         </div>
 
-                        <Select
+                        <SingleSelect
                             label='State'
                             state={['Lagos', 'Imo', 'Abia', 'FCT']}
                             placeholder='Select State'

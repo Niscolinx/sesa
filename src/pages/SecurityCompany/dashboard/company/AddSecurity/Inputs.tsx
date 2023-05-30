@@ -221,7 +221,7 @@ export const Voters_Card = () => {
                     />
                 </div>
             </div>
-            <Select
+            <SingleSelect
                 label='State'
                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
                 placeholder='Select State'

@@ -337,7 +337,7 @@
 //                         />
 //                     </div>
 //                     <div className='w-[10rem] grid self-baseline '>
-//                         <Select
+//                         <SingleSelect
 //                             state={['A-Z', 'Date']}
 //                             selectedState={sortBy}
 //                             placeholder={'A-Z'}

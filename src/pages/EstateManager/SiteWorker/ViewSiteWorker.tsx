@@ -583,7 +583,7 @@ const ViewSiteWorker = () => {
                                     />
                                 </div>
                             </div>
-                            <Select
+                            <SingleSelect
                                 label='Gender'
                                 state={['Male', 'Female']}
                                 selectedState={selectedGender}
@@ -619,7 +619,7 @@ const ViewSiteWorker = () => {
                                 />
                             </div>
 
-                            <Select
+                            <SingleSelect
                                 label='State'
                                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
                                 placeholder='Select State'

@@ -61,7 +61,7 @@ export const AddBankAccount = ({
                 Open a bank Account
             </p>
             <div className='w-full'>
-                <Select
+                <SingleSelect
                     label='Select Bank'
                     state={[
                         'FCMB Easy Wallet',

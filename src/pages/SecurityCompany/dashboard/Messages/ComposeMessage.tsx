@@ -104,7 +104,7 @@ const ComposeMessage = () => {
                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                     }}
                 >
-                    <Select
+                    <SingleSelect
                         state={[
                             'Channel 1',
                             'Channel 2',
@@ -154,7 +154,7 @@ const ComposeMessage = () => {
                         </div>
                     </div>
                     <div>
-                        <Select
+                        <SingleSelect
                             state={[
                                 'Channel 1',
                                 'Channel 2',

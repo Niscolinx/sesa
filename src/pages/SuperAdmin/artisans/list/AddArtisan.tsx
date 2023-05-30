@@ -416,7 +416,7 @@ const AddArtisan = () => {
                                     Know Your Artisan (KYA)
                                 </h3>
 
-                                <Select
+                                <SingleSelect
                                     state={['Phone Number', 'Name']}
                                     label='Validation Option'
                                     selectedState={validationType}

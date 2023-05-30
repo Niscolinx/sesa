@@ -175,7 +175,7 @@ const AdvertDetail = () => {
                                 Click Rate
                             </p>
 
-                            <Select
+                            <SingleSelect
                                 state={['Weekly', 'Monthly', 'Yearly']}
                                 selectedState={selectedWeek}
                                 setSelectedState={setSelectedWeek}

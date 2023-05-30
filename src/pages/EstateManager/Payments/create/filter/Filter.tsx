@@ -77,7 +77,7 @@ const Filter: FC = () => {
                 </p>
                 <div className='flex items-center justify-between'>
                     <div className='w-[40rem]'>
-                        <Select
+                        <SingleSelect
                             state={filterKeys}
                             selectedState={filter}
                             setSelectedState={setFilter}

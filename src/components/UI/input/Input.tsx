@@ -7,7 +7,7 @@ import SingleSelect from '../select/SingleSelect'
 export interface SelectProps {
     isMulti?: boolean
     textarea?: boolean
-    state: string[] | {name: string, disabled: boolean}[]
+    state: string[] 
     absolute?: boolean
     isSearchable?: boolean
     selectedState: string | string[]

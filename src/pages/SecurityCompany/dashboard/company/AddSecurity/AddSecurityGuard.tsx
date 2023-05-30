@@ -276,7 +276,7 @@ const AddSecurityGuard = () => {
                                     Know Your Guard (KYG)
                                 </h3>
 
-                                <Select
+                                <SingleSelect
                                     state={[
                                         'Phone Number',
                                         'BVN Number',
@@ -435,7 +435,7 @@ const AddSecurityGuard = () => {
                                 />
                             </div>
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Gender'
                             state={['Male', 'Female']}
                             selectedState={selectedGender}
@@ -471,7 +471,7 @@ const AddSecurityGuard = () => {
                             />
                         </div>
 
-                        <Select
+                        <SingleSelect
                             label='State'
                             state={['Lagos', 'Imo', 'Abia', 'FCT']}
                             placeholder='Select State'

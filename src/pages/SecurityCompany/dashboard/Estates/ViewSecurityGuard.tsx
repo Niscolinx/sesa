@@ -466,7 +466,7 @@ const ViewSecurityGuard = () => {
                                 />
                             </div>
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Gender'
                             state={['Male', 'Female']}
                             placeholder='Male'

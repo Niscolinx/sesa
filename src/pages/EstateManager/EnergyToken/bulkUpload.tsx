@@ -1,13 +1,8 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
-import {
-    MultipleSelect,
-    Select,
-    SelectedItems,
-} from '../../../components/ui/Select'
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
 import EnergyTokenSpreadsheet from './Spreadsheet'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 const BulkUpload = () => {
     const [isUploaded, setIsUploaded] = useState(false)
@@ -105,11 +100,11 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <SingleSelectedItems
+                                    <SelectedItems
                                         selectFrom={tokenSerialNumbers}
                                         label={'Token Serial Number'}
                                     />
-                                    <SingleSelectedItems
+                                    <SelectedItems
                                         selectFrom={tokenCodes}
                                         label={'Token Code'}
                                     />
@@ -126,11 +121,11 @@ const BulkUpload = () => {
                                             ' repeat(auto-fit, minmax(35rem, 1fr))',
                                     }}
                                 >
-                                    <SingleSelectedItems
+                                    <SelectedItems
                                         selectFrom={tokenSerialNumbers}
                                         label={'Token Serial Number'}
                                     />
-                                    <SingleSelectedItems
+                                    <SelectedItems
                                         selectFrom={tokenCodes}
                                         label={'Token Code'}
                                     />

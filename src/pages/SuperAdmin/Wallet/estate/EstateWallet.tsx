@@ -108,7 +108,7 @@ const EstateWallet = () => {
                         <div className='flex gap-4 justify-between items-center mb-5'>
                             <p className='font-Satoshi-Medium'>Wallet Trend</p>
                             {/* <div className='w-[13rem]'>
-                                <Select
+                                <SingleSelect
                                     state={trend}
                                     selectedState={selectedTrend}
                                     setSelectedState={setSelectedTrend}

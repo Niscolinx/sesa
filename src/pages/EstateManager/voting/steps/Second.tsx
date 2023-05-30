@@ -125,7 +125,7 @@ function Second() {
                 onSubmit={handleSubmit}
             >
                 <div className='grid gap-4 relative w-[40rem]'>
-                    <Select
+                    <SingleSelect
                         state={[
                             'ALIBA DESMOND (RES CODE: 2345CDGK1)',
                             'ALIBA DESMOND (RES CODE: 2345CDGK2)',
@@ -177,7 +177,7 @@ function Second() {
                             className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                         />
                     </div>
-                    <Select
+                    <SingleSelect
                         state={electionCategory}
                         label='Election Category'
                         selectedState={category}

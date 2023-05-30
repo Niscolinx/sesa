@@ -198,7 +198,7 @@ function AddResident() {
                         }}
                     >
                         <div>
-                            <Select
+                            <SingleSelect
                                 state={[
                                     'Landlord (developer)',
                                     'Landlord (resident)',
@@ -213,7 +213,7 @@ function AddResident() {
                             />
                         </div>
                         <div>
-                            <Select
+                            <SingleSelect
                                 state={[
                                     'Alice James/SO-2345CDGK',
                                     'Osaji James/SO-2345CDGK',
@@ -234,7 +234,7 @@ function AddResident() {
                             </button>
                         </div>
                         <div>
-                            <Select
+                            <SingleSelect
                                 state={[
                                     'careTaker 1',
                                     'careTaker 2',
@@ -277,7 +277,7 @@ function AddResident() {
                                 }}
                             >
                                 <div>
-                                    <Select
+                                    <SingleSelect
                                         state={[
                                             'Alice James/SO-2345CDGK',
                                             'Osaji James/SO-2345CDGK',
@@ -294,7 +294,7 @@ function AddResident() {
                                     </p>
                                 </div>
                                 <div>
-                                    <Select
+                                    <SingleSelect
                                         state={[
                                             'Osaji Valentine/SE-73',
                                             'Anthony Valentine/SE-73',

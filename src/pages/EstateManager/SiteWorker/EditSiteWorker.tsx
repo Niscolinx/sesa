@@ -584,7 +584,7 @@ const EditSiteWorker = () => {
                                     />
                                 </div>
                             </div>
-                            <Select
+                            <SingleSelect
                                 label='Gender'
                                 state={['Male', 'Female']}
                                 selectedState={selectedGender}
@@ -620,7 +620,7 @@ const EditSiteWorker = () => {
                                 />
                             </div>
 
-                            <Select
+                            <SingleSelect
                                 label='State'
                                 state={['Lagos', 'Imo', 'Abia', 'FCT']}
                                 placeholder='Select State'

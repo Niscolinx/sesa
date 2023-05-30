@@ -142,7 +142,7 @@ function PaymentForm({ props }: PaymentForm) {
                 </div>
             </div>
 
-            <Select
+            <SingleSelect
                 label='Payment Plan'
                 state={['full', 'installment'] satisfies PaymentPlan[]}
                 selectedState={paymentPlan}
@@ -440,7 +440,7 @@ function PaymentForm({ props }: PaymentForm) {
                                 className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
                             />
                         </div>
-                        <Select
+                        <SingleSelect
                             label='Payment Type'
                             state={
                                 ['fixed', 'flexible'] satisfies PaymentType[]
