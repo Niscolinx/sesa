@@ -35,6 +35,10 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
+        console.log({state})
+    }, [state])
+
+    useEffect(() => {
         const handler = (e: any) => {
             if (
                 containerRef.current &&
