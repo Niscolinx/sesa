@@ -163,6 +163,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         <CompoundSelect
                             state={select.state}
                             placeholder={select.placeholder}
+                            label={label}
                             selectedState={select.selectedState}
                             isSearchable={true}
                             setSelectedState={select.setSelectedState}

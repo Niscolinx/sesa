@@ -22,7 +22,7 @@ function AddEstateStaff() {
     const workdaysState = [
         {
             name: 'weekdays - (Mon - Fri)',
-            disabled: true,
+            disabled: false,
         },
         {
             name: 'weekends - (Sat - Sun)',
@@ -79,7 +79,7 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-
+        console.log({selectedWorkdays})
     }, [selectedWorkdays])
 
     const {
