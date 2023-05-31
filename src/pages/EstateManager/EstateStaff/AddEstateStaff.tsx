@@ -83,9 +83,14 @@ function AddEstateStaff() {
                     }
                 }
             })
+            
             setWorkdays(sliced_week_days)
         }
     }, [selectedWorkdays])
+
+    useEffect(() => {
+        console.log({workdays})
+    }, [workdays])
 
     const {
         clearErrors,

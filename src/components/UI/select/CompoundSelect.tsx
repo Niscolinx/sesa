@@ -32,10 +32,14 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     double,
     isSearchable = false,
 }) => {
+    const [toggleStateMenu, setToggleStateMenu] = useState(false)
+    const [search, setSearch] = useState('')
+    const [selectFrom, setSelectFrom] = useState(state)
+
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        console.log({state})
+        console.log({ state })
     }, [state])
 
     useEffect(() => {
@@ -54,12 +58,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
         }
     })
 
-    const [toggleStateMenu, setToggleStateMenu] = useState(false)
-
     const toggleStateHandler = () => setToggleStateMenu(!toggleStateMenu)
-
-    const [search, setSearch] = useState('')
-    const [selectFrom, setSelectFrom] = useState(state)
 
     function handleSelectedState(
         e: ChangeEvent<HTMLInputElement>,
@@ -96,7 +95,9 @@ export const CompoundSelect: FC<CompoundSelect> = ({
 
     return (
         <div className='relative grid gap-4'>
-            <p className='text-[1.4rem] font-semibold capitalize'>{label?.replaceAll('_', ' ')}</p>
+            <p className='text-[1.4rem] font-semibold capitalize'>
+                {label?.replaceAll('_', ' ')}
+            </p>
             <div
                 className='relative grid max-w-[40rem] items-center'
                 ref={containerRef}
