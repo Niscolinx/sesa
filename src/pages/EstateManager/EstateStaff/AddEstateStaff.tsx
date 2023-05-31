@@ -68,16 +68,15 @@ function AddEstateStaff() {
 
     useEffect(() => {
         console.log(selectedWorkdays)
-        if (selectedWorkdays.includes('weekdays')) {
+        console.log(selectedWorkdays.indexOf('weekdays'))
+        if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
             const sliced_week_days = workdaysState.slice(0, 2).map((day) => {
                 return {
                     ...day,
                     disabled: true,
                 }
             })
-
             console.log(sliced_week_days)
-
             setWorkdays(sliced_week_days)
         }
     }, [selectedWorkdays])
