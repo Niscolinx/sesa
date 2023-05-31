@@ -58,18 +58,6 @@ function AddEstateStaff() {
         },
     ]
 
-    // const workdaysState = [
-    //     'weekdays - (Mon - Fri)',
-    //     'weekends - (Sat - Sun)',
-    //     'mon',
-    //     'tue',
-    //     'wed',
-    //     'thu',
-    //     'fri',
-    //     'sat',
-    //     'sun',
-    // ]
-
     const genderState = ['Male', 'Female']
 
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
@@ -79,7 +67,19 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        console.log({selectedWorkdays})
+        console.log(selectedWorkdays)
+        if (selectedWorkdays.includes('weekdays')) {
+            const sliced_week_days = workdaysState.slice(0, 2).map((day) => {
+                return {
+                    ...day,
+                    disabled: true,
+                }
+            })
+
+            console.log(sliced_week_days)
+
+            setWorkdays(sliced_week_days)
+        }
     }, [selectedWorkdays])
 
     const {
