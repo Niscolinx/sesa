@@ -9,6 +9,7 @@ import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
+import useAxios from '../../../components/hooks/useAxios'
 
 function AddSiteWorker() {
     type FormInputs = {
@@ -81,26 +82,32 @@ function AddSiteWorker() {
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-     const { isLoading: active_properties_loading, data: active_properties_data } = useFetchData({
-         url: '/property/getActiveProperty',
-         name: 'get_active_property',
-     })
+    const {
+        isLoading: active_properties_loading,
+        data: active_properties_data,
+    } = useFetchData({
+        url: '/property/getActiveProperty',
+        name: 'get_active_property',
+    })
 
-     useEffect(() => {
+    const axiosInstance = useAxios()
+    const fetchData = () =>
+        axiosInstance({
+            url: `/property/getbycode/${propertyCode}`,
+        })
 
-        if(propertyCode){
-            const {isLoading, data} = useFetchData({
+    useEffect(() => {
+        if (propertyCode) {
+            const { isLoading, data } = useFetchData({
                 url: `/property/getbycode/${propertyCode}`,
                 name: `get_property_${propertyCode}`,
             })
 
-            if(!isLoading){
-                console.log({data})
+            if (!isLoading) {
+                console.log({ data })
             }
         }
-
-     }, [propertyCode])
-
+    }, [propertyCode])
 
     useEffect(() => {
         const disabledDays = (
@@ -186,8 +193,6 @@ function AddSiteWorker() {
         },
     })
 
-   
-
     if (states_loading || active_properties_loading) {
         return <Spinner start={true} />
     }
@@ -208,9 +213,9 @@ function AddSiteWorker() {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const property_code_state = active_properties_data.map(({property_code}: any) => property_code)
-
-
+    const property_code_state = active_properties_data.map(
+        ({ property_code }: any) => property_code
+    )
 
     const formInputs = [
         {
