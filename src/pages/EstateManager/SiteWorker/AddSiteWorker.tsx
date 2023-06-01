@@ -102,7 +102,6 @@ function AddSiteWorker() {
     const { isLoading } = useQuery(`get_${propertyCode}`, fetchData, {
         enabled: !!propertyCode,
         onSuccess: (res: any) => {
-            console.log({ res })
 
             if (res.success) {
                 setPropertyData(res.data)
@@ -334,22 +333,21 @@ function AddSiteWorker() {
                                         Property Code
                                     </p>
                                     <p className='font-[1.6rem] whitespace-nowrap'>
-                                        {propertyCode}
+                                        {propertyData.property_code}
                                     </p>
                                 </div>
                                 <div>
                                     <p className='text-[#043FA7]'>
                                         Property Type
                                     </p>
-                                    <p>Duplex</p>
+                                    <p>{propertyData.property_type}</p>
                                 </div>
                                 <div>
                                     <p className='text-[#043FA7]'>
                                         Property Address
                                     </p>
                                     <p className='max-w-[30rem]'>
-                                        10, Address Street, Address Avenue,
-                                        Lagos, Nigeria.
+                                        {propertyData.area_or_street}
                                     </p>{' '}
                                 </div>
                             </div>
@@ -359,14 +357,14 @@ function AddSiteWorker() {
                                         Property Category
                                     </p>
                                     <p className='font-[1.6rem] whitespace-nowrap'>
-                                        Business
+                                        {propertyData.property_category}
                                     </p>
                                 </div>
                                 <div>
                                     <p className='text-[#043FA7]'>
                                         Property Name
                                     </p>
-                                    <p>Wale House</p>
+                                    <p>{propertyData.estate_name}</p>
                                 </div>
                             </div>
                         </div>
