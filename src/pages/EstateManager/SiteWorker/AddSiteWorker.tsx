@@ -86,7 +86,13 @@ function AddSiteWorker() {
      })
 
      useEffect(() => {
-        
+
+        if(propertyCode){
+            const {isLoading, data} = useFetchData({
+                url: `/property/getbycode/${propertyCode}`,
+                name: `get_property_${propertyCode}`,
+            })
+        }
 
      }, [propertyCode])
 
