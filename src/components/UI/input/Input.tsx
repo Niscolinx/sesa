@@ -164,6 +164,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             state={select.state}
                             placeholder={select.placeholder}
                             label={label}
+                            selectFormErrors={selectFormErrors}
                             selectedState={select.selectedState}
                             isSearchable={true}
                             setSelectedState={select.setSelectedState}
