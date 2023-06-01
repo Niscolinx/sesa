@@ -73,6 +73,7 @@ function AddEstateStaff() {
             const copy = [...arr]
             idx.every((index) => (copy[index].disabled = true))
 
+            console.log({copy})
             return copy
         }
 
