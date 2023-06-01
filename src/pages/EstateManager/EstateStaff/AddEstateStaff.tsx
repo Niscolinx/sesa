@@ -81,8 +81,8 @@ function AddEstateStaff() {
         const disabledDays = (arr: Workdays[], id: number[]) => {
             const copy = [...arr]
             console.log({id})
-            id.every((index) => {
-                console.log({index})
+            id.forEach((index) => {
+                console.log({index, copy})
                 copy[index].disabled = true
             })
             return copy
