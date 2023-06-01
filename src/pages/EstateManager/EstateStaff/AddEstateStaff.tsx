@@ -78,12 +78,20 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        const disabledDays = (arr: Workdays[], id: number[]) => {
+        const disabledDays = (
+            arr: Workdays[],
+            id: number[],
+            type: 'disable' | 'enable'
+        ) => {
             const copy = [...arr]
 
             copy.forEach((day) => {
                 if (id.includes(day.id)) {
-                    day.disabled = true
+                    if (type == 'disable') {
+                        day.disabled = true
+                    } else {
+                        day.disabled = false
+                    }
                 }
             })
 
@@ -95,7 +103,7 @@ function AddEstateStaff() {
                 return id
             })
 
-            const sliced_week_days = disabledDays(workdays, num)
+            const sliced_week_days = disabledDays(workdays, num, 'disable')
 
             setWorkdays(sliced_week_days)
         }
