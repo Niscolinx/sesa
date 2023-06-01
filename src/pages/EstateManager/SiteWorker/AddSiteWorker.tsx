@@ -80,6 +80,10 @@ function AddSiteWorker() {
     const [propertyCode, setPropertyCode] = useState('')
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+     const { isLoading: active_properties_loading, data: active_properties_data } = useFetchData({
+         url: '/property/getActiveProperty',
+         name: 'get_active_property',
+     })
 
 
     useEffect(() => {
@@ -166,12 +170,9 @@ function AddSiteWorker() {
         },
     })
 
-    const {isLoading, data} = useFetchData({
-        url: '/property/getActiveProperty',
-        name: 'get_active_property'
-    })
+   
 
-    if (states_loading || isLoading) {
+    if (states_loading || active_properties_loading) {
         return <Spinner start={true} />
     }
 
@@ -191,9 +192,9 @@ function AddSiteWorker() {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const property_code_states = data
+    // const property_code_states = data
 
-    console.log({data})
+    console.log({active_properties_data})
 
     const formInputs = [
         {
