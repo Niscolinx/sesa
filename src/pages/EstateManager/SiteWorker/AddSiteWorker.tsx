@@ -222,6 +222,15 @@ function AddSiteWorker() {
             },
         },
         {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
             label: 'work_days',
             type: 'select',
             selectProps: {

@@ -1,7 +1,6 @@
-import React from 'react'
 import { Dispatch, createContext, useContext, useState } from 'react'
 import { NavigateFunction, useNavigate } from 'react-router'
-import useAxios from '../../hooks/UseAxios'
+import useAxios from '../../hooks/useAxios'
 import { AxiosInstance } from 'axios'
 import { SetStateAction } from 'jotai'
 import TableDialog from './TableDialog'
@@ -16,6 +15,7 @@ export type Actions =
 
 interface Table {
     fetch_url?: string
+    is_addWithin?:boolean
     title: string
     secondary_id?: string
     view_with_secondary_id?: boolean
@@ -77,6 +77,7 @@ const Table = ({
     data_to_display,
     providedData,
     is_add_btn,
+    is_addWithin,
     isStrictAction,
     nested = false,
     isDataProvided = false,
@@ -117,6 +118,7 @@ const Table = ({
                 providedData,
                 setFetchedData,
                 isDialogOpen,
+                is_addWithin,
                 isDataProvided,
                 actions,
                 setIsDialogOpen,
