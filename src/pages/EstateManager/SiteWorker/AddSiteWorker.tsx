@@ -80,6 +80,7 @@ function AddSiteWorker() {
     const [propertyCode, setPropertyCode] = useState('')
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+
      const { isLoading: active_properties_loading, data: active_properties_data } = useFetchData({
          url: '/property/getActiveProperty',
          name: 'get_active_property',
@@ -92,6 +93,10 @@ function AddSiteWorker() {
                 url: `/property/getbycode/${propertyCode}`,
                 name: `get_property_${propertyCode}`,
             })
+
+            if(!isLoading){
+                console.log({data})
+            }
         }
 
      }, [propertyCode])
