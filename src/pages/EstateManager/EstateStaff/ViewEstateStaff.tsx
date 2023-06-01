@@ -352,14 +352,13 @@ function ViewEstateStaff() {
                         } = input
                         return (
                             <>
-                            {
-                                idx === formInputs.length - 1 &&
-                                <div className='grid items-center'>
-                                    <ValidateKY
-                                        title={'Know your Estate Staff'}
-                                    />
-                                </div>
-                            }
+                                {idx === formInputs.length - 1 && (
+                                    <div className='grid items-center'>
+                                        <ValidateKY
+                                            title={'Know your Estate Staff'}
+                                        />
+                                    </div>
+                                )}
                                 <Input
                                     key={idx + label}
                                     label={label}
@@ -380,8 +379,7 @@ function ViewEstateStaff() {
                             </>
                         )
                     })}
-                   
-                   
+
                     <AddBtn
                         isLoading={postLoading}
                         title={'Save'}
@@ -389,6 +387,18 @@ function ViewEstateStaff() {
                     />
                 </>
             </form>
+
+            <div className='mt-20'>
+                <p className='text-[2rem] font-Satoshi-Medium mb-5'>
+                    Account Information
+                </p>
+                <p>
+                    No account information created.{' '}
+                    <span className='text-[#0556E5] font-Satoshi-Medium'>
+                        Create a bank account
+                    </span>
+                </p>
+            </div>
         </div>
     )
 }
