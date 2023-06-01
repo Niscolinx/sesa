@@ -7,7 +7,8 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
+import { useParams, useNavigate } from 'react-router'
 
 function ViewEstateStaff() {
     type FormInputs = {
@@ -79,6 +80,24 @@ function ViewEstateStaff() {
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
+    const [phone, setPhone] = useState(0)
+
+    const params = useParams()
+    const navigate = useNavigate()
+
+    const id = params.id?.replace(':', '')
+
+    if (!id) {
+        toast('Estate Staff not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+        })
+
+        navigate(-1)
+    }
+
+    
+
     useEffect(() => {
         const disabledDays = (
             arr: Workdays[],
@@ -142,6 +161,7 @@ function ViewEstateStaff() {
         clearErrors,
         formErrors,
         onSubmit,
+        reset,
         openDialog,
         setOpenDialog,
         selectedGender,
@@ -163,9 +183,34 @@ function ViewEstateStaff() {
         },
     })
 
-    if (states_loading) {
+
+    const { isLoading, data } = useFetchData({
+        url: `/estate-staff/getbyid/${id}`,
+        name: `view_estate_staff_${id}`,
+    })
+
+   
+
+    useEffect(() => {
+        if (data) {
+            const {  phone, gender } = data
+
+            const phone_number = parseInt(phone.slice(4))
+            setPhone(phone_number)
+            setSelectedGender(gender)
+
+            reset({
+                ...data,
+                phone: phone_number,
+            })
+        }
+    }, [data])
+
+    if (states_loading || isLoading) {
+        
         return <Spinner start={true} />
     }
+   
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
