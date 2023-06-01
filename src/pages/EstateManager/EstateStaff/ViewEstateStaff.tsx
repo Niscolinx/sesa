@@ -70,7 +70,9 @@ function ViewEstateStaff() {
     ]
 
     const genderState = ['Male', 'Female']
-
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
@@ -165,6 +167,21 @@ function ViewEstateStaff() {
         return <Spinner start={true} />
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        
+        if (selectedWorkdays.length < 1) {
+            return setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    work_days: 'Field cannot be empty',
+                }
+            })
+        }
+
+        onSubmit()
+    }
+
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
     const formInputs = [
@@ -238,12 +255,13 @@ function ViewEstateStaff() {
                 open={openDialog}
                 isBank
                 title={'estate staff'}
+                isNavigate={false}
                 close={setOpenDialog}
             />
             <ToastContainer />
 
             <form
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit}
                 className='grid max-w-[84rem] gap-16 mt-12 '
                 style={{
                     gridTemplateColumns:
@@ -267,6 +285,7 @@ function ViewEstateStaff() {
                                 label={label}
                                 register={register}
                                 formErrors={formErrors}
+                                selectFormErrors={selectFormErrors}
                                 type={type}
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
