@@ -9,6 +9,7 @@ function SiteWorker() {
                 view_page_url={'/estateManager/site-worker/view/'}
                 add_page_url={'/estateManager/site-worker/add'}
                 is_add_btn={true}
+
                 THeader={[
                     'SW Code',
                     'SW Name',
