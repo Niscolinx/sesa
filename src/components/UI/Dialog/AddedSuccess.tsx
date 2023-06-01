@@ -74,7 +74,7 @@ function AddedSuccess({
                             >
                                 Skip, Later
                             </button>
-                            <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
+                            <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]' onClick={() => setPath('toBank')}>
                                 Open an Account
                             </button>
                         </div>
