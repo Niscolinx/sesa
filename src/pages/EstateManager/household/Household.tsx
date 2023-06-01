@@ -4,29 +4,26 @@ function Household() {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={'/site-worker/getall'}
+                fetch_url={'/si/getall'}
                 title={'household'}
                 view_page_url={'/estateManager/site-worker/view/'}
                 add_page_url={'/estateManager/site-worker/add'}
                 is_add_btn={true}
-                isCategory={true}
+                is_addWithin={true}
                 THeader={[
-                    'SW Code',
-                    'SW Name',
-                    'Phone Number',
-                    'Work days',
-                    'Work Period',
-                    'Work Location',
+                   'Property Code', 
+                   'Property Type', 
+                   'Category/Name',
+                   'Occupants',
+                   'RFID',
+                   'Access Card',
                     'status',
                     'actions',
                 ]}
                 data_to_display={[
-                    'site_worker_code',
-                    'firstname',
-                    'phone_number',
-                    'work_days',
-                    'access_period_start_date',
-                    'address',
+                    'property_code',
+                    'property_type',
+                    'property_code',
                     'status',
                 ]}
                 deactivateProp={{
