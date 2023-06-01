@@ -191,6 +191,9 @@ function AddSiteWorker() {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
+    const property_code_states = data
+
+    console.log({data})
 
     const formInputs = [
         {
