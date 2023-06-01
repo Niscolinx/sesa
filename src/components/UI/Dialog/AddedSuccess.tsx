@@ -92,7 +92,7 @@ function AddedSuccess({
             </>
         ),
 
-        toBank: <AddBankAccount open={true} />,
+        toBank: <AddBankAccount open={true} close={handleClose} />,
     }
 
     return (

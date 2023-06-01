@@ -10,9 +10,10 @@ import SingleSelect from '../select/SingleSelect'
 
 interface Props {
     open: boolean
+    close?: () => void
 }
 
-const AddBankAccount = ({ open = false }: Props) => {
+const AddBankAccount = ({ open = false, close }: Props) => {
     type Path = 'first' | 'second'
 
     const [step, setStep] = useState<Path>('first')
@@ -33,6 +34,7 @@ const AddBankAccount = ({ open = false }: Props) => {
         }
     }
     const handleClose = () => {
+        close && close()
         if (dialogRef.current) {
             dialogRef.current.close()
         }
