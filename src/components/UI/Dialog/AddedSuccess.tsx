@@ -46,7 +46,7 @@ function AddedSuccess({
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
-                <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8'>
+                <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 py-10'>
                     <img src='/icons/admins/modalSuccess.svg' alt='' />
                     <p className='capitalize'>
                         {title} successfully {type}
@@ -60,7 +60,8 @@ function AddedSuccess({
                                     fontFamily: 'Satoshi-Medium',
                                 }}
                             >
-                                Do you want to open a bank account for {title} ?
+                                Do you want to open a bank account for the{' '}
+                                <span className='capitalize'>{title}</span> ?
                             </p>
 
                             <div className='flex w-full justify-center gap-8 mt-10'>
