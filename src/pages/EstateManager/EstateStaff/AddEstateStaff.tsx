@@ -19,7 +19,7 @@ function AddEstateStaff() {
         selectProps?: SelectProps
     }
 
-    type Workdays = { name: string; disabled: boolean, id: number }
+    type Workdays = { name: string; disabled: boolean; id: number }
 
     const workdaysState = [
         {
@@ -85,21 +85,13 @@ function AddEstateStaff() {
         }
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-
             console.log(workdays.slice(2), workdays)
 
-            const num = workdays.slice(2).map((_, idx) => {
-                console.log(idx)
-                return idx
+            const num = workdays.slice(2).map(({ id }) => {
+                return id
             })
 
-            console.log(num)
-
-            const sliced_week_days = disabledDays(
-                workdays,
-                [2,3]
-               // workdays.splice(3, 2).map((_, idx) => idx)
-            )
+            const sliced_week_days = disabledDays(workdays, num)
 
             setWorkdays(sliced_week_days)
         }
