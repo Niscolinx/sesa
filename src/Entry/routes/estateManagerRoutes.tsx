@@ -16,7 +16,6 @@ import EditHousehold from '../../pages/estateManager/household/editHouseHold/Edi
 import EstateStaff from '../../pages/estateManager/estateStaff/EstateStaff'
 import AddEstateStaff from '../../pages/estateManager/estateStaff/AddEstateStaff'
 import ViewEstateStaff from '../../pages/estateManager/estateStaff/ViewEstateStaff'
-import EditEstateStaff from '../../pages/estateManager/estateStaff/EditEstateStaff'
 import SecurityGuard from '../../pages/estateManager/securityGuard/SecurityGuard'
 import AddSecurityGuard from '../../pages/estateManager/securityGuard/AddSecurityGuard'
 import EditSecurityGuard from '../../pages/estateManager/securityGuard/EditSecurityGuard'
@@ -83,11 +82,9 @@ const EstateManagerRoutes = (
         <Route path='estate-staff' element={<EstateStaff />} />
         <Route path='estate-staff/add' element={<AddEstateStaff />} />
         <Route path='estate-staff/view/:id' element={<ViewEstateStaff />} />
-        <Route path='estate-staff/edit/:id' element={<EditEstateStaff />} />
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
-        <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
         <Route path='security-guard' element={<SecurityGuard />} />
         <Route path='security-guard/add' element={<AddSecurityGuard />} />
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />

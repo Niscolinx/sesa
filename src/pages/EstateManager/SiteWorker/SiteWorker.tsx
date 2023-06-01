@@ -11,11 +11,8 @@ function SiteWorker() {
                 add_page_url={'/estateManager/site-worker/add'}
                 is_add_btn={true}
                 THeader={[
-                    'staff code',
-                    'staff name',
-                    'phone number',
-                    'work days',
-                    'KYR',
+                    'SW Code',
+                    'SW Name',
                     'status',
                     'actions',
                 ]}
