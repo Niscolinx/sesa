@@ -1,11 +1,24 @@
+import useFetchData from '../../../components/hooks/UseFetchData'
+import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Household() {
+
+    const {isLoading, data} = useFetchData({
+        url: '/manager/household/get',
+        name: 'get_household'
+    })
+    
+
+    if(isLoading){
+        return <Spinner start= {isLoading}/>
+    }
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={'/si/getall'}
                 title={'household'}
+                isDataProvided
+                providedData={data.property}
                 view_page_url={'/estateManager/site-worker/view/'}
                 add_page_url={'/estateManager/site-worker/add'}
                 is_add_btn={true}
