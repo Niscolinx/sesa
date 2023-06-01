@@ -19,44 +19,53 @@ function AddEstateStaff() {
         selectProps?: SelectProps
     }
 
-    type Workdays = { name: string; disabled: boolean }
+    type Workdays = { name: string; disabled: boolean, id: number }
 
     const workdaysState = [
         {
             name: 'weekdays - (Mon - Fri)',
             disabled: false,
+            id: 1,
         },
         {
             name: 'weekends - (Sat - Sun)',
             disabled: false,
+            id: 2,
         },
         {
             name: 'mon',
             disabled: false,
+            id: 3,
         },
         {
             name: 'tue',
             disabled: false,
+            id: 4,
         },
         {
             name: 'wed',
             disabled: false,
+            id: 5,
         },
         {
             name: 'thur',
             disabled: false,
+            id: 6,
         },
         {
             name: 'fri',
             disabled: false,
+            id: 7,
         },
         {
             name: 'sat',
             disabled: false,
+            id: 8,
         },
         {
             name: 'sun',
             disabled: false,
+            id: 9,
         },
     ]
 
@@ -69,15 +78,15 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        const disabledDays = (arr: Workdays[], idx: number[]) => {
+        const disabledDays = (arr: Workdays[], id: number[]) => {
             const copy = [...arr]
-            idx.every((index) => (copy[index].disabled = true))
-
-            console.log({copy, idx})
+            id.every((index) => (copy[index].disabled = true))
             return copy
         }
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
+
+            console.log(workdays.slice(2), workdays)
 
             const num = workdays.slice(2).map((_, idx) => {
                 console.log(idx)
