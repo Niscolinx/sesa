@@ -255,13 +255,8 @@ function AddSiteWorker() {
             },
         },
         {
-            label: 'gender',
-            type: 'select',
-            selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
+            label: 'clock_in',
+            type: 'time'
         },
         {
             label: 'work_days',
