@@ -13,19 +13,24 @@ function SiteWorker() {
                     'SW Code',
                     'SW Name',
                     'Phone Number',
-                    'P',
+                    'Work days',
+                    'Work Period',
+                    'Work Location',
                     'status',
                     'actions',
                 ]}
                 data_to_display={[
-                    'staff_code',
-                    'staff_name',
+                    'staff_worker_code',
+                    'firstname',
                     'phone_number',
                     'work_days',
+                    'message',
+                    'access_period_start_date',
+                    'address',
                     'status',
                 ]}
                 deactivateProp={{
-                    url: '/manager/estate-admin/deactivate_activate',
+                    url: '/site-worker/deactivate_activate',
                 }}
             />
         </div>
