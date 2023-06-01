@@ -20,11 +20,10 @@ function SiteWorker() {
                     'actions',
                 ]}
                 data_to_display={[
-                    'staff_worker_code',
+                    'site_worker_code',
                     'firstname',
                     'phone_number',
                     'work_days',
-                    'message',
                     'access_period_start_date',
                     'address',
                     'status',

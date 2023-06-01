@@ -1,746 +1,316 @@
-import React, { createContext, FormEvent, useRef, useState } from 'react'
-import { IoMdAdd, IoMdCheckmarkCircleOutline, IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
-import { toast, ToastContainer } from 'react-toastify'
+import React, { useEffect, useState } from 'react'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
+import ImageInput from '../../../components/ui/input/ImageInput'
+import AddBtn from '../../../components/ui/button/AddBtn'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
+import Spinner from '../../../components/ui/Spinner'
+import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import useFetchData from '../../../components/hooks/UseFetchData'
+import { ToastContainer } from 'react-toastify'
 
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import {
-    BVN_Number,
-    DriversLicence,
-    International_PassPort,
-    NIN_Number,
-    PhoneNumber,
-    Voters_Card,
-} from '../../securityCompany/dashboard/company/addSecurity/Inputs'
-import {
-    AddedSiteWorkerSuccessfully,
-    AddBankAccount,
-    OpenedBankAccountSuccessful,
-} from './DialogSteps'
-import MultipleSelect from '../../../components/ui/select/MultipleSelect'
-import SingleSelect from '../../../components/ui/select/SingleSelect'
-
-type DialogType = 'validate' | 'add-siteWorker' | 'reassign'
-
-export type AddedSiteWorkerSteps =
-    | 'addedSiteWorkerSuccessful'
-    | 'addBankAccount'
-    | 'openedBankAccountSuccessful'
-
-export type ValidateInputTypes =
-    | 'Phone Number'
-    | 'BVN Number'
-    | 'NIN Number'
-    | 'Drivers License'
-    | 'International Passport'
-    | 'Voters Card'
-
-export interface AddedSiteWorkerContext {
-    addedSiteWorkerStep: AddedSiteWorkerSteps
-    setAddedSiteWorkerStep: React.Dispatch<
-        React.SetStateAction<AddedSiteWorkerSteps>
-    >
-    selectedBank: string
-    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
-    handleClose: () => void
-}
-
-export const CreateAddedSiteWorkerContext =
-    createContext<AddedSiteWorkerContext>(null as any)
-
-const AddSiteWorker = () => {
-    const [workDays, setWorkDays] = useState<string[]>([])
-    const [isValidated, setIsValidated] = useState(false)
-    const [iskysw, setIskysw] = useState(false)
-    const [propertyCode, setPropertyCode] = useState('')
-
-    const toggleIskysw = () => setIskysw(!iskysw)
-    const [selectedState, setSelectedState] = useState('')
-    const [selectedGender, setSelectedGender] = useState('')
-    const [dialogState, setDialogState] = useState<DialogType>('validate')
-    const [validationType, setValidationType] = useState<
-        ValidateInputTypes | string
-    >('Phone Number')
-
-    const [selectedBank, setSelectedBank] = useState('')
-    const [addedSiteWorkerStep, setAddedSiteWorkerStep] =
-        useState<AddedSiteWorkerSteps>('addedSiteWorkerSuccessful')
-
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+function AddSiteWorker() {
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        fullWidth?: boolean
+        placeholder?: string
+        selectProps?: SelectProps
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    type Workdays = { name: string; disabled: boolean; id: number }
+
+    const workdaysState = [
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+            id: 1,
+        },
+        {
+            name: 'weekends - (Sat - Sun)',
+            disabled: false,
+            id: 2,
+        },
+        {
+            name: 'mon',
+            disabled: false,
+            id: 3,
+        },
+        {
+            name: 'tue',
+            disabled: false,
+            id: 4,
+        },
+        {
+            name: 'wed',
+            disabled: false,
+            id: 5,
+        },
+        {
+            name: 'thur',
+            disabled: false,
+            id: 6,
+        },
+        {
+            name: 'fri',
+            disabled: false,
+            id: 7,
+        },
+        {
+            name: 'sat',
+            disabled: false,
+            id: 8,
+        },
+        {
+            name: 'sun',
+            disabled: false,
+            id: 9,
+        },
+    ]
+
+    const genderState = ['Male', 'Female']
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
+    const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
+    const [selectedState, setSelectedState] = useState<string[]>([])
+    const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    useEffect(() => {
+        const disabledDays = (
+            arr: Workdays[],
+            id: number[],
+            type: 'disable' | 'enable'
+        ) => {
+            const copy = [...arr]
+
+            copy.forEach((day) => {
+                if (id.includes(day.id)) {
+                    if (type == 'disable') {
+                        day.disabled = true
+                    } else {
+                        day.disabled = false
+                    }
+                }
+            })
+
+            return copy
+        }
+
+        const handleDisable = ({
+            from = 0,
+            to = workdays.length,
+            type = 'disable',
+        }: {
+            from?: number
+            to?: number
+            type?: 'disable' | 'enable'
+        }) => {
+            const num = workdays.slice(from, to).map(({ id }) => {
+                return id
+            })
+
+            const sliced_week_days = disabledDays(workdays, num, type)
+
+            setWorkdays(sliced_week_days)
+        }
+
+        if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
+            handleDisable({
+                from: 2,
+            })
+        } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
+            handleDisable({
+                from: 7,
+            })
+        } else if (selectedWorkdays.length > 0) {
+            handleDisable({
+                from: 0,
+                to: 2,
+            })
+        } else {
+            handleDisable({
+                type: 'enable',
+            })
+        }
+    }, [selectedWorkdays])
+
+    const {
+        clearErrors,
+        formErrors,
+        onSubmit,
+        openDialog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+    } = useAddPageMutation({
+        title: 'add_estate_staff',
+        url: '/manager/estate-admin/create',
+        props: {
+            permission: selectedWorkdays,
+            work_days: selectedWorkdays,
+            state: selectedState,
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
+        },
+    })
+
+    const {isLoading, data} = useFetchData({
+        url: '/property/getActiveProperty',
+        name: 'get_active_property'
+    })
+
+    if (states_loading || isLoading) {
+        return <Spinner start={true} />
+    }
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-    }
 
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const validateDialogRef = useRef<HTMLDialogElement | null>(null)
-
-    const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const closeValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.close()
-        }
-    }
-
-    const openValidateDialog = () => {
-        if (validateDialogRef.current) {
-            validateDialogRef.current.showModal()
-        }
-    }
-    const handleOpen = (modalState: DialogType) => {
-        if (modalState === 'validate') {
-            setDialogState('validate')
-        }
-        if (modalState === 'add-siteWorker') {
-            setDialogState('add-siteWorker')
-        }
-        if (modalState === 'reassign') {
-            setDialogState('reassign')
+        if (selectedWorkdays.length < 1) {
+            return setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    work_days: 'Field cannot be empty',
+                }
+            })
         }
 
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
+        onSubmit()
     }
 
-    const addSiteWorkerHandler = () => {
-        handleOpen('add-siteWorker')
-    }
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-    const handleDialogSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        handleClose()
+    const formInputs = [
+        {
+            label: 'firstname',
+        },
+        {
+            label: 'lastname',
+        },
+        {
+            label: 'middlename',
+        },
+        {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+        {
+            label: 'phone_number',
+            type: 'tel',
+        },
+        {
+            label: 'date_of_birth',
+            type: 'date',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'work_days',
+            type: 'select',
+            selectProps: {
+                state: workdays,
+                isCompound: true,
+                selectedState: selectedWorkdays,
+                setSelectedState: setSelectedWorkdays,
+            },
+        },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
+        },
 
-        openValidateDialog()
-    }
-
-    const handleReAssign = () => {
-        handleClose()
-
-        toast(' Reassigned successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-
-    const renderValidationType = new Map([
-        ['Phone Number', <PhoneNumber />],
-        ['BVN Number', <BVN_Number />],
-        ['NIN Number', <NIN_Number />],
-        ['Drivers License', <DriversLicence />],
-        ['International Passport', <International_PassPort />],
-        ['Voters Card', <Voters_Card />],
-    ]) satisfies Map<ValidateInputTypes, JSX.Element>
-
-    const handleValidate = () => {
-        setIsValidated(true)
-    }
-
-    const addedSiteWorkerSteps = new Map([
-        [
-            'addedSiteWorkerSuccessful',
-            <AddedSiteWorkerSuccessfully
-                context={CreateAddedSiteWorkerContext}
-            />,
-        ],
-        [
-            'addBankAccount',
-            <AddBankAccount context={CreateAddedSiteWorkerContext} />,
-        ],
-        [
-            'openedBankAccountSuccessful',
-            <OpenedBankAccountSuccessful
-                context={CreateAddedSiteWorkerContext}
-            />,
-        ],
-    ])
+        {
+            label: 'security_guard_message',
+            type: 'textarea',
+            fullWidth: true,
+            placeholder:
+                'The message will be displayed to the security guard when the site worker checks In/Out',
+        },
+    ] satisfies FormInputs[]
 
     return (
-        <CreateAddedSiteWorkerContext.Provider
-            value={{
-                addedSiteWorkerStep,
-                setAddedSiteWorkerStep,
-                handleClose,
-                selectedBank,
-                setSelectedBank,
-            }}
-        >
+        <div className='bg-white rounded-2xl grid p-8'>
+            <Spinner start={postLoading ? true : false} />
+            <AddedSuccess
+                open={openDialog}
+                isBank
+                title={'estate staff'}
+                isNavigate={false}
+                close={setOpenDialog}
+            />
             <ToastContainer />
 
-            <dialog className='dialog' ref={validateDialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[90rem] min-h-[30rem] p-10 text-[1.6rem] relative gap-20'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => closeValidateDialog()}
-                        />
-
-                        <div className='relative h-[14rem] bg-blue-600 w-full mt-10 rounded-lg'>
-                            <img
-                                src='/img/me.jpeg'
-                                alt=''
-                                className='w-[10rem] h-[10rem] border rounded-full border-green-600 object-cover absolute bottom-[-6rem] left-10 object-top'
+            <form
+                onSubmit={handleSubmit}
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    columnGap: '10rem',
+                }}
+            >
+                <>
+                    {formInputs.map((input, idx) => {
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            fullWidth,
+                            placeholder,
+                        } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                selectFormErrors={selectFormErrors}
+                                type={type}
+                                placeholder={placeholder}
+                                fullWidth={fullWidth}
+                                clearErrors={clearErrors}
+                                name={name}
+                                setValue={setValue}
+                                isSelect={type === 'select'}
+                                select={selectProps}
                             />
-                        </div>
-                        <div className='mt-20'>
-                            <h2>Validation Result</h2>
-
-                            <div className='border grid mt-5'>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validation Option
-                                    </p>
-                                    <p className='py-4'>
-                                        Phone Number | (+234) 813238432
-                                    </p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Full Name
-                                    </p>
-                                    <p className='py-4'>Michael Okonkwo</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Date of Birth
-                                    </p>
-                                    <p className='py-4'>15 May, 1998</p>
-                                </div>
-                                <div className='grid grid-cols-2 border-b gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Phone Number
-                                    </p>
-                                    <p className='py-4'> (+234) 813238432</p>
-                                </div>
-                                <div className='grid grid-cols-2  gap-4'>
-                                    <p
-                                        className='border-r py-4 pl-4 text-gray-700'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Gender
-                                    </p>
-                                    <p className='py-4'>Male</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            className='btn text-white bg-[#0556E5] border rounded-lg w-[15rem] justify-self-center'
-                            onClick={() => closeValidateDialog()}
-                        >
-                            Ok
-                        </button>
+                        )
+                    })}
+                    <div className='grid items-center'>
+                        <ValidateKY title={'Know your Estate Staff'} />
                     </div>
-                </section>
-            </dialog>
-            <dialog className='dialog' ref={dialogRef}>
-                <section className='grid place-content-center w-full h-[100vh]'>
-                    <div className='bg-white rounded-2xl grid items-baseline w-[64rem] min-h-[30rem] p-10 gap-8 text-[1.6rem] relative'>
-                        <IoMdClose
-                            className='absolute right-4 top-4 text-[2rem] cursor-pointer'
-                            onClick={() => handleClose()}
-                        />
-
-                        {dialogState === 'validate' ? (
-                            <form
-                                className='grid gap-12'
-                                onSubmit={handleDialogSubmit}
-                            >
-                                <h3
-                                    className='text-[2rem] font-Satoshi-Medium border-b '
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    Know Your Guard (kysw)
-                                </h3>
-
-                                <SingleSelect
-                                    state={[
-                                        'Phone Number',
-                                        'BVN Number',
-                                        'NIN Number',
-                                        'Drivers License',
-                                        'International Passport',
-                                        'Voters Card',
-                                    ]}
-                                    label='Validation Option'
-                                    validate
-                                    selectedState={validationType}
-                                    setSelectedState={setValidationType}
-                                />
-
-                                <p
-                                    className='text-[#043FA7] flex items-center gap-2 border-b pb-10 w-full'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    What is kysw <BsQuestionCircle />
-                                </p>
-                                {renderValidationType.get(
-                                    validationType as ValidateInputTypes
-                                )}
-
-                                <button
-                                    className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
-                                    onClick={handleValidate}
-                                >
-                                    Validate
-                                </button>
-                            </form>
-                        ) : (
-                            <div className='bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]'>
-                                {addedSiteWorkerSteps.get(addedSiteWorkerStep)}
-                            </div>
-                        )}
-                    </div>
-                </section>
-            </dialog>
-            <main>
-                <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                    <div>
-                        <div className='w-[40rem]'>
-                            <SingleSelect
-                                state={[
-                                    'ThomasEstate/SO-2345CDGK1',
-                                    'ThomasEstate/SO-2345CDGK2',
-                                    'ThomasEstate/SO-2345CDGK3',
-                                    'ThomasEstate/SO-2345CDGK4',
-                                    'ThomasEstate/SO-2345CDGK5',
-                                ]}
-                                label='Property Code*'
-                                isSearchable
-                                selectedState={propertyCode}
-                                setSelectedState={setPropertyCode}
-                            />
-                        </div>
-
-                        {propertyCode && (
-                            <section className='w-full flex gap-16 relative mt-[5rem]'>
-                                <div>
-                                    <img
-                                        src={'/img/img3.png'}
-                                        alt=''
-                                        className=' object-cover rounded-lg'
-                                    />
-                                </div>
-
-                                <div className='flex '>
-                                    <div className='grid gap-8'>
-                                        <div>
-                                            <p className='text-[1.4rem] text-[#043FA7]'>
-                                                Property Code
-                                            </p>
-                                            <p className='font-[1.6rem] whitespace-nowrap'>
-                                                {propertyCode}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className='text-[#043FA7]'>
-                                                Property Type
-                                            </p>
-                                            <p>Duplex</p>
-                                        </div>
-                                        <div>
-                                            <p className='text-[#043FA7]'>
-                                                Property Address
-                                            </p>
-                                            <p className='max-w-[30rem]'>
-                                                10, Address Street, Address
-                                                Avenue, Lagos, Nigeria.
-                                            </p>{' '}
-                                        </div>
-                                    </div>
-                                    <div className='grid gap-8 auto-rows-max'>
-                                        <div>
-                                            <p className='text-[1.4rem] text-[#043FA7]'>
-                                                Property Category
-                                            </p>
-                                            <p className='font-[1.6rem] whitespace-nowrap'>
-                                                Business
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className='text-[#043FA7]'>
-                                                Property Name
-                                            </p>
-                                            <p>Wale House</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        )}
-                    </div>
-                    <form
-                        onSubmit={handleSubmit}
-                        className='grid max-w-[84rem] gap-16 mt-12 '
-                        style={{
-                            gridTemplateColumns:
-                                ' repeat(auto-fit, minmax(35rem, 1fr))',
-                        }}
-                    >
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='firstName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                First Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='firstName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Last Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Middle Name *
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative '>
-                            <label
-                                htmlFor='lastName'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Date of Birth
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='lastName'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4'>
-                            <label
-                                htmlFor='phoneNumber'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Phone Number *
-                            </label>
-
-                            <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                                <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                    <option value='234'>+234</option>
-                                </select>
-                                <input
-                                    required
-                                    type='number'
-                                    inputMode='numeric'
-                                    id='phoneNumber'
-                                    placeholder='Phone Number'
-                                    className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                                />
-                            </div>
-                        </div>
-                        <SingleSelect
-                            label='Gender'
-                            state={['Male', 'Female']}
-                            selectedState={selectedGender}
-                            setSelectedState={setSelectedGender}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='email'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Email Address *
-                            </label>
-                            <input
-                                type='email'
-                                required
-                                id='email'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Home Address
-                            </label>
-                            <input
-                                type='text'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <SingleSelect
-                            label='State'
-                            state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                            placeholder='Select State'
-                            selectedState={selectedState}
-                            setSelectedState={setSelectedState}
-                        />
-                        <MultipleSelect
-                            label='Work Day'
-                            selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                            placeholder='Select Work days'
-                            selected={workDays}
-                            setSelected={setWorkDays}
-                        />
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Clock-In Time
-                            </label>
-                            <input
-                                type='time'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-[#666869] text-[1.4rem]'>
-                                The System will only enforce clock-in time
-                            </p>
-                        </div>
-                        <div className='grid gap-4 relative self-start'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Clock-Out Time
-                            </label>
-                            <input
-                                type='time'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Work Period (Start Date)*
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-                        <div className='grid gap-4 relative'>
-                            <label
-                                htmlFor='address1'
-                                className='text-[1.4rem] font-Satoshi-Medium'
-                            >
-                                Work Period (End Date)*
-                            </label>
-                            <input
-                                type='date'
-                                required
-                                id='address1'
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                        </div>
-
-                        <div className='col-span-full'>
-                            <label
-                                htmlFor='address'
-                                className='flex mb-2 gap-4 items-center cursor-pointer'
-                            >
-                                Site Worker Message
-                            </label>
-
-                            <textarea
-                                name='address'
-                                id='address'
-                                placeholder='This message will be displayed to the security guard when the site worker checks in / out'
-                                rows={4}
-                                className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                            />
-                            <p className='text-gray-400 text-[1.4rem]'>
-                                Maximum of 30 characters
-                            </p>
-                        </div>
-
-                        <div className='col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full'>
-                            <label
-                                htmlFor='photoUpload'
-                                className='flex justify-center gap-4 items-center cursor-pointer'
-                            >
-                                <img
-                                    src='/icons/admins/photo_library.svg'
-                                    alt=''
-                                />
-                                <p
-                                    className='text-color-dark-1'
-                                    style={{
-                                        fontFamily: 'Satoshi-Light',
-                                    }}
-                                >
-                                    Drag picture here{' '}
-                                    <span className='text-color-blue font-Satoshi-Medium'>
-                                        click
-                                    </span>{' '}
-                                    to upload
-                                </p>
-                            </label>
-                            <input
-                                type='file'
-                                name='photoUpload'
-                                id='photoUpload'
-                                accept='image/*'
-                                className='hidden'
-                                onClick={handlePhotoPreview}
-                            />
-
-                            {photoUrl && (
-                                <div className='flex justify-center justify-self-center'>
-                                    <img
-                                        src={photoUrl}
-                                        alt='photoPreview'
-                                        className='object-cover w-[11rem] h-[11rem] rounded-full'
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    </form>
-                </section>
-                <section className='grid p-8 bg-white'>
-                    <div className='grid gap-8 max-w-[40rem] mt-[5rem] '>
-                        <div className='flex items-center justify-between'>
-                            <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
-                                kysw{' '}
-                                <span className='text-[#043FA7]'>
-                                    <BsQuestionCircle />
-                                </span>
-                            </p>
-                            <div
-                                onClick={toggleIskysw}
-                                className='cursor-pointer'
-                            >
-                                {iskysw ? (
-                                    <img
-                                        src='/icons/admins/switchOn.svg'
-                                        alt=''
-                                    />
-                                ) : (
-                                    <img
-                                        src='/icons/admins/switchOff.svg'
-                                        alt=''
-                                    />
-                                )}
-                            </div>
-                        </div>
-
-                        {isValidated ? (
-                            <div className='flex gap-8 text-[1.6rem]'>
-                                <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
-                                    kysw Validated{' '}
-                                    <IoMdCheckmarkCircleOutline />
-                                </p>
-                                <button
-                                    className='text-green-600 flex items-center gap-2'
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                    onClick={() => openValidateDialog()}
-                                >
-                                    View Results <BsQuestionCircle />
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                {iskysw && (
-                                    <div className='flex justify-between text-[1.6rem]'>
-                                        <p
-                                            className='text-[#098DFF] cursor-pointer'
-                                            onClick={() =>
-                                                handleOpen('validate')
-                                            }
-                                            style={{
-                                                fontFamily: 'Satoshi-Medium',
-                                            }}
-                                        >
-                                            Click here to validate this person
-                                        </p>
-                                    </div>
-                                )}
-                            </>
-                        )}
-                    </div>
-                    <button
-                        className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg mt-32'
-                        style={{ justifySelf: 'start' }}
-                        onClick={addSiteWorkerHandler}
-                    >
-                        <span>
-                            <IoMdAdd />
-                        </span>{' '}
-                        Add Site Worker
-                    </button>
-                </section>
-            </main>
-        </CreateAddedSiteWorkerContext.Provider>
+                    <ImageInput
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
+                    />
+                    <AddBtn isLoading={postLoading} />
+                </>
+            </form>
+        </div>
     )
 }
 
