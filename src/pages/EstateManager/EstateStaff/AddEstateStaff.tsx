@@ -169,7 +169,7 @@ function AddEstateStaff() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        
+
         if (selectedWorkdays.length < 1) {
             return setSelectFormErrors((prev) => {
                 return {
@@ -186,13 +186,13 @@ function AddEstateStaff() {
 
     const formInputs = [
         {
-            label: 'first_name',
+            label: 'firstname',
         },
         {
-            label: 'last_name',
+            label: 'lastname',
         },
         {
-            label: 'middle_name',
+            label: 'middlename',
         },
         {
             name: 'Email Address',
@@ -200,14 +200,12 @@ function AddEstateStaff() {
             type: 'email',
         },
         {
-            name: 'phone_number',
-            label: 'phone',
+            label: 'phone_number',
             type: 'tel',
         },
         {
-            label: 'dob',
+            label: 'date_of_birth',
             type: 'date',
-            name: 'date of birth',
         },
         {
             label: 'gender',

@@ -18,6 +18,8 @@ function ViewEstateStaff() {
         type?: string
         name?: string
         fullWidth?: boolean
+        required?: boolean
+        value?: string | number
         placeholder?: string
         selectProps?: SelectProps
     }
@@ -195,15 +197,15 @@ function ViewEstateStaff() {
 
     useEffect(() => {
         if (data) {
-            const {  phone, gender } = data
+            const {  phone_number, gender } = data
 
-            const phone_number = parseInt(phone.slice(4))
-            setPhone(phone_number)
+            const phone = parseInt(phone_number.slice(4))
+            setPhone(phone)
             setSelectedGender(gender)
 
             reset({
                 ...data,
-                phone: phone_number,
+                phone,
             })
         }
     }, [data])
@@ -231,69 +233,70 @@ function ViewEstateStaff() {
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-    const formInputs = [
-        {
-            label: 'first_name',
-        },
-        {
-            label: 'last_name',
-        },
-        {
-            label: 'middle_name',
-        },
-        {
-            name: 'Email Address',
-            label: 'email',
-            type: 'email',
-        },
-        {
-            name: 'phone_number',
-            label: 'phone',
-            type: 'tel',
-        },
-        {
-            label: 'dob',
-            type: 'date',
-            name: 'date of birth',
-        },
-        {
-            label: 'gender',
-            type: 'select',
-            selectProps: {
-                state: genderState,
-                selectedState: selectedGender,
-                setSelectedState: setSelectedGender,
-            },
-        },
-        {
-            label: 'work_days',
-            type: 'select',
-            selectProps: {
-                state: workdays,
-                isCompound: true,
-                selectedState: selectedWorkdays,
-                setSelectedState: setSelectedWorkdays,
-            },
-        },
-        {
-            label: 'State',
-            type: 'select',
-            selectProps: {
-                state: slicedStates,
-                isSearchable: true,
-                selectedState: selectedState,
-                setSelectedState: setSelectedState,
-            },
-        },
+     const formInputs = [
+         {
+             label: 'firstname',
+         },
+         {
+             label: 'lastname',
+         },
+         {
+             label: 'middlename',
+         },
+         {
+             name: 'Email Address',
+             label: 'email',
+             type: 'email',
+         },
+         {
+             label: 'phone_number',
+             type: 'tel',
+             required: false,
+             value: phone,
+         },
+         {
+             label: 'date_of_birth',
+             type: 'date',
+         },
+         {
+             label: 'gender',
+             type: 'select',
+             selectProps: {
+                 state: genderState,
+                 selectedState: selectedGender,
+                 setSelectedState: setSelectedGender,
+             },
+         },
+         {
+             label: 'work_days',
+             type: 'select',
+             selectProps: {
+                 state: workdays,
+                 isCompound: true,
+                 selectedState: selectedWorkdays,
+                 setSelectedState: setSelectedWorkdays,
+             },
+         },
+         {
+             label: 'State',
+             type: 'select',
+             selectProps: {
+                 state: slicedStates,
+                 isSearchable: true,
+                 selectedState: selectedState,
+                 setSelectedState: setSelectedState,
+             },
+         },
 
-        {
-            label: 'security_guard_message',
-            type: 'textarea',
-            fullWidth: true,
-            placeholder:
-                'The message will be displayed to the security guard when the site worker checks In/Out',
-        },
-    ] satisfies FormInputs[]
+         {
+             label: 'security_guard_message',
+             type: 'textarea',
+             fullWidth: true,
+             placeholder:
+                 'The message will be displayed to the security guard when the site worker checks In/Out',
+         },
+     ] satisfies FormInputs[]
+
 
     return (
         <div className='bg-white rounded-2xl grid p-8'>
@@ -340,6 +343,8 @@ function ViewEstateStaff() {
                             name,
                             selectProps,
                             fullWidth,
+                            value,
+                            required,
                             placeholder,
                         } = input
                         return (
