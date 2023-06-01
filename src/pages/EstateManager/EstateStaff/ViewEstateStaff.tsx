@@ -358,6 +358,8 @@ function ViewEstateStaff() {
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
                                 clearErrors={clearErrors}
+                                value={value}
+                                required={required}
                                 name={name}
                                 setValue={setValue}
                                 isSelect={type === 'select'}

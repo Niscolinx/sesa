@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import StarRating from '../../../../components/ui/StarRating'
 
 import { useParams } from 'react-router'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../../components/ui/dialog/Activate_Deactivate'
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useMutation, useQuery } from 'react-query'

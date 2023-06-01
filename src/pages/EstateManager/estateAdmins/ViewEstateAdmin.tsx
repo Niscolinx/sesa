@@ -139,8 +139,7 @@ function ViewEstateAdmin() {
             name: 'phone_number',
             label: 'phone',
             type: 'tel',
-            required: false,
-            value: phone,
+            
         },
         {
             name: 'Email Address',
