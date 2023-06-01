@@ -98,7 +98,15 @@ function AddEstateStaff() {
             return copy
         }
 
-        const handleDisable = (from = 0, to = workdays.length, type: 'disable' | 'enable') => {
+        const handleDisable = ({
+            from = 0,
+            to = workdays.length,
+            type = 'disable',
+        }: {
+            from: number
+            to?: number
+            type?: 'disable' | 'enable'
+        }) => {
             const num = workdays.slice(from, to).map(({ id }) => {
                 return id
             })
@@ -109,11 +117,11 @@ function AddEstateStaff() {
         }
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-            
+            handleDisable({
+                from: 2,
+            })
         }
     }, [selectedWorkdays])
-
- 
 
     const {
         clearErrors,
