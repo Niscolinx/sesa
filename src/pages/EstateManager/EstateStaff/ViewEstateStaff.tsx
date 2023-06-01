@@ -197,11 +197,14 @@ function ViewEstateStaff() {
 
     useEffect(() => {
         if (data) {
-            const {  phone_number, gender } = data
+            const {  phone_number, gender, work_days } = data
 
             const phone = parseInt(phone_number.slice(4))
             setPhone(phone)
             setSelectedGender(gender)
+            setSelectedWorkdays(work_days)
+
+         
 
             reset({
                 ...data,
