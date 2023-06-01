@@ -34,7 +34,10 @@ function Household() {
                 data_to_display={[
                     'property_code',
                     'property_type',
-                    'property_code',
+                    'property_category',
+                    'property_category',
+                    'property_category',
+                    'property_category',
                     'status',
                 ]}
                 deactivateProp={{
