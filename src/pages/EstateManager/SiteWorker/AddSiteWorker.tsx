@@ -85,6 +85,11 @@ function AddSiteWorker() {
          name: 'get_active_property',
      })
 
+     useEffect(() => {
+        
+
+     }, [propertyCode])
+
 
     useEffect(() => {
         const disabledDays = (
