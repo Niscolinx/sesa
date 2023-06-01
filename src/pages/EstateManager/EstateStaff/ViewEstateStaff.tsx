@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { useParams, useNavigate } from 'react-router'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
-import AddBankAccount from '../../../components/ui/dialog/AddBank'
+import AddBank from '../../../components/ui/dialog/AddBank'
 
 function ViewEstateStaff() {
     type FormInputs = {
@@ -319,7 +319,7 @@ function ViewEstateStaff() {
                 type={'updated'}
                 close={setOpenDialog}
             />
-            <AddBankAccount open={openBank} close={closeBankModal}/>
+            <AddBank open={openBank} close={closeBankModal}/>
             <ToastContainer />
 
             <div className='flex justify-between items-center mb-10'>
