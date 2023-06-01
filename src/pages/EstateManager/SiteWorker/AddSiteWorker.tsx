@@ -192,9 +192,9 @@ function AddSiteWorker() {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    // const property_code_states = data
+    const property_code_state = active_properties_data.map(({property_code}: any) => property_code)
 
-    console.log({active_properties_data})
+
 
     const formInputs = [
         {
@@ -282,13 +282,7 @@ function AddSiteWorker() {
             <div>
                 <div className='w-[40rem]'>
                     <SingleSelect
-                        state={[
-                            'ThomasEstate/SO-2345CDGK1',
-                            'ThomasEstate/SO-2345CDGK2',
-                            'ThomasEstate/SO-2345CDGK3',
-                            'ThomasEstate/SO-2345CDGK4',
-                            'ThomasEstate/SO-2345CDGK5',
-                        ]}
+                        state={property_code_state}
                         label='Property Code*'
                         isSearchable
                         selectedState={propertyCode}
