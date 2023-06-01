@@ -10,11 +10,9 @@ import SingleSelect from '../select/SingleSelect'
 
 interface Props {
     open: boolean
-    type?: string
-    close: Dispatch<SetStateAction<boolean>>
 }
 
-const AddBankAccount = ({ open = false, close }: Props) => {
+const AddBankAccount = ({ open = false }: Props) => {
     type Path = 'first' | 'second'
 
     const [step, setStep] = useState<Path>('first')
@@ -24,6 +22,8 @@ const AddBankAccount = ({ open = false, close }: Props) => {
     useEffect(() => {
         if (open) {
             handleOpen()
+        } else {
+            handleClose()
         }
     }, [open])
 
@@ -33,7 +33,6 @@ const AddBankAccount = ({ open = false, close }: Props) => {
         }
     }
     const handleClose = () => {
-        close(false)
         if (dialogRef.current) {
             dialogRef.current.close()
         }

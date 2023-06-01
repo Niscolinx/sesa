@@ -25,6 +25,7 @@ function AddedSuccess({
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [path, setPath] = useState<Path>('added')
+    const [openBank, setOpenBank] = useState(false)
 
     useEffect(() => {
         if (open) {
@@ -92,7 +93,7 @@ function AddedSuccess({
             </>
         ),
 
-        toBank: <AddBankAccount />,
+        toBank: <AddBankAccount open={openBank} />,
     }
 
     return (
