@@ -79,9 +79,12 @@ function AddEstateStaff() {
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
 
-            const num = workdays.slice(0, 4)
+            const num = workdays.slice(2).map((_, idx) => {
+                console.log(idx)
+                return idx
+            })
 
-            console.log({num})
+            console.log(num)
 
             const sliced_week_days = disabledDays(
                 workdays,
