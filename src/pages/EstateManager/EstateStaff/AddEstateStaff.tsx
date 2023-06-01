@@ -168,6 +168,14 @@ function AddEstateStaff() {
     }
 
     const handleSubmit = () => {
+        if (selectedWorkdays.length < 1) {
+            return setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    work_days: 'Field cannot be empty',
+                }
+            })
+        }
 
         onSubmit()
     }
