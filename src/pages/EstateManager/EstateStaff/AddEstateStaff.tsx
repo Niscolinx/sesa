@@ -80,9 +80,7 @@ function AddEstateStaff() {
     useEffect(() => {
         const disabledDays = (arr: Workdays[], id: number[]) => {
             const copy = [...arr]
-            console.log({id})
             id.forEach((index) => {
-                console.log({index, copy})
                 copy[index].disabled = true
             })
             return copy
