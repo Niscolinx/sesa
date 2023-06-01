@@ -120,6 +120,15 @@ function AddEstateStaff() {
             handleDisable({
                 from: 2,
             })
+        } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
+            handleDisable({
+                from: 6,
+            })
+        } else {
+            handleDisable({
+                from: 0,
+                to: 2,
+            })
         }
     }, [selectedWorkdays])
 
