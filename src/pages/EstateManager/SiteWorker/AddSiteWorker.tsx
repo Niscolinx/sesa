@@ -80,6 +80,7 @@ function AddSiteWorker() {
     const [selectedState, setSelectedState] = useState<string[]>([])
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
     const [propertyCode, setPropertyCode] = useState('')
+    const [propertyData, setPropertyData] = useState<any>(null)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -98,8 +99,12 @@ function AddSiteWorker() {
         })
 
     const { isLoading, mutate } = useMutation(fetchData, {
-        onSuccess: (data) => {
-            console.log({ data })
+        onSuccess: (res) => {
+            console.log({ res })
+
+            if(res.data.success) {
+                setPropertyData(res.data)
+            
         },
     })
 
