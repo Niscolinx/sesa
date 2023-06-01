@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import React, {
+    Dispatch,
+    SetStateAction,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { TbCopy } from 'react-icons/tb'
 import SingleSelect from '../select/SingleSelect'
 
@@ -9,9 +15,12 @@ interface Props {
 }
 
 const AddBankAccount = ({ open = false, close }: Props) => {
-    const [step, setStep] = useState('first')
+    type Path = 'first' | 'second'
+
+    const [step, setStep] = useState<Path>('first')
     const [selectedBank, setSelectedBank] = useState('')
 
+    const dialogRef = useRef<HTMLDialogElement>(null)
     useEffect(() => {
         if (open) {
             handleOpen()
@@ -88,22 +97,28 @@ const AddBankAccount = ({ open = false, close }: Props) => {
                 </p>
             </div>
             <div className='flex justify-center gap-8 w-full mt-10'>
-                <button className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
+                <button
+                    className='bg-[#0556E5] py-4 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'
+                    onClick={handleClose}
+                >
                     Ok
                 </button>
             </div>
         </div>
     )
 
+    const toRender = {
+        first,
+        second,
+    }
     return (
-        <>
-            {
-                {
-                    first,
-                    second,
-                }[step]
-            }
-        </>
+        <dialog className='dialog' ref={dialogRef}>
+            <section className='grid place-content-center w-full h-[100vh]'>
+                <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 py-10'>
+                    {toRender[step]}
+                </div>
+            </section>
+        </dialog>
     )
 }
 
