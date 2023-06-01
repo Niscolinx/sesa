@@ -103,7 +103,7 @@ function AddEstateStaff() {
             to = workdays.length,
             type = 'disable',
         }: {
-            from: number
+            from?: number
             to?: number
             type?: 'disable' | 'enable'
         }) => {
@@ -122,12 +122,17 @@ function AddEstateStaff() {
             })
         } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
             handleDisable({
-                from: 6,
+                from: 7,
             })
-        } else {
+        } else if (selectedWorkdays.length > 0) {
             handleDisable({
                 from: 0,
                 to: 2,
+            })
+        }
+        else{
+            handleDisable({
+                type: 'enable'
             })
         }
     }, [selectedWorkdays])
