@@ -8,6 +8,7 @@ import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 function AddSiteWorker() {
     type FormInputs = {
@@ -76,8 +77,10 @@ function AddSiteWorker() {
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
+    const [propertyCode, setPropertyCode] = useState('')
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+
 
     useEffect(() => {
         const disabledDays = (
@@ -272,6 +275,79 @@ function AddSiteWorker() {
             />
             <ToastContainer />
 
+            <div>
+                <div className='w-[40rem]'>
+                    <SingleSelect
+                        state={[
+                            'ThomasEstate/SO-2345CDGK1',
+                            'ThomasEstate/SO-2345CDGK2',
+                            'ThomasEstate/SO-2345CDGK3',
+                            'ThomasEstate/SO-2345CDGK4',
+                            'ThomasEstate/SO-2345CDGK5',
+                        ]}
+                        label='Property Code*'
+                        isSearchable
+                        selectedState={propertyCode}
+                        setSelectedState={setPropertyCode}
+                    />
+                </div>
+
+                {propertyCode && (
+                    <section className='w-full flex gap-16 relative mt-[5rem]'>
+                        <div>
+                            <img
+                                src={'/img/img3.png'}
+                                alt=''
+                                className=' object-cover rounded-lg'
+                            />
+                        </div>
+
+                        <div className='flex '>
+                            <div className='grid gap-8'>
+                                <div>
+                                    <p className='text-[1.4rem] text-[#043FA7]'>
+                                        Property Code
+                                    </p>
+                                    <p className='font-[1.6rem] whitespace-nowrap'>
+                                        {propertyCode}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Type
+                                    </p>
+                                    <p>Duplex</p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Address
+                                    </p>
+                                    <p className='max-w-[30rem]'>
+                                        10, Address Street, Address Avenue,
+                                        Lagos, Nigeria.
+                                    </p>{' '}
+                                </div>
+                            </div>
+                            <div className='grid gap-8 auto-rows-max'>
+                                <div>
+                                    <p className='text-[1.4rem] text-[#043FA7]'>
+                                        Property Category
+                                    </p>
+                                    <p className='font-[1.6rem] whitespace-nowrap'>
+                                        Business
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className='text-[#043FA7]'>
+                                        Property Name
+                                    </p>
+                                    <p>Wale House</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+            </div>
             <form
                 onSubmit={handleSubmit}
                 className='grid max-w-[84rem] gap-16 mt-12 '
