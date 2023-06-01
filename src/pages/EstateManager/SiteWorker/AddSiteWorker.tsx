@@ -81,6 +81,7 @@ function AddSiteWorker() {
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
+    const [isPropertyLoaded, setIsPropertyLoaded] = useState(false)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -103,7 +104,8 @@ function AddSiteWorker() {
             console.log({ res })
 
             if(res.data.success) {
-                setPropertyData(res.data)
+                setPropertyData(res.data)}
+                setIsPropertyLoaded(true)
             
         },
     })
@@ -316,7 +318,7 @@ function AddSiteWorker() {
                     />
                 </div>
 
-                {propertyCode && (
+                {isPropertyLoaded && (
                     <section className='w-full flex gap-16 relative mt-[5rem]'>
                         <div>
                             <img
