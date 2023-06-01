@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import useFetchData from '../../../../components/hooks/UseFetchData'
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 import { useMutation } from 'react-query'
 
 const AddArtisanGroup = () => {

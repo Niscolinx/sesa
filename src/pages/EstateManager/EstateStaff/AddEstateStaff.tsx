@@ -70,7 +70,9 @@ function AddEstateStaff() {
     ]
 
     const genderState = ['Male', 'Female']
-
+    const [selectFormErrors, setSelectFormErrors] = useState<{
+        [key: string]: string
+    } | null>(null)
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
@@ -129,10 +131,9 @@ function AddEstateStaff() {
                 from: 0,
                 to: 2,
             })
-        }
-        else{
+        } else {
             handleDisable({
-                type: 'enable'
+                type: 'enable',
             })
         }
     }, [selectedWorkdays])
@@ -164,6 +165,11 @@ function AddEstateStaff() {
 
     if (states_loading) {
         return <Spinner start={true} />
+    }
+
+    const handleSubmit = () => {
+
+        onSubmit()
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
@@ -245,7 +251,7 @@ function AddEstateStaff() {
             <ToastContainer />
 
             <form
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit}
                 className='grid max-w-[84rem] gap-16 mt-12 '
                 style={{
                     gridTemplateColumns:
@@ -269,6 +275,7 @@ function AddEstateStaff() {
                                 label={label}
                                 register={register}
                                 formErrors={formErrors}
+                                selectFormErrors={selectFormErrors}
                                 type={type}
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
