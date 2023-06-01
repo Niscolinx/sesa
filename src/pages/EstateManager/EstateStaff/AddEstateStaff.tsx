@@ -109,9 +109,7 @@ function AddEstateStaff() {
         }
     }, [selectedWorkdays])
 
-    useEffect(() => {
-        console.log({ workdays })
-    }, [workdays])
+ 
 
     const {
         clearErrors,
