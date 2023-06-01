@@ -1,12 +1,34 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import SingleSelect from '../select/SingleSelect'
 
+interface Props {
+    open: boolean
+    type?: string
+    close: Dispatch<SetStateAction<boolean>>
+}
 
-const AddBankAccount = () => {
+const AddBankAccount = ({ open = false, close }: Props) => {
     const [step, setStep] = useState('first')
     const [selectedBank, setSelectedBank] = useState('')
 
+    useEffect(() => {
+        if (open) {
+            handleOpen()
+        }
+    }, [open])
+
+    const handleOpen = () => {
+        if (dialogRef.current) {
+            dialogRef.current.showModal()
+        }
+    }
+    const handleClose = () => {
+        close(false)
+        if (dialogRef.current) {
+            dialogRef.current.close()
+        }
+    }
 
     const first = (
         <div className='w-[40rem] grid justify-items-center gap-10'>
