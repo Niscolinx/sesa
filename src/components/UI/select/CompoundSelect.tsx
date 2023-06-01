@@ -39,7 +39,7 @@ export const CompoundSelect: FC<CompoundSelect> = ({
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        console.log({ state })
+        setSelectFrom(state)
     }, [state])
 
     useEffect(() => {
