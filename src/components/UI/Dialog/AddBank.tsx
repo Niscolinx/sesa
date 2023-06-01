@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 import { TbCopy } from 'react-icons/tb'
 import SingleSelect from '../select/SingleSelect'
 
-interface Props {
-    selectedBank: string
-    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
-}
 
-const AddBankAccount = ({ selectedBank, setSelectedBank }: Props) => {
+const AddBankAccount = () => {
     const [step, setStep] = useState('first')
+    const [selectedBank, setSelectedBank] = useState('')
+
 
     const first = (
         <div className='w-[40rem] grid justify-items-center gap-10'>

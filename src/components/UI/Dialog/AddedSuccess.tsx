@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
+import AddBankAccount from './AddBank'
 
 interface Props {
     title: string
@@ -17,10 +18,13 @@ function AddedSuccess({
     close,
     type = 'added',
     isBank,
-    isNavigate = true
+    isNavigate = true,
 }: Props) {
+    type Path = 'added' | 'toBank'
+
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+    const [path, setPath] = useState<Path>('added')
 
     useEffect(() => {
         if (open) {
@@ -88,14 +92,14 @@ function AddedSuccess({
             </>
         ),
 
-        'proceedToBank': <AddBa/>
+        toBank: <AddBankAccount />,
     }
 
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 py-10'>
-                
+                    {toRender[path]}
                 </div>
             </section>
         </dialog>
