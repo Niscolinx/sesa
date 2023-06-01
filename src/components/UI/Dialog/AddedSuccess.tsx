@@ -41,6 +41,7 @@ function AddedSuccess({
         if (type === 'added' && isNavigate) {
             navigate(-1)
         }
+        debugger
         close(false)
         if (dialogRef.current) {
             dialogRef.current.close()
@@ -96,9 +97,9 @@ function AddedSuccess({
     }
 
 
-    useEffect(() => {
-        console.log(path)
-    }, [path])
+  useEffect(() => {
+    console.log(toRender)
+  }, [path, dialogRef])
 
     return (
         <dialog className='dialog' ref={dialogRef}>

@@ -34,10 +34,10 @@ const AddBankAccount = ({ open = false, close }: Props) => {
         }
     }
     const handleClose = () => {
-        close && close()
         if (dialogRef.current) {
             dialogRef.current.close()
         }
+        close && close()
     }
 
     const first = (
