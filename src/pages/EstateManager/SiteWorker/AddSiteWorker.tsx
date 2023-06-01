@@ -100,10 +100,11 @@ function AddSiteWorker() {
         })
 
     const { isLoading, mutate } = useMutation(fetchData, {
-        onSuccess: (res) => {
+    
+        onSuccess: (res:any) => {
             console.log({ res })
 
-            if(res.data.success) {
+            if(res.success) {
                 setPropertyData(res.data)}
                 setIsPropertyLoaded(true)
             
@@ -116,11 +117,7 @@ function AddSiteWorker() {
         }
     }, [propertyCode])
 
-    useEffect(() => {
-        if(isPropertyLoaded){
-            console.log(propertyData)
-        }
-    }, [isPropertyLoaded])
+  
 
     useEffect(() => {
         const disabledDays = (
@@ -326,11 +323,11 @@ function AddSiteWorker() {
 
                 {isPropertyLoaded && (
                     <section className='w-full flex gap-16 relative mt-[5rem]'>
-                        <div>
+                        <div className=' relative w-[30rem]'>
                             <img
-                                src={JSON.stringify(propertyData)}
+                                src={propertyData.image_url}
                                 alt=''
-                                className=' object-cover rounded-lg'
+                                className=' object-cover rounded-lg h-[30rem]'
                             />
                         </div>
 

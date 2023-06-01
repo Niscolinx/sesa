@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
-import useAxios from '../../hooks/UseAxios'
+import useAxios from '../../hooks/useAxios'
 
 interface Props {
     id: string
