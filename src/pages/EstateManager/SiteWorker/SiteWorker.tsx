@@ -13,6 +13,8 @@ function SiteWorker() {
                 THeader={[
                     'SW Code',
                     'SW Name',
+                    'Phone Number',
+                    'P',
                     'status',
                     'actions',
                 ]}

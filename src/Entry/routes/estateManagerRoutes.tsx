@@ -5,7 +5,6 @@ import Wallet from '../../pages/estateManager/wallet/Wallet'
 import WalletDetails from '../../pages/estateManager/wallet/WalletDetails'
 import Residents from '../../pages/estateManager/residents/Residents'
 import AddResident from '../../pages/estateManager/residents/AddResident'
-import EditResident from '../../pages/estateManager/residents/ViewResident'
 import Property from '../../pages/estateManager/properties/Property'
 import AddProperty from '../../pages/estateManager/properties/AddProperty'
 import ViewProperty from '../../pages/estateManager/properties/ViewProperty'
@@ -85,6 +84,7 @@ const EstateManagerRoutes = (
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
+        <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
         <Route path='security-guard' element={<SecurityGuard />} />
         <Route path='security-guard/add' element={<AddSecurityGuard />} />
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />
