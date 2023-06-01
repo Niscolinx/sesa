@@ -9,6 +9,8 @@ import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer, toast } from 'react-toastify'
 import { useParams, useNavigate } from 'react-router'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
+import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 function ViewEstateStaff() {
     type FormInputs = {
@@ -301,9 +303,25 @@ function ViewEstateStaff() {
                 isBank
                 title={'estate staff'}
                 isNavigate={false}
+                type={'updated'}
                 close={setOpenDialog}
             />
             <ToastContainer />
+
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Staff'}
+                    queryCache={`view_estate_staff_${id}`}
+                />
+            </div>
 
             <form
                 onSubmit={handleSubmit}
@@ -349,7 +367,11 @@ function ViewEstateStaff() {
                         handlePicture={handlePicture}
                         photoPreview={photoPreview}
                     />
-                    <AddBtn isLoading={postLoading} />
+                    <AddBtn
+                        isLoading={postLoading}
+                        title={'Save'}
+                        is_addBtn={false}
+                    />
                 </>
             </form>
         </div>
