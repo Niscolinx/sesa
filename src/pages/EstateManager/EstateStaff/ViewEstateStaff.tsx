@@ -402,7 +402,7 @@ function ViewEstateStaff() {
                 </p>
                 <p>
                     No account information created.{' '}
-                    <span className='text-[#0556E5] font-Satoshi-Medium' onClick={() => setOpenDialog(true)}>
+                    <span className='text-[#0556E5] font-Satoshi-Medium cursor-pointer' onClick={() => setOpenBank(true)}>
                         Create a bank account
                     </span>
                 </p>
