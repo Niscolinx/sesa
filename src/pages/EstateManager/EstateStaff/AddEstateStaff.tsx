@@ -167,7 +167,9 @@ function AddEstateStaff() {
         return <Spinner start={true} />
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        
         if (selectedWorkdays.length < 1) {
             return setSelectFormErrors((prev) => {
                 return {
