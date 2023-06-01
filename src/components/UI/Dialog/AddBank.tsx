@@ -37,6 +37,7 @@ const AddBankAccount = ({ open = false, close }: Props) => {
         if (dialogRef.current) {
             dialogRef.current.close()
         }
+        setStep('first')
         close && close()
     }
 
@@ -116,8 +117,7 @@ const AddBankAccount = ({ open = false, close }: Props) => {
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 py-10'>
-                    {/* {toRender[step]} */}
-                    hello
+                    {toRender[step]}
                 </div>
             </section>
         </dialog>
