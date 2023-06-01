@@ -7,6 +7,7 @@ interface Props {
     open: boolean
     type?: string
     isBank?: boolean
+    isNavigate?: boolean
     close: Dispatch<SetStateAction<boolean>>
 }
 
@@ -16,6 +17,7 @@ function AddedSuccess({
     close,
     type = 'added',
     isBank,
+    isNavigate = true
 }: Props) {
     const navigate = useNavigate()
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -32,7 +34,7 @@ function AddedSuccess({
         }
     }
     const handleClose = () => {
-        if (type === 'added') {
+        if (type === 'added' && isNavigate) {
             navigate(-1)
         }
         close(false)

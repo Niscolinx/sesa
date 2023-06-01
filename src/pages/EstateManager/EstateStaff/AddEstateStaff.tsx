@@ -239,6 +239,7 @@ function AddEstateStaff() {
                 open={openDialog}
                 isBank
                 title={'estate staff'}
+                isNavigate={false}
                 close={setOpenDialog}
             />
             <ToastContainer />
