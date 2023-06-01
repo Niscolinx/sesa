@@ -9,6 +9,8 @@ import { useTableContext } from './Table'
 import { useMutation, useQueryClient } from 'react-query'
 import { toast } from 'react-toastify'
 import { IoMdClose } from 'react-icons/io'
+import SingleSelect from '../select/SingleSelect'
+import { useNavigate } from 'react-router'
 
 function TableDialog() {
     const {
@@ -17,6 +19,7 @@ function TableDialog() {
         fetchedId,
         title,
         isDialogOpen,
+        is_addWithin,
         setIsDialogOpen,
         isCategory,
         delete_item_url,
@@ -24,10 +27,12 @@ function TableDialog() {
     } = useTableContext()
 
     const [artisanCategory, setArtisanCategory] = useState('')
+    const [propertyCode, setPropertyCode] = useState<string>('')
+
+    const navigate = useNavigate()
 
     const postRequest = () => {
         const { url, tag = 'id' } = deactivateProp ?? {}
-
 
         if (isCategory && isDialogOpen.type === 'create') {
             return axiosInstance({
@@ -44,7 +49,7 @@ function TableDialog() {
                 data: { id: fetchedId },
             })
         }
-        
+
         return axiosInstance({
             url,
             method: 'post',
@@ -56,7 +61,7 @@ function TableDialog() {
     const messageTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
     const type = isDialogOpen.type
 
-    console.log({title})
+    console.log({ title })
 
     const prevData: any[] = []
     const { mutate, isLoading } = useMutation(postRequest, {
@@ -67,7 +72,8 @@ function TableDialog() {
                 const previousData: any = await queryClient.getQueryData(title)
                 prevData.push(structuredClone(previousData))
 
-                const prev = previousData.data.data || previousData.data || previousData
+                const prev =
+                    previousData.data.data || previousData.data || previousData
                 if (prev) {
                     let index_to_replace = 0
                     let updatedData = prev
@@ -100,10 +106,7 @@ function TableDialog() {
 
                         return {
                             ...relevantData,
-                            data: [
-                               
-                                ...cloneOld,
-                            ],
+                            data: [...cloneOld],
                         }
                     })
                 }
@@ -112,7 +115,7 @@ function TableDialog() {
             return {
                 previousData: prevData[0],
             }
-       },
+        },
 
         onSuccess: () => {
             toast(`${messageTitle} ${type + 'd'} Successfully`, {
@@ -123,7 +126,7 @@ function TableDialog() {
         },
 
         onError: (_error, _option, context) => {
-           // queryClient.setQueryData(title, context?.previousData)
+            // queryClient.setQueryData(title, context?.previousData)
 
             toast(`Failed to ${type} ${messageTitle} `, {
                 type: 'error',
@@ -213,6 +216,55 @@ function TableDialog() {
                                     {isLoading ? 'Loading...' : 'Create'}
                                 </button>
                             </form>
+                        </>
+                    ) : is_addWithin && isDialogOpen.type === 'create' ? (
+                        <>
+                            <>
+                                <IoMdClose
+                                    className='absolute right-4 top-4 text-[2rem] cursor-pointer'
+                                    onClick={() => closeDialog()}
+                                />
+                                <div className='grid gap-12'>
+                                    <h3
+                                        className='text-[2rem] font-Satoshi-Medium border-b '
+                                        style={{
+                                            fontFamily: 'Satoshi-Medium',
+                                        }}
+                                    >
+                                        Create Household
+                                    </h3>
+                                    <div className='w-[30rem]'>
+                                        <SingleSelect
+                                            state={[
+                                                'ThomasEstate/SO-2345CDGK1',
+                                                'ThomasEstate/SO-2345CDGK2',
+                                                'ThomasEstate/SO-2345CDGK3',
+                                                'ThomasEstate/SO-2345CDGK4',
+                                                'ThomasEstate/SO-2345CDGK5',
+                                            ]}
+                                            label='Property Code*'
+                                            isSearchable
+                                            selectedState={propertyCode}
+                                            setSelectedState={setPropertyCode}
+                                        />
+                                    </div>
+                                    <button
+                                        className='btn bg-[#0556E5] text-white rounded-lg py-4 place-self-start w-[15rem]'
+                                        onClick={() =>
+                                            navigate(
+                                                '/estateManager/household/create-household',
+                                                {
+                                                    state: {
+                                                        propertyCode,
+                                                    },
+                                                }
+                                            )
+                                        }
+                                    >
+                                        Continue
+                                    </button>
+                                </div>
+                            </>
                         </>
                     ) : (
                         <>
