@@ -348,32 +348,37 @@ function ViewEstateStaff() {
                             placeholder,
                         } = input
                         return (
-                            <Input
-                                key={idx + label}
-                                label={label}
-                                register={register}
-                                formErrors={formErrors}
-                                selectFormErrors={selectFormErrors}
-                                type={type}
-                                placeholder={placeholder}
-                                fullWidth={fullWidth}
-                                clearErrors={clearErrors}
-                                value={value}
-                                required={required}
-                                name={name}
-                                setValue={setValue}
-                                isSelect={type === 'select'}
-                                select={selectProps}
-                            />
+                            <>
+                            {
+                                idx === formInputs.length - 1 &&
+                                <div className='grid items-center'>
+                                    <ValidateKY
+                                        title={'Know your Estate Staff'}
+                                    />
+                                </div>
+                            }
+                                <Input
+                                    key={idx + label}
+                                    label={label}
+                                    register={register}
+                                    formErrors={formErrors}
+                                    selectFormErrors={selectFormErrors}
+                                    type={type}
+                                    placeholder={placeholder}
+                                    fullWidth={fullWidth}
+                                    clearErrors={clearErrors}
+                                    value={value}
+                                    required={required}
+                                    name={name}
+                                    setValue={setValue}
+                                    isSelect={type === 'select'}
+                                    select={selectProps}
+                                />
+                            </>
                         )
                     })}
-                    <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Staff'} />
-                    </div>
-                    <ImageInput
-                        handlePicture={handlePicture}
-                        photoPreview={photoPreview}
-                    />
+                   
+                   
                     <AddBtn
                         isLoading={postLoading}
                         title={'Save'}
