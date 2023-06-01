@@ -3,15 +3,13 @@ import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
 function Household() {
-
-    const {isLoading, data} = useFetchData({
+    const { isLoading, data } = useFetchData({
         url: '/manager/household/get',
-        name: 'get_household'
+        name: 'get_household',
     })
-    
 
-    if(isLoading){
-        return <Spinner start= {isLoading}/>
+    if (isLoading) {
+        return <Spinner start={isLoading} />
     }
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
@@ -24,12 +22,12 @@ function Household() {
                 is_add_btn={true}
                 is_addWithin={true}
                 THeader={[
-                   'Property Code', 
-                   'Property Type', 
-                   'Category/Name',
-                   'Occupants',
-                   'RFID',
-                   'Access Card',
+                    'Property Code',
+                    'Property Type',
+                    'Category/Name',
+                    'Occupants',
+                    'RFID',
+                    'Access Card',
                     'status',
                     'actions',
                 ]}
