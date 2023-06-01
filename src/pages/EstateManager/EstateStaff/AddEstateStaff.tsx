@@ -80,12 +80,15 @@ function AddEstateStaff() {
     useEffect(() => {
         const disabledDays = (arr: Workdays[], id: number[]) => {
             const copy = [...arr]
-            id.every((index) => (copy[index].disabled = true))
+            console.log({id})
+            id.every((index) => {
+                console.log({index})
+                copy[index].disabled = true
+            })
             return copy
         }
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-            console.log(workdays.slice(2), workdays)
 
             const num = workdays.slice(2).map(({ id }) => {
                 return id
