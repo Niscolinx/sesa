@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { useParams, useNavigate } from 'react-router'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
+import AddBankAccount from '../../../components/ui/dialog/AddBank'
 
 function ViewEstateStaff() {
     type FormInputs = {
@@ -81,6 +82,7 @@ function ViewEstateStaff() {
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
     const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
+    const [openBank, setOpenBank] = useState(false)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -234,6 +236,11 @@ function ViewEstateStaff() {
         onSubmit()
     }
 
+    const closeBankModal = () => {
+        setOpenBank(false)
+    
+    }
+
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
      const formInputs = [
@@ -312,6 +319,7 @@ function ViewEstateStaff() {
                 type={'updated'}
                 close={setOpenDialog}
             />
+            <AddBankAccount open={openBank} close={closeBankModal}/>
             <ToastContainer />
 
             <div className='flex justify-between items-center mb-10'>
@@ -394,7 +402,7 @@ function ViewEstateStaff() {
                 </p>
                 <p>
                     No account information created.{' '}
-                    <span className='text-[#0556E5] font-Satoshi-Medium'>
+                    <span className='text-[#0556E5] font-Satoshi-Medium' onClick={() => setOpenDialog(true)}>
                         Create a bank account
                     </span>
                 </p>
