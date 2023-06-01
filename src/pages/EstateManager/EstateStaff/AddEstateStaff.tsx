@@ -67,7 +67,7 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        const disableState = (arr: { disabled: boolean }[], idx: number[]) => {
+        const disabledDays = (arr: { disabled: boolean }[], idx: number[]) => {
             const copy = [...arr]
             idx.every((index) => (copy[index].disabled = true))
 
