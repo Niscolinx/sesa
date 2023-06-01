@@ -117,6 +117,12 @@ function AddSiteWorker() {
     }, [propertyCode])
 
     useEffect(() => {
+        if(isPropertyLoaded){
+            console.log(propertyData)
+        }
+    }, [isPropertyLoaded])
+
+    useEffect(() => {
         const disabledDays = (
             arr: Workdays[],
             id: number[],
@@ -322,7 +328,7 @@ function AddSiteWorker() {
                     <section className='w-full flex gap-16 relative mt-[5rem]'>
                         <div>
                             <img
-                                src={'/img/img3.png'}
+                                src={JSON.stringify(propertyData)}
                                 alt=''
                                 className=' object-cover rounded-lg'
                             />
