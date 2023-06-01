@@ -1,464 +1,294 @@
-import React, { createContext, useRef, useState } from 'react'
-import { IoMdAdd, IoMdClose } from 'react-icons/io'
-import { BsQuestionCircle } from 'react-icons/bs'
-import { toast, ToastContainer } from 'react-toastify'
+import React, { useEffect, useState } from 'react'
+import Input, { SelectProps } from '../../../components/ui/input/Input'
+import ImageInput from '../../../components/ui/input/ImageInput'
+import AddBtn from '../../../components/ui/button/AddBtn'
+import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
+import Spinner from '../../../components/ui/Spinner'
+import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
+import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import useFetchData from '../../../components/hooks/UseFetchData'
+import { ToastContainer } from 'react-toastify'
 
-import { getPhotoUrl } from '../../../utils/getPhotoUrl'
-import { TbCopy } from 'react-icons/tb'
-import MultipleSelect from '../../../components/ui/select/MultipleSelect'
-import SingleSelect from '../../../components/ui/select/SingleSelect'
-
-type Actions = 'Deactivate' | 'Delete'
-
-export type AddedEstateStaffSteps =
-    | 'addedEstateStaffSuccessful'
-    | 'addBankAccount'
-    | 'openedBankAccountSuccessful'
-
-interface AddedEstateStaffContext {
-    addedEstateStaffStep: AddedEstateStaffSteps
-    setAddedEstateStaffStep: React.Dispatch<
-        React.SetStateAction<AddedEstateStaffSteps>
-    >
-    selectedBank: string
-    setSelectedBank: React.Dispatch<React.SetStateAction<string>>
-    handleClose: () => void
-}
-
-export const CreateAddedEstateStaffContext =
-    createContext<AddedEstateStaffContext>(null as any)
-
-type BankDialog = 'generateId' | 'openBank'
-const ViewEstateStaff = () => {
-    const [workDays, setWorkDays] = useState<string[]>([])
-    const [isValidated, setIsValidated] = useState(true)
-    const [isAccountCreated, setIsAccountCreated] = useState(false)
-    const [selectedState, setSelectedState] = useState('')
-    const [selectedGender, setSelectedGender] = useState('')
-    const [bankDialogState, setBankDialogState] =
-        useState<BankDialog>('openBank')
-
-    const [selectedBank, setSelectedBank] = useState('')
-    const [addedEstateStaffStep, setAddedEstateStaffStep] =
-        useState<AddedEstateStaffSteps>('addedEstateStaffSuccessful')
-
-    const [photoUrl, setPhotoUrl] = useState('')
-
-    const handlePhotoPreview = async (
-        _: React.MouseEvent<HTMLInputElement>
-    ) => {
-        const getUrl = await getPhotoUrl(`#photoUpload`)
-        setPhotoUrl(getUrl)
+function ViewEstateStaff() {
+    type FormInputs = {
+        label?: string
+        type?: string
+        name?: string
+        fullWidth?: boolean
+        placeholder?: string
+        selectProps?: SelectProps
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    type Workdays = { name: string; disabled: boolean; id: number }
+
+    const workdaysState = [
+        {
+            name: 'weekdays - (Mon - Fri)',
+            disabled: false,
+            id: 1,
+        },
+        {
+            name: 'weekends - (Sat - Sun)',
+            disabled: false,
+            id: 2,
+        },
+        {
+            name: 'mon',
+            disabled: false,
+            id: 3,
+        },
+        {
+            name: 'tue',
+            disabled: false,
+            id: 4,
+        },
+        {
+            name: 'wed',
+            disabled: false,
+            id: 5,
+        },
+        {
+            name: 'thur',
+            disabled: false,
+            id: 6,
+        },
+        {
+            name: 'fri',
+            disabled: false,
+            id: 7,
+        },
+        {
+            name: 'sat',
+            disabled: false,
+            id: 8,
+        },
+        {
+            name: 'sun',
+            disabled: false,
+            id: 9,
+        },
+    ]
+
+    const genderState = ['Male', 'Female']
+
+    const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
+    const [selectedState, setSelectedState] = useState<string[]>([])
+    const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
+
+    const { data: states_data, isLoading: states_loading } = useFetchData({})
+
+    useEffect(() => {
+        const disabledDays = (
+            arr: Workdays[],
+            id: number[],
+            type: 'disable' | 'enable'
+        ) => {
+            const copy = [...arr]
+
+            copy.forEach((day) => {
+                if (id.includes(day.id)) {
+                    if (type == 'disable') {
+                        day.disabled = true
+                    } else {
+                        day.disabled = false
+                    }
+                }
+            })
+
+            return copy
+        }
+
+        const handleDisable = ({
+            from = 0,
+            to = workdays.length,
+            type = 'disable',
+        }: {
+            from?: number
+            to?: number
+            type?: 'disable' | 'enable'
+        }) => {
+            const num = workdays.slice(from, to).map(({ id }) => {
+                return id
+            })
+
+            const sliced_week_days = disabledDays(workdays, num, type)
+
+            setWorkdays(sliced_week_days)
+        }
+
+        if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
+            handleDisable({
+                from: 2,
+            })
+        } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
+            handleDisable({
+                from: 7,
+            })
+        } else if (selectedWorkdays.length > 0) {
+            handleDisable({
+                from: 0,
+                to: 2,
+            })
+        } else {
+            handleDisable({
+                type: 'enable',
+            })
+        }
+    }, [selectedWorkdays])
+
+    const {
+        clearErrors,
+        formErrors,
+        onSubmit,
+        openDialog,
+        setOpenDialog,
+        selectedGender,
+        setSelectedGender,
+        postLoading,
+        handlePicture,
+        photoPreview,
+        register,
+        setValue,
+    } = useAddPageMutation({
+        title: 'add_estate_staff',
+        url: '/manager/estate-admin/create',
+        props: {
+            permission: selectedWorkdays,
+            work_days: selectedWorkdays,
+            state: selectedState,
+            is_kyr_approved: 0,
+            validation_option: 'phone_number',
+        },
+    })
+
+    if (states_loading) {
+        return <Spinner start={true} />
     }
 
-    const validatedDialogRef = useRef<HTMLDialogElement | null>(null)
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const bankRef = useRef<HTMLDialogElement | null>(null)
-    const [dialogType, setDialogType] = useState<Actions>('Deactivate')
+    const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-    const closeValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.close()
-        }
-    }
-    const openValidatedDialog = () => {
-        if (validatedDialogRef.current) {
-            validatedDialogRef.current.showModal()
-        }
-    }
+    const formInputs = [
+        {
+            label: 'first_name',
+        },
+        {
+            label: 'last_name',
+        },
+        {
+            label: 'middle_name',
+        },
+        {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+        {
+            name: 'phone_number',
+            label: 'phone',
+            type: 'tel',
+        },
+        {
+            label: 'dob',
+            type: 'date',
+            name: 'date of birth',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'work_days',
+            type: 'select',
+            selectProps: {
+                state: workdays,
+                isCompound: true,
+                selectedState: selectedWorkdays,
+                setSelectedState: setSelectedWorkdays,
+            },
+        },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
+        },
 
-    const openDeleteOrDeactivateDialog = (dialogType: Actions) => {
-        if (dialogType === 'Deactivate') {
-            setDialogType('Deactivate')
-        }
-        if (dialogType === 'Delete') {
-            setDialogType('Delete')
-        }
-
-        if (dialogRef.current) {
-            dialogRef.current.showModal()
-        }
-    }
-
-    const handleCloseDeleteOrDeactivateDialog = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close()
-        }
-    }
-
-    const handleDeleteStaff = () => {
-        handleCloseDeleteOrDeactivateDialog()
-
-        toast('Estate Staff deleted successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-    const handleDeactivateStaff = () => {
-        handleCloseDeleteOrDeactivateDialog()
-
-        toast('Estate Staff deactivated successfully', {
-            type: 'success',
-            className: 'bg-green-100 text-green-600 text-[1.4rem]',
-        })
-    }
-
-    const handleClose = () => {
-        if (bankRef.current) {
-            bankRef.current.close()
-        }
-    }
-
-    const openBankDialog = (bankDialog: BankDialog) => {
-        if (bankDialog === 'openBank') {
-            setBankDialogState('openBank')
-        }
-        if (bankDialog === 'generateId') {
-            setBankDialogState('generateId')
-        }
-
-        if (bankRef.current) {
-            bankRef.current.showModal()
-        }
-    }
+        {
+            label: 'security_guard_message',
+            type: 'textarea',
+            fullWidth: true,
+            placeholder:
+                'The message will be displayed to the security guard when the site worker checks In/Out',
+        },
+    ] satisfies FormInputs[]
 
     return (
-        <main>
+        <div className='bg-white rounded-2xl grid p-8'>
+            <Spinner start={postLoading ? true : false} />
+            <AddedSuccess
+                open={openDialog}
+                isBank
+                title={'estate staff'}
+                close={setOpenDialog}
+            />
             <ToastContainer />
-            <section className='grid p-8 bg-white items-baseline rounded-lg'>
-                <div className='flex justify-between items-center'>
-                    <div className='flex gap-8 items-center'>
-                        <label
-                            htmlFor='photoUpload'
-                            className='grid gap-4 cursor-pointer justify-items-center'
-                        >
-                            <img
-                                src={photoUrl ? photoUrl : '/img/me.jpeg'}
-                                alt='photoPreview'
-                                className='object-cover w-[11rem] h-[11rem] rounded-full object-top'
+
+            <form
+                onSubmit={onSubmit}
+                className='grid max-w-[84rem] gap-16 mt-12 '
+                style={{
+                    gridTemplateColumns:
+                        ' repeat(auto-fit, minmax(35rem, 1fr))',
+                    columnGap: '10rem',
+                }}
+            >
+                <>
+                    {formInputs.map((input, idx) => {
+                        const {
+                            label,
+                            type,
+                            name,
+                            selectProps,
+                            fullWidth,
+                            placeholder,
+                        } = input
+                        return (
+                            <Input
+                                key={idx + label}
+                                label={label}
+                                register={register}
+                                formErrors={formErrors}
+                                type={type}
+                                placeholder={placeholder}
+                                fullWidth={fullWidth}
+                                clearErrors={clearErrors}
+                                name={name}
+                                setValue={setValue}
+                                isSelect={type === 'select'}
+                                select={selectProps}
                             />
-                            <span className='text-color-blue-1 text-[1.4rem]'>
-                                Edit
-                            </span>
-                        </label>
-                        <input
-                            type='file'
-                            name='photoUpload'
-                            id='photoUpload'
-                            accept='image/*'
-                            className='hidden'
-                            onClick={handlePhotoPreview}
-                        />
-                        <div className='grid gap-2 justify-items-start'>
-                            <p
-                                style={{
-                                    fontFamily: 'Satoshi-Light',
-                                }}
-                            >
-                                Guard Code :{' '}
-                                <span
-                                    style={{
-                                        fontFamily: 'Satoshi-Medium',
-                                    }}
-                                >
-                                    SG09897
-                                </span>
-                            </p>
-                            <p className='flex items-center gap-4'>
-                                <span className='flex items-center gap-2'>
-                                    KYG Status <BsQuestionCircle />:
-                                </span>
-                                {isValidated ? (
-                                    <span
-                                        className='text-green-600'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Validated
-                                    </span>
-                                ) : (
-                                    <span
-                                        className='text-red-600'
-                                        style={{
-                                            fontFamily: 'Satoshi-Light',
-                                        }}
-                                    >
-                                        Not Validated
-                                    </span>
-                                )}
-                            </p>
-                            <button
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                                className='text-color-blue'
-                                onClick={() => openValidatedDialog()}
-                            >
-                                Click here to view results
-                            </button>
-                        </div>
+                        )
+                    })}
+                    <div className='grid items-center'>
+                        <ValidateKY title={'Know your Estate Staff'} />
                     </div>
-
-                    <div className='flex gap-8'>
-                        <button
-                            className='border border-color-blue-1 text-color-blue-1 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() =>
-                                openDeleteOrDeactivateDialog('Deactivate')
-                            }
-                        >
-                            <span className=' text-[1.4rem] font-semibold'>
-                                Deactivate
-                            </span>
-                        </button>
-                        <button
-                            className='border border-red-600 px-16 py-4 flex items-center  rounded-lg gap-4'
-                            onClick={() =>
-                                openDeleteOrDeactivateDialog('Delete')
-                            }
-                        >
-                            <img src='/icons/admins/delete.svg' alt='' />
-                            <span className='text-red-600 text-[1.4rem] font-semibold'>
-                                Delete
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <form
-                    onSubmit={handleSubmit}
-                    className='grid max-w-[84rem] gap-16 mt-12 '
-                    style={{
-                        gridTemplateColumns:
-                            ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                >
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='firstName'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            First Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='firstName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Last Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Middle Name *
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-                    <div className='grid gap-4 relative '>
-                        <label
-                            htmlFor='lastName'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Date of Birth
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='lastName'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <div className='grid gap-4'>
-                        <label
-                            htmlFor='phoneNumber'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Phone Number *
-                        </label>
-
-                        <div className='flex text-[1.6rem] gap-4   h-[5rem]'>
-                            <select className='w-[30%] rounded-lg border border-color-grey py-4.8 px-4 outline-none cursor-pointer text-color-dark relative h-full'>
-                                <option value='234'>+234</option>
-                            </select>
-                            <input
-                                required
-                                type='number'
-                                inputMode='numeric'
-                                id='phoneNumber'
-                                placeholder='Phone Number'
-                                className='w-full rounded-lg border border-color-grey py-4.8 px-8 outline-none text-color-dark'
-                            />
-                        </div>
-                    </div>
-                    <SingleSelect
-                        label='Gender'
-                        state={['Male', 'Female']}
-                        selectedState={selectedGender}
-                        setSelectedState={setSelectedGender}
+                    <ImageInput
+                        handlePicture={handlePicture}
+                        photoPreview={photoPreview}
                     />
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='email'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Email Address *
-                        </label>
-                        <input
-                            type='email'
-                            required
-                            id='email'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <div className='grid gap-4 relative'>
-                        <label
-                            htmlFor='address1'
-                            className='text-[1.4rem] font-Satoshi-Medium'
-                        >
-                            Address
-                        </label>
-                        <input
-                            type='text'
-                            required
-                            id='address1'
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                    </div>
-
-                    <SingleSelect
-                        label='State'
-                        state={['Lagos', 'Imo', 'Abia', 'FCT']}
-                        placeholder='Select State'
-                        selectedState={selectedState}
-                        setSelectedState={setSelectedState}
-                    />
-                    <MultipleSelect
-                        label='Work Day'
-                        selectFrom={['Mon', 'Tue', 'Wed', 'Thur', 'Fri']}
-                        placeholder='Select Work days'
-                        selected={workDays}
-                        setSelected={setWorkDays}
-                    />
-
-                    <div className='col-span-full'>
-                        <label
-                            htmlFor='address'
-                            className='flex mb-2 gap-4 items-center cursor-pointer'
-                        >
-                            Estate Staff Message
-                        </label>
-
-                        <textarea
-                            name='address'
-                            id='address'
-                            placeholder='This message will be displayed to the estate Staff when the site worker checks in / out'
-                            rows={4}
-                            className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                        />
-                        <p className='text-gray-400 text-[1.4rem]'>
-                            Maximum of 30 characters
-                        </p>
-                    </div>
-                </form>
-                <section className='grid bg-white w-4/5 border-t border-t-gray-100 mt-[5rem] pt-5'>
-                    <h2
-                        className='text-[2rem] mb-10'
-                        style={{
-                            fontFamily: 'Satoshi-Medium',
-                        }}
-                    >
-                        Account Information
-                    </h2>
-
-                    {isAccountCreated ? (
-                        <div className='columns-2 justify-between items-center gap-10'>
-                            <div className='grid gap-4 relative '>
-                                <label
-                                    htmlFor='bankName'
-                                    className='text-[1.4rem] font-Satoshi-Medium'
-                                >
-                                    Bank Name
-                                </label>
-                                <input
-                                    type='text'
-                                    required
-                                    id='bankName'
-                                    placeholder={`First City Monument Bank`}
-                                    className='w-full rounded-lg border border-color-grey text-[1.6rem] outline-none py-4 px-4'
-                                />
-                            </div>
-
-                            <div className='grid gap-4 relative '>
-                                <label
-                                    htmlFor='firstName'
-                                    className='text-[1.4rem] font-Satoshi-Medium'
-                                >
-                                    Account Number
-                                </label>
-                                <div className='relative flex items-center pr-20 w-full rounded-lg border border-color-grey'>
-                                    <input
-                                        type='number'
-                                        required
-                                        id='firstName'
-                                        placeholder={`2084827323`}
-                                        className=' text-[1.6rem] outline-transparent py-4 px-4 w-full'
-                                    />
-
-                                    <TbCopy className='text-[#0556E5] absolute right-8 text-[2rem]' />
-                                </div>
-                            </div>
-                        </div>
-                    ) : (
-                        <p className='flex items-cente gap-2'>
-                            <span>No account Information created.</span>
-                            <button
-                                className=' text-color-blue'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                                onClick={() => openBankDialog('openBank')}
-                            >
-                                Open a bank account
-                            </button>
-                        </p>
-                    )}
-                </section>
-                <button
-                    className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg col-span-full mt-[5rem]'
-                    style={{ justifySelf: 'start' }}
-                    onClick={() => openBankDialog('generateId')}
-                >
-                    Generate ID Card
-                </button>
-            </section>
-        </main>
+                    <AddBtn isLoading={postLoading} />
+                </>
+            </form>
+        </div>
     )
 }
 
