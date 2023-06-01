@@ -67,8 +67,13 @@ function AddEstateStaff() {
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        console.log(selectedWorkdays)
-        console.log(selectedWorkdays.indexOf('weekdays'))
+        const disableState = (arr: { disabled: boolean }[], idx: number[]) => {
+            const copy = [...arr]
+            idx.every((index) => (copy[index].disabled = true))
+
+            return copy
+        }
+
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
             const sliced_week_days = workdaysState.map((day, idx) => {
                 if (idx > 1)
@@ -83,13 +88,13 @@ function AddEstateStaff() {
                     }
                 }
             })
-            
+
             setWorkdays(sliced_week_days)
         }
     }, [selectedWorkdays])
 
     useEffect(() => {
-        console.log({workdays})
+        console.log({ workdays })
     }, [workdays])
 
     const {
