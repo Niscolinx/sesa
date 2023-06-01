@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
-import useAxios from './UseAxios'
 
 interface Props {
     url: string
@@ -12,7 +11,6 @@ interface Props {
     title: string
 }
 function useAddPageMutation({ url, props, title }: Props) {
-    const axiosInstance = useAxios()
 
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
