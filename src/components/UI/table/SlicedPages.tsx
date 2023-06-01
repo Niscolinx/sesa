@@ -204,6 +204,16 @@ const SlicedPages: FC<SlicedPages> = ({
                             </div>
                         ) : null
                     }
+                    if (key.toLowerCase() === 'work_days') {
+                        return (
+                            <p
+                                key={idx}
+                                className='max-w-[20rem] overflow-hidden text-ellipsis'
+                            >
+                                {JSON.parse(value).length > 1 ? 'multiple' : JSON.parse(value)}
+                            </p>
+                        )
+                    }
                     if (key.toLowerCase() === 'rating') {
                         return <StarRating starsNum={value} key={idx} />
                     }
