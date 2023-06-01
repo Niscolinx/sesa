@@ -19,6 +19,8 @@ function AddEstateStaff() {
         selectProps?: SelectProps
     }
 
+    type Workdays = { name: string; disabled: boolean }
+
     const workdaysState = [
         {
             name: 'weekdays - (Mon - Fri)',
@@ -62,12 +64,12 @@ function AddEstateStaff() {
 
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
-    const [workdays, setWorkdays] = useState<Object[]>(workdaysState)
+    const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
     useEffect(() => {
-        const disabledDays = (arr: { disabled: boolean }[], idx: number[]) => {
+        const disabledDays = (arr: Workdays[], idx: number[]) => {
             const copy = [...arr]
             idx.every((index) => (copy[index].disabled = true))
 
@@ -75,19 +77,10 @@ function AddEstateStaff() {
         }
 
         if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-            const sliced_week_days = workdaysState.map((day, idx) => {
-                if (idx > 1)
-                    return {
-                        ...day,
-                        disabled: true,
-                    }
-                else {
-                    return {
-                        ...day,
-                        disabled: false,
-                    }
-                }
-            })
+            const sliced_week_days = disabledDays(
+                workdays,
+                workdays.slice(2).map((_, idx) => idx)
+            )
 
             setWorkdays(sliced_week_days)
         }
