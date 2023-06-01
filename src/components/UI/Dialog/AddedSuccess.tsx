@@ -43,49 +43,59 @@ function AddedSuccess({
         }
     }
 
+    const toRender = {
+        added: (
+            <>
+                <img src='/icons/admins/modalSuccess.svg' alt='' />
+                <p className='capitalize'>
+                    {title} successfully {type}
+                </p>
+
+                {isBank ? (
+                    <>
+                        <p
+                            className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
+                            style={{
+                                fontFamily: 'Satoshi-Medium',
+                            }}
+                        >
+                            Do you want to open a bank account for the{' '}
+                            <span className='capitalize'>{title}</span> ?
+                        </p>
+
+                        <div className='flex w-full justify-center gap-8 mt-10'>
+                            <button
+                                className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
+                                onClick={() => handleClose()}
+                            >
+                                Skip, Later
+                            </button>
+                            <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
+                                Open an Account
+                            </button>
+                        </div>
+                    </>
+                ) : (
+                    <div className='flex w-full justify-center gap-8'>
+                        <button
+                            className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
+                            onClick={handleClose}
+                        >
+                            Ok
+                        </button>
+                    </div>
+                )}
+            </>
+        ),
+
+        'proceedToBank': <AddBa/>
+    }
+
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
                 <div className='bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] min-h-[30rem] gap-8 py-10'>
-                    <img src='/icons/admins/modalSuccess.svg' alt='' />
-                    <p className='capitalize'>
-                        {title} successfully {type}
-                    </p>
-
-                    {isBank ? (
-                        <>
-                            <p
-                                className='font-Satoshi-Medium text-[1.8rem] max-w-[40rem] text-center'
-                                style={{
-                                    fontFamily: 'Satoshi-Medium',
-                                }}
-                            >
-                                Do you want to open a bank account for the{' '}
-                                <span className='capitalize'>{title}</span> ?
-                            </p>
-
-                            <div className='flex w-full justify-center gap-8 mt-10'>
-                                <button
-                                    className='btn bg-white text-[#0556E5] border-[#0556E5] border rounded-lg w-[20rem] font-Satoshi-Medium'
-                                    onClick={() => handleClose()}
-                                >
-                                    Skip, Later
-                                </button>
-                                <button className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[20rem]'>
-                                    Open an Account
-                                </button>
-                            </div>
-                        </>
-                    ) : (
-                        <div className='flex w-full justify-center gap-8'>
-                            <button
-                                className='bg-[#0556E5] py-2 px-12 text-white text-[1.6rem] rounded-lg w-[15rem]'
-                                onClick={handleClose}
-                            >
-                                Ok
-                            </button>
-                        </div>
-                    )}
+                
                 </div>
             </section>
         </dialog>
