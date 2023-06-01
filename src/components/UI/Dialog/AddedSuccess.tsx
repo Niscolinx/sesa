@@ -95,6 +95,11 @@ function AddedSuccess({
         toBank: <AddBankAccount open={true} close={handleClose} />,
     }
 
+
+    useEffect(() => {
+        console.log(path)
+    }, [path])
+
     return (
         <dialog className='dialog' ref={dialogRef}>
             <section className='grid place-content-center w-full h-[100vh]'>
