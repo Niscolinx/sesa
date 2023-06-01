@@ -10,6 +10,7 @@ import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
 import useAxios from '../../../components/hooks/useAxios'
+import { useMutation } from 'react-query'
 
 function AddSiteWorker() {
     type FormInputs = {
@@ -96,16 +97,15 @@ function AddSiteWorker() {
             url: `/property/getbycode/${propertyCode}`,
         })
 
+    const { isLoading, mutate } = useMutation(fetchData, {
+        onSuccess: (data) => {
+            console.log({ data })
+        },
+    })
+
     useEffect(() => {
         if (propertyCode) {
-            const { isLoading, data } = useFetchData({
-                url: `/property/getbycode/${propertyCode}`,
-                name: `get_property_${propertyCode}`,
-            })
-
-            if (!isLoading) {
-                console.log({ data })
-            }
+            mutate()
         }
     }, [propertyCode])
 
@@ -193,7 +193,7 @@ function AddSiteWorker() {
         },
     })
 
-    if (states_loading || active_properties_loading) {
+    if (states_loading || active_properties_loading || isLoading) {
         return <Spinner start={true} />
     }
 
