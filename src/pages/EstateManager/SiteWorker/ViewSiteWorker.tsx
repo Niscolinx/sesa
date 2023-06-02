@@ -20,6 +20,8 @@ function ViewSiteWorker() {
         label?: string
         type?: string
         name?: string
+        value?: string | number
+        required?: boolean
         fullWidth?: boolean
         placeholder?: string
         selectProps?: SelectProps
@@ -90,8 +92,8 @@ function ViewSiteWorker() {
     })
 
     const { isLoading, data } = useFetchData({
-        url: `/estate-staff/getbyid/${id}`,
-        name: `view_estate_staff_${id}`,
+        url: `/site-worker/getbyid/${id}`,
+        name: `view_site_worker_${id}`,
     })
 
     useEffect(() => {
@@ -155,6 +157,8 @@ function ViewSiteWorker() {
         {
             label: 'phone_number',
             type: 'tel',
+            value: phone,
+            required: false,
         },
 
         {
@@ -339,6 +343,8 @@ function ViewSiteWorker() {
                             label,
                             type,
                             name,
+                            required,
+                            value,
                             selectProps,
                             fullWidth,
                             placeholder,
@@ -351,6 +357,8 @@ function ViewSiteWorker() {
                                 formErrors={formErrors}
                                 selectFormErrors={selectFormErrors}
                                 type={type}
+                                required={required}
+                                value={value}
                                 placeholder={placeholder}
                                 fullWidth={fullWidth}
                                 clearErrors={clearErrors}
