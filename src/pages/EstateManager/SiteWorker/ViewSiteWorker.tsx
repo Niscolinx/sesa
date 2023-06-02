@@ -7,12 +7,13 @@ import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import ValidateKY from '../../../components/ui/dialog/ValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
 import useAxios from '../../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
+import { useParams, useNavigate } from 'react-router'
 
 function ViewSiteWorker() {
     type FormInputs = {
@@ -38,6 +39,21 @@ function ViewSiteWorker() {
     const [stateId, setStateId] = useState<number | null>(null)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
+    const [phone, setPhone] = useState(0)
+
+    const params = useParams()
+    const navigate = useNavigate()
+
+    const id = params.id?.replace(':', '')
+
+    if (!id) {
+        toast('Site Worker not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+        })
+
+        navigate(-1)
+    }
 
     const {
         isLoading: active_properties_loading,
@@ -46,24 +62,6 @@ function ViewSiteWorker() {
         url: '/property/getActiveProperty',
         name: 'get_active_property',
     })
-
-    const axiosInstance = useAxios()
-    const fetchData = () =>
-        axiosInstance({
-            url: `/property/getbycode/${propertyCode}`,
-        })
-
-    const { isLoading } = useQuery(`get_${propertyCode}`, fetchData, {
-        enabled: !!propertyCode,
-        onSuccess: (res: any) => {
-            if (res.success) {
-                setPropertyData(res.data)
-            }
-            setIsPropertyLoaded(true)
-        },
-    })
-
- 
 
     const {
         clearErrors,
@@ -76,6 +74,7 @@ function ViewSiteWorker() {
         postLoading,
         handlePicture,
         photoPreview,
+        reset,
         register,
         setValue,
     } = useAddPageMutation({
@@ -89,6 +88,27 @@ function ViewSiteWorker() {
             validation_option: 'phone_number',
         },
     })
+
+    const { isLoading, data } = useFetchData({
+        url: `/estate-staff/getbyid/${id}`,
+        name: `view_estate_staff_${id}`,
+    })
+
+    useEffect(() => {
+        if (data) {
+            const { phone_number, gender, work_days } = data
+
+            const phone = parseInt(phone_number.slice(4))
+            setPhone(phone)
+            setSelectedGender(gender)
+            setSelectedWorkdays(work_days)
+
+            reset({
+                ...data,
+                phone,
+            })
+        }
+    }, [data])
 
     if (states_loading || active_properties_loading || isLoading) {
         return <Spinner start={true} />

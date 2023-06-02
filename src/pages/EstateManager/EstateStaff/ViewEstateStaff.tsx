@@ -101,7 +101,6 @@ function ViewEstateStaff() {
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
 
-         
 
             reset({
                 ...data,
