@@ -247,6 +247,20 @@ function ViewSiteWorker() {
             />
             <ToastContainer />
 
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Staff'}
+                    queryCache={`view_estate_staff_${id}`}
+                />
+            </div>
             <div>
                 <div className='w-[35rem]'>
                     <SingleSelect
@@ -312,21 +326,6 @@ function ViewSiteWorker() {
                         </div>
                     </section>
                 )}
-            </div>
-
-            <div className='flex justify-between items-center mb-10'>
-                <ValidatedResult
-                    image={photoPreview}
-                    handlePicture={handlePicture}
-                />
-
-                <Activate_Deactivate
-                    id={id!}
-                    url={'/manager/estate-admin/deactivate_activate'}
-                    status={data?.status}
-                    title={'Estate Staff'}
-                    queryCache={`view_estate_staff_${id}`}
-                />
             </div>
             <form
                 onSubmit={handleSubmit}
