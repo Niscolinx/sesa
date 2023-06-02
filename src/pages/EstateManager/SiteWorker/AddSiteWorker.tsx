@@ -79,7 +79,7 @@ function AddSiteWorker() {
         [key: string]: string
     } | null>(null)
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
-    const [selectedState, setSelectedState] = useState<string[]>([])
+    const [selectedState, setSelectedState] = useState('')
     // const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
@@ -204,17 +204,17 @@ function AddSiteWorker() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        if (selectedWorkdays.length < 1) {
-            return setSelectFormErrors((prev) => {
-                return {
-                    ...prev,
-                    work_days: 'Field cannot be empty',
-                }
-            })
-        }
+        // if (selectedWorkdays.length < 1) {
+        //     return setSelectFormErrors((prev) => {
+        //         return {
+        //             ...prev,
+        //             work_days: 'Field cannot be empty',
+        //         }
+        //     })
+        // }
 
         const stateId = states_data.find(
-            ({ name }: any) => name.tolowerCase() == selectedState[0].toLowerCase()
+            ({ name }: any) => name.toLowerCase() === selectedState.toLowerCase()
         )
 
         setStateId(stateId.id)
