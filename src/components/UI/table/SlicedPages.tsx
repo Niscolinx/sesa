@@ -51,10 +51,7 @@ const SlicedPages: FC<SlicedPages> = ({
         const dataToLoop = nested ? restData.user : restData
 
         Object.entries(dataToLoop).map(([key, value]: any) => {
-
-
             if (data_to_display.includes(key)) {
-
                 const firstTableItem = details.get(data_to_display[0]) ?? ''
 
                 if (key === data_to_display[0]) {
@@ -64,11 +61,7 @@ const SlicedPages: FC<SlicedPages> = ({
                     })
                 }
 
-
-
                 if (key.includes('image')) {
-
-
                     return details.set(data_to_display[0], {
                         name: firstTableItem.name,
                         image: value,
@@ -104,11 +97,10 @@ const SlicedPages: FC<SlicedPages> = ({
             })
         }
 
-
         return (
             <>
                 {sorted.map(({ key, value }: any, idx: number) => {
-                if (idx === 0) {
+                    if (idx === 0) {
                         return (
                             <div className='flex items-center gap-4 ' key={idx}>
                                 {is_checkbox && (
@@ -134,7 +126,6 @@ const SlicedPages: FC<SlicedPages> = ({
                                     <p className=''>{value.name}</p>
                                 </div>
                             </div>
-                           
                         )
                     }
                     if (
@@ -190,17 +181,18 @@ const SlicedPages: FC<SlicedPages> = ({
                         updatedActions = [...updatedActions, ...actions]
                         return is_dropdown ? (
                             <div className='absolute right-0 mr-10'>
-
-                            <TableDropDown
-                                toggleDropDown={toggleDropDown}
-                                setToggleDropDown={setToggleDropDown}
-                                id={id}
-                                secondary_id={get_secondary_id}
-                                actions={
-                                    isStrictAction ? actions : updatedActions
-                                }
-                                key={idx}
-                            />
+                                <TableDropDown
+                                    toggleDropDown={toggleDropDown}
+                                    setToggleDropDown={setToggleDropDown}
+                                    id={id}
+                                    secondary_id={get_secondary_id}
+                                    actions={
+                                        isStrictAction
+                                            ? actions
+                                            : updatedActions
+                                    }
+                                    key={idx}
+                                />
                             </div>
                         ) : null
                     }
@@ -210,7 +202,9 @@ const SlicedPages: FC<SlicedPages> = ({
                                 key={idx}
                                 className='max-w-[20rem] overflow-hidden text-ellipsis'
                             >
-                                {JSON.parse(value).length > 1 ? 'multiple' : JSON.parse(value)}
+                                {JSON.parse(JSON.stringify(value)).length > 1
+                                    ? 'multiple'
+                                    : JSON.parse(JSON.stringify(value))}
                             </p>
                         )
                     }
@@ -254,7 +248,9 @@ const SlicedPages: FC<SlicedPages> = ({
         <>
             {page.map((data, idx) => (
                 <div
-                    className={`grid justify-between border-b grid-cols-${THeader.length - 1} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis relative`}
+                    className={`grid justify-between border-b grid-cols-${
+                        THeader.length - 1
+                    } items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis relative`}
                     key={`${idx}`}
                 >
                     <TableItem data={data} />
