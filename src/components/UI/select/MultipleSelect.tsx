@@ -114,6 +114,11 @@ const MultipleSelect: FC<IMultipleSelect> = ({
         setSelected((prev) => prev.filter((i) => i !== item))
     }
 
+
+    useEffect(() => {
+        console.log({selectFormErrors})
+    }, [selectFormErrors])
+
     return (
         <div className='relative grid gap-4'>
             <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
