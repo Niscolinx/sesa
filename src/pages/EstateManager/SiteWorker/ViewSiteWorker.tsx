@@ -11,6 +11,8 @@ import { ToastContainer } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
 import useAxios from '../../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
+import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
+import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 function ViewSiteWorker() {
     type FormInputs = {
@@ -337,6 +339,21 @@ function ViewSiteWorker() {
                         </div>
                     </section>
                 )}
+            </div>
+
+            <div className='flex justify-between items-center mb-10'>
+                <ValidatedResult
+                    image={photoPreview}
+                    handlePicture={handlePicture}
+                />
+
+                <Activate_Deactivate
+                    id={id!}
+                    url={'/manager/estate-admin/deactivate_activate'}
+                    status={data?.status}
+                    title={'Estate Staff'}
+                    queryCache={`view_estate_staff_${id}`}
+                />
             </div>
             <form
                 onSubmit={handleSubmit}
