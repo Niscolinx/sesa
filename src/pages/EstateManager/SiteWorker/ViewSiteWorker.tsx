@@ -112,64 +112,7 @@ function ViewSiteWorker() {
         },
     })
 
-    // useEffect(() => {
-    //     const disabledDays = (
-    //         arr: Workdays[],
-    //         id: number[],
-    //         type: 'disable' | 'enable'
-    //     ) => {
-    //         const copy = [...arr]
-
-    //         copy.forEach((day) => {
-    //             if (id.includes(day.id)) {
-    //                 if (type == 'disable') {
-    //                     day.disabled = true
-    //                 } else {
-    //                     day.disabled = false
-    //                 }
-    //             }
-    //         })
-
-    //         return copy
-    //     }
-
-    //     const handleDisable = ({
-    //         from = 0,
-    //         to = workdays.length,
-    //         type = 'disable',
-    //     }: {
-    //         from?: number
-    //         to?: number
-    //         type?: 'disable' | 'enable'
-    //     }) => {
-    //         const num = workdays.slice(from, to).map(({ id }) => {
-    //             return id
-    //         })
-
-    //         const sliced_week_days = disabledDays(workdays, num, type)
-
-    //         setWorkdays(sliced_week_days)
-    //     }
-
-    //     if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-    //         handleDisable({
-    //             from: 2,
-    //         })
-    //     } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
-    //         handleDisable({
-    //             from: 7,
-    //         })
-    //     } else if (selectedWorkdays.length > 0) {
-    //         handleDisable({
-    //             from: 0,
-    //             to: 2,
-    //         })
-    //     } else {
-    //         handleDisable({
-    //             type: 'enable',
-    //         })
-    //     }
-    // }, [selectedWorkdays])
+ 
 
     const {
         clearErrors,
