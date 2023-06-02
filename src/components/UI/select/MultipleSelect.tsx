@@ -115,13 +115,9 @@ const MultipleSelect: FC<IMultipleSelect> = ({
     }
 
 
-    useEffect(() => {
-        console.log({selectFormErrors})
-    }, [selectFormErrors])
-
     return (
         <div className='relative grid gap-4'>
-            <p className='text-[1.4rem] font-semibold capitalize'>{label}</p>
+            <p className='text-[1.4rem] font-semibold capitalize'>{label.replaceAll('_', ' ')}</p>
             <div
                 className='relative items-center max-w-[40rem] grid'
                 ref={containerRef}

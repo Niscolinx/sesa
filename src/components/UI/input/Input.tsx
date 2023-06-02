@@ -145,7 +145,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                 <>
                     {select.isMulti && Array.isArray(select.selectedState) ? (
                         <MultipleSelect
-                            label={name ?? label.replaceAll('_', ' ')}
+                            label={name ?? label}
                             selectFormErrors={selectFormErrors}
                             selected={select.selectedState}
                             textarea={select.textarea}
@@ -171,7 +171,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         />
                     ) : (
                         <SingleSelect
-                            label={name ?? label.replaceAll('_', ' ')}
+                            label={name ?? label}
                             isSearchable={select.isSearchable}
                             state={select.state as string[]}
                             id={id}
