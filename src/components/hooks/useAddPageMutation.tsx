@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useQueryClient, useMutation } from 'react-query'
 import { toast } from 'react-toastify'
+import useAxios from './useAxios'
 
 interface Props {
     url: string
@@ -28,24 +29,25 @@ function useAddPageMutation({ url, props, title }: Props) {
         formState: { errors: formErrors },
     } = useForm()
 
+    const axiosInstance = useAxios()
     const postRequest = (data: any) => {
-        // return axiosInstance({
-        //     url,
-        //     method: 'post',
-        //     data,
-        //     headers: { 'Content-Type': 'multipart/form-data' },
-        // })
-
-       return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({
-                    data: {
-                        message: 'Success',
-                    },
-                })
-            }, 2000)
-        
+        return axiosInstance({
+            url,
+            method: 'post',
+            data,
+            headers: { 'Content-Type': 'multipart/form-data' },
         })
+
+    //    return new Promise((resolve) => {
+    //         setTimeout(() => {
+    //             resolve({
+    //                 data: {
+    //                     message: 'Success',
+    //                 },
+    //             })
+    //         }, 2000)
+        
+    //     })
     }
 
     const queryClient = useQueryClient()
@@ -99,6 +101,8 @@ function useAddPageMutation({ url, props, title }: Props) {
             }
         }
 
+        
+
         const updatedData = {
             ...data,
             name: checkName,
@@ -107,6 +111,7 @@ function useAddPageMutation({ url, props, title }: Props) {
             date_of_birth,
             phone: `+234${phone}`,
             image: imageFile,
+            image_url: imageFile,
             ...props,
         }
 

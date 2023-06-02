@@ -10,7 +10,7 @@ import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
 import useAxios from '../../../components/hooks/useAxios'
-import { useMutation, useQuery } from 'react-query'
+import { useQuery } from 'react-query'
 
 function AddSiteWorker() {
     type FormInputs = {
@@ -184,13 +184,14 @@ function AddSiteWorker() {
         register,
         setValue,
     } = useAddPageMutation({
-        title: 'add_estate_staff',
-        url: '/manager/estate-admin/create',
+        title: 'add_site_worker',
+        url: '/site-worker/create',
         props: {
             permission: selectedWorkdays,
             work_days: selectedWorkdays,
             state: selectedState,
             is_kyr_approved: 0,
+            image_url: true,
             validation_option: 'phone_number',
         },
     })
@@ -211,11 +212,8 @@ function AddSiteWorker() {
             })
         }
 
-        const property_id = active_properties_data.find(
-            ({ property_code, id}: any) => property_code === propertyCode && id
-        )
-
-        console.log({ property_id })
+        console.log(propertyData)
+        
 
         onSubmit()
     }
