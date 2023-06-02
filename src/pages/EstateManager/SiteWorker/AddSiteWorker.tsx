@@ -24,52 +24,62 @@ function AddSiteWorker() {
 
     type Workdays = { name: string; disabled: boolean; id: number }
 
+    // const workdaysState = [
+    //     {
+    //         name: 'weekdays - (Mon - Fri)',
+    //         disabled: false,
+    //         id: 1,
+    //     },
+    //     {
+    //         name: 'weekends - (Sat - Sun)',
+    //         disabled: false,
+    //         id: 2,
+    //     },
+    //     {
+    //         name: 'mon',
+    //         disabled: false,
+    //         id: 3,
+    //     },
+    //     {
+    //         name: 'tue',
+    //         disabled: false,
+    //         id: 4,
+    //     },
+    //     {
+    //         name: 'wed',
+    //         disabled: false,
+    //         id: 5,
+    //     },
+    //     {
+    //         name: 'thur',
+    //         disabled: false,
+    //         id: 6,
+    //     },
+    //     {
+    //         name: 'fri',
+    //         disabled: false,
+    //         id: 7,
+    //     },
+    //     {
+    //         name: 'sat',
+    //         disabled: false,
+    //         id: 8,
+    //     },
+    //     {
+    //         name: 'sun',
+    //         disabled: false,
+    //         id: 9,
+    //     },
+    // ]
+
     const workdaysState = [
-        {
-            name: 'weekdays - (Mon - Fri)',
-            disabled: false,
-            id: 1,
-        },
-        {
-            name: 'weekends - (Sat - Sun)',
-            disabled: false,
-            id: 2,
-        },
-        {
-            name: 'mon',
-            disabled: false,
-            id: 3,
-        },
-        {
-            name: 'tue',
-            disabled: false,
-            id: 4,
-        },
-        {
-            name: 'wed',
-            disabled: false,
-            id: 5,
-        },
-        {
-            name: 'thur',
-            disabled: false,
-            id: 6,
-        },
-        {
-            name: 'fri',
-            disabled: false,
-            id: 7,
-        },
-        {
-            name: 'sat',
-            disabled: false,
-            id: 8,
-        },
-        {
-            name: 'sun',
-            disabled: false,
-            id: 9,
-        },
+        'mon',
+        'tue',
+        'wed',
+        'thur',
+        'fri',
+        'sat',
+        'sun',
     ]
 
     const genderState = ['Male', 'Female']
@@ -78,7 +88,7 @@ function AddSiteWorker() {
     } | null>(null)
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState<string[]>([])
-    const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
+    // const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
     const [isPropertyLoaded, setIsPropertyLoaded] = useState(false)
@@ -114,64 +124,64 @@ function AddSiteWorker() {
 
   
 
-    useEffect(() => {
-        const disabledDays = (
-            arr: Workdays[],
-            id: number[],
-            type: 'disable' | 'enable'
-        ) => {
-            const copy = [...arr]
+    // useEffect(() => {
+    //     const disabledDays = (
+    //         arr: Workdays[],
+    //         id: number[],
+    //         type: 'disable' | 'enable'
+    //     ) => {
+    //         const copy = [...arr]
 
-            copy.forEach((day) => {
-                if (id.includes(day.id)) {
-                    if (type == 'disable') {
-                        day.disabled = true
-                    } else {
-                        day.disabled = false
-                    }
-                }
-            })
+    //         copy.forEach((day) => {
+    //             if (id.includes(day.id)) {
+    //                 if (type == 'disable') {
+    //                     day.disabled = true
+    //                 } else {
+    //                     day.disabled = false
+    //                 }
+    //             }
+    //         })
 
-            return copy
-        }
+    //         return copy
+    //     }
 
-        const handleDisable = ({
-            from = 0,
-            to = workdays.length,
-            type = 'disable',
-        }: {
-            from?: number
-            to?: number
-            type?: 'disable' | 'enable'
-        }) => {
-            const num = workdays.slice(from, to).map(({ id }) => {
-                return id
-            })
+    //     const handleDisable = ({
+    //         from = 0,
+    //         to = workdays.length,
+    //         type = 'disable',
+    //     }: {
+    //         from?: number
+    //         to?: number
+    //         type?: 'disable' | 'enable'
+    //     }) => {
+    //         const num = workdays.slice(from, to).map(({ id }) => {
+    //             return id
+    //         })
 
-            const sliced_week_days = disabledDays(workdays, num, type)
+    //         const sliced_week_days = disabledDays(workdays, num, type)
 
-            setWorkdays(sliced_week_days)
-        }
+    //         setWorkdays(sliced_week_days)
+    //     }
 
-        if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
-            handleDisable({
-                from: 2,
-            })
-        } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
-            handleDisable({
-                from: 7,
-            })
-        } else if (selectedWorkdays.length > 0) {
-            handleDisable({
-                from: 0,
-                to: 2,
-            })
-        } else {
-            handleDisable({
-                type: 'enable',
-            })
-        }
-    }, [selectedWorkdays])
+    //     if (selectedWorkdays.includes('weekdays - (Mon - Fri)')) {
+    //         handleDisable({
+    //             from: 2,
+    //         })
+    //     } else if (selectedWorkdays.includes('weekends - (Sat - Sun)')) {
+    //         handleDisable({
+    //             from: 7,
+    //         })
+    //     } else if (selectedWorkdays.length > 0) {
+    //         handleDisable({
+    //             from: 0,
+    //             to: 2,
+    //         })
+    //     } else {
+    //         handleDisable({
+    //             type: 'enable',
+    //         })
+    //     }
+    // }, [selectedWorkdays])
 
     const {
         clearErrors,
@@ -262,8 +272,8 @@ function AddSiteWorker() {
             label: 'work_days',
             type: 'select',
             selectProps: {
-                state: workdays,
-                isCompound: true,
+                state: workdaysState,
+                isMulti: true,
                 selectedState: selectedWorkdays,
                 setSelectedState: setSelectedWorkdays,
             },
