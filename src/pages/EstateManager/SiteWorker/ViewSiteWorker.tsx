@@ -146,14 +146,14 @@ function ViewSiteWorker() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        // if (selectedWorkdays.length < 1) {
-        //     return setSelectFormErrors((prev) => {
-        //         return {
-        //             ...prev,
-        //             work_days: 'Field cannot be empty',
-        //         }
-        //     })
-        // }
+        if (selectedWorkdays.length < 1) {
+            return setSelectFormErrors((prev) => {
+                return {
+                    ...prev,
+                    work_days: 'Field cannot be empty',
+                }
+            })
+        }
 
         const stateId = states_data.find(
             ({ name }: any) =>
