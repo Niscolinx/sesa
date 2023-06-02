@@ -43,7 +43,6 @@ const MultipleSelect: FC<IMultipleSelect> = ({
                 containerRef.current &&
                 !containerRef.current.contains(e.target)
             ) {
-                console.log('close')
                 setToggleStateMenu(false)
             }
         }

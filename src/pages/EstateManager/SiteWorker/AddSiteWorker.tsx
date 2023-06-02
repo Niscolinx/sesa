@@ -223,6 +223,14 @@ function AddSiteWorker() {
                 }
             })
         }
+      
+
+        const property_id = active_properties_data.flatMap(({ property_code, id }: any) => {
+             property_code == propertyCode ? id : []
+        
+        })[0]
+
+        console.log({property_id})
 
         onSubmit()
     }
