@@ -24,56 +24,6 @@ function ViewSiteWorker() {
         selectProps?: SelectProps
     }
 
-    type Workdays = { name: string; disabled: boolean; id: number }
-
-    // const workdaysState = [
-    //     {
-    //         name: 'weekdays - (Mon - Fri)',
-    //         disabled: false,
-    //         id: 1,
-    //     },
-    //     {
-    //         name: 'weekends - (Sat - Sun)',
-    //         disabled: false,
-    //         id: 2,
-    //     },
-    //     {
-    //         name: 'mon',
-    //         disabled: false,
-    //         id: 3,
-    //     },
-    //     {
-    //         name: 'tue',
-    //         disabled: false,
-    //         id: 4,
-    //     },
-    //     {
-    //         name: 'wed',
-    //         disabled: false,
-    //         id: 5,
-    //     },
-    //     {
-    //         name: 'thur',
-    //         disabled: false,
-    //         id: 6,
-    //     },
-    //     {
-    //         name: 'fri',
-    //         disabled: false,
-    //         id: 7,
-    //     },
-    //     {
-    //         name: 'sat',
-    //         disabled: false,
-    //         id: 8,
-    //     },
-    //     {
-    //         name: 'sun',
-    //         disabled: false,
-    //         id: 9,
-    //     },
-    // ]
-
     const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
 
     const genderState = ['Male', 'Female']
