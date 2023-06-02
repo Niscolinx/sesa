@@ -84,6 +84,7 @@ function AddSiteWorker() {
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
     const [isPropertyLoaded, setIsPropertyLoaded] = useState(false)
+    const [stateId, setStateId] = useState(0)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -189,7 +190,7 @@ function AddSiteWorker() {
         props: {
             work_days: selectedWorkdays,
             state: selectedState,
-            property_id: propertyData.id,
+            property_id: propertyData?.id,
             is_kyr_approved: 0,
             validation_option: 'phone_number',
         },
@@ -211,10 +212,10 @@ function AddSiteWorker() {
             })
         }
 
-        console.log(propertyData)
+        console.log(selectedState)
         
 
-        onSubmit()
+       // onSubmit()
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
