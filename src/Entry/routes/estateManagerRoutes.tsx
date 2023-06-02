@@ -39,7 +39,6 @@ import ReportDetail from '../../pages/estateManager/reports/ReportDetail'
 import ApprovalDetail from '../../pages/estateManager/approvals/ApprovalDetail'
 import Rules from '../../pages/estateManager/rules/Rules'
 import AddRule from '../../pages/estateManager/rules/AddRule'
-import EditSiteWorker from '../../pages/estateManager/siteWorker/EditSiteWorker'
 import SiteWorker from '../../pages/estateManager/siteWorker/SiteWorker'
 import ViewSiteWorker from '../../pages/estateManager/siteWorker/ViewSiteWorker'
 import AddSiteWorker from '../../pages/estateManager/siteWorker/AddSiteWorker'
@@ -84,7 +83,6 @@ const EstateManagerRoutes = (
         <Route path='site-worker' element={<SiteWorker />} />
         <Route path='site-worker/add' element={<AddSiteWorker />} />
         <Route path='site-worker/view/:id' element={<ViewSiteWorker />} />
-        <Route path='site-worker/edit/:id' element={<EditSiteWorker />} />
         <Route path='security-guard' element={<SecurityGuard />} />
         <Route path='security-guard/add' element={<AddSecurityGuard />} />
         <Route path='security-guard/edit/:id' element={<EditSecurityGuard />} />
