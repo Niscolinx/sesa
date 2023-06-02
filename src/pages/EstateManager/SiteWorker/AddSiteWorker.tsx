@@ -220,7 +220,7 @@ function AddSiteWorker() {
         setStateId(stateId.id)
         
 
-       // onSubmit()
+       onSubmit()
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
