@@ -84,7 +84,7 @@ function AddSiteWorker() {
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
     const [isPropertyLoaded, setIsPropertyLoaded] = useState(false)
-    const [stateId, setStateId] = useState(0)
+    const [stateId, setStateId] = useState<number | null>(null)
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
@@ -213,7 +213,11 @@ function AddSiteWorker() {
             })
         }
 
-        console.log(selectedState)
+        const stateId = states_data.find(
+            ({ name }: any) => name.tolowerCase() == selectedState[0].toLowerCase()
+        )
+
+        setStateId(stateId.id)
         
 
        // onSubmit()
