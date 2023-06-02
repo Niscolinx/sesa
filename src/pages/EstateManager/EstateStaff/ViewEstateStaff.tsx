@@ -177,8 +177,8 @@ function ViewEstateStaff() {
              label: 'work_days',
              type: 'select',
              selectProps: {
-                 state: workdays,
-                 isCompound: true,
+                 state: workdaysState,
+                 isMulti: true,
                  selectedState: selectedWorkdays,
                  setSelectedState: setSelectedWorkdays,
              },
