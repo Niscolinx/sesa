@@ -187,11 +187,10 @@ function AddSiteWorker() {
         title: 'add_site_worker',
         url: '/site-worker/create',
         props: {
-            permission: selectedWorkdays,
             work_days: selectedWorkdays,
             state: selectedState,
+            property_id: propertyData.id,
             is_kyr_approved: 0,
-            image_url: true,
             validation_option: 'phone_number',
         },
     })
