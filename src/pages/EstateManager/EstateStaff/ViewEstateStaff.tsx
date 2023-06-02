@@ -193,7 +193,8 @@ function ViewEstateStaff() {
          },
 
          {
-             label: 'security_guard_message',
+             label: 'message',
+             name: 'security_guard_message',
              type: 'textarea',
              fullWidth: true,
              placeholder:
