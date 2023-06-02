@@ -191,6 +191,7 @@ function AddSiteWorker() {
             work_days: selectedWorkdays,
             state: selectedState,
             property_id: propertyData?.id,
+            state_id: stateId,
             is_kyr_approved: 0,
             validation_option: 'phone_number',
         },
