@@ -32,7 +32,6 @@ function ViewSiteWorker() {
     } | null>(null)
     const [selectedWorkdays, setSelectedWorkdays] = React.useState<string[]>([])
     const [selectedState, setSelectedState] = useState('')
-    // const [workdays, setWorkdays] = useState<Workdays[]>(workdaysState)
     const [propertyCode, setPropertyCode] = useState('')
     const [propertyData, setPropertyData] = useState<any>(null)
     const [isPropertyLoaded, setIsPropertyLoaded] = useState(false)
