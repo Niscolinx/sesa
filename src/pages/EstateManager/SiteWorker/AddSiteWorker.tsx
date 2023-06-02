@@ -242,14 +242,26 @@ function AddSiteWorker() {
         {
             label: 'middlename',
         },
-        {
-            name: 'Email Address',
-            label: 'email',
-            type: 'email',
-        },
+
         {
             label: 'phone_number',
             type: 'tel',
+        },
+
+        {
+            label: 'address',
+            name: 'home_address',
+        },
+
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
         },
         {
             label: 'date_of_birth',
@@ -265,9 +277,11 @@ function AddSiteWorker() {
             },
         },
         {
-            label: 'clock_in',
-            type: 'time'
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
         },
+
         {
             label: 'work_days',
             type: 'select',
@@ -279,14 +293,24 @@ function AddSiteWorker() {
             },
         },
         {
-            label: 'State',
-            type: 'select',
-            selectProps: {
-                state: slicedStates,
-                isSearchable: true,
-                selectedState: selectedState,
-                setSelectedState: setSelectedState,
-            },
+            label: 'clock_in',
+            type: 'time',
+            name: 'Clock-in Time',
+        },
+        {
+            label: 'clock_out',
+            type: 'time',
+            name: 'Clock-out Time',
+        },
+        {
+            label: 'access_period_start_date',
+            type: 'date',
+            name: 'work period (start date)',
+        },
+        {
+            label: 'access_period_end_date',
+            type: 'date',
+            name: 'work period (end date)',
         },
 
         {
@@ -311,7 +335,7 @@ function AddSiteWorker() {
             <ToastContainer />
 
             <div>
-                <div className='w-[40rem]'>
+                <div className='w-[35rem]'>
                     <SingleSelect
                         state={property_code_state}
                         label='Property Code*'
