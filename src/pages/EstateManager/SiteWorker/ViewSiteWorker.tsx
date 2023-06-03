@@ -104,6 +104,7 @@ function ViewSiteWorker() {
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
+            setSelectedState(work_days)
 
             reset({
                 ...data,
