@@ -1,8 +1,8 @@
 import { FC, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { Select } from '../../../../../components/ui/Select'
 import HouseholdFilter from './HouseholdFilter'
 import ResidentFilter from './ResidentFilter'
+import SingleSelect from '../../../../../components/ui/select/SingleSelect'
 
 const Filter: FC = () => {
     type FilterKeys = 'Households' | 'Residents'
