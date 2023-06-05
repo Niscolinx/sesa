@@ -4,7 +4,7 @@ import './index.css'
 import './sass/main.scss'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { persistedStore, store } from './store/app/Store'
+import { persistedStore, store } from './store/app/store'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 

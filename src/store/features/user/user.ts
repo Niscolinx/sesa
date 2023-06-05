@@ -1,4 +1,4 @@
-import { AppState } from '../../app/Store'
+import { AppState } from '../../app/store'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
