@@ -43,6 +43,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src/**/*"]
+  "include": ["src", ".eslintrc.cjs", "vite.config.ts"]
 }
 
