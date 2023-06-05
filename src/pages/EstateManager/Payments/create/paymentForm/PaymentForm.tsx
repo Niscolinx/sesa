@@ -6,8 +6,8 @@ import React, {
     useState,
 } from 'react'
 import { BsQuestionCircle } from 'react-icons/bs'
-import { Select } from '../../../../../components/ui/Select'
 import { PaymentPlan, PaymentType } from '../CreatePayment'
+import SingleSelect from '../../../../../components/ui/select/SingleSelect'
 
 interface PaymentForm {
     props: {

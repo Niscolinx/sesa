@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { TbCopy } from 'react-icons/tb'
-import { Select } from '../../../../../components/ui/Select'
 import { CreateAddedSecurityGuardContext } from './AddSecurityGuard'
+import SingleSelect from '../../../../../components/ui/select/SingleSelect'
 
 export const AddedSecuritySuccessfully = () => {
     const { handleClose, setAddedSecurityGuardStep } = useContext(
