@@ -16,7 +16,7 @@ import {
     REHYDRATE,
 } from 'redux-persist'
 
-import userReducer from '../features/user/User'
+import userReducer from '../features/user/user'
 import authReducer from '../features/auth'
 
 const persistConfig = {

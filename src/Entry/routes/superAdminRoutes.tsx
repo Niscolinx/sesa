@@ -13,7 +13,6 @@ import SecurityCompany from '../../pages/superAdmin/securityCompany/SecurityComp
 import SecurityCompanyDetail from '../../pages/superAdmin/securityCompany/SecurityCompanyDetail'
 import Wallet from '../../pages/superAdmin/Wallet'
 
-import SecurityCompanyWalletDetails from '../../pages/estateManager/wallet/wallets-old/SecurityCompanyDetails'
 import Artisan from '../../pages/superAdmin/artisans/Artisan'
 import AddArtisan from '../../pages/superAdmin/artisans/list/AddArtisan'
 import ArtisanDetail from '../../pages/superAdmin/artisans/list/ArtisanDetail'
@@ -108,10 +107,10 @@ const SuperAdminRoutes = (
             path='wallet/security-company'
             element={<SecurityCompanyWallet />}
         />
-        <Route
+        {/* <Route
             path='wallet/security-company/:id'
             element={<SecurityCompanyWalletDetails />}
-        />
+        /> */}
         <Route path='securityManagers' element={<SecurityManagers />} />
         <Route path='securityManagers/add' element={<AddSecurityManager />} />
         <Route
