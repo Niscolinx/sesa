@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import { useMutation } from 'react-query'
 import { toast, ToastContainer } from 'react-toastify'
-import useAxios from '../../../../../components/hooks/UseAxios'
+import useAxios from '../../../../../components/hooks/useAxios'
 import Input from '../../../../../components/ui/input/Input'
 
 const AccountSettings = () => {

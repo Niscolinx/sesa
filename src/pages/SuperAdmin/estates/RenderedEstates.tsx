@@ -11,7 +11,7 @@ import {
 import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../store/app/Hooks'
+import { useAppDispatch } from '../../../store/app/hooks'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import AxiosRequest from '../../../utils/axios'

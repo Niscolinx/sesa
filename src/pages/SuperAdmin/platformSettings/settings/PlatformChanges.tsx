@@ -4,7 +4,7 @@ import useFetchData from '../../../../components/hooks/UseFetchData'
 import Input from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 import Spinner from '../../../../components/ui/Spinner'
 
 const PlatformChanges = () => {

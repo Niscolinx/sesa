@@ -4,7 +4,7 @@ import { IoMdAdd } from 'react-icons/io'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 import SingleSelect from '../../../../components/ui/select/SingleSelect'
 import Table from '../../../../components/ui/table/Table'
 

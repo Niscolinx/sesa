@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch } from '../store/app/Hooks'
+import { useAppDispatch } from '../store/app/hooks'
 import { setAuth } from '../store/features/Auth'
 import Login from '../pages/Login'
 import { useNavigate } from 'react-router'

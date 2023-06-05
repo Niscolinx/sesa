@@ -4,7 +4,7 @@ import { useMutation, useQuery } from 'react-query'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import { useNavigate, useParams } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
-import useAxios from '../../../components/hooks/UseAxios'
+import useAxios from '../../../components/hooks/useAxios'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import { ShowImage } from '../../../components/ui/input/ImageInput'
 
@@ -104,7 +104,6 @@ const ViewAdmin = () => {
             data,
         })
     }
- 
 
     const { mutate: post_admin_mutation, isLoading: post_admin_loading } =
         useMutation(postUpdateAdmin, {
@@ -122,7 +121,7 @@ const ViewAdmin = () => {
             },
         })
 
-          const getAdmin = () => {
+    const getAdmin = () => {
         return axiosInstance({
             url: `/admin/get/${admin_id}`,
         })
@@ -150,11 +149,11 @@ const ViewAdmin = () => {
                 phone_number,
             })
 
-           // setPhotoPreview((prev) => prev ?? image)
+            // setPhotoPreview((prev) => prev ?? image)
             setSelectedGender(gender)
         }
     }, [get_response])
-    
+
     const onSubmit = handleSubmit((data) => {
         const { first_name, last_name, dob, email_address, phone_number } = data
 

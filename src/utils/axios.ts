@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios'
 import { AppDispatch } from '../store/app/Store'
 import { setAuth } from '../store/features/Auth'
 import { getToken } from './Token'
-import { useAppDispatch } from '../store/app/Hooks'
+import { useAppDispatch } from '../store/app/hooks'
 
 //const instance = axios.create({ baseURL: 'http://localhost:4000' })
 

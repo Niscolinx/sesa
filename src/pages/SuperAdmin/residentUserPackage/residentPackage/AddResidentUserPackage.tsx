@@ -3,7 +3,7 @@ import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import { IoMdAdd } from 'react-icons/io'
 import { useMutation } from 'react-query'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 import Spinner from '../../../../components/ui/Spinner'
 import { useNavigate } from 'react-router'
 

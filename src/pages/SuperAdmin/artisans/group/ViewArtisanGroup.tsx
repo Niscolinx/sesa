@@ -4,7 +4,7 @@ import useFetchData from '../../../../components/hooks/UseFetchData'
 import { useState, FormEvent, useEffect } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
-import useAxios from '../../../../components/hooks/UseAxios'
+import useAxios from '../../../../components/hooks/useAxios'
 
 export interface IViewArtisanGroup {
     id: string
