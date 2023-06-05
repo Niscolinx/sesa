@@ -17,7 +17,7 @@ import {
 } from 'redux-persist'
 
 import userReducer from '../features/user/User'
-import authReducer from '../features/Auth'
+import authReducer from '../features/auth'
 
 const persistConfig = {
     key: 'root',

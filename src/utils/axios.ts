@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { AppDispatch } from '../store/app/Store'
-import { setAuth } from '../store/features/Auth'
+import { setAuth } from '../store/features/auth'
 import { getToken } from './Token'
 import { useAppDispatch } from '../store/app/hooks'
 

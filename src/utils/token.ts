@@ -1,4 +1,4 @@
-import { setAuth } from '../store/features/Auth'
+import { setAuth } from '../store/features/auth'
 import { useAppDispatch } from '../store/app/hooks'
 
 export const isAuthenticated = (): string | null => {
