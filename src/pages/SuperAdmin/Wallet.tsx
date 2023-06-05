@@ -4,7 +4,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import OverviewChart from '../../components/superAdmin/charts/OverviewChart'
 import { OverviewWallet } from '../../components/superAdmin/overview/OverviewWallets'
-import useAxios from '../../components/hooks/UseAxios'
+import useAxios from '../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
 import useFetchData from '../../components/hooks/UseFetchData'
 

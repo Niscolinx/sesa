@@ -7,10 +7,10 @@ import { useEffect } from 'react'
 function Dashboard() {
     const navigate = useNavigate()
     useEffect(() => {
-        const role = localStorage.getItem('role')
-        if (role?.indexOf('estate') === -1) {
-            navigate('/')
-        }
+        // const role = localStorage.getItem('role')
+        // if (role?.indexOf('estate') === -1) {
+        //     navigate('/')
+        // }
     }, [])
     return (
         <div className='dashboard'>

@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
 import { setAuth, storeToken } from '../store/features/auth'
 import useAxios from '../components/hooks/useAxios'
-import { useAppDispatch } from '../store/app/Hooks'
+import { useAppDispatch } from '../store/app/hooks'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -85,7 +85,9 @@ const Login = () => {
         let { email } = data
 
         email = email.toLowerCase().trim()
-        return mutate(data)
+       // return mutate(data)
+                       navigate('/estateManager')
+
     })
 
     return (

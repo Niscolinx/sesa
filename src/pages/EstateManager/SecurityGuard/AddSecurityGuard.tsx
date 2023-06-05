@@ -17,6 +17,7 @@ import {
     PhoneNumber,
     Voters_Card,
 } from '../../securityCompany/dashboard/company/addSecurity/Inputs'
+import SingleSelect from '../../../components/ui/select/SingleSelect'
 
 type DialogType = 'validate' | 'add-securityGuard' | 'reassign'
 

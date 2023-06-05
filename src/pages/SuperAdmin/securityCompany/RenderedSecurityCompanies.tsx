@@ -12,7 +12,7 @@ import { TbCurrencyNaira } from 'react-icons/tb'
 
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../store/app/Hooks'
-import useAxios from '../../../components/hooks/UseAxios'
+import useAxios from '../../../components/hooks/useAxios'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 
