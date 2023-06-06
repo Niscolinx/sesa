@@ -41,7 +41,7 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        console.log('hs')
+        console.log('hs#')
         const handler = (e: MouseEvent) => {
             if (
                 containerRef.current &&
