@@ -5,7 +5,7 @@ import Sidebar from '../../components/superadmin/dashboard/Sidebar'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 
 import BreadCrumb from '../../components/ui/BreadCrumb'
-import PrevLocation from '../../components/hooks/PrevLocation'
+import PrevLocation from '../../components/hooks/usePrevLocation'
 import AutoLogout from '../../components/AutoLogout'
 import { useEffect } from 'react'
 

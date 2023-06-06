@@ -3,7 +3,7 @@ import AccountSettings from './settings/account/AccountSettings'
 import PropertyType from './settings/property/PropertyType'
 import PlatformChanges from './settings/PlatformChanges'
 import SOSTable from './settings/sos/SOSTable'
-import PrevLocation from '../../../components/hooks/PrevLocation'
+import PrevLocation from '../../../components/hooks/usePrevLocation'
 
 type PathSwitch =
     | 'platform_charges'

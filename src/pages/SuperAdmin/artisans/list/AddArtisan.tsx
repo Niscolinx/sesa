@@ -10,8 +10,8 @@ import ImageInput from '../../../../components/ui/input/ImageInput'
 import useAxios from '../../../../components/hooks/useAxios'
 import useFetchData from '../../../../components/hooks/UseFetchData'
 import Spinner from '../../../../components/ui/Spinner'
-import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
 import AddBtn from '../../../../components/ui/button/AddBtn'
+import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
 
 type DialogType = 'validate' | 'add-Artisan'
 
