@@ -23,7 +23,6 @@ import { Route } from 'react-router-dom'
 import estateManagerRoutes from './routes/EstateManagerRoutes'
 import { useAppSelector } from '../store/app/hooks'
 import { selectAuth } from '../store/features/auth'
-import AutoLogout from '../components/AutoLogout'
 
 const App = () => {
     const { isAuth } = useAppSelector(selectAuth)
