@@ -45,9 +45,9 @@ import ReportDetail from '../../pages/estateManager/reports/ReportDetail'
 import Reports from '../../pages/estateManager/reports/Reports'
 import ApprovalDetail from '../../pages/estateManager/approvals/ApprovalDetail'
 import EnergyToken from '../../pages/estateManager/energyToken/EnergyToken'
-import BulkUpload from '../../pages/estateManager/energyToken/bulkUpload'
 import EditHousehold from '../../pages/estateManager/household/editHouseHold/EditHousehold'
 import Artisan from '../../pages/superadmin/artisans/Artisan'
+import BulkUpload from '../../pages/estateManager/energyToken/bulkUpload'
 
 const EstateManagerRoutes = (
     <Route path='/estateManager' element={<Dashboard />}>
