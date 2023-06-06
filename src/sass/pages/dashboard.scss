@@ -1,0 +1,8 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: max-content auto;
+    height: 100vh;
+    //background-color: $color-grey;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
