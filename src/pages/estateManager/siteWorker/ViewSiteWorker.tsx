@@ -25,7 +25,15 @@ function ViewSiteWorker() {
         selectProps?: SelectProps
     }
 
-    const workdaysState = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    const workdaysState = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+    ]
 
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -97,10 +105,11 @@ function ViewSiteWorker() {
                 )
                 .map(({ name }: any) => name)[0]
 
-            
+            const transFormedDays = JSON.parse(work_days)
+
             setPhone(phone)
             setSelectedGender(gender)
-            setSelectedWorkdays(work_days)
+            setSelectedWorkdays(transFormedDays)
             setSelectedState(getState)
 
             reset({
@@ -254,7 +263,6 @@ function ViewSiteWorker() {
                 close={setOpenDialog}
             />
             <ToastContainer />
-
             <div className='flex justify-between items-center mb-10'>
                 <ValidatedResult
                     image={photoPreview}
@@ -335,16 +343,15 @@ function ViewSiteWorker() {
                     </section>
                 )}
             </div>
-            <form
-                onSubmit={handleSubmit}
-                className='grid max-w-[84rem] gap-16 mt-12 '
-                style={{
-                    gridTemplateColumns:
-                        ' repeat(auto-fit, minmax(35rem, 1fr))',
-                    columnGap: '10rem',
-                }}
-            >
-                <>
+            <form onSubmit={handleSubmit}>
+                <div
+                    className='grid max-w-[84rem] gap-16 mt-12 '
+                    style={{
+                        gridTemplateColumns:
+                            ' repeat(auto-fit, minmax(35rem, 1fr))',
+                        columnGap: '10rem',
+                    }}
+                >
                     {formInputs.map((input, idx) => {
                         const {
                             label,
@@ -376,13 +383,12 @@ function ViewSiteWorker() {
                             />
                         )
                     })}
-                    <div className='grid items-center'>
+                    <div className='grid items-center mb-10'>
                         <ValidateKY title={'Know your Estate Staff'} />
                     </div>
-
-                    <AddBtn isLoading={postLoading} />
-                </>
-            </form>
+                </div>
+                <AddBtn isLoading={postLoading} />
+            </form>{' '}
         </div>
     )
 }
