@@ -25,7 +25,7 @@ function ViewSiteWorker() {
         selectProps?: SelectProps
     }
 
-    const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
+    const workdaysState = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -90,12 +90,6 @@ function ViewSiteWorker() {
             const { phone_number, gender, work_days, state_name } = data
 
             const phone = parseInt(phone_number.slice(4))
-            setPhone(phone)
-            setSelectedGender(gender)
-            setSelectedWorkdays(work_days)
-
-            console.log(states_data, state_name)
-
             const getState: string = states_data
                 .filter(
                     ({ name }: any) =>
@@ -103,8 +97,10 @@ function ViewSiteWorker() {
                 )
                 .map(({ name }: any) => name)[0]
 
-            console.log(getState)
-
+            
+            setPhone(phone)
+            setSelectedGender(gender)
+            setSelectedWorkdays(work_days)
             setSelectedState(getState)
 
             reset({
