@@ -107,15 +107,18 @@ function ViewSiteWorker() {
 
             const transFormedDays = JSON.parse(work_days)
 
-            if(property) {
-                setIsPropertyLoaded(true)
-                setPropertyCode(property)
-            }
+            // if(property) {
+            //     //setIsPropertyLoaded(true)
+
+            //     console.log(property)
+            //     setPropertyCode(property)
+            // }
 
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(transFormedDays)
-            setSelectedState(getState)
+            console.log({getState})
+            //setSelectedState(getState)
 
             
 
