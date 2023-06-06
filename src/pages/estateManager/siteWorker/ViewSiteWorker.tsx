@@ -46,14 +46,7 @@ function ViewSiteWorker() {
 
     const id = params.id?.replace(':', '')
 
-    if (!id) {
-        toast('Site Worker not Found', {
-            type: 'error',
-            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
-        })
-
-        navigate(-1)
-    }
+    
 
     const {
         isLoading: active_properties_loading,
@@ -96,13 +89,18 @@ function ViewSiteWorker() {
 
     useEffect(() => {
         if (data) {
-            const { phone_number, gender, work_days } = data
+            const { phone_number, gender, work_days, state_name } = data
 
             const phone = parseInt(phone_number.slice(4))
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
-            setSelectedState(work_days)
+        
+            const getState: string = states_data.map(({ name }: any) => {
+                return name.toLowerCase() === state_name.toLowerCase()
+            })[0]
+
+            setSelectedState(getState)
 
             reset({
                 ...data,
@@ -110,6 +108,15 @@ function ViewSiteWorker() {
             })
         }
     }, [data])
+
+    if (!id) {
+        toast('Site Worker not Found', {
+            type: 'error',
+            className: 'bg-red-100 text-red-600 text-[1.4rem] capitalize',
+        })
+
+        navigate(-1)
+    }
 
     if (states_loading || active_properties_loading || isLoading) {
         return <Spinner start={true} />
