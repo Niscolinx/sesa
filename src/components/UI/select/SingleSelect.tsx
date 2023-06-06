@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../../../pages/estatemanager/securityGuard/AddSecurityGuard'
+import { ValidateInputTypes } from '../../../pages/estateManager/securityGuard/AddSecurityGuard'
 
 export interface ISelect<T> {
     state: Array<string>

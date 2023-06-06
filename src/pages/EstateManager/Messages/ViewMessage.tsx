@@ -1,13 +1,13 @@
 import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import { Message } from './RenderMessages'
+import { Message } from './RenderMessage'
 
 const ViewMessage = () => {
     const location = useLocation()
-    
+
     const messageData = location.state || {}
-    
+
     const {
         id,
         date,
@@ -42,7 +42,7 @@ const ViewMessage = () => {
         })
     }
 
-    if(!messageData){
+    if (!messageData) {
         return null
     }
 
@@ -108,7 +108,7 @@ const ViewMessage = () => {
                                         fontFamily: 'Satoshi-Medium',
                                     }}
                                 >
-                                   {status  === 'Sent' ? (
+                                    {status === 'Sent' ? (
                                         <span className='text-green-600'>
                                             {status}
                                         </span>
@@ -186,9 +186,7 @@ const ViewMessage = () => {
                                 </p>
                             </div>
                             <div className='flex items-center gap-2 my-[8rem]'>
-                                <p className=' '>
-                                    {description}
-                                </p>
+                                <p className=' '>{description}</p>
                             </div>
                         </div>
                     </div>
