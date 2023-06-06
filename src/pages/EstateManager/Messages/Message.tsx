@@ -6,7 +6,7 @@ function Message() {
     const [isMessage, setIsMessage] = useState(false)
 
     const addMessageHandler = () => {
-        setIsMessage(true)
+        setIsMessage(true) 
     }
 
     return (

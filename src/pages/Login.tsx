@@ -82,11 +82,8 @@ const Login = () => {
     })
 
     const onSubmit = handleSubmit((data) => {
-        let { email } = data
-
-        email = email.toLowerCase().trim()
-       // return mutate(data)
-                       navigate('/estateManager')
+       
+       return mutate(data)
 
     })
 
