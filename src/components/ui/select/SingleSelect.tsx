@@ -82,6 +82,10 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
         setSelectedState('')
     }
 
+    useEffect(() => {
+        console.log({selectedState})
+    }, [selectedState])
+
     return (
         <div
             className={`relative grid self-baseline capitalize ${
