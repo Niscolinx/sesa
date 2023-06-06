@@ -280,10 +280,10 @@ function ViewSiteWorker() {
 
                 <Activate_Deactivate
                     id={id!}
-                    url={'/manager/estate-admin/deactivate_activate'}
+                    url={'/site-worker/deactivate_activate'}
                     status={data?.status}
-                    title={'Estate Staff'}
-                    queryCache={`view_estate_staff_${id}`}
+                    title={'Site Worker'}
+                    queryCache={`view_site_worker_${id}`}
                 />
             </div>
             <div>
