@@ -1,7 +1,5 @@
-import { useAtom } from 'jotai'
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import { useNavigate } from 'react-router'
 import RenderMessages from './RenderMessages'
 
 function Message() {
