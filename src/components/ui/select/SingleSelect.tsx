@@ -26,10 +26,8 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
     label,
     placeholder,
     kyr,
-    id,
     absolute = true,
     selectFormErrors,
-    fullWidth,
     color,
     isSearchable = false,
 }) => {

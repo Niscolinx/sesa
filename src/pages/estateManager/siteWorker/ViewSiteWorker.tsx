@@ -142,6 +142,8 @@ function ViewSiteWorker() {
         return <Spinner start={true} />
     }
 
+    console.log('propertyData', propertyData)
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
