@@ -11,9 +11,9 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 import { useNavigate } from 'react-router-dom'
-import DialogWithdrawalSteps from '../../../components/estateManager/wallet/DialogWithdrawalSteps'
-import WalletBarChart from '../../../components/superAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../components/superAdmin/overview/OverviewWallets'
+import DialogWithdrawalSteps from '../../../components/estatemanager/wallet/DialogWithdrawalSteps'
+import WalletBarChart from '../../../components/superadmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../components/superadmin/overview/OverviewWallets'
 
 export interface TransactionHistory {
     id: number

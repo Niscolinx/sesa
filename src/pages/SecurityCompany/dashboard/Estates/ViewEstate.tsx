@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useMatches } from 'react-router-dom'
 
 import { Link, useNavigate } from 'react-router-dom'
-import OverviewCard from '../../../../components/superAdmin/overview/OverviewCard'
+import OverviewCard from '../../../../components/superadmin/overview/OverviewCard'
 
 export interface Overview {
     id: number

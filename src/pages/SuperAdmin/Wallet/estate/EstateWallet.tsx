@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import WalletBarChart from '../../../../components/superAdmin/charts/WalletBarChart'
-import { OverviewWallet } from '../../../../components/superAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../../components/superadmin/charts/WalletBarChart'
+import { OverviewWallet } from '../../../../components/superadmin/overview/OverviewWallets'
 
 import Table from '../../../../components/ui/table/Table'
 import useFetchData from '../../../../components/hooks/UseFetchData'

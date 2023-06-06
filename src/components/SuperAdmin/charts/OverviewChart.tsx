@@ -1,6 +1,6 @@
 import { PieChart, Pie, Cell } from 'recharts'
-import { overviewChart_colors } from '../../../pages/superAdmin/Overview'
-import { overviewChart_data } from '../../../pages/superAdmin/Wallet'
+import { overviewChart_colors } from '../../../pages/superadmin/Overview'
+import { overviewChart_data } from '../../../pages/superadmin/Wallet'
 import { IEstateChart } from './WalletBarChart'
 
 export const estateChart_data = [

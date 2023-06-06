@@ -5,8 +5,8 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
-import OverviewCard from '../../../components/superAdmin/overview/OverviewCard'
-import { OverviewWallet } from '../../../components/superAdmin/overview/OverviewWallets'
+import OverviewCard from '../../../components/superadmin/overview/OverviewCard'
+import { OverviewWallet } from '../../../components/superadmin/overview/OverviewWallets'
 
 export interface Overview {
     id: number

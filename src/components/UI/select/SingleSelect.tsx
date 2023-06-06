@@ -1,8 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../../../pages/estateManager/securityGuard/AddSecurityGuard'
-
+import { ValidateInputTypes } from '../../../pages/estatemanager/securityGuard/AddSecurityGuard'
 
 export interface ISelect<T> {
     state: Array<string>
@@ -20,8 +19,7 @@ export interface ISelect<T> {
     color?: string
 }
 
-
- const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
+const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
     state,
     selectedState,
     setSelectedState,

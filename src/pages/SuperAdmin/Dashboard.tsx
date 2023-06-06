@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from 'react-router'
-import Header from '../../components/superAdmin/dashboard/Header'
-import Sidebar from '../../components/superAdmin/dashboard/Sidebar'
+import Header from '../../components/superadmin/dashboard/Header'
+import Sidebar from '../../components/superadmin/dashboard/Sidebar'
 // import Header from '../../../../components/SuperAdmin/dashboard/Header'
 // import Sidebar from '../../components/SuperAdmin/dashboard/Sidebar'
 

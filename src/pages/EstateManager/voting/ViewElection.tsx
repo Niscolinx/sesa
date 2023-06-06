@@ -3,13 +3,13 @@ import { AiOutlineDoubleRight } from 'react-icons/ai'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { ElectionInfo } from './Voting'
-import { EstateChart as Chart } from '../../../components/superAdmin/charts/OverviewChart'
+import { EstateChart as Chart } from '../../../components/superadmin/charts/OverviewChart'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
 import { IoMdClose } from 'react-icons/io'
 import {
     PhoneNumber,
     ResidentCode,
-} from '../../securityCompany/dashboard/company/addSecurity/Inputs'
+} from '../../securitycompany/dashboard/company/addSecurity/Inputs'
 
 const ViewElection = () => {
     const navigate = useNavigate()

@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from 'react-router'
-import Sidebar from '../../components/estateManager/Sidebar'
-import Header from '../../components/superAdmin/dashboard/Header'
+import Sidebar from '../../components/estatemanager/Sidebar'
+import Header from '../../components/superadmin/dashboard/Header'
 import BreadCrumb from '../../components/ui/BreadCrumb'
 import { useEffect } from 'react'
 

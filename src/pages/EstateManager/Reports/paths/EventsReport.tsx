@@ -3,7 +3,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown, GrUp } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
-import ReportChart from '../../../../components/superAdmin/charts/ReportsChart'
+import ReportChart from '../../../../components/superadmin/charts/ReportsChart'
 
 export interface ReportDetail {
     id: number

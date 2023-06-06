@@ -1,4 +1,4 @@
-import OverviewCard from '../../../components/estateManager/OverviewCard'
+import OverviewCard from '../../../components/estatemanager/OverviewCard'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'

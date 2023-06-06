@@ -3,8 +3,8 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 import { GrDown } from 'react-icons/gr'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import OverviewChart from '../../../components/superAdmin/charts/OverviewChart'
-import WalletBarChart from '../../../components/superAdmin/charts/WalletBarChart'
+import OverviewChart from '../../../components/superadmin/charts/OverviewChart'
+import WalletBarChart from '../../../components/superadmin/charts/WalletBarChart'
 
 interface Spreadsheet {
     id: string

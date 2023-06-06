@@ -1,9 +1,9 @@
-import OverviewChart from '../../components/superAdmin/charts/OverviewChart'
+import OverviewChart from '../../components/superadmin/charts/OverviewChart'
 
-import { OverviewWallet } from '../../components/superAdmin/overview/OverviewWallets'
+import { OverviewWallet } from '../../components/superadmin/overview/OverviewWallets'
 import OverviewCard, {
     OverviewCard_CheckIn,
-} from '../../components/estateManager/OverviewCard'
+} from '../../components/estatemanager/OverviewCard'
 import React from 'react'
 
 export const overviewChart_data = [

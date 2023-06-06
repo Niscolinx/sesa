@@ -1,5 +1,5 @@
-import { EstateChart } from '../../../../components/superAdmin/charts/OverviewChart'
-import { EstateBarChart } from '../../../../components/superAdmin/charts/WalletBarChart'
+import { EstateChart } from '../../../../components/superadmin/charts/OverviewChart'
+import { EstateBarChart } from '../../../../components/superadmin/charts/WalletBarChart'
 
 const EstateWorkRate = () => {
     return (

@@ -1,6 +1,6 @@
 import { IoMdAdd } from 'react-icons/io'
 import { Link } from 'react-router-dom'
-import { EstateChart as Chart } from '../../../components/superAdmin/charts/OverviewChart'
+import { EstateChart as Chart } from '../../../components/superadmin/charts/OverviewChart'
 
 function TokenList() {
     const property_data = [

@@ -11,9 +11,9 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi'
 import { IoMdAdd, IoMdClose } from 'react-icons/io'
 
 import { Link, useNavigate } from 'react-router-dom'
-import WalletBarChart from '../../../../components/superAdmin/charts/WalletBarChart'
-import OverviewCard from '../../../../components/superAdmin/overview/OverviewCard'
-import { OverviewWallet } from '../../../../components/superAdmin/overview/OverviewWallets'
+import WalletBarChart from '../../../../components/superadmin/charts/WalletBarChart'
+import OverviewCard from '../../../../components/superadmin/overview/OverviewCard'
+import { OverviewWallet } from '../../../../components/superadmin/overview/OverviewWallets'
 
 export interface TransactionHistory {
     id: number

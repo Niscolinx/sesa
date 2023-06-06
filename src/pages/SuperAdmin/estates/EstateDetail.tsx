@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import OverviewCard from '../../../components/superAdmin/overview/OverviewCard'
+import OverviewCard from '../../../components/superadmin/overview/OverviewCard'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import Table from '../../../components/ui/table/Table'
 

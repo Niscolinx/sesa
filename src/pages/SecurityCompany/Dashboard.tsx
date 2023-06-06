@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
-import Sidebar from '../../components/securityCompany/Sidebar'
-import Header from '../../components/superAdmin/dashboard/Header'
+import Sidebar from '../../components/securitycompany/Sidebar'
+import Header from '../../components/superadmin/dashboard/Header'
 import BreadCrumb from '../../components/ui/BreadCrumb'
 
 function Dashboard() {
