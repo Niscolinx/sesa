@@ -94,14 +94,18 @@ function ViewSiteWorker() {
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
 
-            console.log(states_data)
-            const getState: string = states_data.map(({ name }: any) => {
-                return name.toLowerCase() === state_name.toLowerCase()
-            })[0]
+            console.log(states_data, state_name)
+
+            const getState: string = states_data
+                .filter(
+                    ({ name }: any) =>
+                        name.toLowerCase() === state_name.toLowerCase()
+                )
+                .map(({ name }: any) => name)[0]
 
             console.log(getState)
 
-            //setSelectedState(getState)
+            setSelectedState(getState)
 
             reset({
                 ...data,
