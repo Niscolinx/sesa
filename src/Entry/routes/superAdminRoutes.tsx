@@ -50,7 +50,7 @@ import EstateWallet from '../../pages/superadmin/wallet/estate/EstateWallet'
 import ResidentWallet from '../../pages/superadmin/wallet/resident/ResidentWallet'
 import ResidentWalletDetails from '../../pages/superadmin/wallet/resident/ResidentWalletDetails'
 import SecurityCompanyWallet from '../../pages/superadmin/wallet/security/SecurityCompanyWallet'
-import PlatformSettings from '../../pages/superadmin/platformSettings/platformSettings'
+import PlatformSettings from '../../pages/superadmin/platformSettings/PlatformSettings'
 import EstateWalletDetails from '../../pages/superadmin/wallet/estate/EstateWalletDetails'
 
 const SuperAdminRoutes = (
