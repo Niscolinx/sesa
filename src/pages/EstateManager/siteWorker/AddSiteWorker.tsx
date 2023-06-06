@@ -5,7 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../components/ui/dialog/sValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
 import SingleSelect from '../../../components/ui/select/SingleSelect'
@@ -213,13 +213,13 @@ function AddSiteWorker() {
         }
 
         const stateId = states_data.find(
-            ({ name }: any) => name.toLowerCase() === selectedState.toLowerCase()
+            ({ name }: any) =>
+                name.toLowerCase() === selectedState.toLowerCase()
         )
 
         setStateId(stateId.id)
-        
 
-       onSubmit()
+        onSubmit()
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)

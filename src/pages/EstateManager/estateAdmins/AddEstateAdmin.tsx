@@ -5,7 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../components/ui/dialog/sValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer } from 'react-toastify'
 
@@ -47,7 +47,7 @@ function AddEstateAdmin() {
         props: {
             permission: selectedPermissions,
             is_kyr_approved: 0,
-            validation_option: 'phone_number'
+            validation_option: 'phone_number',
         },
     })
 
@@ -107,7 +107,7 @@ function AddEstateAdmin() {
                 title={'estate admin'}
                 close={setOpenDialog}
             />
-            <ToastContainer/>
+            <ToastContainer />
 
             <form
                 onSubmit={onSubmit}

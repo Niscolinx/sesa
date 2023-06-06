@@ -5,7 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../components/ui/dialog/sValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { ToastContainer, toast } from 'react-toastify'
 import { useParams, useNavigate } from 'react-router'
@@ -27,8 +27,7 @@ function ViewEstateStaff() {
 
     type Workdays = { name: string; disabled: boolean; id: number }
 
-       const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
-
+    const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
 
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
@@ -56,9 +55,6 @@ function ViewEstateStaff() {
         navigate(-1)
     }
 
-    
-
-
     const {
         clearErrors,
         formErrors,
@@ -84,23 +80,19 @@ function ViewEstateStaff() {
         },
     })
 
-
     const { isLoading, data } = useFetchData({
         url: `/estate-staff/getbyid/${id}`,
         name: `view_estate_staff_${id}`,
     })
 
-   
-
     useEffect(() => {
         if (data) {
-            const {  phone_number, gender, work_days } = data
+            const { phone_number, gender, work_days } = data
 
             const phone = parseInt(phone_number.slice(4))
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
-
 
             reset({
                 ...data,
@@ -110,14 +102,12 @@ function ViewEstateStaff() {
     }, [data])
 
     if (states_loading || isLoading) {
-        
         return <Spinner start={true} />
     }
-   
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        
+
         if (selectedWorkdays.length < 1) {
             return setSelectFormErrors((prev) => {
                 return {
@@ -132,76 +122,74 @@ function ViewEstateStaff() {
 
     const closeBankModal = () => {
         setOpenBank(false)
-    
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
 
-     const formInputs = [
-         {
-             label: 'firstname',
-         },
-         {
-             label: 'lastname',
-         },
-         {
-             label: 'middlename',
-         },
-         {
-             name: 'Email Address',
-             label: 'email',
-             type: 'email',
-         },
-         {
-             label: 'phone_number',
-             type: 'tel',
-             required: false,
-             value: phone,
-         },
-         {
-             label: 'date_of_birth',
-             type: 'date',
-         },
-         {
-             label: 'gender',
-             type: 'select',
-             selectProps: {
-                 state: genderState,
-                 selectedState: selectedGender,
-                 setSelectedState: setSelectedGender,
-             },
-         },
-         {
-             label: 'work_days',
-             type: 'select',
-             selectProps: {
-                 state: workdaysState,
-                 isMulti: true,
-                 selectedState: selectedWorkdays,
-                 setSelectedState: setSelectedWorkdays,
-             },
-         },
-         {
-             label: 'State',
-             type: 'select',
-             selectProps: {
-                 state: slicedStates,
-                 isSearchable: true,
-                 selectedState: selectedState,
-                 setSelectedState: setSelectedState,
-             },
-         },
+    const formInputs = [
+        {
+            label: 'firstname',
+        },
+        {
+            label: 'lastname',
+        },
+        {
+            label: 'middlename',
+        },
+        {
+            name: 'Email Address',
+            label: 'email',
+            type: 'email',
+        },
+        {
+            label: 'phone_number',
+            type: 'tel',
+            required: false,
+            value: phone,
+        },
+        {
+            label: 'date_of_birth',
+            type: 'date',
+        },
+        {
+            label: 'gender',
+            type: 'select',
+            selectProps: {
+                state: genderState,
+                selectedState: selectedGender,
+                setSelectedState: setSelectedGender,
+            },
+        },
+        {
+            label: 'work_days',
+            type: 'select',
+            selectProps: {
+                state: workdaysState,
+                isMulti: true,
+                selectedState: selectedWorkdays,
+                setSelectedState: setSelectedWorkdays,
+            },
+        },
+        {
+            label: 'State',
+            type: 'select',
+            selectProps: {
+                state: slicedStates,
+                isSearchable: true,
+                selectedState: selectedState,
+                setSelectedState: setSelectedState,
+            },
+        },
 
-         {
-             label: 'security_guard_message',
-             name: 'security_guard_message',
-             type: 'textarea',
-             fullWidth: true,
-             placeholder:
-                 'The message will be displayed to the security guard when the site worker checks In/Out',
-         },
-     ] satisfies FormInputs[]
-
+        {
+            label: 'security_guard_message',
+            name: 'security_guard_message',
+            type: 'textarea',
+            fullWidth: true,
+            placeholder:
+                'The message will be displayed to the security guard when the site worker checks In/Out',
+        },
+    ] satisfies FormInputs[]
 
     return (
         <div className='bg-white rounded-2xl grid p-8'>
@@ -214,7 +202,7 @@ function ViewEstateStaff() {
                 type={'updated'}
                 close={setOpenDialog}
             />
-            <AddBank open={openBank} close={closeBankModal}/>
+            <AddBank open={openBank} close={closeBankModal} />
             <ToastContainer />
 
             <div className='flex justify-between items-center mb-10'>
@@ -297,7 +285,10 @@ function ViewEstateStaff() {
                 </p>
                 <p>
                     No account information created.{' '}
-                    <span className='text-[#0556E5] font-Satoshi-Medium cursor-pointer' onClick={() => setOpenBank(true)}>
+                    <span
+                        className='text-[#0556E5] font-Satoshi-Medium cursor-pointer'
+                        onClick={() => setOpenBank(true)}
+                    >
                         Create a bank account
                     </span>
                 </p>

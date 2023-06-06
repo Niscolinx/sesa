@@ -9,7 +9,7 @@ import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import ValidatedResult from '../../../../components/ui/dialog/ValidatedResult'
-import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../../components/ui/dialog/sValidateKY'
 
 const ArtisanDetail = () => {
     interface Inputs {
@@ -155,14 +155,14 @@ const ArtisanDetail = () => {
         }
     }, [get_response])
 
-     const handlePicture = (e: React.ChangeEvent) => {
-         const target = e.target as HTMLInputElement
-         const file: File = (target.files as FileList)[0]
+    const handlePicture = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLInputElement
+        const file: File = (target.files as FileList)[0]
 
-         const preview = URL.createObjectURL(file)
-         setPhotoPreview(preview)
-         setImageFile(file)
-     }
+        const preview = URL.createObjectURL(file)
+        setPhotoPreview(preview)
+        setImageFile(file)
+    }
 
     if (isLoading) {
         return <p className='p-8'>Loading...</p>
@@ -287,7 +287,7 @@ const ArtisanDetail = () => {
                                     )
                                 })}
                             </section>
-                            <ValidateKY title={'Validate Artisan'}/>
+                            <ValidateKY title={'Validate Artisan'} />
                         </div>
 
                         <button className='btn text-white bg-color-blue-1 flex items-center gap-4 py-4 px-16 rounded-lg justify-self-start capitalize'>

@@ -4,7 +4,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import ValidateKY from '../../../components/ui/dialog/ValidateKY'
+import ValidateKY from '../../../components/ui/dialog/sValidateKY'
 import useFetchData from '../../../components/hooks/UseFetchData'
 import { useNavigate, useParams } from 'react-router'
 import { toast } from 'react-toastify'
@@ -41,7 +41,6 @@ function ViewEstateAdmin() {
         navigate(-1)
     }
 
-
     const {
         clearErrors,
         formErrors,
@@ -66,7 +65,6 @@ function ViewEstateAdmin() {
         },
     })
 
-
     const { isLoading: estate_admin_loading, data } = useFetchData({
         url: `/manager/estate-admin/get/${id}`,
         name: `view_estate_admin_${id}`,
@@ -76,7 +74,6 @@ function ViewEstateAdmin() {
         url: '/manager/estate-admin/permission',
         name: 'estate-admin_permissions',
     })
-
 
     useEffect(() => {
         if (data) {
