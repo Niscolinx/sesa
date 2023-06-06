@@ -7,7 +7,7 @@ import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import { ToastContainer, toast } from 'react-toastify'
-import useFetchData from '../../../components/hooks/usseFetchData'
+import useFetchData from '../../../components/hooks/useFetchData'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 

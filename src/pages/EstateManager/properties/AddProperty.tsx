@@ -5,7 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import useFetchData from '../../../components/hooks/usseFetchData'
+import useFetchData from '../../../components/hooks/useFetchData'
 import { ToastContainer } from 'react-toastify'
 
 function AddProperty() {

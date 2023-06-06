@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 
 import { toast, ToastContainer } from 'react-toastify'
-import useFetchData from '../../../../components/hooks/usseFetchData'
+import useFetchData from '../../../../components/hooks/useFetchData'
 import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useForm } from 'react-hook-form'
 import useAxios from '../../../../components/hooks/useAxios'
