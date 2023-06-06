@@ -46,8 +46,6 @@ function ViewSiteWorker() {
 
     const id = params.id?.replace(':', '')
 
-    
-
     const {
         isLoading: active_properties_loading,
         data: active_properties_data,
@@ -95,12 +93,15 @@ function ViewSiteWorker() {
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(work_days)
-        
+
+            console.log(states_data)
             const getState: string = states_data.map(({ name }: any) => {
                 return name.toLowerCase() === state_name.toLowerCase()
             })[0]
 
-            setSelectedState(getState)
+            console.log(getState)
+
+            //setSelectedState(getState)
 
             reset({
                 ...data,
@@ -378,7 +379,7 @@ function ViewSiteWorker() {
                     <div className='grid items-center'>
                         <ValidateKY title={'Know your Estate Staff'} />
                     </div>
-                   
+
                     <AddBtn isLoading={postLoading} />
                 </>
             </form>
