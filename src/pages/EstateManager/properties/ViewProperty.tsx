@@ -5,7 +5,7 @@ import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
-import useFetchData from '../../../components/hooks/UseFetchData'
+import useFetchData from '../../../components/hooks/usseFetchData'
 import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate, useParams } from 'react-router'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
@@ -26,7 +26,6 @@ function AddProperty() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedType, setSelectedType] = useState('')
     const [isName, setIsName] = useState(true)
-
 
     const params = useParams()
     const navigate = useNavigate()
@@ -61,7 +60,7 @@ function AddProperty() {
         title: `view_property_${id}`,
         url: `/property/update/${id}`,
         props: {
-             property_type: selectedType,
+            property_type: selectedType,
             property_category: selectedCategory,
         },
     })
@@ -81,13 +80,13 @@ function AddProperty() {
 
     useEffect(() => {
         if (data) {
-            const {  property_category, image_url } = data
-        
+            const { property_category, image_url } = data
+
             setPhotoPreview(image_url)
             setSelectedCategory(property_category)
 
             reset({
-               ...data
+                ...data,
             })
         }
     }, [data])

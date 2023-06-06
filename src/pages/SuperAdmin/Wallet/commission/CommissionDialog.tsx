@@ -2,7 +2,7 @@ import React, { FormEvent, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
 import { OverviewWallet } from '../../../../components/superadmin/overview/OverviewWallets'
-import useFetchData from '../../../../components/hooks/UseFetchData'
+import useFetchData from '../../../../components/hooks/useFetchData'
 import WalletBarChart from '../../../../components/superadmin/charts/WalletBarChart'
 
 function CommissionDialog() {

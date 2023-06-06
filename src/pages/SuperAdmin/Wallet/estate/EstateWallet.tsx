@@ -4,7 +4,7 @@ import WalletBarChart from '../../../../components/superadmin/charts/WalletBarCh
 import { OverviewWallet } from '../../../../components/superadmin/overview/OverviewWallets'
 
 import Table from '../../../../components/ui/table/Table'
-import useFetchData from '../../../../components/hooks/UseFetchData'
+import useFetchData from '../../../../components/hooks/useFetchData'
 
 const EstateWallet = () => {
     type Path = 'balance' | 'history'

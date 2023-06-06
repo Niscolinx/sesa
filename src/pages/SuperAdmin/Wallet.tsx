@@ -6,7 +6,7 @@ import OverviewChart from '../../components/superadmin/charts/OverviewChart'
 import { OverviewWallet } from '../../components/superadmin/overview/OverviewWallets'
 import useAxios from '../../components/hooks/useAxios'
 import { useQuery } from 'react-query'
-import useFetchData from '../../components/hooks/UseFetchData'
+import useFetchData from '../../components/hooks/usseFetchData'
 
 export const overviewChart_data = [
     { name: 'Resident Wallet', value: 10, color: '#098DFF' },

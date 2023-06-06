@@ -1,4 +1,4 @@
-import useFetchData from '../../../components/hooks/UseFetchData'
+import useFetchData from '../../../components/hooks/usseFetchData'
 import Spinner from '../../../components/ui/Spinner'
 import Table from '../../../components/ui/table/Table'
 
@@ -34,7 +34,7 @@ function Household() {
         //         data_to_display={[
         //             'property_code',
         //             'property_type',
-                   
+
         //             'status',
         //         ]}
         //         deactivateProp={{

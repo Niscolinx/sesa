@@ -5,7 +5,7 @@ import { useMutation } from 'react-query'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
 import ImageInput from '../../../components/ui/input/ImageInput'
 import useAxios from '../../../components/hooks/useAxios'
-import useFetchData from '../../../components/hooks/UseFetchData'
+import useFetchData from '../../../components/hooks/usseFetchData'
 import Spinner from '../../../components/ui/Spinner'
 import { useNavigate } from 'react-router-dom'
 

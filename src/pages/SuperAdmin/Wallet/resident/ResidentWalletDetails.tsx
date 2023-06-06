@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
-import useFetchData from '../../../../components/hooks/UseFetchData'
+import useFetchData from '../../../../components/hooks/useFetchData'
 import Input from '../../../../components/ui/input/Input'
 
 const ResidentWalletDetails = () => {

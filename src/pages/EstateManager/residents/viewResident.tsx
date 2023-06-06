@@ -7,12 +7,11 @@ import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
 import useAddPageMutation from '../../../components/hooks/useAddPageMutation'
 import { ToastContainer, toast } from 'react-toastify'
-import useFetchData from '../../../components/hooks/UseFetchData'
+import useFetchData from '../../../components/hooks/usseFetchData'
 import Activate_Deactivate from '../../../components/ui/dialog/Activate_Deactivate'
 import ValidatedResult from '../../../components/ui/dialog/ValidatedResult'
 
 const AddAdmin = () => {
-    
     type FormInputs = {
         label?: string
         type?: string
@@ -52,8 +51,6 @@ const AddAdmin = () => {
         },
     })
 
-    
-
     if (!id) {
         toast('Resident not Found', {
             type: 'error',
@@ -63,7 +60,7 @@ const AddAdmin = () => {
         navigate(-1)
     }
 
-    const { isLoading , data } = useFetchData({
+    const { isLoading, data } = useFetchData({
         url: `/manager/resident/getbyid/${id}`,
         name: `view_resident_${id}`,
     })

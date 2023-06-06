@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router'
 import Table from '../../../../components/ui/table/Table'
-import useFetchData from '../../../../components/hooks/UseFetchData'
+import useFetchData from '../../../../components/hooks/usseFetchData'
 import { useState, FormEvent, useEffect } from 'react'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
