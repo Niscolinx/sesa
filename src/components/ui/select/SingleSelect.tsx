@@ -132,7 +132,7 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
                     >
                         {Array.isArray(selectedState)
                             ? selectedState
-                            : selectedState.replaceAll('_', ' ') || (
+                            : JSON.stringify(selectedState) || (
                                   <span className='text-gray-500'>
                                       {placeholder || ''}
                                   </span>
