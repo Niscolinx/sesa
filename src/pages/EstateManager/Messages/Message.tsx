@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
-import RenderMessages from './RenderMessage'
+import RenderMessages from './RenderMessages'
 
 function Message() {
     const [isMessage, setIsMessage] = useState(false)

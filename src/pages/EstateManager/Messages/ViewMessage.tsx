@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import { Message } from './RenderMessage'
+import { Message } from './RenderMessages'
 
 const ViewMessage = () => {
     const location = useLocation()
