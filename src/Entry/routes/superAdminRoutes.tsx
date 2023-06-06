@@ -44,14 +44,14 @@ import AddSecurityManager from '../../pages/superadmin/securityManagers/AddSecur
 import ViewSecurityManager from '../../pages/superadmin/securityManagers/ViewSecurityManager'
 import AdvertClicks from '../../pages/superadmin/advert/AdvertClicks'
 import AdvertViews from '../../pages/superadmin/advert/AdvertViews'
-import CommissionWalletDetails from '../../pages/superadmin/Wallet/commission/CommissionWalletDetails'
-import CommissionWallet from '../../pages/superadmin/Wallet/commission/CommissionWallet'
-import EstateWallet from '../../pages/superadmin/Wallet/estate/EstateWallet'
-import ResidentWallet from '../../pages/superadmin/Wallet/resident/ResidentWallet'
-import ResidentWalletDetails from '../../pages/superadmin/Wallet/resident/ResidentWalletDetails'
-import SecurityCompanyWallet from '../../pages/superadmin/Wallet/security/SecurityCompanyWallet'
+import CommissionWalletDetails from '../../pages/superadmin/wallet/commission/CommissionWalletDetails'
+import CommissionWallet from '../../pages/superadmin/wallet/commission/CommissionWallet'
+import EstateWallet from '../../pages/superadmin/wallet/estate/EstateWallet'
+import ResidentWallet from '../../pages/superadmin/wallet/resident/ResidentWallet'
+import ResidentWalletDetails from '../../pages/superadmin/wallet/resident/ResidentWalletDetails'
+import SecurityCompanyWallet from '../../pages/superadmin/wallet/security/SecurityCompanyWallet'
 import PlatformSettings from '../../pages/superadmin/platformSettings/platformSettings'
-import EstateWalletDetails from '../../pages/superadmin/Wallet/estate/EstateWalletDetails'
+import EstateWalletDetails from '../../pages/superadmin/wallet/estate/EstateWalletDetails'
 
 const SuperAdminRoutes = (
     <Route
