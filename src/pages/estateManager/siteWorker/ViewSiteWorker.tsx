@@ -95,7 +95,8 @@ function ViewSiteWorker() {
 
     useEffect(() => {
         if (data) {
-            const { phone_number, gender, work_days, state_name, property } = data
+            const { phone_number, gender, work_days, state_name, property } =
+                data
 
             const phone = parseInt(phone_number.slice(4))
             const getState: string = states_data
@@ -107,19 +108,16 @@ function ViewSiteWorker() {
 
             const transFormedDays = JSON.parse(work_days)
 
-            if(property) {
-                //setIsPropertyLoaded(true)
-
-                console.log(property)
-                setPropertyCode(property)
+            if (property) {
+                setIsPropertyLoaded(true)
+                setPropertyData(property)
+                setPropertyCode(property.property_code)
             }
 
             setPhone(phone)
             setSelectedGender(gender)
             setSelectedWorkdays(transFormedDays)
             setSelectedState(getState)
-
-            
 
             reset({
                 ...data,
@@ -302,7 +300,6 @@ function ViewSiteWorker() {
                 {isPropertyLoaded && (
                     <section className='w-full flex gap-16 relative mt-[5rem]'>
                         <div className=' relative w-[30rem]'>
-                            
                             <img
                                 src={propertyData.image_url ?? ''}
                                 alt=''
