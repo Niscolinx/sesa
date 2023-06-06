@@ -33,7 +33,7 @@ export const MESSAGE_LIST: Message[] = Array.from({ length: 10 }).map(
     })
 )
 
-function RenderedMessages() {
+function RenderMessages() {
     const navigate = useNavigate()
 
     const [messageList, setMessageList] = useState<Message[]>([])
@@ -399,4 +399,4 @@ function RenderedMessages() {
     )
 }
 
-export default RenderedMessages
+export default RenderMessages
