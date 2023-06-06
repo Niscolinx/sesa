@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function PrevLocation() {
+    console.log('sd')
     const location = useLocation()
     const storePath = localStorage.getItem('prevPath')
     const prevPath =
