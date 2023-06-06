@@ -1,0 +1,130 @@
+.sidebar {
+    height: 100%;
+    transition: all 0.3s;
+    width: 28rem;
+    background-color: $color-white;
+    position: relative;
+    display: grid;
+    justify-items: center;
+
+    &__container {
+        position: absolute;
+        padding: 4rem;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-content: flex-start;
+        gap: 3rem;
+        color: $color-dark;
+    }
+
+    .section-1 {
+        display: flex;
+        width: 100%;
+        gap: 4rem;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        span {
+            cursor: pointer;
+
+            svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        &__box {
+            display: flex;
+            gap: 0.5rem;
+
+            h3 {
+                color: white;
+                font-weight: 500;
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+    .section-2 {
+        .iconsBox {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+
+            .fillIcon {
+                svg {
+                    fill: $color-dark;
+                    stroke: none;
+                }
+                &:hover {
+                    svg {
+                        fill: $color-primary;
+                        stroke: none;
+                    }
+                }
+            }
+            a {
+                display: flex;
+                gap: 1rem;
+                font-size: 1.4rem;
+                border-radius: $border-radius;
+                align-items: center;
+                padding: 1rem 0;
+                width: 100%;
+
+                svg {
+                    stroke: $color-dark;
+                }
+
+                &:hover {
+                    transition: all 0.2s;
+                    padding: 1rem 2rem;
+                    background-color: $color-primary-light;
+                    color: $color-primary;
+                    transform: translateX(0.2rem) scale(1.01);
+
+                    svg {
+                        stroke: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sidebarToggle {
+    width: 8rem;
+
+
+    .section-1 {
+        justify-content: center;
+        &__box {
+            display: none;
+        }
+    }
+
+    .section-2 {
+        .iconsBox {
+            a {
+                padding: 1rem 2rem;
+
+                span {
+                    display: none;
+                }
+
+                &:hover {
+                    transition: all 0.5s;
+                    transform: none;
+
+                    svg {
+                        transform: scale(0.8);
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
