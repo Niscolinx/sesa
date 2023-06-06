@@ -9,7 +9,7 @@ import Input, { SelectProps } from '../../../../components/ui/input/Input'
 import { useMutation, useQuery } from 'react-query'
 import { useForm } from 'react-hook-form'
 import ValidatedResult from '../../../../components/ui/dialog/ValidatedResult'
-import ValidateKY from '../../../../components/ui/dialog/sValidateKY'
+import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
 
 const ArtisanDetail = () => {
     interface Inputs {

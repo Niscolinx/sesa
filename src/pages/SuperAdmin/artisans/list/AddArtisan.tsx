@@ -11,7 +11,7 @@ import useAxios from '../../../../components/hooks/useAxios'
 import useFetchData from '../../../../components/hooks/UseFetchData'
 import Spinner from '../../../../components/ui/Spinner'
 import AddBtn from '../../../../components/ui/button/AddBtn'
-import ValidateKY from '../../../../components/ui/dialog/sValidateKY'
+import ValidateKY from '../../../../components/ui/dialog/ValidateKY'
 
 type DialogType = 'validate' | 'add-Artisan'
 
