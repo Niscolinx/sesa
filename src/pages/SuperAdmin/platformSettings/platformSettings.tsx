@@ -12,7 +12,6 @@ type PathSwitch =
     | 'account_settings'
 
 function PlatformSettings() {
-    console.log(';sdf')
     const [currentPath, setCurrentPath] =
         useState<PathSwitch>('platform_charges')
 
