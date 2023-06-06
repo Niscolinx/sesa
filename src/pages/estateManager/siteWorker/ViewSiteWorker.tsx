@@ -373,10 +373,7 @@ function ViewSiteWorker() {
                     <div className='grid items-center'>
                         <ValidateKY title={'Know your Estate Staff'} />
                     </div>
-                    <ImageInput
-                        handlePicture={handlePicture}
-                        photoPreview={photoPreview}
-                    />
+                   
                     <AddBtn isLoading={postLoading} />
                 </>
             </form>
