@@ -27,8 +27,15 @@ function ViewEstateStaff() {
 
     type Workdays = { name: string; disabled: boolean; id: number }
 
-    const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
-
+   const workdaysState = [
+       'monday',
+       'tuesday',
+       'wednesday',
+       'thursday',
+       'friday',
+       'saturday',
+       'sunday',
+   ]
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
