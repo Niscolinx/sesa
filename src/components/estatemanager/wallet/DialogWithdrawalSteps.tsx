@@ -7,6 +7,7 @@ interface DialogWithdrawalStepsProps {
 export default function DialogWithdrawalSteps({
     handleClose,
 }: DialogWithdrawalStepsProps) {
+    console.log('hello')
     type Steps = 'first' | 'second' | 'third'
 
     const [step, setStep] = useState<Steps>('first')
