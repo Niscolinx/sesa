@@ -1,9 +1,0 @@
-{
-    "users": [
-        { "id": 1, "name": "Collins" },
-        {
-            "id": 2,
-            "name": "Munachi"
-        }
-    ]
-}
