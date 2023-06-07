@@ -115,7 +115,7 @@ const AddSecurityCompany = () => {
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
-    const slicedEstateManager: string[] = security_company_data.map(
+    const slicedSecurityManager: string[] = security_company_data.map(
         ({ name }: any) => name
     )
 
@@ -146,10 +146,10 @@ const AddSecurityCompany = () => {
             },
         },
         {
-            label: 'estate_manager',
+            label: 'security_manager',
             type: 'select',
             selectProps: {
-                state: slicedEstateManager,
+                state: slicedSecurityManager,
                 isSearchable: true,
                 selectedState: selectedSecurityManager,
                 setSelectedState: setSelectedSecurityManager,
