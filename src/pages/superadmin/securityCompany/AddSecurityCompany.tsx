@@ -87,6 +87,10 @@ const AddSecurityCompany = () => {
     }) as any
 
     const onSubmit = handleSubmit((data) => {
+        const security_manager_id: string[] = security_company_data
+            .filter(({ name }: any) => selectedSecurityManager.includes(name))
+            .map(({ id }: any) => id)[0]
+
         const updatedData = {
             ...data,
             phone: data.phone_number,
