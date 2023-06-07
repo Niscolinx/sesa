@@ -95,6 +95,7 @@ const AddSecurityCompany = () => {
             ...data,
             phone: data.phone_number,
             image: imageFile,
+            security_manager_id,
         }
 
         delete updatedData.phone_number
