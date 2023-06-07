@@ -4,31 +4,26 @@ function SecurityGuard() {
     return (
         <div className='rounded-lg mt-[3rem] min-h-[60vh]'>
             <Table
-                fetch_url={'/manager/estate-admin/get/all'}
+                fetch_url={'/security-guard/getguards'}
                 title={'securityGuard'}
-                view_page_url={'/estateManager/estate-admin/view/'}
-                add_page_url={'/estateManager/estate-admin/add'}
+                view_page_url={'/estateManager/security-guard/view/'}
+                add_page_url={'/estateManager/security-guard/add'}
                 is_add_btn={true}
                 THeader={[
+                    'guard code',
                     'name',
-                    'gender',
                     'phone number',
-                    'estate',
-                    'onboarding date',
                     'status',
                     'actions',
                 ]}
                 data_to_display={[
+                    'security_guard_code',
                     'name',
-                    'image',
-                    'gender',
-                    'phone',
-                    'estate_name',
-                    'onboarding_date',
+                    'phone_number',
                     'status',
                 ]}
                 deactivateProp={{
-                    url: '/manager/estate-admin/deactivate_activate',
+                    url: '/manager/security-guard/deactivate_activate',
                 }}
             />
         </div>
