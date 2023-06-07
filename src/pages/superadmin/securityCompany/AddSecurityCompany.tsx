@@ -35,6 +35,7 @@ const AddSecurityCompany = () => {
     const [photoPreview, setPhotoPreview] = useState('')
     const [imageFile, setImageFile] = useState<File | null>(null)
     const [selectedRegion, setSelectedRegion] = useState<string[]>([])
+    const [selectedSecurityManager, setSelectedSecurityManager] = useState('')
 
     const handlePicture = (e: React.ChangeEvent) => {
         const target = e.target as HTMLInputElement
@@ -52,6 +53,12 @@ const AddSecurityCompany = () => {
         clearErrors,
         formState: { errors: formErrors },
     } = useForm<Inputs>()
+
+    const { data: security_company_data, isLoading: security_company_isLoading } =
+        useFetchData({
+            url: '/manager/fetchDropdownEstateManager',
+            name: 'estate_manager',
+        })
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
@@ -103,11 +110,14 @@ const AddSecurityCompany = () => {
             dialogRef.current.showModal()
         }
     }
-    if (states_loading) {
+    if (states_loading || security_company_isLoading) {
         return <p>Loading...</p>
     }
 
     const slicedStates: string[] = states_data.map(({ name }: any) => name)
+    const slicedEstateManager: string[] = security_company_data.map(
+        ({ name }: any) => name
+    )
 
     const formInputs = [
         {
@@ -133,6 +143,16 @@ const AddSecurityCompany = () => {
                 state: slicedStates,
                 selectedState: selectedRegion,
                 setSelectedState: setSelectedRegion,
+            },
+        },
+        {
+            label: 'estate_manager',
+            type: 'select',
+            selectProps: {
+                state: slicedEstateManager,
+                isSearchable: true,
+                selectedState: selectedSecurityManager,
+                setSelectedState: setSelectedSecurityManager,
             },
         },
     ] satisfies FormInputs[]
