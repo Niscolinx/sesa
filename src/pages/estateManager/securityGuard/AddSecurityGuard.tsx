@@ -125,7 +125,7 @@ function AddSecurityGuard() {
             <AddedSuccess
                 open={openDialog}
                 isBank
-                title={'estate staff'}
+                title={'security guard'}
                 isNavigate={false}
                 close={setOpenDialog}
             />
@@ -169,7 +169,7 @@ function AddSecurityGuard() {
                         )
                     })}
                     <div className='grid items-center'>
-                        <ValidateKY title={'Know your Estate Staff'} />
+                        <ValidateKY title={'Know your Security Guard'} />
                     </div>
                     <ImageInput
                         handlePicture={handlePicture}
