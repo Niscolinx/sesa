@@ -19,7 +19,6 @@ function AddSecurityGuard() {
         selectProps?: SelectProps
     }
 
-
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
@@ -29,7 +28,6 @@ function AddSecurityGuard() {
 
     const { data: states_data, isLoading: states_loading } = useFetchData({})
 
-  
     const {
         clearErrors,
         formErrors,
@@ -47,8 +45,7 @@ function AddSecurityGuard() {
         title: 'add_estate_staff',
         url: '/manager/estate-admin/create',
         props: {
-            permission: selectedWorkdays,
-            work_days: selectedWorkdays,
+            permission: 'selectedWorkdays',
             state: selectedState,
             is_kyr_approved: 0,
             validation_option: 'phone_number',
@@ -61,15 +58,6 @@ function AddSecurityGuard() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
-        if (selectedWorkdays.length < 1) {
-            return setSelectFormErrors((prev) => {
-                return {
-                    ...prev,
-                    work_days: 'Field cannot be empty',
-                }
-            })
-        }
 
         onSubmit()
     }
@@ -108,9 +96,9 @@ function AddSecurityGuard() {
                 setSelectedState: setSelectedGender,
             },
         },
-       {
-        label: 'home_address'
-       },
+        {
+            label: 'home_address',
+        },
         {
             label: 'State',
             type: 'select',
