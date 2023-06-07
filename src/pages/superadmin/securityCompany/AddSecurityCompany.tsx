@@ -54,11 +54,13 @@ const AddSecurityCompany = () => {
         formState: { errors: formErrors },
     } = useForm<Inputs>()
 
-    const { data: security_company_data, isLoading: security_company_isLoading } =
-        useFetchData({
-            url: '/manager/fetchDropdownEstateManager',
-            name: 'estate_manager',
-        })
+    const {
+        data: security_company_data,
+        isLoading: security_company_isLoading,
+    } = useFetchData({
+        url: '/security-company-manager/fetchDropdownSecurityManager',
+        name: 'security_manager',
+    })
 
     const [responseMessage, setResponseMessage] =
         useState<ResponseMessage | null>(null)
