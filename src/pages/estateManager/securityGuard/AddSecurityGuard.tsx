@@ -109,14 +109,6 @@ function AddSecurityGuard() {
                 setSelectedState: setSelectedState,
             },
         },
-
-        {
-            label: 'security_guard_message',
-            type: 'textarea',
-            fullWidth: true,
-            placeholder:
-                'The message will be displayed to the security guard when the site worker checks In/Out',
-        },
     ] satisfies FormInputs[]
 
     return (
@@ -142,14 +134,7 @@ function AddSecurityGuard() {
             >
                 <>
                     {formInputs.map((input, idx) => {
-                        const {
-                            label,
-                            type,
-                            name,
-                            selectProps,
-                            fullWidth,
-                            placeholder,
-                        } = input
+                        const { label, type, name, selectProps } = input
                         return (
                             <Input
                                 key={idx + label}
@@ -158,8 +143,6 @@ function AddSecurityGuard() {
                                 formErrors={formErrors}
                                 selectFormErrors={selectFormErrors}
                                 type={type}
-                                placeholder={placeholder}
-                                fullWidth={fullWidth}
                                 clearErrors={clearErrors}
                                 name={name}
                                 setValue={setValue}
