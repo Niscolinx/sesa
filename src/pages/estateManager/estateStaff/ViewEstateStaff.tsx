@@ -24,16 +24,15 @@ function ViewEstateStaff() {
         selectProps?: SelectProps
     }
 
-
-   const workdaysState = [
-       'monday',
-       'tuesday',
-       'wednesday',
-       'thursday',
-       'friday',
-       'saturday',
-       'sunday',
-   ]
+    const workdaysState = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+    ]
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
@@ -76,7 +75,7 @@ function ViewEstateStaff() {
         setValue,
     } = useAddPageMutation({
         title: `view_estate_staff_${id}`,
-        url:   `/estate-staff/update/${id}`,
+        url: `/estate-staff/update/${id}`,
         props: {
             work_days: selectedWorkdays,
             state: selectedState,
@@ -192,7 +191,7 @@ function ViewEstateStaff() {
             type: 'textarea',
             fullWidth: true,
             placeholder:
-                'The message will be displayed to the security guard when the site worker checks In/Out',
+                'The message will be displayed to the security guard when the estate staff checks In/Out',
         },
     ] satisfies FormInputs[]
 
