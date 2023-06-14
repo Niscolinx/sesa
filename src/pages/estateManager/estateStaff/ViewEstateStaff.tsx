@@ -76,7 +76,7 @@ function ViewEstateStaff() {
         setValue,
     } = useAddPageMutation({
         title: `view_estate_staff_${id}`,
-        url: '/estate-staff/create',
+        url:   `/estate-staff/update/${id}`,
         props: {
             work_days: selectedWorkdays,
             state: selectedState,
