@@ -202,7 +202,7 @@ function AddEstateStaff() {
             type: 'textarea',
             fullWidth: true,
             placeholder:
-                'The message will be displayed to the security guard when the site worker checks In/Out',
+                'The message will be displayed to the security guard when the estate staff checks In/Out',
         },
     ] satisfies FormInputs[]
 
