@@ -114,9 +114,8 @@ function AddEstateStaff() {
         setValue,
     } = useAddPageMutation({
         title: 'add_estate_staff',
-        url: '/manager/estate-admin/create',
+        url: '/estate-staff/create',
         props: {
-            permission: selectedWorkdays,
             work_days: selectedWorkdays,
             state: selectedState,
             is_kyr_approved: 0,
