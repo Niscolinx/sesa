@@ -24,7 +24,6 @@ function ViewEstateStaff() {
         selectProps?: SelectProps
     }
 
-    type Workdays = { name: string; disabled: boolean; id: number }
 
    const workdaysState = [
        'monday',
