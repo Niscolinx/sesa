@@ -26,7 +26,7 @@ function EstateStaff() {
                     'status',
                 ]}
                 deactivateProp={{
-                    url: '/manager/estate-admin/deactivate_activate',
+                    url: '/estate-staff/deactivate_activate',
                 }}
             />
         </div>
