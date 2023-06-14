@@ -77,7 +77,7 @@ function ViewSiteWorker() {
         register,
         setValue,
     } = useAddPageMutation({
-        title: 'add_site_worker',
+        title: `view_site_worker_${id}`,
         url: '/site-worker/create',
         props: {
             work_days: selectedWorkdays,
