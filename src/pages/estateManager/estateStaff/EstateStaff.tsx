@@ -19,10 +19,11 @@ function EstateStaff() {
                     'actions',
                 ]}
                 data_to_display={[
-                    'staff_code',
-                    'staff_name',
+                    'estate_staff_code',
+                    'firstname',
                     'phone_number',
                     'work_days',
+                    'kyr',
                     'status',
                 ]}
                 deactivateProp={{
