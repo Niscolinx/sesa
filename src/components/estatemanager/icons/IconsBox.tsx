@@ -27,6 +27,10 @@ function IconsBox() {
 					classes?: string;
 				}
 
+                const links = [
+                    
+                ]
+
 				return (
 					<ul className="iconsBox">
 						<li className="iconsBox__list">
