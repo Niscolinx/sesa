@@ -135,7 +135,6 @@ function ViewSiteWorker() {
 		return <Spinner start={true} />;
 	}
 
-	console.log("propertyData", propertyData);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -271,7 +270,7 @@ function ViewSiteWorker() {
 				<ValidatedResult image={photoPreview} handlePicture={handlePicture} />
 
 				<Activate_Deactivate
-					id={id!}
+					id={id}
 					url={"/site-worker/deactivate_activate"}
 					status={data?.status}
 					title={"Site Worker"}
