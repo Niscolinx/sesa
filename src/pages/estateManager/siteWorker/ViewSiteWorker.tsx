@@ -129,12 +129,12 @@ function ViewSiteWorker() {
 		});
 
 		navigate(-1);
+		return;
 	}
 
 	if (states_loading || active_properties_loading || isLoading) {
 		return <Spinner start={true} />;
 	}
-
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
