@@ -42,7 +42,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true
+    
   },
+
+  
   "include": ["src", ".eslintrc.cjs", "vite.config.ts"]
 }
 
