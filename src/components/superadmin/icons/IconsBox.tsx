@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import AdditionalResidentSvg from "./sidebar/AdditionalResidentSvg";
 import AdminsSvg from "./sidebar/AdminsSvg";
@@ -53,7 +53,7 @@ function IconsBox() {
 		},
 
 		{
-			to: "/superAdmin/securityCompany",
+			to: "/superAdmin/security-company",
 			icon: <SecurityCompSvg />,
 			text: "Security Company",
 			className: "fillIcon",
@@ -87,7 +87,7 @@ function IconsBox() {
 		},
 
 		{
-			to: "/superAdmin/settings",
+			to: "/superAdmin/platformSettings",
 			icon: <SettingsSvg />,
 			text: "Settings",
 			className: "fillIcon",
@@ -95,17 +95,16 @@ function IconsBox() {
 	];
 
 	return (
-	
+	//ToDo - ADd roles permissions, with the former overlay
 
 		<ul className="iconsBox">
 			{links.map(({className, to, icon, text}, index) => (
 				<li className="iconsBox__list" key={`${index}link`}>
-					<NavLink to={to} className={className} style={(props) => {
-						console.log(props)
-					}}>
+					<Link to={to} className={className} >
+					{/* <Link to={to} className={`bg-red-500`} > */}
 						{icon}
 						<span>{text}</span>
-					</NavLink>
+					</Link>
 				</li>
 			))}
 		</ul>
