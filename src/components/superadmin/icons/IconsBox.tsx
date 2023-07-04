@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import AdditionalResidentSvg from "./sidebar/AdditionalResidentSvg";
 import AdminsSvg from "./sidebar/AdminsSvg";
@@ -7,7 +7,7 @@ import ArtisanSvg from "./sidebar/ArtisanSvg";
 import EstateManagerSvg from "./sidebar/EstateManagerSvg";
 import EstatesSvg from "./sidebar/EstatesSvg";
 import OverviewSvg from "./sidebar/overviewSvg";
-import RolesAndPermSvg from "./sidebar/RolesAndPermSvg";
+
 import SecurityCompSvg from "./sidebar/SecurityCompSvg";
 import SettingsSvg from "./sidebar/SettingsSvg";
 import WalletSvg from "./sidebar/WalletSvg";
@@ -100,10 +100,12 @@ function IconsBox() {
 		<ul className="iconsBox">
 			{links.map(({className, to, icon, text}, index) => (
 				<li className="iconsBox__list" key={`${index}link`}>
-					<Link to={to} className={className}>
+					<NavLink to={to} className={className} style={(props) => {
+						console.log(props)
+					}}>
 						{icon}
 						<span>{text}</span>
-					</Link>
+					</NavLink>
 				</li>
 			))}
 		</ul>
