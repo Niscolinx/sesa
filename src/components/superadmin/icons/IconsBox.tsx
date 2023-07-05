@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import AdditionalResidentSvg from "./sidebar/AdditionalResidentSvg";
 import AdminsSvg from "./sidebar/AdminsSvg";
@@ -17,7 +17,7 @@ function IconsBox() {
 		to: string;
 		icon: JSX.Element;
 		text: string;
-		className?: string;
+		classes?: string;
 	}
 
 	const links: LinkProps[] = [
@@ -36,14 +36,14 @@ function IconsBox() {
 			to: "/superAdmin/estates",
 			icon: <EstatesSvg />,
 			text: "Estates",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
 			to: "/superAdmin/estateManagers",
 			icon: <EstateManagerSvg />,
 			text: "Estate Manager",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
@@ -56,28 +56,28 @@ function IconsBox() {
 			to: "/superAdmin/security-company",
 			icon: <SecurityCompSvg />,
 			text: "Security Company",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
 			to: "/superAdmin/securityManagers",
 			icon: <EstateManagerSvg />,
 			text: "Security Manager",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
 			to: "/superAdmin/wallet",
 			icon: <WalletSvg />,
 			text: "Wallet",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
 			to: "/superAdmin/artisan",
 			icon: <ArtisanSvg />,
 			text: "Artisan",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 
 		{
@@ -90,23 +90,37 @@ function IconsBox() {
 			to: "/superAdmin/platformSettings",
 			icon: <SettingsSvg />,
 			text: "Settings",
-			className: "fillIcon",
+			classes: "fillIcon",
 		},
 	];
 
 	return (
-	//ToDo - ADd roles permissions, with the former overlay
+		//ToDo - ADd roles permissions, with the former overlay
 
 		<ul className="iconsBox">
-			{links.map(({className, to, icon, text}, index) => (
-				<li className="iconsBox__list" key={`${index}link`}>
-					<Link to={to} className={className} >
-					{/* <Link to={to} className={`bg-red-500`} > */}
+			{links.map(({ classes, to, icon, text }, idx) => {
+			
+
+			return (
+				<li className="iconsBox__list" key={`${idx}link`}>
+					<NavLink
+						to={to}
+						className={(props) =>
+							(idx === 0 &&
+								props.isActive &&
+								location.pathname === "/dashboard") ||
+							(props.isActive && idx > 0)
+								? `${classes} transition-all duration-[.2s] py-4 px-8 bg-color-blue [&>svg]:fill-white text-white`
+								: classes
+						}
+					>
+						{/* <Link to={to} className={`bg-red-500`} > */}
 						{icon}
 						<span>{text}</span>
-					</Link>
+					</NavLink>
 				</li>
-			))}
+			);
+		})}
 		</ul>
 	);
 }
