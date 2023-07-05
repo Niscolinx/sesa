@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import AdditionalResidentSvg from "./sidebar/AdditionalResidentSvg";
 import AdminsSvg from "./sidebar/AdminsSvg";
@@ -99,28 +99,28 @@ function IconsBox() {
 
 		<ul className="iconsBox">
 			{links.map(({ classes, to, icon, text }, idx) => {
-			
-
-			return (
-				<li className="iconsBox__list" key={`${idx}link`}>
-					<NavLink
-						to={to}
-						className={(props) =>
-							(idx === 0 &&
-								props.isActive &&
-								location.pathname === "/dashboard") ||
-							(props.isActive && idx > 0)
-								? `${classes} transition-all duration-[.2s] py-4 px-8 bg-color-blue [&>svg]:fill-white text-white`
-								: classes
-						}
-					>
-						{/* <Link to={to} className={`bg-red-500`} > */}
-						{icon}
-						<span>{text}</span>
-					</NavLink>
-				</li>
-			);
-		})}
+				return (
+					<li className="iconsBox__list" key={`${idx}link`}>
+						<NavLink
+							to={to}
+							className={(props) =>
+								(idx === 0 &&
+									props.isActive &&
+									location.pathname === "/dashboard") ||
+								(props.isActive && idx > 0)
+									? `${classes} transition-all duration-[.2s] py-4 pl-8 bg-color-blue ${
+											classes ? "[&>svg]:fill-white" : "[&>svg]:stroke-white"
+									  } text-white`
+									: classes
+							}
+						>
+							{/* <Link to={to} className={`bg-red-500`} > */}
+							{icon}
+							<span>{text}</span>
+						</NavLink>
+					</li>
+				);
+			})}
 		</ul>
 	);
 }
