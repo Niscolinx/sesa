@@ -101,7 +101,7 @@ const AddAdmin = () => {
 							/>
 						);
 					})}
-					<Permissions data={permissions} setData={setPermissions}/>
+					<Permissions permissions={permissions} setPermissions={setPermissions}/>
 
 					<ImageInput
 						handlePicture={handlePicture}
