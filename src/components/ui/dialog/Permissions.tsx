@@ -42,7 +42,13 @@ function Permissions({ permissions, setPermissions }: Props) {
 				const word = match?.[0].replace("-", "");
 
 				console.log(word);
+                eachPermission.push({
+                    name: word as string,
+                    content: ['hello']
+                })
 			}
+
+            console.log({eachPermission})
 		}
 	}, [fetchedData]);
 
