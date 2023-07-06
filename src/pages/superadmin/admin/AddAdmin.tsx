@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import Permissions from "../../../components/ui/dialog/Permissions";
 
 const AddAdmin = () => {
+	const [permissions, setPermissions] = useState<string[]>([]);
+
 	const {
 		clearErrors,
 		formErrors,
@@ -22,9 +24,13 @@ const AddAdmin = () => {
 		photoPreview,
 		register,
 		setValue,
-	} = useAddPageMutation({ url: "/admin/create", title: "admin" });
-
-	const [permissions, setPermissions] = useState<string[]>([]);
+	} = useAddPageMutation({
+		url: "/admin/create",
+		title: "admin",
+		props: {
+			permissions,
+		},
+	});
 
 	const genderState = ["Male", "Female"];
 	type FormInputs = {
@@ -66,8 +72,6 @@ const AddAdmin = () => {
 			type: "email",
 		},
 	] satisfies FormInputs[];
-
-
 
 	return (
 		<div className="bg-white rounded-2xl grid p-8">
