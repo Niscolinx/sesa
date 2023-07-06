@@ -10,22 +10,24 @@ interface Props {
 }
 
 function Permissions({ permissions, setPermissions }: Props) {
+    type EachPermission = {
+					name: string;
+					content: string[];
+				};
+
 	const { isLoading, data: fetchedData } = useFetchData({
 		url: "permission/get/all",
 		name: "permissions",
 	});
 
-	const [data, setData] = useState<string[]>([]);
+	const [data, setData] = useState<EachPermission[]>([]);
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
 		if (fetchedData as string[]) {
 			setData(fetchedData);
 
-			type EachPermission = {
-				name: string;
-				content: string[];
-			};
+			
 			const eachPermission: EachPermission[] = [];
 
 			const _permissions = fetchedData as string[];
@@ -36,7 +38,6 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 				const word = match?.[0].replace("-", "");
 
-				console.log(word);
 
 				if (word) {
                     const found = eachPermission.find(
@@ -54,7 +55,6 @@ function Permissions({ permissions, setPermissions }: Props) {
 				}
 			}
 
-			console.log({ eachPermission });
 		}
 	}, [fetchedData]);
 
