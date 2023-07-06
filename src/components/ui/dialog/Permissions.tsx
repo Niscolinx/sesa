@@ -22,24 +22,29 @@ function Permissions({ permissions, setPermissions }: Props) {
 		if (fetchedData) {
 			setData(fetchedData);
 
-
+            type EachPermission = {
+                name: string;
+                content: string[];
+            }
             const transformedData = fetchedData.map((permission: string) => {
                 const reg = /(\w+)-/g;
                 const match = permission.match(reg);
 
                 const word = match?.[0].replace("-", "")
-                const uniqueWords = [...new Set(match)]
 
-                const eachPermission = []
-                console.log({uniqueWords})
 
-                if(word && permission.startsWith('admin')){
+                const eachPermission: EachPermission = {
+                    name: "",
+                    content: []
+                }
+
+                if(word && permission.startsWith(word)){
                     console.log({permission})
+                    eachPermission['name'] = word
+                    eachPermission['content'].push(permission)
                 }
 
-                return {
-
-                }
+                return eachPermission
             })
 
             console.log({transformedData})
