@@ -65,7 +65,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		const value = e.target.value.toLowerCase();
 
 		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
-        const _update = [...updated]
+        const _update = updated
 
 		const filteredData = updated.map((each) => {
 			const filteredContent = each.content.filter((perm) =>
@@ -80,6 +80,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		});
 
 		console.log(filteredData);
+        console.log({_update})
 
 	 setData(_update);
 	};
