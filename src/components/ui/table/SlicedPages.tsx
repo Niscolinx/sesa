@@ -35,7 +35,7 @@ const SlicedPages: FC<SlicedPages> = ({
 	const page = pages[index];
 
 	const TableItem = ({ data }: any) => {
-        console.log({data})
+		console.log({ data });
 		if (!data) {
 			return null;
 		}
@@ -222,16 +222,20 @@ const SlicedPages: FC<SlicedPages> = ({
 
 	return (
 		<>
-			{page.map((data, idx) => (
-				<div
-					className={`grid justify-between border-b grid-cols-${
-						THeader.length - 1
-					} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis relative`}
-					key={`${idx}`}
-				>
-					<TableItem data={data} />
-				</div>
-			))}
+			{page.map((data, idx) => {
+				const headerLength = THeader.includes("actions")
+					? THeader.length - 1
+					: THeader.length;
+
+				return (
+					<div
+						className={`grid justify-between border-b grid-cols-${headerLength} items-center gap-8 text-[1.6rem] capitalize py-4 table__ellipsis relative`}
+						key={`${idx}`}
+					>
+						<TableItem data={data} />
+					</div>
+				);
+			})}
 		</>
 	);
 };
