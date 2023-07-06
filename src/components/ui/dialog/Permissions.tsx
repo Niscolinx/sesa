@@ -35,7 +35,8 @@ function Permissions({ permissions, setPermissions }: Props) {
 	function handleSearch(e: ChangeEvent<HTMLInputElement>) {
 		const value = e.target.value;
 
-		const updated = [...data];
+
+        const updated = new Array(...data).flat()
 
 		const filteredData = updated.filter((permission: string) => {
 			return permission.toLowerCase().includes(value.toLowerCase());
