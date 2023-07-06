@@ -27,7 +27,7 @@ function Permissions({ permissions, setPermissions }: Props) {
                 const reg = /(\w+)-/g;
                 const match = permission.match(reg);
                 const word = match?.[0].replace("-", "");
-                console.log({match})
+                console.log({word})
                 return {
 
                 }
