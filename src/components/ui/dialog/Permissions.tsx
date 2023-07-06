@@ -1,7 +1,5 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { GrDown, GrUp } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import useFetchData from "../../hooks/useFetchData";
 
 interface Props {
@@ -55,6 +53,8 @@ function Permissions({ permissions, setPermissions }: Props) {
 				}
 			}
 
+            setData(eachPermission);
+
 		}
 	}, [fetchedData]);
 
@@ -102,11 +102,11 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
-							{data?.map((permission: string, idx: number) => {
+							{data?.map((permission: EachPermission, idx: number) => {
 								return (
 									<label
 										className="flex items-center gap-4 py-2"
-										key={`${permission + idx}`}
+										key={`${permission.name + idx}`}
 									>
 										<input
 											type="checkbox"
