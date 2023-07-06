@@ -21,6 +21,19 @@ function Permissions({ permissions, setPermissions }: Props) {
 	useEffect(() => {
 		if (fetchedData) {
 			setData(fetchedData);
+
+
+            const transformedData = fetchedData.map((permission: string) => {
+                const reg = /(\w+)-/g;
+                const match = permission.match(reg);
+                const word = match?.[0].replace("-", "");
+                console.log({match})
+                return {
+
+                }
+            })
+
+
 		}
 	}, [fetchedData]);
 
@@ -32,7 +45,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		dialogRef.current?.showModal();
 	};
 
-	function handleSearch(e: ChangeEvent<HTMLInputElement>) {
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) =>{
 		const value = e.target.value;
 
         const updated = JSON.parse(JSON.stringify(fetchedData))
