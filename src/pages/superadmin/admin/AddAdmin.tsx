@@ -24,7 +24,7 @@ const AddAdmin = () => {
 		setValue,
 	} = useAddPageMutation({ url: "/admin/create", title: "admin" });
 
-	const [permissions, setPermissions] = useState<string[]>([])
+	const [permissions, setPermissions] = useState<string[]>([]);
 
 	const genderState = ["Male", "Female"];
 	type FormInputs = {
@@ -67,9 +67,7 @@ const AddAdmin = () => {
 		},
 	] satisfies FormInputs[];
 
-	useEffect(() => {
-		console.log(permissions)
-	}, [permissions])
+
 
 	return (
 		<div className="bg-white rounded-2xl grid p-8">
@@ -105,7 +103,7 @@ const AddAdmin = () => {
 							/>
 						);
 					})}
-					<Permissions setPermissions={setPermissions}/>
+					<Permissions setPermissions={setPermissions} />
 
 					<ImageInput
 						handlePicture={handlePicture}
