@@ -93,6 +93,12 @@ function Permissions({ permissions, setPermissions }: Props) {
 		setData(eachPermission);
 	};
 
+    const handleSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
+
+        console.log({value})
+    }
+
 	return (
 		<div className="">
 			<dialog ref={dialogRef} className="dialog">
@@ -132,6 +138,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 													type="checkbox"
 													name={perm}
 													className="cursor-pointer"
+                                                    onChange={handleSelected}
 												/>
 
 												<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
