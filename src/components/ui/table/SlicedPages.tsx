@@ -144,14 +144,14 @@ const SlicedPages: FC<SlicedPages> = ({
 							},
 						);
 
-						// const date_and_time = `${formattedDate}, ${formattedTime}`;
+						const formattedTime = moment(get_only_time, "HH:mm").format(
+							"h:mm A",
+						);
+						console.log({ formattedTime });
 
-						// console.log({ formattedTime });
+						const date_and_time = `${formattedDate}/${formattedTime}`
 
-						// const currentTime = new Date(formattedTime);
-						const timeString = "23:12";
-						const formattedTime = moment(timeString, "HH:mm").format("h:mm A");
-						console.log({formattedTime})
+						console.log({date_and_time})
 
 						return (
 							<p key={key}>
