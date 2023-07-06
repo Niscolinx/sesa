@@ -108,15 +108,17 @@ function IconsBox() {
 						<NavLink
 							to={to}
 							className={(props) =>
-								(idx === 0 &&
-									props.isActive) ||
+								(idx === 0 && props.isActive && pathLength < 3) ||
 								(props.isActive && idx > 0)
 									? "iconsBox__list--item active "
 									: "iconsBox__list--item"
 							}
 						>
-							
-						<span className={`${classes ? 'list--svg-fillIcon' : 'list--svg'}`}>{icon}</span>	
+							<span
+								className={`${classes ? "list--svg-fillIcon" : "list--svg"}`}
+							>
+								{icon}
+							</span>
 
 							<span>{text}</span>
 						</NavLink>
