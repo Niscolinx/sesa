@@ -80,10 +80,11 @@ function AddProperty() {
 
     useEffect(() => {
         if (data) {
-            const { property_category, image_url } = data
+            const { property_category, image_url, property_type } = data
 
             setPhotoPreview(image_url)
             setSelectedCategory(property_category)
+            setSelectedType(property_type)
 
             reset({
                 ...data,

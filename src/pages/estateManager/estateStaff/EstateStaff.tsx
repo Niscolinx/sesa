@@ -1,4 +1,3 @@
-import React from 'react'
 import Table from '../../../components/ui/table/Table'
 
 function EstateStaff() {
@@ -20,14 +19,15 @@ function EstateStaff() {
                     'actions',
                 ]}
                 data_to_display={[
-                    'staff_code',
-                    'staff_name',
+                    'estate_staff_code',
+                    'firstname',
                     'phone_number',
                     'work_days',
+                    'kyr',
                     'status',
                 ]}
                 deactivateProp={{
-                    url: '/manager/estate-admin/deactivate_activate',
+                    url: '/estate-staff/deactivate_activate',
                 }}
             />
         </div>

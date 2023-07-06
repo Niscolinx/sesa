@@ -257,10 +257,11 @@ const TableData = () => {
             return findData.some((item) => item.id === data.id)
         })
 
-        console.log({ filteredData, findData })
 
         setFetchedData(filteredData)
     }
+    //TODO If date then add from and to fields with a default, [7days, 2weeks, 1month]
+    //Expectation is only two dates which are from and to
 
     return (
         <div>
@@ -376,6 +377,8 @@ const TableData = () => {
                                         />
                                     </div>
                                 </div>
+
+                                {/* TODO {{url}}/admin/get/all?perPage=4&page=3 */}
                                 <footer className='flex items-center p-4 mt-4 bg-color-white rounded-lg'>
                                     <div className='flex gap-8 items-center'>
                                         <p>View</p>

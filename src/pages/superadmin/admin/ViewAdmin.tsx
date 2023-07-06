@@ -29,6 +29,7 @@ const ViewAdmin = () => {
         label?: string
         type?: string
         name?: string
+        disabled?: boolean
         value?: string | number
         selectProps?: SelectProps
     }
@@ -71,6 +72,7 @@ const ViewAdmin = () => {
         {
             label: 'email_address',
             type: 'email',
+            disabled: true,
         },
     ] satisfies FormInputs[]
 
@@ -223,7 +225,7 @@ const ViewAdmin = () => {
                 >
                     <>
                         {formInputs.map((input, idx) => {
-                            const { label, type, name, selectProps, value } =
+                            const { label, type, name, selectProps, value, disabled } =
                                 input
 
                             return (
@@ -236,6 +238,7 @@ const ViewAdmin = () => {
                                     clearErrors={clearErrors}
                                     setValue={setValue}
                                     type={type}
+                                    disabled={disabled}
                                     name={name}
                                     isSelect={type === 'select'}
                                     select={selectProps}

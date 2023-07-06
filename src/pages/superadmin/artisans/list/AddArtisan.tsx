@@ -317,6 +317,7 @@ const AddArtisan = () => {
         },
         {
             label: 'address_line_1',
+            required: false,
         },
         {
             label: 'address_line_2',

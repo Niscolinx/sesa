@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Input, { SelectProps } from '../../../components/ui/input/Input'
-import ImageInput from '../../../components/ui/input/ImageInput'
 import AddBtn from '../../../components/ui/button/AddBtn'
 import AddedSuccess from '../../../components/ui/dialog/AddedSuccess'
 import Spinner from '../../../components/ui/Spinner'
@@ -25,10 +24,15 @@ function ViewEstateStaff() {
         selectProps?: SelectProps
     }
 
-    type Workdays = { name: string; disabled: boolean; id: number }
-
-    const workdaysState = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
-
+    const workdaysState = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+    ]
     const genderState = ['Male', 'Female']
     const [selectFormErrors, setSelectFormErrors] = useState<{
         [key: string]: string
@@ -70,8 +74,8 @@ function ViewEstateStaff() {
         register,
         setValue,
     } = useAddPageMutation({
-        title: 'add_estate_staff',
-        url: '/manager/estate-admin/create',
+        title: `view_estate_staff_${id}`,
+        url: `/estate-staff/update/${id}`,
         props: {
             work_days: selectedWorkdays,
             state: selectedState,
@@ -187,7 +191,7 @@ function ViewEstateStaff() {
             type: 'textarea',
             fullWidth: true,
             placeholder:
-                'The message will be displayed to the security guard when the site worker checks In/Out',
+                'The message will be displayed to the security guard when the estate staff checks In/Out',
         },
     ] satisfies FormInputs[]
 

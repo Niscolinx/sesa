@@ -53,40 +53,67 @@
             gap: 1rem;
             width: 100%;
 
-            .fillIcon {
-                svg {
-                    fill: $color-dark;
-                    stroke: none;
-                }
-                &:hover {
-                    svg {
-                        fill: $color-primary;
-                        stroke: none;
+            &__list {
+                &--item {
+                    display: flex;
+                    gap: 1rem;
+                    font-size: 1.4rem;
+                    border-radius: $border-radius;
+                    align-items: center;
+                    padding: 1rem 0;
+                    width: 100%;
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: all 0.2s;
+                        padding: 1rem 2rem;
+                        background-color: $color-primary-light;
+                        color: $color-primary;
+                        transform: translateX(0.2rem) scale(1.01);
+
+                        .list--svg {
+                            svg {
+                                stroke: $color-primary;
+                            }
+                        }
+
+                        .list--svg-fillIcon {
+                            svg {
+                                fill: $color-primary;
+                            }
+                        }
+                    }
+
+                    .list--svg {
+                        svg {
+                            stroke: $color-dark;
+                        }
+                    }
+
+                    .list--svg-fillIcon {
+                        svg {
+                            fill: $color-dark;
+                        }
                     }
                 }
-            }
-            a {
-                display: flex;
-                gap: 1rem;
-                font-size: 1.4rem;
-                border-radius: $border-radius;
-                align-items: center;
-                padding: 1rem 0;
-                width: 100%;
 
-                svg {
-                    stroke: $color-dark;
-                }
-
-                &:hover {
+                .active {
+                    background-color: $color-blue;
+                    color: $color-white;
+                    transform: translateX(0.2rem) scale(1.01);
                     transition: all 0.2s;
                     padding: 1rem 2rem;
-                    background-color: $color-primary-light;
-                    color: $color-primary;
-                    transform: translateX(0.2rem) scale(1.01);
 
-                    svg {
-                        stroke: $color-primary;
+                    .list--svg {
+                        svg {
+                            stroke: $color-white;
+                        }
+                    }
+
+                    .list--svg-fillIcon {
+                        svg {
+                            fill: $color-white;
+                        }
                     }
                 }
             }
@@ -97,9 +124,9 @@
 .sidebarToggle {
     width: 8rem;
 
-
     .section-1 {
         justify-content: center;
+
         &__box {
             display: none;
         }

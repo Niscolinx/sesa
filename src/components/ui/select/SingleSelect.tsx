@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr'
 import { IoMdClose } from 'react-icons/io'
-import { ValidateInputTypes } from '../../../pages/estateManager/securityGuard/AddSecurityGuard'
 
-export interface ISelect<T> {
+export interface ISelect {
     state: Array<string>
     selectedState: string | string[]
     setSelectedState: React.Dispatch<React.SetStateAction<string>>
@@ -19,17 +18,15 @@ export interface ISelect<T> {
     color?: string
 }
 
-const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
+const SingleSelect: FC<ISelect> = ({
     state,
     selectedState,
     setSelectedState,
     label,
     placeholder,
     kyr,
-    id,
     absolute = true,
     selectFormErrors,
-    fullWidth,
     color,
     isSearchable = false,
 }) => {
@@ -41,7 +38,6 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
     const containerRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        console.log('hs#')
         const handler = (e: MouseEvent) => {
             if (
                 containerRef.current &&
@@ -83,6 +79,10 @@ const SingleSelect: FC<ISelect<ValidateInputTypes | string>> = ({
         e.stopPropagation()
         setSelectedState('')
     }
+
+    useEffect(() => {
+        console.log({ selectedState })
+    }, [selectedState])
 
     return (
         <div
