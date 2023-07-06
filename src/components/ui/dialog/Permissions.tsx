@@ -8,10 +8,11 @@ interface Props {
 }
 
 function Permissions({ permissions, setPermissions }: Props) {
-	type EachPermission = {
-		name: string;
-		content: string[];
-	};
+	// type EachPermission = {
+	// 	name: string;
+	// 	content: string[];
+	// } 
+    type EachPermission = string
 
 	const { isLoading, data: fetchedData } = useFetchData({
 		url: "permission/get/all",
@@ -49,7 +50,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 				}
 			}
 
-			setData(eachPermission);
+			// setData(eachPermission);
 		}
 	}, [fetchedData]);
 
@@ -65,24 +66,22 @@ function Permissions({ permissions, setPermissions }: Props) {
 		const value = e.target.value.toLowerCase();
 
 		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
-        const _update = updated
 
-		const filteredData = updated.map((each) => {
-            
-			const filteredContent = each.content.filter((perm) =>
-				perm.toLowerCase().includes(value),
-			);
-			
-			return {
-				...each,
-				content: filteredContent,
-			};
-		});
+        const filteredData = updated.filter((perm) => perm.toLowerCase().includes(value))
+		// const _update = updated;
 
-		console.log(filteredData);
-        console.log({_update})
+		// const filteredData = updated.map((each) => {
+		// 	const filteredContent = each.content.filter((perm) =>
+		// 		perm.toLowerCase().includes(value),
+		// 	);
 
-	 setData(filteredData);
+		// 	return {
+		// 		...each,
+		// 		content: filteredContent,
+		// 	};
+		// });
+
+        
 	};
 
 	return (
@@ -109,7 +108,31 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
-							{data?.map(({ name, content }: EachPermission, idx: number) => {
+							{data?.map((perm: string, idx: number) => {
+								return (
+									<div className="border-b pb-4">
+										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
+											'hellow'
+										</h3>
+
+										<label
+											className="flex items-center gap-4 py-2"
+											key={`${perm + idx}`}
+										>
+											<input
+												type="checkbox"
+												name={perm}
+												className="cursor-pointer"
+											/>
+
+											<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
+												{perm}
+											</span>
+										</label>
+									</div>
+								);
+							})}
+							{/* {data?.map(({ name, content }: EachPermission, idx: number) => {
 								return (
 									<div className="border-b pb-4">
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
@@ -133,7 +156,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 										))}
 									</div>
 								);
-							})}
+							})} */}
 						</div>
 
 						<button
