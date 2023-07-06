@@ -109,8 +109,7 @@ function IconsBox() {
 							to={to}
 							className={(props) =>
 								(idx === 0 &&
-									props.isActive &&
-									location.pathname === "/dashboard") ||
+									props.isActive) ||
 								(props.isActive && idx > 0)
 									? "iconsBox__list--item active "
 									: "iconsBox__list--item"
