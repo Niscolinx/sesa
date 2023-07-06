@@ -149,15 +149,14 @@ const SlicedPages: FC<SlicedPages> = ({
 						// console.log({ formattedTime });
 
 						// const currentTime = new Date(formattedTime);
-
 						const timeString = "23:12";
-						const time = moment().format(timeString)
-						console.log({time})
+						const formattedTime = moment(timeString, "HH:mm").format("h:mm A");
+						console.log({formattedTime})
 
 						return (
-							<button key={key} disabled type="button">
+							<p key={key}>
 								{THeader.includes("date/time") ? formattedDate : formattedDate}
-							</button>
+							</p>
 						);
 					}
 					if (key === "status") {
