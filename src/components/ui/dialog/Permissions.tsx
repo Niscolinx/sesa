@@ -103,20 +103,22 @@ function Permissions({ permissions, setPermissions }: Props) {
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
 											{name}
 										</h3>
-										<label
-											className="flex items-center gap-4 py-2"
-											key={`${name + idx}`}
-										>
-											<input
-												type="checkbox"
-												name={name}
-												className="cursor-pointer"
-											/>
+										{content.map((perm: string) => (
+											<label
+												className="flex items-center gap-4 py-2"
+												key={`${name + idx}`}
+											>
+												<input
+													type="checkbox"
+													name={perm}
+													className="cursor-pointer"
+												/>
 
-											<span className="capitalize cursor-pointer font-Satoshi-Medium">
-												{name}
-											</span>
-										</label>
+												<span className="capitalize cursor-pointer font-Satoshi-Medium">
+													{perm}
+												</span>
+											</label>
+										))}
 									</div>
 								);
 							})}
