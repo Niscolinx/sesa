@@ -32,18 +32,15 @@ function Permissions({ permissions, setPermissions }: Props) {
 		dialogRef.current?.showModal();
 	};
 
-	function handleSearch(e: ChangeEvent<HTMLInputElement>, data: string[]) {
+	function handleSearch(e: ChangeEvent<HTMLInputElement>) {
 		const value = e.target.value;
 
-        const newData = [...data]
-
-        const updated = new Array(...newData).flat()
+        const updated = JSON.parse(JSON.stringify(fetchedData))
 
 		const filteredData = updated.filter((permission: string) => {
 			return permission.toLowerCase().includes(value.toLowerCase());
 		});
 
-        console.log({filteredData})
 		setData(filteredData);
 	}
 
@@ -64,7 +61,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 									type="text"
 									placeholder="Search"
 									className="border border-color-blue-1 rounded-lg px-4 py-2 w-[30rem]"
-									onChange={(e) => handleSearch(e, data)}
+									onChange={handleSearch}
 								/>
 							</div>
 						</div>
