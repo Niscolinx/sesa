@@ -62,13 +62,23 @@ function Permissions({ permissions, setPermissions }: Props) {
 	};
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
+		const value = e.target.value.toLowerCase()
 
-		const updated = JSON.parse(JSON.stringify(fetchedData));
+		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
 
-		const filteredData = updated.filter((permission: string) => {
-			return permission.toLowerCase().includes(value.toLowerCase());
-		});
+		const filteredData = updated.map((each) => {
+            const filteredContent = each.content.filter((perm) =>
+                perm.toLowerCase().includes(value)
+            )
+
+            return {
+                ...each,
+                content: filteredContent,
+            }
+        })
+
+
+        console.log(filteredData);
 
 		setData(filteredData);
 	};
@@ -99,7 +109,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 							{isLoading && <p>Loading...</p>}
 							{data?.map(({ name, content }: EachPermission, idx: number) => {
 								return (
-									<div>
+									<div className="border-b pb-4">
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
 											{name}
 										</h3>
@@ -114,7 +124,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 													className="cursor-pointer"
 												/>
 
-												<span className="capitalize cursor-pointer font-Satoshi-Medium">
+												<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
 													{perm}
 												</span>
 											</label>
