@@ -26,12 +26,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 				name: string;
 				content: string[];
 			};
-			const eachPermission: EachPermission[] = [
-				{
-					name: "",
-					content: [],
-				},
-			];
+			const eachPermission: EachPermission[] = [];
 
 			const _permissions = fetchedData as string[];
 
@@ -42,13 +37,24 @@ function Permissions({ permissions, setPermissions }: Props) {
 				const word = match?.[0].replace("-", "");
 
 				console.log(word);
-                eachPermission.push({
-                    name: word as string,
-                    content: ['hello']
-                })
+
+				if (word) {
+                    const found = eachPermission.find(
+                        (each) => each.name === word
+                    );
+
+                    if (found) {
+                        found.content.push(perm);
+                    } else {
+                        eachPermission.push({
+                            name: word,
+                            content: [perm],
+                        });
+                    }
+				}
 			}
 
-            console.log({eachPermission})
+			console.log({ eachPermission });
 		}
 	}, [fetchedData]);
 
