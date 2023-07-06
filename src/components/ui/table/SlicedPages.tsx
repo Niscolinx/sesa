@@ -3,7 +3,7 @@ import TableDropDown from "./TableDropDown";
 import { ToggleDropDown } from "./TableData";
 import { Actions, useTableContext } from "./Table";
 import StarRating from "../StarRating";
-import dayjs from 'dayjs'
+import moment from "moment";
 
 interface SlicedPages {
 	pages: any[][] | null;
@@ -143,7 +143,6 @@ const SlicedPages: FC<SlicedPages> = ({
 								year: "numeric",
 							},
 						);
-						
 
 						// const date_and_time = `${formattedDate}, ${formattedTime}`;
 
@@ -152,10 +151,8 @@ const SlicedPages: FC<SlicedPages> = ({
 						// const currentTime = new Date(formattedTime);
 
 						const timeString = "23:12";
-						const parsedTime = dayjs(timeString, "HH:mm");
-						const formattedTime = parsedTime.format("h:mm A");
-
-						console.log({formattedTime})
+						const time = moment().format(timeString)
+						console.log({time})
 
 						return (
 							<button key={key} disabled type="button">
