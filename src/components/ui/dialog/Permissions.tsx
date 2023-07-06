@@ -42,7 +42,9 @@ function Permissions({ permissions, setPermissions }: Props) {
 		const filteredData = updated.filter((permission: string) => {
 			return permission.toLowerCase().includes(value.toLowerCase());
 		});
-		setData(filteredData);
+
+        console.log({filteredData})
+		//setData(filteredData);
 	}
 
 	return (
