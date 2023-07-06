@@ -22,22 +22,28 @@ function Permissions({ permissions, setPermissions }: Props) {
 		if (fetchedData) {
 			setData(fetchedData);
 
-			const transformedData = fetchedData.map((permission: string) => {
-				const reg = /(\w+)-/g;
-				const match = permission.match(reg);
-				const word = new Set(match?.[0].replace("-", ""));
-				console.log({word})
 
-				const eachPermission = [];
+            const transformedData = fetchedData.map((permission: string) => {
+                const reg = /(\w+)-/g;
+                const match = permission.match(reg);
 
-				if (word && permission.startsWith("admin")) {
-					console.log({ permission });
-				}
+                const word = match?.[0].replace("-", "")
+                const uniqueWords = [...new Set(match)]
 
-				return {};
-			});
+                const eachPermission = []
+                console.log({uniqueWords})
 
-			console.log({ transformedData });
+                if(word && permission.startsWith('admin')){
+                    console.log({permission})
+                }
+
+                return {
+
+                }
+            })
+
+            console.log({transformedData})
+
 		}
 	}, [fetchedData]);
 
@@ -49,17 +55,17 @@ function Permissions({ permissions, setPermissions }: Props) {
 		dialogRef.current?.showModal();
 	};
 
-	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) =>{
 		const value = e.target.value;
 
-		const updated = JSON.parse(JSON.stringify(fetchedData));
+        const updated = JSON.parse(JSON.stringify(fetchedData))
 
 		const filteredData = updated.filter((permission: string) => {
 			return permission.toLowerCase().includes(value.toLowerCase());
 		});
 
 		setData(filteredData);
-	};
+	}
 
 	return (
 		<div className="">
