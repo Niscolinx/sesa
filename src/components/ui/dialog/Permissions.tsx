@@ -68,10 +68,10 @@ function Permissions({ permissions, setPermissions }: Props) {
         const _update = updated
 
 		const filteredData = updated.map((each) => {
+            
 			const filteredContent = each.content.filter((perm) =>
 				perm.toLowerCase().includes(value),
 			);
-
 			
 			return {
 				...each,
