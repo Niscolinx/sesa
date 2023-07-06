@@ -149,7 +149,7 @@ const SlicedPages: FC<SlicedPages> = ({
 						);
 						console.log({ formattedTime });
 
-						const date_and_time = `${formattedDate}/${formattedTime}`
+						const date_and_time = `${formattedDate},${formattedTime}`
 
 						console.log({date_and_time})
 
