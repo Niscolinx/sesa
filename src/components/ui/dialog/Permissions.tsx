@@ -32,7 +32,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		dialogRef.current?.showModal();
 	};
 
-	function handleSearch(e: ChangeEvent<HTMLInputElement>) {
+	function handleSearch(e: ChangeEvent<HTMLInputElement>, data: string[]) {
 		const value = e.target.value;
 
         const newData = [...data]
@@ -44,7 +44,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		});
 
         console.log({filteredData})
-		//setData(filteredData);
+		setData(filteredData);
 	}
 
 	return (
@@ -64,7 +64,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 									type="text"
 									placeholder="Search"
 									className="border border-color-blue-1 rounded-lg px-4 py-2 w-[30rem]"
-									onChange={handleSearch}
+									onChange={(e) => handleSearch(e, data)}
 								/>
 							</div>
 						</div>
