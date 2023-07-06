@@ -11,8 +11,8 @@ function Permissions({ permissions, setPermissions }: Props) {
 	// type EachPermission = {
 	// 	name: string;
 	// 	content: string[];
-	// } 
-    type EachPermission = string
+	// }
+	type EachPermission = string;
 
 	const { isLoading, data: fetchedData } = useFetchData({
 		url: "permission/get/all",
@@ -30,25 +30,25 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 			const _permissions = fetchedData as string[];
 
-			for (const perm of _permissions) {
-				const reg = /(\w+)-/g;
-				const match = perm.match(reg);
+			// for (const perm of _permissions) {
+			// 	const reg = /(\w+)-/g;
+			// 	const match = perm.match(reg);
 
-				const word = match?.[0].replace("-", "");
+			// 	const word = match?.[0].replace("-", "");
 
-				if (word) {
-					const found = eachPermission.find((each) => each.name === word);
+			// 	if (word) {
+			// 		const found = eachPermission.find((each) => each.name === word);
 
-					if (found) {
-						found.content.push(perm);
-					} else {
-						eachPermission.push({
-							name: word,
-							content: [perm],
-						});
-					}
-				}
-			}
+			// 		if (found) {
+			// 			found.content.push(perm);
+			// 		} else {
+			// 			eachPermission.push({
+			// 				name: word,
+			// 				content: [perm],
+			// 			});
+			// 		}
+			// 	}
+			// }
 
 			// setData(eachPermission);
 		}
@@ -67,7 +67,9 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
 
-        const filteredData = updated.filter((perm) => perm.toLowerCase().includes(value))
+		const filteredData = updated.filter((perm) =>
+			perm.toLowerCase().includes(value),
+		);
 		// const _update = updated;
 
 		// const filteredData = updated.map((each) => {
@@ -81,7 +83,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 		// 	};
 		// });
 
-        
+		setData(filteredData);
 	};
 
 	return (
