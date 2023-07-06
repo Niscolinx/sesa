@@ -3,6 +3,7 @@ import TableDropDown from "./TableDropDown";
 import { ToggleDropDown } from "./TableData";
 import { Actions, useTableContext } from "./Table";
 import StarRating from "../StarRating";
+import dayjs from 'dayjs'
 
 interface SlicedPages {
 	pages: any[][] | null;
@@ -142,22 +143,24 @@ const SlicedPages: FC<SlicedPages> = ({
 								year: "numeric",
 							},
 						);
-						const formattedTime = get_only_time.toLocaleString("en-US", {
-							hour: "numeric",
-							minute: "numeric",
-							hour12: true,
-						});
+						
 
-						const date_and_time = `${formattedDate}, ${formattedTime}`
+						// const date_and_time = `${formattedDate}, ${formattedTime}`;
 
-						console.log({date_and_time})
+						// console.log({ formattedTime });
+
+						// const currentTime = new Date(formattedTime);
+
+						const timeString = "23:12";
+						const parsedTime = dayjs(timeString, "HH:mm");
+						const formattedTime = parsedTime.format("h:mm A");
+
+						console.log({formattedTime})
 
 						return (
-							<p key={key}>
-								{THeader.includes("date/time")
-									? formattedTime
-									: formattedDate}
-							</p>
+							<button key={key} disabled type="button">
+								{THeader.includes("date/time") ? formattedDate : formattedDate}
+							</button>
 						);
 					}
 					if (key === "status") {
