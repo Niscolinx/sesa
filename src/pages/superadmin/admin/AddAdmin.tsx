@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input, { SelectProps } from "../../../components/ui/input/Input";
 import ImageInput from "../../../components/ui/input/ImageInput";
 import AddBtn from "../../../components/ui/button/AddBtn";
@@ -6,6 +6,7 @@ import AddedSuccess from "../../../components/ui/dialog/AddedSuccess";
 import Spinner from "../../../components/ui/Spinner";
 import useAddPageMutation from "../../../components/hooks/useAddPageMutation";
 import { ToastContainer } from "react-toastify";
+import Permissions from "../../../components/ui/dialog/Permissions";
 
 const AddAdmin = () => {
 	const {
@@ -22,6 +23,8 @@ const AddAdmin = () => {
 		register,
 		setValue,
 	} = useAddPageMutation({ url: "/admin/create", title: "admin" });
+
+	const [permissions, setPermissions] = useState<string[]>([])
 
 	const genderState = ["Male", "Female"];
 	type FormInputs = {
@@ -98,6 +101,7 @@ const AddAdmin = () => {
 							/>
 						);
 					})}
+					<Permissions data={permissions} setData={setPermissions}/>
 
 					<ImageInput
 						handlePicture={handlePicture}
