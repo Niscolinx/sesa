@@ -8,10 +8,10 @@ interface Props {
 }
 
 function Permissions({ permissions, setPermissions }: Props) {
-    type EachPermission = {
-					name: string;
-					content: string[];
-				};
+	type EachPermission = {
+		name: string;
+		content: string[];
+	};
 
 	const { isLoading, data: fetchedData } = useFetchData({
 		url: "permission/get/all",
@@ -25,7 +25,6 @@ function Permissions({ permissions, setPermissions }: Props) {
 		if (fetchedData as string[]) {
 			setData(fetchedData);
 
-			
 			const eachPermission: EachPermission[] = [];
 
 			const _permissions = fetchedData as string[];
@@ -36,25 +35,21 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 				const word = match?.[0].replace("-", "");
 
-
 				if (word) {
-                    const found = eachPermission.find(
-                        (each) => each.name === word
-                    );
+					const found = eachPermission.find((each) => each.name === word);
 
-                    if (found) {
-                        found.content.push(perm);
-                    } else {
-                        eachPermission.push({
-                            name: word,
-                            content: [perm],
-                        });
-                    }
+					if (found) {
+						found.content.push(perm);
+					} else {
+						eachPermission.push({
+							name: word,
+							content: [perm],
+						});
+					}
 				}
 			}
 
-            setData(eachPermission);
-
+			setData(eachPermission);
 		}
 	}, [fetchedData]);
 
@@ -102,7 +97,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
-							{data?.map(({name, content}: EachPermission, idx: number) => {
+							{data?.map(({ name, content }: EachPermission, idx: number) => {
 								return (
 									<div>
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
