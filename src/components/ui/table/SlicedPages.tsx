@@ -155,7 +155,7 @@ const SlicedPages: FC<SlicedPages> = ({
 
 						return (
 							<p key={key}>
-								{THeader.includes("date/time") ? formattedDate : formattedDate}
+								{THeader.includes("date/time") ? date_and_time : formattedDate}
 							</p>
 						);
 					}
