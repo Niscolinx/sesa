@@ -103,7 +103,7 @@ function IconsBox() {
 			{links.map(({ classes, to, icon, text }, idx) => {
 				const pathLength = location.pathname.split("/").length;
 
-				console.log({pathLength})
+				console.log({pathLength}, location.pathname.split('/'))
 				return (
 					<li className="iconsBox__list" key={`${idx}link`}>
 						<NavLink
