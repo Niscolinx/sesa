@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import AdditionalResidentSvg from "./sidebar/AdditionalResidentSvg";
 import AdminsSvg from "./sidebar/AdminsSvg";
@@ -13,6 +13,8 @@ import SettingsSvg from "./sidebar/SettingsSvg";
 import WalletSvg from "./sidebar/WalletSvg";
 
 function IconsBox() {
+	const location = useLocation();
+
 	interface LinkProps {
 		to: string;
 		icon: JSX.Element;
@@ -99,6 +101,9 @@ function IconsBox() {
 
 		<ul className="iconsBox">
 			{links.map(({ classes, to, icon, text }, idx) => {
+				const pathLength = location.pathname.split("/").length;
+
+				console.log({pathLength})
 				return (
 					<li className="iconsBox__list" key={`${idx}link`}>
 						<NavLink
