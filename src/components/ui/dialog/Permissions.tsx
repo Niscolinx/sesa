@@ -94,9 +94,17 @@ function Permissions({ permissions, setPermissions }: Props) {
 	};
 
 	const handleSelected = (e: ChangeEvent<HTMLInputElement>, perm: string) => {
-		const value = e.target.checked
+		const value = e.target.checked;
 
-		console.log({ value });
+		if (value) {
+			return setPermissions((prev) => [...prev, perm]);
+		}
+
+		return setPermissions((prev) => {
+			const removePerm = prev.filter((item) => item !== perm);
+
+			return removePerm
+		});
 	};
 
 	return (
@@ -134,14 +142,14 @@ function Permissions({ permissions, setPermissions }: Props) {
 												className="flex items-center gap-4 py-2"
 												key={perm}
 												htmlFor={perm}
-                                                >
+											>
 												<input
 													id={perm}
-                                                    onChange={(e) => handleSelected(e, perm)}
+													onChange={(e) => handleSelected(e, perm)}
 													type="checkbox"
 													name={perm}
 													className="cursor-pointer"
-                                                    />
+												/>
 
 												<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
 													{perm}
