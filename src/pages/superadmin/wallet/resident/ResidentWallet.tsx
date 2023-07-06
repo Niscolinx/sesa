@@ -45,7 +45,7 @@ const ResidentWallet = () => {
                         'balance',
                         'transaction_ID',
                         'type',
-                        'date',
+                        'date/time',
                         'actions',
                     ]}
                     data_to_display={[

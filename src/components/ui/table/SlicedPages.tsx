@@ -133,6 +133,8 @@ const SlicedPages: FC<SlicedPages> = ({
 						key.includes("date")
 					) {
 						const get_only_date = value.slice(0, 10);
+						const get_only_time = value.slice(11, 16)
+
 
 						return (
 							<p key={key}>
