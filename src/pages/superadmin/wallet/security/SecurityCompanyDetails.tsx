@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import useFetchData from '../../../../components/hooks/useFetchData'
 import Input from '../../../../components/ui/input/Input'
 
-const CompanyWalletDetails = () => {
+const SecurityCompanyWalletDetails = () => {
     interface Inputs {
         type: string
         transaction_date: string
@@ -145,4 +145,4 @@ const CompanyWalletDetails = () => {
     )
 }
 
-export default CompanyWalletDetails
+export default SecurityCompanyWalletDetails

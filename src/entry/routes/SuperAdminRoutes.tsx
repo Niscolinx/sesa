@@ -52,6 +52,7 @@ import ResidentWalletDetails from '../../pages/superadmin/wallet/resident/Reside
 import SecurityCompanyWallet from '../../pages/superadmin/wallet/security/SecurityCompanyWallet'
 import PlatformSettings from '../../pages/superadmin/platformSettings/PlatformSettings'
 import EstateWalletDetails from '../../pages/superadmin/wallet/estate/EstateWalletDetails'
+import SecurityCompanyWalletDetails from '../../pages/superadmin/wallet/security/SecurityCompanyDetails'
 
 const SuperAdminRoutes = (
     <Route
@@ -107,10 +108,10 @@ const SuperAdminRoutes = (
             path='wallet/security-company'
             element={<SecurityCompanyWallet />}
         />
-        {/* <Route
+        <Route
             path='wallet/security-company/:id'
             element={<SecurityCompanyWalletDetails />}
-        /> */}
+        />
         <Route path='securityManagers' element={<SecurityManagers />} />
         <Route path='securityManagers/add' element={<AddSecurityManager />} />
         <Route
