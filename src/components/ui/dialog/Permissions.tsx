@@ -33,6 +33,7 @@ function Permissions({ permissions, setPermissions }: Props) {
                 }
             })
 
+            console.log({transformedData})
 
 		}
 	}, [fetchedData]);
