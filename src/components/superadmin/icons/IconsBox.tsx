@@ -108,11 +108,12 @@ function IconsBox() {
 									props.isActive &&
 									location.pathname === "/dashboard") ||
 								(props.isActive && idx > 0)
-									? `${classes} active `
-									: `${classes}`
+									? "iconsBox__list--item active "
+									: "iconsBox__list--item"
 							}
 						>
-							{icon}
+							
+						<span className={`${classes ? 'list--svg-fillIcon' : 'list--svg'}`}>{icon}</span>	
 
 							<span>{text}</span>
 						</NavLink>
