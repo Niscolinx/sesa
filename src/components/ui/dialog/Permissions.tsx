@@ -104,20 +104,25 @@ function Permissions({ permissions, setPermissions }: Props) {
 							{isLoading && <p>Loading...</p>}
 							{data?.map(({name, content}: EachPermission, idx: number) => {
 								return (
-									<label
-										className="flex items-center gap-4 py-2"
-										key={`${name + idx}`}
-									>
-										<input
-											type="checkbox"
-											name={name}
-											className="cursor-pointer"
-										/>
-
-										<span className="capitalize cursor-pointer font-Satoshi-Medium">
+									<div>
+										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
 											{name}
-										</span>
-									</label>
+										</h3>
+										<label
+											className="flex items-center gap-4 py-2"
+											key={`${name + idx}`}
+										>
+											<input
+												type="checkbox"
+												name={name}
+												className="cursor-pointer"
+											/>
+
+											<span className="capitalize cursor-pointer font-Satoshi-Medium">
+												{name}
+											</span>
+										</label>
+									</div>
 								);
 							})}
 						</div>
