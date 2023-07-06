@@ -62,25 +62,26 @@ function Permissions({ permissions, setPermissions }: Props) {
 	};
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value.toLowerCase()
+		const value = e.target.value.toLowerCase();
 
 		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
+        const _update = [...updated]
 
 		const filteredData = updated.map((each) => {
-            const filteredContent = each.content.filter((perm) =>
-                perm.toLowerCase().includes(value)
-            )
+			const filteredContent = each.content.filter((perm) =>
+				perm.toLowerCase().includes(value),
+			);
 
-            return {
-                ...each,
-                content: filteredContent,
-            }
-        })
+			
+			return {
+				...each,
+				content: filteredContent,
+			};
+		});
 
+		console.log(filteredData);
 
-        console.log(filteredData);
-
-		// setData(filteredData);
+	 setData(update);
 	};
 
 	return (
