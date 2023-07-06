@@ -6,7 +6,7 @@ interface Props {
 	setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-function Permissions({setPermissions }: Props) {
+function Permissions({ setPermissions }: Props) {
 	type EachPermission = {
 		name: string;
 		content: string[];
@@ -18,6 +18,7 @@ function Permissions({setPermissions }: Props) {
 	});
 
 	const [data, setData] = useState<EachPermission[]>([]);
+	const [selected, setSelected] = useState<string[]>([]);
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
@@ -96,14 +97,19 @@ function Permissions({setPermissions }: Props) {
 		const value = e.target.checked;
 
 		if (value) {
-			return setPermissions((prev) => [...prev, perm]);
+			return setSelected((prev) => [...prev, perm]);
 		}
 
-		return setPermissions((prev) => {
+		return setSelected((prev) => {
 			const removePerm = prev.filter((item) => item !== perm);
 
-			return removePerm
+			return removePerm;
 		});
+	};
+
+	const handleSave = () => {
+        closeDialog()
+		setPermissions(selected);
 	};
 
 	return (
@@ -162,8 +168,8 @@ function Permissions({setPermissions }: Props) {
 
 						<button
 							className="bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center"
-							onClick={closeDialog}
-                            type="button"
+							onClick={handleSave}
+							type="button"
 						>
 							<img src="/icons/admins/saveDisk.svg" alt="" />
 							<span>Save Changes</span>
