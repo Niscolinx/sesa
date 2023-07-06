@@ -99,26 +99,21 @@ function IconsBox() {
 
 		<ul className="iconsBox">
 			{links.map(({ classes, to, icon, text }, idx) => {
-				const baseClasses = "flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:px-8 hover:bg-color-primary hover:text-black hover:translate-x-4 hover:scale-[1.01] [&>svg]:hover:fill-black [&>svg]:hover:transition-all [&>svg]:hover:duration-[.1s] [&>svg]:color-primary" ;
 				return (
 					<li className="iconsBox__list" key={`${idx}link`}>
 						<NavLink
 							to={to}
-							// className={(props) =>
-							// 	(idx === 0 &&
-							// 		props.isActive &&
-							// 		location.pathname === "/dashboard") ||
-							// 	(props.isActive && idx > 0)
-							// 		? `${baseClasses} transition-all duration-[.2s] py-4 pl-8 [&>svg]:stroke-black bg-color-blue ${
-							// 				classes ? "[&>svg]:fill-white" : "[&>svg]:stroke-white"
-							// 		  } text-white`
-							// 		: baseClasses
-							// }
-
-							className={`${baseClasses}`}
+							className={(props) =>
+								(idx === 0 &&
+									props.isActive &&
+									location.pathname === "/dashboard") ||
+								(props.isActive && idx > 0)
+									? `${classes} active `
+									: `${classes}`
+							}
 						>
-							{/* <Link to={to} className={`bg-red-500`} > */}
 							{icon}
+
 							<span>{text}</span>
 						</NavLink>
 					</li>

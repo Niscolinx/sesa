@@ -54,17 +54,41 @@
             width: 100%;
 
             .fillIcon {
-                // svg {
-                //     fill: $color-dark;
-                //     stroke: none;
-                // }
-                // &:hover {
-                //     svg {
-                //         fill: $color-primary;
-                //         stroke: none;
-                //     }
-                // }
+                svg {
+                    fill: $color-dark;
+                    stroke: none;
+                }
+                &:hover {
+                    svg {
+                        fill: $color-primary;
+                        stroke: none;
+                    }
+                }
+
+               
             }
+             .active{
+
+                background-color: $color-blue;
+                color: $color-white;
+                transform: translateX(0.2rem) scale(1.01);
+                transition: all 0.2s;
+                padding: 1rem 2rem;
+
+
+                svg{
+                    fill: $color-white;
+                    stroke: none;
+                }
+
+                
+                }
+                .fillIcon:active{
+                    svg{
+                        stroke: $color-white;
+                        fill: none;
+                    }
+                }
             a {
                 display: flex;
                 gap: 1rem;
@@ -75,9 +99,11 @@
                 width: 100%;
                 cursor: pointer;
 
-                // svg {
-                //     stroke: $color-dark;
-                // }
+               
+
+                svg {
+                    stroke: $color-dark;
+                }
 
                 &:hover {
                     transition: all 0.2s;
@@ -86,9 +112,9 @@
                     color: $color-primary;
                     transform: translateX(0.2rem) scale(1.01);
 
-                    // svg {
-                    //     stroke: $color-primary;
-                    // }
+                    svg {
+                        stroke: $color-primary;
+                    }
                 }
             }
         }
