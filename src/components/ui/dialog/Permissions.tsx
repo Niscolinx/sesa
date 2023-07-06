@@ -81,7 +81,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 		console.log(filteredData);
 
-	 setData(update);
+	 setData(_update);
 	};
 
 	return (
