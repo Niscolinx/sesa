@@ -93,11 +93,11 @@ function Permissions({ permissions, setPermissions }: Props) {
 		setData(eachPermission);
 	};
 
-    const handleSelected = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value
+	const handleSelected = (e: ChangeEvent<HTMLInputElement>, perm: string) => {
+		const value = e.target.checked
 
-        console.log({value})
-    }
+		console.log({ value });
+	};
 
 	return (
 		<div className="">
@@ -109,7 +109,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 							onClick={closeDialog}
 						/>
 						<div className="border-b pb-4">
-							<p className="font-semibold">Permissions List</p>
+							<p className="font-semibold pb-4">Permissions List</p>
 
 							<div className="flex items-center gap-4">
 								<input
@@ -124,7 +124,6 @@ function Permissions({ permissions, setPermissions }: Props) {
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
 							{data?.map(({ name, content }: EachPermission, idx: number) => {
-
 								return (
 									<div className="border-b pb-4" key={name}>
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
@@ -133,14 +132,16 @@ function Permissions({ permissions, setPermissions }: Props) {
 										{content.map((perm: string) => (
 											<label
 												className="flex items-center gap-4 py-2"
-												key={`${perm}`}
-											>
+												key={perm}
+												htmlFor={perm}
+                                                >
 												<input
+													id={perm}
+                                                    onChange={(e) => handleSelected(e, perm)}
 													type="checkbox"
 													name={perm}
 													className="cursor-pointer"
-                                                    onChange={handleSelected}
-												/>
+                                                    />
 
 												<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
 													{perm}
