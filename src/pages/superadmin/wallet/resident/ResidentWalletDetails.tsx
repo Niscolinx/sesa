@@ -15,6 +15,7 @@ const ResidentWalletDetails = () => {
         amount: string
         tran_id: string
         description: string
+        balance: string
     }
 
     type FormInputs = {
@@ -53,9 +54,10 @@ const ResidentWalletDetails = () => {
     })
 
     const amount = data?.amount
+    const balance = data?.balance
     useEffect(() => {
         if (data) {
-            const { created_at, amount, name, ...other } = data
+            const { created_at, name, ...other } = data
 
             const transaction_date = created_at.slice(0, 10)
             const transaction_time = created_at.slice(11, 16)
@@ -75,40 +77,46 @@ const ResidentWalletDetails = () => {
     }
 
     const formInputs = [
-        {
-            label: 'type',
-            name: 'transaction_type',
-        },
+					{
+						label: "type",
+						name: "transaction_type",
+					},
 
-        {
-            label: 'transaction_date',
-        },
-        {
-            label: 'transaction_time',
-            type: 'time',
-        },
-        {
-            label: 'category',
-            name: 'transaction_category',
-        },
-        {
-            label: 'transaction_source',
-        },
-        {
-            label: 'amount',
-            name: 'transaction_amount',
-            tag: 'money',
-            value: amount,
-        },
-        {
-            label: 'tran_id',
-            name: 'transaction_ID',
-        },
-        {
-            label: 'description',
-            name: 'narration',
-        },
-    ] satisfies FormInputs[]
+					{
+						label: "transaction_date",
+					},
+					{
+						label: "transaction_time",
+						type: "time",
+					},
+					{
+						label: "category",
+						name: "transaction_category",
+					},
+					{
+						label: "transaction_source",
+					},
+					{
+						label: "amount",
+						name: "transaction_amount",
+						tag: "money",
+						value: amount,
+					},
+					{
+						label: "balance",
+						name: "transaction_balance",
+						tag: "money",
+						value: balance,
+					},
+					{
+						label: "tran_id",
+						name: "transaction_ID",
+					},
+					{
+						label: "description",
+						name: "narration",
+					},
+				] satisfies FormInputs[];
 
     return (
         <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>

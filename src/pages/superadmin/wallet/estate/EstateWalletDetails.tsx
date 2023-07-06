@@ -15,6 +15,7 @@ const EstateWalletDetails = () => {
         amount: string
         tran_id: string
         description: string
+        balance: string
     }
 
     type FormInputs = {
@@ -53,6 +54,7 @@ const EstateWalletDetails = () => {
     })
 
     const amount = data?.amount
+    const balance = data?.balance
     useEffect(() => {
         if (data) {
             const { created_at, amount, estate_name, ...other } = data
@@ -75,40 +77,46 @@ const EstateWalletDetails = () => {
     }
 
     const formInputs = [
-        {
-            label: 'type',
-            name: 'transaction_type',
-        },
+					{
+						label: "type",
+						name: "transaction_type",
+					},
 
-        {
-            label: 'transaction_date',
-        },
-        {
-            label: 'transaction_time',
-            type: 'time',
-        },
-        {
-            label: 'category',
-            name: 'transaction_category',
-        },
-        {
-            label: 'transaction_source',
-        },
-        {
-            label: 'amount',
-            name: 'transaction_amount',
-            tag: 'money',
-            value: amount,
-        },
-        {
-            label: 'tran_id',
-            name: 'transaction_ID',
-        },
-        {
-            label: 'description',
-            name: 'narration',
-        },
-    ] satisfies FormInputs[]
+					{
+						label: "transaction_date",
+					},
+					{
+						label: "transaction_time",
+						type: "time",
+					},
+					{
+						label: "category",
+						name: "transaction_category",
+					},
+					{
+						label: "transaction_source",
+					},
+					{
+						label: "amount",
+						name: "transaction_amount",
+						tag: "money",
+						value: amount,
+					},
+					{
+						label: "balance",
+						name: "transaction_balance",
+						tag: "money",
+						value: balance,
+					},
+					{
+						label: "tran_id",
+						name: "transaction_ID",
+					},
+					{
+						label: "description",
+						name: "narration",
+					},
+				] satisfies FormInputs[];
 
     return (
         <div className=' p-8 bg-white min-h-[60vh] rounded-lg overflow-y-scroll'>
