@@ -163,6 +163,7 @@ function Permissions({setPermissions }: Props) {
 						<button
 							className="bg-color-blue-1 px-12 py-4 text-white text-[1.4rem] flex items-center justify-self-start rounded-lg gap-4 self-center"
 							onClick={closeDialog}
+                            type="button"
 						>
 							<img src="/icons/admins/saveDisk.svg" alt="" />
 							<span>Save Changes</span>
@@ -171,7 +172,7 @@ function Permissions({setPermissions }: Props) {
 				</section>
 			</dialog>
 
-			<button className="btn btn-blue" onClick={openDialog}>
+			<button className="btn btn-blue" onClick={openDialog} type="button">
 				Set Permissions
 			</button>
 		</div>
