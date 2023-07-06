@@ -83,7 +83,7 @@ const ResidentWallet = () => {
 
         const chartData: ChartData[] = []
 
-        for (let [key, value] of Object.entries(data)) {
+        for (const [key, value] of Object.entries(data)) {
             chartData.push({
                 name: key.slice(0, 3),
                 pv: value,
