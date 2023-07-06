@@ -133,16 +133,30 @@ const SlicedPages: FC<SlicedPages> = ({
 						key.includes("date")
 					) {
 						const get_only_date = value.slice(0, 10);
-						const get_only_time = value.slice(11, 16)
+						const get_only_time = value.slice(11, 16);
+						const formattedDate = new Date(get_only_date).toLocaleDateString(
+							"en-US",
+							{
+								day: "numeric",
+								month: "short",
+								year: "numeric",
+							},
+						);
+						const formattedTime = get_only_time.toLocaleString("en-US", {
+							hour: "numeric",
+							minute: "numeric",
+							hour12: true,
+						});
 
+						const date_and_time = `${formattedDate}, ${formattedTime}`
+
+						console.log({date_and_time})
 
 						return (
 							<p key={key}>
-								{new Date(get_only_date).toLocaleDateString("en-US", {
-									day: "numeric",
-									month: "short",
-									year: "numeric",
-								})}
+								{THeader.includes("date/time")
+									? formattedTime
+									: formattedDate}
 							</p>
 						);
 					}
