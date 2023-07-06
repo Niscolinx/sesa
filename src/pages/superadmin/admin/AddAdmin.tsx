@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input, { SelectProps } from "../../../components/ui/input/Input";
 import ImageInput from "../../../components/ui/input/ImageInput";
 import AddBtn from "../../../components/ui/button/AddBtn";
@@ -67,6 +67,10 @@ const AddAdmin = () => {
 		},
 	] satisfies FormInputs[];
 
+	useEffect(() => {
+		console.log(permissions)
+	}, [permissions])
+
 	return (
 		<div className="bg-white rounded-2xl grid p-8">
 			<Spinner start={postLoading ? true : false} />
@@ -101,7 +105,7 @@ const AddAdmin = () => {
 							/>
 						);
 					})}
-					<Permissions permissions={permissions} setPermissions={setPermissions}/>
+					<Permissions setPermissions={setPermissions}/>
 
 					<ImageInput
 						handlePicture={handlePicture}

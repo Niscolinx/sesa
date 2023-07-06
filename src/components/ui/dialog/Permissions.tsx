@@ -3,11 +3,10 @@ import { IoMdClose } from "react-icons/io";
 import useFetchData from "../../hooks/useFetchData";
 
 interface Props {
-	permissions: string[];
 	setPermissions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-function Permissions({ permissions, setPermissions }: Props) {
+function Permissions({setPermissions }: Props) {
 	type EachPermission = {
 		name: string;
 		content: string[];
