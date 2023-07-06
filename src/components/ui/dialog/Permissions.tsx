@@ -28,6 +28,13 @@ function Permissions({ permissions, setPermissions }: Props) {
                 const match = permission.match(reg);
                 const word = match?.[0].replace("-", "");
                 console.log({word})
+
+                const eachPermission = []
+
+                if(word && permission.startsWith('admin')){
+                    console.log({permission})
+                }
+
                 return {
 
                 }
