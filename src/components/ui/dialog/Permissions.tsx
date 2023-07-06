@@ -124,15 +124,16 @@ function Permissions({ permissions, setPermissions }: Props) {
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
 							{data?.map(({ name, content }: EachPermission, idx: number) => {
+
 								return (
-									<div className="border-b pb-4">
+									<div className="border-b pb-4" key={name}>
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
 											{name}
 										</h3>
 										{content.map((perm: string) => (
 											<label
 												className="flex items-center gap-4 py-2"
-												key={`${name + idx}`}
+												key={`${perm}`}
 											>
 												<input
 													type="checkbox"
