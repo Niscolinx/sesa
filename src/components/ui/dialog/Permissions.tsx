@@ -22,33 +22,30 @@ function Permissions({ permissions, setPermissions }: Props) {
 		if (fetchedData) {
 			setData(fetchedData);
 
-            type EachPermission = {
-                name: string;
-                content: string[];
-            }
-            const transformedData = fetchedData.map((permission: string) => {
-                const reg = /(\w+)-/g;
-                const match = permission.match(reg);
+			type EachPermission = {
+				name: string;
+				content: string[];
+			};
+			const eachPermission: EachPermission[] = [
+				{
+					name: "",
+					content: [],
+				},
+			];
 
-                const word = match?.[0].replace("-", "")
+			fetchedData.forEach((permission: string) => {
+				const reg = /(\w+)-/g;
+				const match = permission.match(reg);
 
+				const word = match?.[0].replace("-", "");
 
-                const eachPermission: EachPermission = {
-                    name: "",
-                    content: []
-                }
+				if (word && permission.startsWith(word)) {
+					const index = eachPermission.findIndex((each) => each.name === word);
+                    index ? eachPermission[index].content.push(permission) : eachPermission.push({ name: word, content: [permission] });
+				}
+			});
 
-                if(word && permission.startsWith(word)){
-                    console.log({permission})
-                    eachPermission['name'] = word
-                    eachPermission['content'].push(permission)
-                }
-
-                return eachPermission
-            })
-
-            console.log({transformedData})
-
+			console.log({ eachPermission });
 		}
 	}, [fetchedData]);
 
@@ -60,17 +57,17 @@ function Permissions({ permissions, setPermissions }: Props) {
 		dialogRef.current?.showModal();
 	};
 
-	const handleSearch = (e: ChangeEvent<HTMLInputElement>) =>{
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 
-        const updated = JSON.parse(JSON.stringify(fetchedData))
+		const updated = JSON.parse(JSON.stringify(fetchedData));
 
 		const filteredData = updated.filter((permission: string) => {
 			return permission.toLowerCase().includes(value.toLowerCase());
 		});
 
 		setData(filteredData);
-	}
+	};
 
 	return (
 		<div className="">
