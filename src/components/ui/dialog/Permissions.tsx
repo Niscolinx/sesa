@@ -8,11 +8,10 @@ interface Props {
 }
 
 function Permissions({ permissions, setPermissions }: Props) {
-	// type EachPermission = {
-	// 	name: string;
-	// 	content: string[];
-	// }
-	type EachPermission = string;
+	type EachPermission = {
+		name: string;
+		content: string[];
+	};
 
 	const { isLoading, data: fetchedData } = useFetchData({
 		url: "permission/get/all",
@@ -30,27 +29,27 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 			const _permissions = fetchedData as string[];
 
-			// for (const perm of _permissions) {
-			// 	const reg = /(\w+)-/g;
-			// 	const match = perm.match(reg);
+			for (const perm of _permissions) {
+				const reg = /(\w+)-/g;
+				const match = perm.match(reg);
 
-			// 	const word = match?.[0].replace("-", "");
+				const word = match?.[0].replace("-", "");
 
-			// 	if (word) {
-			// 		const found = eachPermission.find((each) => each.name === word);
+				if (word) {
+					const found = eachPermission.find((each) => each.name === word);
 
-			// 		if (found) {
-			// 			found.content.push(perm);
-			// 		} else {
-			// 			eachPermission.push({
-			// 				name: word,
-			// 				content: [perm],
-			// 			});
-			// 		}
-			// 	}
-			// }
+					if (found) {
+						found.content.push(perm);
+					} else {
+						eachPermission.push({
+							name: word,
+							content: [perm],
+						});
+					}
+				}
+			}
 
-			// setData(eachPermission);
+			setData(eachPermission);
 		}
 	}, [fetchedData]);
 
@@ -65,25 +64,33 @@ function Permissions({ permissions, setPermissions }: Props) {
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value.toLowerCase();
 
-		const updated: EachPermission[] = JSON.parse(JSON.stringify(data));
+		const eachPermission: EachPermission[] = [];
 
-		const filteredData = updated.filter((perm) =>
-			perm.toLowerCase().includes(value),
-		);
-		// const _update = updated;
+		const _permissions = fetchedData as string[];
 
-		// const filteredData = updated.map((each) => {
-		// 	const filteredContent = each.content.filter((perm) =>
-		// 		perm.toLowerCase().includes(value),
-		// 	);
+		for (const perm of _permissions) {
+			const reg = /(\w+)-/g;
+			const match = perm.match(reg);
 
-		// 	return {
-		// 		...each,
-		// 		content: filteredContent,
-		// 	};
-		// });
+			const word = match?.[0].replace("-", "");
 
-		setData(filteredData);
+			if (word) {
+				if (perm.toLowerCase().includes(value)) {
+					const found = eachPermission.find((each) => each.name === word);
+
+					if (found) {
+						found.content.push(perm);
+					} else {
+						eachPermission.push({
+							name: word,
+							content: [perm],
+						});
+					}
+				}
+			}
+		}
+
+		setData(eachPermission);
 	};
 
 	return (
@@ -110,31 +117,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 
 						<div className="overflow-y-scroll max-h-[40rem] scrollbar self-baseline ">
 							{isLoading && <p>Loading...</p>}
-							{data?.map((perm: string, idx: number) => {
-								return (
-									<div className="border-b pb-4">
-										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
-											'hellow'
-										</h3>
-
-										<label
-											className="flex items-center gap-4 py-2"
-											key={`${perm + idx}`}
-										>
-											<input
-												type="checkbox"
-												name={perm}
-												className="cursor-pointer"
-											/>
-
-											<span className="capitalize cursor-pointer font-Satoshi-Medium text-[1.6rem]">
-												{perm}
-											</span>
-										</label>
-									</div>
-								);
-							})}
-							{/* {data?.map(({ name, content }: EachPermission, idx: number) => {
+							{data?.map(({ name, content }: EachPermission, idx: number) => {
 								return (
 									<div className="border-b pb-4">
 										<h3 className="font-Satoshi-Medium text-[2rem] capitalize">
@@ -158,7 +141,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 										))}
 									</div>
 								);
-							})} */}
+							})}
 						</div>
 
 						<button
