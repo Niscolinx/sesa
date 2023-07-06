@@ -19,7 +19,7 @@ function Permissions({ permissions, setPermissions }: Props) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
-		if (fetchedData) {
+		if (fetchedData as string[]) {
 			setData(fetchedData);
 
 			type EachPermission = {
@@ -33,19 +33,16 @@ function Permissions({ permissions, setPermissions }: Props) {
 				},
 			];
 
-			fetchedData.forEach((permission: string) => {
+			const _permissions = fetchedData as string[];
+
+			for (const perm of _permissions) {
 				const reg = /(\w+)-/g;
-				const match = permission.match(reg);
+				const match = perm.match(reg);
 
 				const word = match?.[0].replace("-", "");
 
-				if (word && permission.startsWith(word)) {
-					const index = eachPermission.findIndex((each) => each.name === word);
-                    index ? eachPermission[index].content.push(permission) : eachPermission.push({ name: word, content: [permission] });
-				}
-			});
-
-			console.log({ eachPermission });
+				console.log(word);
+			}
 		}
 	}, [fetchedData]);
 
