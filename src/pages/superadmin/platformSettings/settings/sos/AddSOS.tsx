@@ -20,10 +20,11 @@ import { CiCircleRemove } from "react-icons/ci";
 interface AddPhoneNumber {
 	idx: number;
 	phoneError: any;
+	removePhoneNumberHandler: (idx: number) => void;
 }
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-	({ idx, phoneError }, ref) => {
+	({ idx, phoneError, removePhoneNumberHandler }, ref) => {
 		const [phone, setPhone] = useState("");
 		const [isError, setIsError] = useState(false);
 		const [errorMessage, setErrorMessage] = useState("");
@@ -80,7 +81,10 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 						/>
 					</div>
 					{idx + 1 > 1 && (
-						<CiCircleRemove className="text-[3rem] text-red-500" />
+						<CiCircleRemove
+							className="text-[3rem] text-red-500"
+							onClick={() => removePhoneNumberHandler(idx)}
+						/>
 					)}
 				</div>
 				<p className="text-red-500 text-[1.2rem]">{errorMessage}</p>
@@ -356,6 +360,7 @@ const AddSOS = () => {
 								<AddPhoneNumber
 									idx={idx}
 									phoneError={phoneError}
+									removePhoneNumberHandler={removePhoneNumberHandler}
 									ref={(ref: HTMLInputElement) =>
 										(phone_ref.current[idx] = ref)
 									}
