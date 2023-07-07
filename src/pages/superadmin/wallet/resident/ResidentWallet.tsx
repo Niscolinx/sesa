@@ -42,7 +42,6 @@ const ResidentWallet = () => {
                     THeader={[
                         'resident name',
                         'amount',
-                        'balance',
                         'transaction_ID',
                         'type',
                         'status',
@@ -52,7 +51,6 @@ const ResidentWallet = () => {
                     data_to_display={[
                         'name',
                         'amount',
-                        'balance',
                         'tran_id',
                         'type',
                         'status',
