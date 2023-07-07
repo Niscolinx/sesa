@@ -58,26 +58,30 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 					phone Number {idx + 1}
 				</label>
 
-				<div
-					className={`relative flex items-center w-full border pl-4 rounded-lg ${
-						isError ? "border-red-500" : "border-color-grey"
-					}`}
-				>
-					<input type="text" value={"+234"} className="w-[4.2rem]" />
-					<input
-						type="number"
-						name="number"
-						id={`phone${idx + 1}`}
-						ref={ref}
-						inputMode="numeric"
-						maxLength={10}
-						value={phone}
-						onChange={handlePhoneChange}
-						className={
-							" w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 "
-						}
-					/>
-					<CiCircleRemove className="text-2xl bg-red-500" />
+				<div className="flex relative items-center w-full gap-4">
+					<div
+						className={`relative flex items-center w-full border pl-4 rounded-lg ${
+							isError ? "border-red-500" : "border-color-grey"
+						}`}
+					>
+						<input type="text" value={"+234"} className="w-[4.2rem]" />
+						<input
+							type="number"
+							name="number"
+							id={`phone${idx + 1}`}
+							ref={ref}
+							inputMode="numeric"
+							maxLength={10}
+							value={phone}
+							onChange={handlePhoneChange}
+							className={
+								" w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 "
+							}
+						/>
+					</div>
+					{idx + 1 > 1 && (
+						<CiCircleRemove className="text-[3rem] text-red-500" />
+					)}
 				</div>
 				<p className="text-red-500 text-[1.2rem]">{errorMessage}</p>
 			</div>
