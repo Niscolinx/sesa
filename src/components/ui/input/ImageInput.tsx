@@ -31,15 +31,24 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 }
 
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
-
 	const imageHandler = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLInputElement;
 		const file: File = (target.files as FileList)[0];
 
 		const preview = URL.createObjectURL(file);
-		console.log({preview})
+		console.log({ preview });
 
-        handlePicture(e)
+		const image = new Image();
+
+		console.log({ file });
+
+		image.src = preview;
+
+		image.onload = () => {
+			console.log({ image });
+		};
+
+		handlePicture(e);
 	};
 
 	return (
