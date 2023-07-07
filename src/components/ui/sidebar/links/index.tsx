@@ -19,8 +19,6 @@ const SidebarLinks = ({ links }: Props) => {
 			{links.map(({ classes, to, icon, text }, idx) => {
 				const pathLength = location.pathname.split("/").length;
 
-				console.log({ pathLength });
-
 				return (
 					<li className="iconsBox__list" key={`${idx}link`}>
 						<NavLink

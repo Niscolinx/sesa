@@ -15,6 +15,17 @@ interface Props {
 }
 function Dashboard({ type }: Props) {
 	PrevLocation();
+	const navigate = useNavigate();
+	const auth = useAppSelector((state) => state.auth.isAuth)
+
+	console.log({auth})
+
+	useEffect(() => {
+		const role = localStorage.getItem("role");
+		if (role?.indexOf("super") === -1) {
+			navigate("/");
+		}
+	}, []);
 
 	return (
 		<div className="dashboard">
