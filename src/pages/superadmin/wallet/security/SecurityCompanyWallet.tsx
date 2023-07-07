@@ -38,18 +38,18 @@ const SecurityWallet = () => {
 					THeader={[
 						"company name",
 						"amount",
-						"balance",
 						"transaction_ID",
 						"type",
-						"date",
+						"status",
+						"date/time",
 						"actions",
 					]}
 					data_to_display={[
 						"name",
 						"amount",
-						"balance",
 						"tran_id",
 						"type",
+						"status",
 						"created_at",
 					]}
 				/>
