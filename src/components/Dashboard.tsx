@@ -19,10 +19,10 @@ function Dashboard({ type }: Props) {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const role = localStorage.getItem("role");
-		if (role?.indexOf("super") === -1) {
-			navigate("/");
-		}
+		// const role = localStorage.getItem("role");
+		// if (role?.indexOf("super") === -1) {
+		// 	navigate("/");
+		// }
 	}, []);
 
 	return (
