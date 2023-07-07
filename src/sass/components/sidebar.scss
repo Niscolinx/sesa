@@ -80,6 +80,7 @@
                         .list--svg-fillIcon {
                             svg {
                                 fill: $color-primary;
+                                stroke: none;
                             }
                         }
                     }

@@ -76,7 +76,7 @@ export const ESTATE_MANAGER_LINKS: LinkProps[] = [
 		to: "/estateManager/message",
 		icon: <MessageSvg />,
 		text: "Message",
-		classes: "fillIcon",
+		 classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/payments",
