@@ -502,7 +502,7 @@ const AddArtisan = () => {
 						})}
                         <div>
 
-						<ValidateKY title={"Know Your Artisan (KYA)"} />
+						<ValidateKY title={"Know Your Artisan (KYA)"} pre={'KYA'} />
                         </div>
 						<ImageInput
 							handlePicture={handlePicture}

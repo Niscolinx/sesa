@@ -10,9 +10,10 @@ import SingleSelect from '../select/SingleSelect'
 
 interface Props {
     title: string
+    pre?: string
 }
 
-function ValidateKY({ title }: Props) {
+function ValidateKY({ title, pre = 'KYG'}: Props) {
     interface ValidationTypeInput {
         validation_content: string
     }
@@ -107,7 +108,7 @@ function ValidateKY({ title }: Props) {
                                     fontFamily: 'Satoshi-Light',
                                 }}
                             >
-                                What is KYA <BsQuestionCircle />
+                                What is {pre} <BsQuestionCircle />
                             </p>
 
                             <div className='border-t pt-10'>
@@ -145,7 +146,7 @@ function ValidateKY({ title }: Props) {
             <div className='grid max-w-[40rem]'>
                 <div className='flex items-center justify-between'>
                     <p className='text-[2rem] font-Satoshi-Medium flex items-center gap-2'>
-                        KYG{' '}
+                        {pre}{' '}
                         <span className='text-[#043FA7]'>
                             <BsQuestionCircle />
                         </span>
@@ -162,7 +163,7 @@ function ValidateKY({ title }: Props) {
                 {isValidated ? (
                     <div className='flex gap-8 text-[1.6rem]'>
                         <p className='text-[#098DFF] cursor-pointer flex items-center font-Satoshi-Medium'>
-                            KYG Validated <IoMdCheckmarkCircleOutline />
+                            {pre} Validated <IoMdCheckmarkCircleOutline />
                         </p>
                         <button
                             className='text-green-600 flex items-center gap-2'

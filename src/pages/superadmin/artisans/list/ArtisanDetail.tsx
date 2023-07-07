@@ -36,6 +36,7 @@ const ArtisanDetail = () => {
         label?: keyof Inputs
         type?: string
         name?: string
+        required?: boolean
         selectProps?: SelectProps
     }
 
@@ -110,12 +111,13 @@ const ArtisanDetail = () => {
     )
 
     const onSubmit = handleSubmit((data) => {
-        const { category } = get_response?.data
+        // rome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
+const  { category } = get_response?.data
 
         const get_category_ids: Object[] = []
 
-        for (let item of category) {
-            for (let selected of selectedCategories) {
+        for (const item of category) {
+            for (const selected of selectedCategories) {
                 if (item.name === selected) {
                     get_category_ids.push({ id: item.id })
                 }
@@ -129,7 +131,7 @@ const ArtisanDetail = () => {
             is_kyr_approved: false,
         }
 
-        console.log({ updatedData })
+
 
         update_mutation(updatedData)
     })
@@ -220,6 +222,7 @@ const ArtisanDetail = () => {
         },
         {
             label: 'address_line_2',
+            required: false
         },
         {
             label: 'business_name',
