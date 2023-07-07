@@ -1,4 +1,4 @@
-import { LinkProps } from "..";
+import { LinkProps } from ".";
 import OverviewSvg from "../icons/super_admin/overviewSvg";
 import AdditionalResidentSvg from "../icons/super_admin/AdditionalResidentSvg";
 import AdminsSvg from "../icons/super_admin/AdminsSvg";
@@ -13,7 +13,7 @@ import WalletSvg from "../icons/super_admin/WalletSvg";
 export const SUPER_ADMIN_LINKS: LinkProps[] = [
 	{
 		to: "/superAdmin",
-		icon: <OverviewSvg/>,
+		icon: <OverviewSvg />,
 		text: "Overview",
 	},
 	{

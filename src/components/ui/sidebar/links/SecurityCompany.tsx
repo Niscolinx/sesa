@@ -1,4 +1,4 @@
-import { LinkProps } from "..";
+import { LinkProps } from ".";
 import EstatesSvg from "../icons/security_company/EstatesSvg";
 import MessagesSvg from "../icons/security_company/MessagesSvg";
 import SecurityCompSvg from "../icons/security_company/SecurityCompSvg";

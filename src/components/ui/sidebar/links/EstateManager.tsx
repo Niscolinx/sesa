@@ -1,4 +1,4 @@
-import { LinkProps } from "..";
+import { LinkProps } from ".";
 import AdditionalResidentSvg from "../icons/estate_manager/AdditionalResidentSvg";
 import AdminsSvg from "../icons/estate_manager/AdminsSvg";
 import ApprovalsSvg from "../icons/estate_manager/ApprovalsSvg";
