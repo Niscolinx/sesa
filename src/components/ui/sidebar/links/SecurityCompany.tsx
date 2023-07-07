@@ -16,16 +16,19 @@ export const SECURITY_COMPANY_LINKS: LinkProps[] = [
 		to: "/securityCompany/estates",
 		icon: <EstatesSvg />,
 		text: "Estates",
+		classes: "fillIcon",
 	},
 	{
 		to: "/securityCompany/security-guard",
 		icon: <SecurityCompSvg />,
 		text: "Security Guard",
+		classes: "fillIcon",
 	},
 	{
 		to: "/securityCompany/wallet",
 		icon: <WalletSvg />,
 		text: "Wallet",
+		classes: "fillIcon",
 	},
 	{
 		to: "/securityCompany/messages",
@@ -36,5 +39,6 @@ export const SECURITY_COMPANY_LINKS: LinkProps[] = [
 		to: "/securityCompany/settings",
 		icon: <SettingsSvg />,
 		text: "Platform Settings",
+		classes: "fillIcon",
 	},
 ];

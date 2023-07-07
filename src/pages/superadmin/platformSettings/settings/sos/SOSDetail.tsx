@@ -42,7 +42,8 @@ const SOSDetail = () => {
         [key: string]: string
     } | null>(null)
     const [phoneError, setPhoneError] = useState<{
-        [key: string]: string
+        // rome-ignore lint/suspicious/noRedeclare: <explanation>
+[key: string]: string
     } | null>(null)
 
     const phone_ref = useRef<HTMLInputElement[]>([])
@@ -99,7 +100,7 @@ const SOSDetail = () => {
     }
     const { mutate, isLoading } = useMutation(postRequest, {
         onSuccess: () => {
-            toast(`SOS Updated`, {
+            toast("SOS Updated", {
                 type: 'success',
                 className: 'bg-green-100 text-green-600 text-[1.4rem]',
             })
@@ -135,7 +136,7 @@ const SOSDetail = () => {
         each_num.forEach((num, idx) => {
             if (num === '') {
                 isError = true
-                toast(`Phone Number cannot be empty`, {
+                toast("Phone Number cannot be empty", {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
@@ -150,7 +151,7 @@ const SOSDetail = () => {
                 return
             } else if (num.length < 10) {
                 isError = true
-                toast(`Phone Number is invalid`, {
+                toast("Phone Number is invalid", {
                     type: 'error',
                     className: 'bg-red-100 text-red-600 text-[1.4rem]',
                 })
@@ -174,8 +175,8 @@ const SOSDetail = () => {
 
         const get_estate_ids: Object[] = []
 
-        for (let item of estate) {
-            for (let selected of selectedEstates) {
+        for (const item of estate) {
+            for (const selected of selectedEstates) {
                 if (item.estate_name === selected) {
                     get_estate_ids.push({ id: item.id })
                 }
