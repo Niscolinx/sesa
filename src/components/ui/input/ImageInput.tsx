@@ -61,10 +61,10 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 
 	return (
 		<label
-			className="col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full"
+			className="col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full cursor-pointer"
 			htmlFor="photoUpload"
 		>
-			<div className="flex justify-center gap-4 items-center cursor-pointer">
+			<div className="flex justify-center gap-4 items-center ">
 				<img src="/icons/admins/photo_library.svg" alt="" />
 				<p>
 					Drag picture here or{" "}
