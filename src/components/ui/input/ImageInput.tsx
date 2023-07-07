@@ -36,24 +36,20 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 		const file: File = (target.files as FileList)[0];
 
 		const preview = URL.createObjectURL(file);
-		console.log({ preview });
 
 		const image = new Image();
-
-		console.log({ file });
 
 		image.src = preview;
 
 		image.onload = () => {
-            const {width, height} = image
+			const { width, height } = image;
 
-            console.log({width, height})
+			console.log({ width, height });
 
 			if (width <= 600 || height <= 400) {
-                return alert('accepted')
+				return alert("accepted");
 			}
-            alert('not accepted')
-
+			alert("not accepted");
 		};
 
 		handlePicture(e);
