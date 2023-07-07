@@ -299,7 +299,7 @@ const AddSOS = () => {
 	};
 
 	const removePhoneNumberHandler = (idx: number) => {
-		console.log({ idx, phone_numbs });
+		console.log({ idx, phone_numbs, phone_ref  });
 	};
 
 	return (
