@@ -171,7 +171,8 @@ const SOSDetail = () => {
             return
         }
 
-        const { estate } = get_response?.data
+        // rome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
+const  { estate } = get_response?.data
 
         const get_estate_ids: Object[] = []
 
@@ -232,6 +233,13 @@ const SOSDetail = () => {
         set_phone_numbs((prev) => [...prev, ''])
     }
 
+    const removePhoneNumberHandler = (idx: number) => {
+		phone_ref.current.splice(idx, 1);
+		set_phone_numbs((prev) => {
+			return prev.filter((_, i) => i !== idx);
+		});
+	};
+
     return (
         <>
             <ToastContainer />
@@ -267,15 +275,28 @@ const SOSDetail = () => {
                         })}
                         {phone_numbs.map((value, idx) => {
                             return (
-                                <AddPhoneNumber
-                                    idx={idx}
-                                    value={value}
-                                    phoneError={phoneError}
-                                    ref={(ref: HTMLInputElement) =>
-                                        (phone_ref.current[idx] = ref)
-                                    }
-                                />
-                            )
+																													<AddPhoneNumber
+																														idx={idx}
+																														value={value}
+																														lastPhoneNumber={
+																															phone_numbs.length -
+																															1
+																														}
+																														removePhoneNumberHandler={
+																															removePhoneNumberHandler
+																														}
+																														phoneError={
+																															phoneError
+																														}
+																														ref={(
+																															ref: HTMLInputElement,
+																														) =>
+																															(phone_ref.current[
+																																idx
+																															] = ref)
+																														}
+																													/>
+																												);
                         })}
 
                         <button
