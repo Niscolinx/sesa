@@ -82,7 +82,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 					</div>
 					{idx + 1 > 1 && (
 						<CiCircleRemove
-							className="text-[3rem] text-red-500"
+							className="text-[3rem] text-red-500 cursor-pointer"
 							onClick={() => removePhoneNumberHandler(idx)}
 						/>
 					)}
@@ -256,7 +256,6 @@ const AddSOS = () => {
 			phone_number: each_num,
 		};
 
-		console.log({ updated_data });
 
 		mutate(updated_data);
 	});
@@ -300,7 +299,7 @@ const AddSOS = () => {
 	};
 
 	const removePhoneNumberHandler = (idx: number) => {
-		console.log({ idx });
+		console.log({ idx, phone_numbs });
 	};
 
 	return (
