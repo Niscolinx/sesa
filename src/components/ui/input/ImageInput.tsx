@@ -46,7 +46,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 
 			console.log({ width, height });
 
-			if (width <= 3599 || height <= 5399) {
+			if (width === 3599 || height === 5399) {
 				return alert("accepted");
 			}
 			alert("not accepted");
