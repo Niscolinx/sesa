@@ -299,6 +299,10 @@ const AddSOS = () => {
 		set_phone_numbs((prev) => [...prev, ""]);
 	};
 
+	const removePhoneNumberHandler = (idx: number) => {
+		console.log({ idx });
+	};
+
 	return (
 		<>
 			<ToastContainer />
