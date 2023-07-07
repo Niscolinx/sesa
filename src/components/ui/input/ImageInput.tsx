@@ -31,6 +31,17 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 }
 
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
+
+	const imageHandler = (e: React.ChangeEvent) => {
+		const target = e.target as HTMLInputElement;
+		const file: File = (target.files as FileList)[0];
+
+		const preview = URL.createObjectURL(file);
+		console.log({preview})
+
+        handlePicture(e)
+	};
+
 	return (
 		<div className="col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full">
 			<label
@@ -50,7 +61,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 				id="photoUpload"
 				accept="image/*"
 				className="hidden"
-				onChange={handlePicture}
+				onChange={imageHandler}
 			/>
 
 			{photoPreview && (
@@ -63,7 +74,9 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 				</div>
 			)}
 			{dimension && (
-				<p>Please upload an image with dimensions 600px x 400px.</p>
+				<p className="text-center text-[1.4rem] font-Satoshi-Medium text-orange-500">
+					Please upload an image with dimensions 600px x 400px.
+				</p>
 			)}
 		</div>
 	);
