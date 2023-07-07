@@ -45,6 +45,7 @@ const ResidentWallet = () => {
                         'balance',
                         'transaction_ID',
                         'type',
+                        'status',
                         'date/time',
                         'actions',
                     ]}
@@ -54,6 +55,7 @@ const ResidentWallet = () => {
                         'balance',
                         'tran_id',
                         'type',
+                        'status',
                         'created_at',
                     ]}
                 />

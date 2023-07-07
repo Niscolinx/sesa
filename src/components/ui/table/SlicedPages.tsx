@@ -147,15 +147,17 @@ const SlicedPages: FC<SlicedPages> = ({
 						const formattedTime = moment(get_only_time, "HH:mm").format(
 							"h:mm A",
 						);
-						console.log({ formattedTime });
 
 						const date_and_time = `${formattedDate}, ${formattedTime}`;
 
-						console.log({ date_and_time });
 
 						return (
 							<p key={key}>
-								{THeader.includes("date/time") ? date_and_time : formattedDate}
+								{THeader.includes("date/time") ? (
+									<span className="ml-[-5rem]"> {date_and_time}</span>
+								) : (
+									formattedDate
+								)}
 							</p>
 						);
 					}
@@ -175,10 +177,8 @@ const SlicedPages: FC<SlicedPages> = ({
 
 						actions.indexOf("remove") !== 0
 							? value === 0
-								? // rome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-								  (updatedActions = [...updatedActions, "activate"])
-								: // rome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-								  (updatedActions = [...updatedActions, "deactivate"])
+								? (updatedActions = [...updatedActions, "activate"])
+								: (updatedActions = [...updatedActions, "deactivate"])
 							: null;
 
 						updatedActions = [...updatedActions, ...actions];
