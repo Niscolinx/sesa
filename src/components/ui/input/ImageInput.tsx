@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ImageInput {
 	handlePicture: (e: React.ChangeEvent) => void;
@@ -57,8 +57,13 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 			}
 			setImgSrc(preview);
 			setDimensionError(true);
+            console.log('not accepted')
 		};
 	};
+
+    useEffect(() => {
+        console.log({imgSrc, photoPreview})
+    }, [imgSrc, photoPreview])
 
 	return (
 		<label
@@ -82,7 +87,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 				onChange={imageHandler}
 			/>
 
-			{photoPreview && (
+			{imgSrc || photoPreview && (
 				<div className="flex justify-center justify-self-center">
 					<img
 						src={imgSrc || photoPreview || "/default-avatar.jpg"}
