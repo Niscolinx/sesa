@@ -35,29 +35,27 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 	const [imgSrc, setImgSrc] = useState(photoPreview);
 	const [dimensionError, setDimensionError] = useState<boolean>(true);
-	const imageHandler = (e: React.ChangeEvent) => {
+
+	const imageHandler = (e: React.ChangeEvent): boolean => {
 		const target = e.target as HTMLInputElement;
 		const file: File = (target.files as FileList)[0];
 
 		const preview = URL.createObjectURL(file);
-        setImgSrc(preview);
-        
+		setImgSrc(preview);
+
 		const image = new Image();
-        
+
 		image.src = preview;
-        
+
 		image.onload = () => {
-            const { width, height } = image;
-            
-			console.log({ width, height });
-            
+			const { width, height } = image;
+
 			if (width === 3599 || height === 5399) {
 				handlePicture(e);
 				return setDimensionError(false);
 			}
-			setDimensionError(true);
-			console.log("not accepted");
 		};
+		return setDimensionError(true);
 	};
 
 	return (
