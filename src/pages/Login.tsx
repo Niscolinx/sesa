@@ -60,9 +60,9 @@ const Login = () => {
                 dispatch(storeToken(token))
                 dispatch(setAuth(true))
             }
-            if (res.data.roles) {
-                localStorage.setItem('role', JSON.stringify(res.data.roles))
-            }
+            // if (res.data.roles) {
+            //     localStorage.setItem('role', JSON.stringify(res.data.roles))
+            // }
             if (res.data.roles.includes('super')) {
                 navigate('/superAdmin')
             }
