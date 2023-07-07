@@ -76,26 +76,31 @@ export const ESTATE_MANAGER_LINKS: LinkProps[] = [
 		to: "/estateManager/message",
 		icon: <MessageSvg />,
 		text: "Message",
+		classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/payments",
 		icon: <PaymentsSvg />,
 		text: "Payments",
+		classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/energy-token",
 		icon: <EnergyTokenSvg />,
 		text: "Energy Token",
+		classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/voting-and-election",
 		icon: <ReportsSvg />,
 		text: "Voting & Election",
+		classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/reports",
 		icon: <ReportsSvg />,
 		text: "Reports",
+		classes: "fillIcon",
 	},
 	{
 		to: "/estateManager/approvals",
