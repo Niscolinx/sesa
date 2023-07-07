@@ -30,14 +30,15 @@ const AuthSlice = createSlice({
             state.isAuth = true
         },
 
-        setAuth: function (state, action) {
-        const {auth, role} = action.payload
-        
+        setAuth: function (state, action: {
+            payload: State
+        }) {
+            const { isAuth, role } = action.payload
 
-            state.isAuth = auth
+
+            state.isAuth = isAuth
             state.role = role
-            
-            //state.isAuth= true
+
         },
     },
 })
