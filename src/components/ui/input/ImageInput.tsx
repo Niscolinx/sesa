@@ -34,6 +34,7 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 	const [imgSrc, setImgSrc] = useState<string | null>(null);
+    const [dimensionError, setDimensionError] = useState<boolean>(true);
 	const imageHandler = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLInputElement;
 		const file: File = (target.files as FileList)[0];
@@ -52,10 +53,11 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 			if (width === 3599 || height === 5399) {
 				setImgSrc(null);
 				handlePicture(e);
-				return alert("accepted");
+				setDimensionError(false);
 			}
 			alert("not accepted");
 			setImgSrc(preview);
+            setDimensionError(true);
 		};
 	};
 
@@ -90,7 +92,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 					/>
 				</div>
 			)}
-			{dimension && (
+			{dimension && dimensionError && (
 				<p className="text-center text-[1.4rem] font-Satoshi-Medium text-orange-500">
 					Please upload an image with dimensions 600px x 400px.
 				</p>
