@@ -201,15 +201,13 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                             <input
                                 type={eyeIcon ? 'text' : 'password'}
                                 className={`border pr-12 border-color-grey p-4 outline-none rounded-lg w-full disabled:opacity-50 disabled:cursor-not-allowed ${
-                                    formErrors &&
-                                    formErrors[label] &&
+                                    formErrors?.[label] &&
                                     'border-red-500 '
                                 }`}
                                 name='password'
                                 id={label}
                                 disabled={disabled}
-                                {...(register &&
-                                    register(label, validationOptions))}
+                                {...(register?.(label, validationOptions))}
                             />
                             <span className='absolute right-2 cursor-pointer'>
                                 {eyeIcon ? (
@@ -223,7 +221,7 @@ const Input: FC<Partial<Input> & { label: string }> = ({
                         </div>
                     ) : (
                         <div
-                            className={`relative flex items-center border border-color-grey pl-4 rounded-lg w-full `}
+                            className={"relative flex items-center border border-color-grey pl-4 rounded-lg w-full "}
                         >
                             {tag === 'money' && (
                                 <img
