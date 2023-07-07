@@ -20,12 +20,13 @@ import { CiCircleRemove } from "react-icons/ci";
 interface AddPhoneNumber {
 	idx: number;
 	phoneError: any;
+	lastPhoneNumber: number,
 	removePhoneNumberHandler: (idx: number) => void;
 }
 
-let CURRENT_PHONE_INDEX = 0
+
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
-	({ idx, phoneError, removePhoneNumberHandler }, ref) => {
+	({ idx, phoneError, removePhoneNumberHandler, lastPhoneNumber }, ref) => {
     
 		const [phone, setPhone] = useState("");
 		const [isError, setIsError] = useState(false);
@@ -51,10 +52,6 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 				setIsError(true);
 			}
 		}, [phoneError]);
-
-        CURRENT_PHONE_INDEX = idx
-
-        console.log({CURRENT_PHONE_INDEX})
 
 
 
@@ -88,7 +85,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 							}
 						/>
 					</div>
-					{idx === CURRENT_PHONE_INDEX && (
+					{idx === lastPhoneNumber && (
 						<CiCircleRemove
 							className="text-[3rem] text-red-500 cursor-pointer"
 							onClick={() => removePhoneNumberHandler(idx)}
@@ -376,6 +373,7 @@ const AddSOS = () => {
 								<AddPhoneNumber
 									idx={idx}
 									phoneError={phoneError}
+                                    lastPhoneNumber={phone_numbs.length}
 									removePhoneNumberHandler={removePhoneNumberHandler}
 									ref={(ref: HTMLInputElement) =>
 										(phone_ref.current[idx] = ref)
