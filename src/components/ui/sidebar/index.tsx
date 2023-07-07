@@ -4,15 +4,13 @@ import SidebarLinks, { LinkProps } from "./links";
 import { SUPER_ADMIN_LINKS } from "./links/SuperAdmin";
 import { SECURITY_COMPANY_LINKS } from "./links/SecurityCompany";
 import { ESTATE_MANAGER_LINKS } from "./links/EstateManager";
-
-
-type viewType = 'superAdmin' | 'securityCompany' | 'estateManager'
+import { viewType } from "../../Dashboard";
 
 interface Props {
-	type: viewType
+	type: viewType;
 }
 
-function Sidebar({type}: Props) {
+function Sidebar({ type }: Props) {
 	const sidebarRef = useRef<HTMLDivElement>(null as any);
 
 	const [openSidebar, setOpenSidebar] = useState(true);
@@ -30,10 +28,10 @@ function Sidebar({type}: Props) {
 	};
 
 	const renderSidebar = {
-		"superAdmin": SUPER_ADMIN_LINKS,
-		"securityCompany": SECURITY_COMPANY_LINKS,
-		"estateManager": ESTATE_MANAGER_LINKS
-	} satisfies Record<viewType, LinkProps[]>
+		superAdmin: SUPER_ADMIN_LINKS,
+		securityCompany: SECURITY_COMPANY_LINKS,
+		estateManager: ESTATE_MANAGER_LINKS,
+	} satisfies Record<viewType, LinkProps[]>;
 
 	return (
 		<div className="sidebar shadow overflow-scroll" ref={sidebarRef}>
