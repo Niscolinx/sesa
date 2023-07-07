@@ -33,37 +33,32 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 }
 
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
-	const [imgSrc, setImgSrc] = useState<string | null>(null);
+	const [imgSrc, setImgSrc] = useState(photoPreview);
 	const [dimensionError, setDimensionError] = useState<boolean>(true);
 	const imageHandler = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLInputElement;
 		const file: File = (target.files as FileList)[0];
 
 		const preview = URL.createObjectURL(file);
-
+        setImgSrc(preview);
+        
 		const image = new Image();
-
+        
 		image.src = preview;
-
+        
 		image.onload = () => {
-			const { width, height } = image;
-
+            const { width, height } = image;
+            
 			console.log({ width, height });
-
+            
 			if (width === 3599 || height === 5399) {
-				setImgSrc(null);
 				handlePicture(e);
 				return setDimensionError(false);
 			}
-			setImgSrc(preview);
 			setDimensionError(true);
-            console.log('not accepted')
+			console.log("not accepted");
 		};
 	};
-
-    useEffect(() => {
-        console.log({imgSrc, photoPreview})
-    }, [imgSrc, photoPreview])
 
 	return (
 		<label
@@ -87,10 +82,10 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 				onChange={imageHandler}
 			/>
 
-			{imgSrc || photoPreview && (
+			{imgSrc && (
 				<div className="flex justify-center justify-self-center">
 					<img
-						src={imgSrc || photoPreview || "/default-avatar.jpg"}
+						src={imgSrc || "/default-avatar.jpg"}
 						alt="photoPreview"
 						className="object-cover w-[11rem] h-[11rem] rounded-full"
 					/>
@@ -98,7 +93,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 			)}
 			{dimension && dimensionError && (
 				<p className="text-center text-[1.4rem] font-Satoshi-Medium text-orange-500">
-					Please upload an image with dimensions 600px x 400px.
+					Please upload an image with dimensions 600px and 400px.
 				</p>
 			)}
 		</label>
