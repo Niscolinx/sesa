@@ -20,14 +20,12 @@ import { CiCircleRemove } from "react-icons/ci";
 interface AddPhoneNumber {
 	idx: number;
 	phoneError: any;
-	lastPhoneNumber: number,
+	lastPhoneNumber: number;
 	removePhoneNumberHandler: (idx: number) => void;
 }
 
-
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 	({ idx, phoneError, removePhoneNumberHandler, lastPhoneNumber }, ref) => {
-    
 		const [phone, setPhone] = useState("");
 		const [isError, setIsError] = useState(false);
 		const [errorMessage, setErrorMessage] = useState("");
@@ -53,7 +51,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 			}
 		}, [phoneError]);
 
-
+		console.log({ idx, lastPhoneNumber });
 
 		return (
 			<div className={"w-full grid gap-4 self-baseline"}>
@@ -306,9 +304,7 @@ const AddSOS = () => {
 		console.log({ idx, phone_numbs, phone_ref });
 		phone_ref.current.splice(idx, 1);
 		set_phone_numbs((prev) => {
-            console.log({prev})
-            return prev
-			// return prev.filter((_, i) => i !== idx);
+			return prev.filter((_, i) => i !== idx);
 		});
 	};
 
@@ -373,7 +369,7 @@ const AddSOS = () => {
 								<AddPhoneNumber
 									idx={idx}
 									phoneError={phoneError}
-                                    lastPhoneNumber={phone_numbs.length}
+									lastPhoneNumber={phone_numbs.length - 1}
 									removePhoneNumberHandler={removePhoneNumberHandler}
 									ref={(ref: HTMLInputElement) =>
 										(phone_ref.current[idx] = ref)
