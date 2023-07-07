@@ -13,10 +13,13 @@ interface Props {
 
 const SidebarLinks = ({ links }: Props) => {
 	const location = useLocation();
+
 	return (
 		<ul className="iconsBox">
 			{links.map(({ classes, to, icon, text }, idx) => {
 				const pathLength = location.pathname.split("/").length;
+
+				console.log({ pathLength });
 
 				return (
 					<li className="iconsBox__list" key={`${idx}link`}>
