@@ -45,7 +45,15 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 		image.src = preview;
 
 		image.onload = () => {
-			console.log({ image });
+            const {width, height} = image
+
+            console.log({width, height})
+
+			if (width <= 600 || height <= 400) {
+                return alert('accepted')
+			}
+            alert('not accepted')
+
 		};
 
 		handlePicture(e);
