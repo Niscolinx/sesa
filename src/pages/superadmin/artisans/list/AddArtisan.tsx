@@ -309,8 +309,9 @@ const AddArtisan = () => {
 			},
 		},
 		{
-			label: "phone_number",
-			type: "number",
+			name: "phone_number",
+			label: "phone",
+			type: "tel",
 		},
 		{
 			label: "email_address",
@@ -318,10 +319,10 @@ const AddArtisan = () => {
 		},
 		{
 			label: "address_line_1",
-			required: false,
 		},
 		{
 			label: "address_line_2",
+			required: false,
 		},
 		{
 			label: "State",
@@ -345,7 +346,6 @@ const AddArtisan = () => {
 		},
 		{
 			label: "business_name",
-			required: false,
 		},
 	] satisfies FormInputs[];
 
