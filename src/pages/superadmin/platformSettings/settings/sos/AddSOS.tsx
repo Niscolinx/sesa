@@ -302,6 +302,7 @@ const AddSOS = () => {
 		phone_ref.current.splice(idx, 1);
 		set_phone_numbs((prev) => {
             console.log({prev})
+            return prev
 			// return prev.filter((_, i) => i !== idx);
 		});
 	};
