@@ -55,7 +55,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 				return alert("accepted");
 			}
 			alert("not accepted");
-            setImgSrc()
+            setImgSrc(preview)
 		};
 
 	};
