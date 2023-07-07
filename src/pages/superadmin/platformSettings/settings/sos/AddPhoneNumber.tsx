@@ -1,4 +1,5 @@
 import { forwardRef, useState, ChangeEvent, useEffect } from "react"
+import {CiCircleRemove} from 'react-icons/ci'
 
 interface AddPhoneNumber {
     idx: number
@@ -32,14 +33,14 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 
         useEffect(() => {
 
-            if (phoneError && phoneError[`phone${idx + 1}`]) {
+            if (phoneError?.[`phone${idx + 1}`]) {
                 setErrorMessage(phoneError[`phone${idx + 1}`])
                 setIsError(true)
             }
         }, [phoneError])
 
         return (
-            <div className={`w-full grid gap-4 self-baseline`}>
+            <div className={"w-full grid gap-4 self-baseline"}>
                 <label
                     htmlFor={`phone${idx + 1}`}
                     className='text-[1.4rem] font-semibold capitalize'
@@ -62,7 +63,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
                         maxLength={10}
                         value={phone}
                         onChange={handlePhoneChange}
-                        className={` w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 `}
+                        className={" w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 "}
                     />
                 </div>
                 <p className='text-red-500 text-[1.2rem]'>{errorMessage}</p>
