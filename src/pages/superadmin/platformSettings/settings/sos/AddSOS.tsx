@@ -23,6 +23,7 @@ interface AddPhoneNumber {
 	removePhoneNumberHandler: (idx: number) => void;
 }
 
+let CURRENT_PHONE_INDEX = 0
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 	({ idx, phoneError, removePhoneNumberHandler }, ref) => {
     
@@ -51,11 +52,9 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 			}
 		}, [phoneError]);
 
-        let currentIdx = 0;
-        
-        idx > currentIdx ? currentIdx = idx : currentIdx;
+        CURRENT_PHONE_INDEX = idx
 
-        console.log(currentIdx)
+        console.log({CURRENT_PHONE_INDEX})
 
 
 
@@ -89,7 +88,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 							}
 						/>
 					</div>
-					{idx + 1 > 1 && (
+					{idx === CURRENT_PHONE_INDEX && (
 						<CiCircleRemove
 							className="text-[3rem] text-red-500 cursor-pointer"
 							onClick={() => removePhoneNumberHandler(idx)}
