@@ -15,6 +15,7 @@ import useAxios from "../../../../../components/hooks/useAxios";
 import Input, { SelectProps } from "../../../../../components/ui/input/Input";
 import Spinner from "../../../../../components/ui/Spinner";
 import { useNavigate } from "react-router";
+import { CiCircleRemove } from "react-icons/ci";
 
 interface AddPhoneNumber {
 	idx: number;
@@ -76,12 +77,14 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 							" w-full border-none outline-none disabled:opacity-50 disabled:cursor-not-allowed p-4 pl-0 "
 						}
 					/>
+					<CiCircleRemove className="text-2xl bg-red-500" />
 				</div>
 				<p className="text-red-500 text-[1.2rem]">{errorMessage}</p>
 			</div>
 		);
 	},
 );
+
 const AddSOS = () => {
 	type FormInputs = {
 		label: string;

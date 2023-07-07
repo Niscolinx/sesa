@@ -1,5 +1,4 @@
 import { forwardRef, useState, ChangeEvent, useEffect } from "react";
-import { CiCircleRemove } from "react-icons/ci";
 
 interface AddPhoneNumber {
 	idx: number;
@@ -67,8 +66,7 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 						}
 					/>
 				</div>
-				<CiCircleRemove className="text-2xl bg-red-500" />
-				<p>hello</p>
+
 				<p className="text-red-500 text-[1.2rem]">{errorMessage}</p>
 			</div>
 		);
