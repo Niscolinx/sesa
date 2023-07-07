@@ -25,6 +25,7 @@ interface AddPhoneNumber {
 
 const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 	({ idx, phoneError, removePhoneNumberHandler }, ref) => {
+    
 		const [phone, setPhone] = useState("");
 		const [isError, setIsError] = useState(false);
 		const [errorMessage, setErrorMessage] = useState("");
@@ -49,6 +50,14 @@ const AddPhoneNumber = forwardRef<HTMLInputElement, AddPhoneNumber>(
 				setIsError(true);
 			}
 		}, [phoneError]);
+
+        let currentIdx = 0;
+        
+        idx > currentIdx ? currentIdx = idx : currentIdx;
+
+        console.log(currentIdx)
+
+
 
 		return (
 			<div className={"w-full grid gap-4 self-baseline"}>
