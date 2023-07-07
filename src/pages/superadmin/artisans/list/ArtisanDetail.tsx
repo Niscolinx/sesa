@@ -271,13 +271,14 @@ const  { category } = get_response?.data
                                 }}
                             >
                                 {formInputs.map((input, idx) => {
-                                    const { label, type, name, selectProps } =
+                                    const { label, type, name, selectProps, required } =
                                         input
                                     return (
                                         <Input
                                             key={idx + label}
                                             id={idx}
                                             label={label}
+                                            required={required}
                                             setValue={setValue}
                                             select={selectProps}
                                             clearErrors={clearErrors}
