@@ -14,13 +14,13 @@ import WalletSvg from "./sidebar/WalletSvg";
 
 function IconsBox() {
 	const location = useLocation();
-
-	interface LinkProps {
-		to: string;
-		icon: JSX.Element;
-		text: string;
-		classes?: string;
-	}
+	
+		interface LinkProps {
+			to: string;
+			icon: JSX.Element;
+			text: string;
+			classes?: string;
+		}
 
 	const links: LinkProps[] = [
 		{

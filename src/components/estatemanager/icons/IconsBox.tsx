@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation} from 'react-router-dom'
 
 import AdditionalResidentSvg from './sidebar/AdditionalResidentSvg'
 import AdminsSvg from './sidebar/AdminsSvg'
@@ -18,123 +18,132 @@ import WalletSvg from './sidebar/WalletSvg'
 import EstateAdminSvg from './sidebar/EstateAdminSvg'
 
 function IconsBox() {
-    return (
-        <ul className='iconsBox'>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager'>
-                    <OverviewSvg />
-                    <span>Overview</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/wallet' className='fillIcon'>
-                    {' '}
-                    <WalletSvg />
-                    <span>Wallet</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/estate-admin' >
-                    {' '}
-                    <EstateAdminSvg />
-                    <span>Estate Admin</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/resident'>
-                    <AdminsSvg />
-                    <span>Residents</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/property' className='fillIcon'>
-                    {' '}
-                    <EstatesSvg />
-                    <span>Properties</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/household' className='fillIcon'>
-                    {' '}
-                    <EstateManagerSvg />
-                    <span>Household</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/estate-staff'>
-                    <RolesAndPermSvg />
-                    <span>Estate Staff</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/site-worker'>
-                    {' '}
-                    <AdditionalResidentSvg />
-                    <span>Site Worker</span>{' '}
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/security-guard' className='fillIcon'>
-                    {' '}
-                    <SecurityCompSvg />
-                    <span>Security Guard</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/artisan' className='fillIcon'>
-                    {' '}
-                    <ArtisanSvg />
-                    <span>Artisan</span>
-                </Link>
-            </li>
+    const location = useLocation();
 
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/message'>
-                    <MessageSvg />
-                    <span>Message</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/payments'>
-                    <PaymentsSvg />
-                    <span>Payments</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/energy-token'>
-                    <EnergyTokenSvg />
-                    <span>Energy Token</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/voting-and-election'>
-                    <ReportsSvg />
-                    <span>Voting & Election</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/reports'>
-                    <ReportsSvg />
-                    <span>Reports</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link to='/estateManager/approvals'>
-                    <ApprovalsSvg />
-                    <span>Approvals</span>
-                </Link>
-            </li>
-            <li className='iconsBox__list'>
-                <Link
-                    to='/estateManager/estate-rules-and-regulations'
-                    className='fillIcon'
-                >
-                    <SettingsSvg />
-                    <span>Estate Rules and Regulations</span>
-                </Link>
-            </li>
-        </ul>
-    )
+				interface LinkProps {
+					to: string;
+					icon: JSX.Element;
+					text: string;
+					classes?: string;
+				}
+
+				return (
+					<ul className="iconsBox">
+						<li className="iconsBox__list">
+							<Link to="/estateManager">
+								<OverviewSvg />
+								<span>Overview</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/wallet" className="fillIcon">
+								{" "}
+								<WalletSvg />
+								<span>Wallet</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/estate-admin">
+								{" "}
+								<EstateAdminSvg />
+								<span>Estate Admin</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/resident">
+								<AdminsSvg />
+								<span>Residents</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/property" className="fillIcon">
+								{" "}
+								<EstatesSvg />
+								<span>Properties</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/household" className="fillIcon">
+								{" "}
+								<EstateManagerSvg />
+								<span>Household</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/estate-staff">
+								<RolesAndPermSvg />
+								<span>Estate Staff</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/site-worker">
+								{" "}
+								<AdditionalResidentSvg />
+								<span>Site Worker</span>{" "}
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/security-guard" className="fillIcon">
+								{" "}
+								<SecurityCompSvg />
+								<span>Security Guard</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/artisan" className="fillIcon">
+								{" "}
+								<ArtisanSvg />
+								<span>Artisan</span>
+							</Link>
+						</li>
+
+						<li className="iconsBox__list">
+							<Link to="/estateManager/message">
+								<MessageSvg />
+								<span>Message</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/payments">
+								<PaymentsSvg />
+								<span>Payments</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/energy-token">
+								<EnergyTokenSvg />
+								<span>Energy Token</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/voting-and-election">
+								<ReportsSvg />
+								<span>Voting & Election</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/reports">
+								<ReportsSvg />
+								<span>Reports</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link to="/estateManager/approvals">
+								<ApprovalsSvg />
+								<span>Approvals</span>
+							</Link>
+						</li>
+						<li className="iconsBox__list">
+							<Link
+								to="/estateManager/estate-rules-and-regulations"
+								className="fillIcon"
+							>
+								<SettingsSvg />
+								<span>Estate Rules and Regulations</span>
+							</Link>
+						</li>
+					</ul>
+				);
 }
 
 export default IconsBox
