@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import IconsBox from '../icons/IconsBox'
 
 function Sidebar() {
-    const sidebarRef = useRef(null)
+    const sidebarRef = useRef<HTMLDivElement>(null as any)
 
     const [openSidebar, setOpenSidebar] = useState(true)
 
@@ -13,7 +13,7 @@ function Sidebar() {
     }
 
     const handleToggleMenu = () => {
-        const sidebar: HTMLDivElement = sidebarRef.current!
+        const sidebar: HTMLDivElement = sidebarRef.current
 
         sidebar.classList.toggle('sidebarToggle')
 
