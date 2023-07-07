@@ -58,11 +58,14 @@ const Login = () => {
 			const token = res.data.token;
 			if (token) {
 				dispatch(storeToken(token));
-				dispatch(setAuth(true));
+				dispatch(
+					setAuth({
+						isAuth: true,
+						role: res.data.roles,
+					}),
+				);
 			}
-			if (res.data.roles) {
-				localStorage.setItem("role", JSON.stringify(res.data.roles));
-			}
+
 			if (res.data.roles.includes("super")) {
 				navigate("/superAdmin");
 			}
