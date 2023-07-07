@@ -50,12 +50,14 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 			console.log({ width, height });
 
 			if (width === 3599 || height === 5399) {
+                setImgSrc(null)
+                handlePicture(e);
 				return alert("accepted");
 			}
 			alert("not accepted");
+            setImgSrc()
 		};
 
-		handlePicture(e);
 	};
 
 	return (
