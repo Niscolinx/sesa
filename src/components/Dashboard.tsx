@@ -16,13 +16,12 @@ interface Props {
 function Dashboard({ type }: Props) {
 	PrevLocation();
 	const navigate = useNavigate();
-	const auth = useAppSelector((state) => state.auth.isAuth)
+	const role = useAppSelector((state) => state.auth.role)
 
-	console.log({auth})
 
 	useEffect(() => {
-		const role = localStorage.getItem("role");
-		if (role?.indexOf("super") === -1) {
+		const getRole = role.split('-')[0]
+		if (!type.startsWith(getRole)) {
 			navigate("/");
 		}
 	}, []);
