@@ -256,7 +256,6 @@ const AddSOS = () => {
 			phone_number: each_num,
 		};
 
-
 		mutate(updated_data);
 	});
 
@@ -299,7 +298,11 @@ const AddSOS = () => {
 	};
 
 	const removePhoneNumberHandler = (idx: number) => {
-		console.log({ idx, phone_numbs, phone_ref  });
+		console.log({ idx, phone_numbs, phone_ref });
+		phone_ref.current.splice(idx, 1);
+		set_phone_numbs((prev) => {
+			return prev.filter((_, i) => i !== idx);
+		});
 	};
 
 	return (
