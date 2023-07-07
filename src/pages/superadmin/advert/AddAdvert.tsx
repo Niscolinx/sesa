@@ -232,6 +232,7 @@ const AddAdvert = () => {
                         <ImageInput
                             handlePicture={handlePicture}
                             photoPreview={photoPreview}
+                            dimension
                         />
                         <button className='btn justify-self-start btn-blue'>
                             <span>

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import useFetchData from '../../../../components/hooks/useFetchData'
 import Input from '../../../../components/ui/input/Input'
 
-const CompanyWalletDetails = () => {
+const SecurityCompanyWalletDetails = () => {
     interface Inputs {
         type: string
         transaction_date: string
@@ -15,6 +15,7 @@ const CompanyWalletDetails = () => {
         amount: string
         tran_id: string
         description: string
+        balance: string
     }
 
     type FormInputs = {
@@ -53,9 +54,10 @@ const CompanyWalletDetails = () => {
     })
 
     const amount = data?.amount
+    const balance = data?.balance
     useEffect(() => {
         if (data) {
-            const { created_at, amount, name, ...other } = data
+            const { created_at, name, ...other } = data
 
             const transaction_date = created_at.slice(0, 10)
             const transaction_time = created_at.slice(11, 16)
@@ -99,6 +101,12 @@ const CompanyWalletDetails = () => {
             name: 'transaction_amount',
             tag: 'money',
             value: amount,
+        },
+        {
+            label: 'balance',
+            name: 'transaction_balance',
+            tag: 'money',
+            value: balance,
         },
         {
             label: 'tran_id',
@@ -145,4 +153,4 @@ const CompanyWalletDetails = () => {
     )
 }
 
-export default CompanyWalletDetails
+export default SecurityCompanyWalletDetails

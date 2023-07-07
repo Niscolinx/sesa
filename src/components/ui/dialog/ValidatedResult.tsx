@@ -6,8 +6,9 @@ import { IoMdClose } from 'react-icons/io'
 interface Props {
     image: string
     handlePicture: (e: React.ChangeEvent) => void
+    pre?:string
 }
-function ValidatedResult({ image, handlePicture}: Props) {
+function ValidatedResult({ image, handlePicture, pre = 'KYR'}: Props) {
     const dialogRef = useRef<HTMLDialogElement | null>(null)
     const [isValidated, setIsValidated] = useState(false)
 
@@ -153,7 +154,7 @@ function ValidatedResult({ image, handlePicture}: Props) {
                     </p>
                     <p className='flex items-center gap-4'>
                         <span className='flex items-center gap-2'>
-                            KYR Status <BsQuestionCircle />:
+                            {pre} Status <BsQuestionCircle />:
                         </span>
                         {isValidated ? (
                             <span

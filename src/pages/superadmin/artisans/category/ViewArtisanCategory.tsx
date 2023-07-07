@@ -47,13 +47,13 @@ const ViewArtisanCategory = () => {
 
 	const { data: category_detail, isLoading: category_detail_loading } =
 		useFetchData({
-			url: `/admin/category/get/single/${category_id}`, //TODO change to category_id
-			name: "category_single",
+			url: `/admin/category/get/single/${category_id}`, 
+			name: `category_single${category_id}`,
 		});
 	const { data: category_users, isLoading: category_users_loading } =
 		useFetchData({
 			url: `/admin/category/get/single/users/${category_id}`,
-			name: "category_users",
+			name: `category_users${category_id}`,
 		});
 
 	const onSubmit = (e: FormEvent) => {

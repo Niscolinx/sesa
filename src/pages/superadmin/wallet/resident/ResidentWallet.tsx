@@ -42,18 +42,18 @@ const ResidentWallet = () => {
                     THeader={[
                         'resident name',
                         'amount',
-                        'balance',
                         'transaction_ID',
                         'type',
-                        'date',
+                        'status',
+                        'date/time',
                         'actions',
                     ]}
                     data_to_display={[
                         'name',
                         'amount',
-                        'balance',
                         'tran_id',
                         'type',
+                        'status',
                         'created_at',
                     ]}
                 />
@@ -83,7 +83,7 @@ const ResidentWallet = () => {
 
         const chartData: ChartData[] = []
 
-        for (let [key, value] of Object.entries(data)) {
+        for (const [key, value] of Object.entries(data)) {
             chartData.push({
                 name: key.slice(0, 3),
                 pv: value,

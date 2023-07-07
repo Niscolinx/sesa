@@ -2,8 +2,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { AppState } from '../app/store'
 
-const initialState = {
+interface State {
+    isAuth: boolean
+    role: string
+}
+
+const initialState: State = {
     isAuth: false,
+    role: ''
 }
 
 type StateKey = keyof typeof initialState
@@ -24,11 +30,15 @@ const AuthSlice = createSlice({
             state.isAuth = true
         },
 
-        setAuth: function (state, action) {
-            const auth = action.payload
+        setAuth: function (state, action: {
+            payload: State
+        }) {
+            const { isAuth, role } = action.payload
 
-            state.isAuth = auth
-            //state.isAuth= true
+
+            state.isAuth = isAuth
+            state.role = role
+
         },
     },
 })

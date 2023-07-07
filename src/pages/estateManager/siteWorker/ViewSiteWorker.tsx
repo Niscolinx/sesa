@@ -129,7 +129,7 @@ function ViewSiteWorker() {
 		});
 
 		navigate(-1);
-		return;
+		return <h1>Id not found</h1>;
 	}
 
 	if (states_loading || active_properties_loading || isLoading) {
