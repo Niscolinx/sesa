@@ -33,7 +33,7 @@ export function ShowImage({ handlePicture, photoPreview }: ImageInput) {
 }
 
 function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
-    const [imgSrc, setImgSrc] = useState<string | null>(null)
+	const [imgSrc, setImgSrc] = useState<string | null>(null);
 	const imageHandler = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLInputElement;
 		const file: File = (target.files as FileList)[0];
@@ -50,29 +50,28 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 			console.log({ width, height });
 
 			if (width === 3599 || height === 5399) {
-                setImgSrc(null)
-                handlePicture(e);
+				setImgSrc(null);
+				handlePicture(e);
 				return alert("accepted");
 			}
 			alert("not accepted");
-            setImgSrc(preview)
+			setImgSrc(preview);
 		};
-
 	};
 
 	return (
-		<div className="col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full">
-			<label
-				htmlFor="photoUpload"
-				className="flex justify-center gap-4 items-center cursor-pointer"
-			>
+		<label
+			className="col-span-full rounded-lg border border-width-[.2rem] border-dashed border-color-grey-1 p-8 text-[1.6rem] relative w-full"
+			htmlFor="photoUpload"
+		>
+			<div className="flex justify-center gap-4 items-center cursor-pointer">
 				<img src="/icons/admins/photo_library.svg" alt="" />
 				<p>
 					Drag picture here or{" "}
 					<span className="text-color-blue font-Satoshi-Medium">click</span> to
 					upload
 				</p>
-			</label>
+			</div>
 			<input
 				type="file"
 				name="photoUpload"
@@ -96,7 +95,7 @@ function ImageInput({ handlePicture, photoPreview, dimension }: ImageInput) {
 					Please upload an image with dimensions 600px x 400px.
 				</p>
 			)}
-		</div>
+		</label>
 	);
 }
 
