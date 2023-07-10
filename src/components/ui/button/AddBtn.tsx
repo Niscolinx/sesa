@@ -9,7 +9,7 @@ interface Props {
 
 function AddBtn({ isLoading, title = 'add', is_addBtn = true }: Props) {
     return (
-        <button className='btn justify-self-start btn-blue'>
+        <button className='btn justify-self-start btn-blue capitalize'>
             {is_addBtn ? (
                 <span>
                     <IoMdAdd />
